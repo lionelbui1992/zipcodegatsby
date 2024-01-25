@@ -23,11 +23,11 @@ const StyleGuide = () => (
       <p>Body text 2</p>
     </div>
     <Link to="/">Go back to the homepage</Link>
-    <nav class="crumbs">
+    <nav className="crumbs">
       <ul>
-        <li class="crumb"><Link href="#">Menu</Link></li>
-        <li class="crumb"><a href="#">BMX</a></li>
-        <li class="crumb">Jump Bike 3000</li>
+        <li className="crumb"><Link href="#">Menu</Link></li>
+        <li className="crumb"><a href="#">BMX</a></li>
+        <li className="crumb">Jump Bike 3000</li>
       </ul>
     </nav>
     <h5>Footer</h5>
