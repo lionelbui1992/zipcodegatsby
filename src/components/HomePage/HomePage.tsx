@@ -2,10 +2,12 @@ import React from "react";
 import { ButtonsWrapper } from "./sections/ButtonsWrapper";
 import { Overlap } from "./sections/Overlap";
 import "./style.sass";
+import { TextMarquee } from "../TextMarquee";
 
 export const HomePage = (): JSX.Element => {
   return (
     <div className="home-desktop">
+      <TextMarquee />
       <div className="div-3">
         <Overlap />
         <div className="mask-group-wrapper">

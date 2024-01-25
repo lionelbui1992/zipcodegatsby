@@ -1,0 +1,1 @@
+export { TextMarquee } from "./TextMarquee";

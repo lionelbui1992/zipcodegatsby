@@ -1,9 +1,9 @@
 import React from "react";
 import "./style.sass";
 
-export const Divider = (): JSX.Element => {
+export const TextMarquee = (): JSX.Element => {
   return (
-    <div className="divider">
+    <div className="divider text-marquee">
       <div className="div-2">
         <img className="background" alt="Background" src="/img/background-1920x1080-blue-texture-1.png" />
         <div className="frame-2">

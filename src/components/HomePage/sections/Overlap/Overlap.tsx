@@ -1,5 +1,5 @@
 import React from "react";
-import { Divider } from "./sections/Divider";
+import { TextMarquee } from "../../../TextMarquee";
 import { OverlapGroupWrapper } from "./sections/OverlapGroupWrapper";
 import "./style.sass";
 
@@ -29,7 +29,7 @@ export const Overlap = (): JSX.Element => {
         <br />
         differently.
       </div>
-      <Divider />
+      <TextMarquee />
       <div className="rectangle" />
       <img className="image-3" alt="Image" src="/img/image-17.png" />
       <img className="image-4" alt="Image" src="/img/image-16.png" />
