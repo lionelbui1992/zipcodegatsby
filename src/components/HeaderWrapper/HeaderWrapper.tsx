@@ -1,7 +1,6 @@
 import React from "react";
-// import { Header } from "../../../../../../components/Header";
+import { Header } from "../Header";
 import "./style.sass";
-import { Header } from "../components/Header";
 
 export const HeaderWrapper = (): JSX.Element => {
   return (

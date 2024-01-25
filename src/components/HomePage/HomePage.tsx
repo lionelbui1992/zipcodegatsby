@@ -1,10 +1,9 @@
 import React from "react";
+import { ButtonsWrapper } from "./sections/ButtonsWrapper";
+import { Overlap } from "./sections/Overlap";
 import "./style.sass";
-import { Overlap } from "./Overlap";
-import { ButtonsWrapper } from "./ButtonsWrapper";
-import { OverlapGroup } from "./OverlapGroup";
 
-export const HomeDesktop = (): JSX.Element => {
+export const HomePage = (): JSX.Element => {
   return (
     <div className="home-desktop">
       <div className="div-3">
@@ -19,7 +18,6 @@ export const HomeDesktop = (): JSX.Element => {
           much as construction and life quality as much as build quality.
         </p>
         <ButtonsWrapper />
-        <OverlapGroup />
       </div>
     </div>
   );

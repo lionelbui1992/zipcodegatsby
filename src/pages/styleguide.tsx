@@ -42,6 +42,8 @@ const StyleGuide = () => (
     <br />
     <br />
     <Link className="btn button btn-secondary" to='#'>Our Partners</Link>
+    <br />
+    <br />
 
     <br />
     <br />
@@ -97,7 +99,5 @@ const StyleGuide = () => (
 
   </div>
 )
-
-// export const Head = () => <Seo title="Style Guide" />
 
 export default StyleGuide

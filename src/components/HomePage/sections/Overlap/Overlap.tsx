@@ -1,12 +1,12 @@
 import React from "react";
 import { Divider } from "./sections/Divider";
-import { HeaderWrapper } from "../../../HeaderWrapper";
 import { OverlapGroupWrapper } from "./sections/OverlapGroupWrapper";
 import "./style.sass";
 
 export const Overlap = (): JSX.Element => {
   return (
     <div className="overlap">
+      {/* <HeaderWrapper /> */}
       <img className="image" alt="Image" src="/img/image-4.png" />
       <img className="group" alt="Group" src="/img/group-278-1.svg" />
       <div className="text-wrapper-5">Consulting</div>
@@ -23,7 +23,6 @@ export const Overlap = (): JSX.Element => {
       </div>
       <img className="image-2" alt="Image" src="/img/image-6.png" />
       <img className="background-x" alt="Background" src="/img/background-1920x1080-blue-texture-2.png" />
-      <HeaderWrapper />
       <img className="group-2" alt="Group" src="/img/group-282.png" />
       <div className="we-build-differently">
         We build
