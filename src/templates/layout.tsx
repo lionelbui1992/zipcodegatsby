@@ -1,10 +1,11 @@
 import * as React from "react"
 import { HeaderWrapper } from "../components/HeaderWrapper"
+import { FooterWrapper } from "../components/FooterWrapper"
 
 const Layout = ({ children }: { children: React.ReactNode }) => <div className="global-wrapper">
     <HeaderWrapper />
     <main>{children}</main>
-    {/* <Footer /> */}
+    <FooterWrapper />
 </div>
 
 export default Layout

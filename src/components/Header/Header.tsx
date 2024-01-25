@@ -50,7 +50,7 @@ export const Header = ({
   line = "/img/line-13.svg",
 }: Props): JSX.Element => {
   return (
-    <div className={`header ${className}`}>
+    <header className={`header ${className}`}>
       <div className={`frame ${frameClassName}`}>
         <Logo className={logoStyleOverrideClassName} />
         <div className={`div ${frameClassNameOverride}`}>
@@ -93,7 +93,7 @@ export const Header = ({
         </div>
       </div>
       <img className={`line ${lineClassName}`} alt="Line" src={line} />
-    </div>
+    </header>
   );
 };
 

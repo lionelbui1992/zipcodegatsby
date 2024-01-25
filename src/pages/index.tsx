@@ -1,11 +1,11 @@
 import * as React from "react"
 import type { HeadFC, PageProps } from "gatsby"
-import { HomeDesktop } from "../components/Home"
+import { HomePage } from "../components/HomePage"
 
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
-    <HomeDesktop />
+    <HomePage />
   )
 }
 

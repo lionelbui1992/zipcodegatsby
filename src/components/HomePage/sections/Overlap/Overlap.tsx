@@ -1,6 +1,5 @@
 import React from "react";
 import { Divider } from "./sections/Divider";
-import { HeaderWrapper } from "../../../HeaderWrapper";
 import { OverlapGroupWrapper } from "./sections/OverlapGroupWrapper";
 import "./style.sass";
 
