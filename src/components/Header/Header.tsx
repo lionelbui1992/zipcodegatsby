@@ -19,7 +19,7 @@ export const Header = ({
   mainLogoWhite
 }: Props): JSX.Element => {
 
-  const [isHeaderBlack, setIsHeaderBlack] = useState(false);
+  const [isHeaderBlack, setIsHeaderBlack] = useState(true);
   const [textColorHeader, setTextColorHeader] = useState('#1E1E1E');
   const [mainLogo, setTranslateX] = useState(mainLogoBlack);
 
