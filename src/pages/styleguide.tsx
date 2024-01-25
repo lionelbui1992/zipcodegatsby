@@ -3,13 +3,9 @@ import { Link } from "gatsby"
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 
-// import Layout from "../components/layout"
-// import Seo from "../components/seo"
-import ButtonsPrimary from '../components/Buttons/ButtonsPrimary';
+import  "../assets/sass/styles.sass"
 import 'swiper/css';
 import 'swiper/css/navigation';
-import ButtonsSecondary from "../components/Buttons/ButtonsSecondary";
-// import Buttons from "../components/Buttons/Buttons";
 
 const StyleGuide = () => (
   <div className="container">
@@ -27,11 +23,11 @@ const StyleGuide = () => (
       <p>Body text 2</p>
     </div>
     <Link to="/">Go back to the homepage</Link>
-    <nav className="crumbs">
+    <nav class="crumbs">
       <ul>
-        <li className="crumb"><Link to="/">Menu</Link></li>
-        <li className="crumb"><Link to="/">BMX</Link></li>
-        <li className="crumb">Jump Bike 3000</li>
+        <li class="crumb"><Link href="#">Menu</Link></li>
+        <li class="crumb"><a href="#">BMX</a></li>
+        <li class="crumb">Jump Bike 3000</li>
       </ul>
     </nav>
     <h5>Footer</h5>
@@ -42,13 +38,12 @@ const StyleGuide = () => (
     <h4>Buttons</h4>
     <hr />
     <h5>Primary</h5>    
-    <ButtonsPrimary text="Our Partners" url="http://xxxxx" />
+    <Link className="btn button btn-primary" to='#'>Our Partners</Link>
     <br />
     <br />
-    <ButtonsSecondary text="Our Partners" url="http://xxxxx" />
+    <Link className="btn button btn-secondary" to='#'>Our Partners</Link>
     <br />
     <br />
-    {/* <Buttons /> */}
 
     <br />
     <br />
@@ -69,9 +64,40 @@ const StyleGuide = () => (
       <SwiperSlide>Slide 5</SwiperSlide>
     </Swiper>
 
+    <br />
+    <br />
+    <h4>Inputs</h4>
+    <form>
+      <div className="input-row">
+        <div className="input-text col-6">
+          <label>Full Name*</label>
+          <input type="text" name="name" placeholder="Enter Your Full Name" />
+        </div>
+        <div className="input-text col-6">
+          <label>Email*</label>
+          <input type="email" name="email" placeholder="Enter Your Email" />
+        </div>
+        <div className="input-text col-6">
+          <label>Phone Number*</label>
+          <input type="tel" name="phone" className="error" placeholder="Enter Your Phone Number" value="Phone" />
+          <div className="text-error">Incorrect entry.</div>
+        </div>
+        <div className="input-text col-6">
+          <label>Subject</label>
+          <input type="text" name="subject" placeholder="Enter Your Subject" value="Sub" />
+        </div>
+        <div className="input-text col-12">
+          <label>Messages*</label>
+          <textarea name="messages" placeholder="Enter Your Messages" />
+        </div>
+        <div className="input-text col-12">
+          <button type="submit" className="btn">Submit</button>
+        </div>
+      </div>
+    </form>
+
+
   </div>
 )
-
-// export const Head = () => <Seo title="Style Guide" />
 
 export default StyleGuide
