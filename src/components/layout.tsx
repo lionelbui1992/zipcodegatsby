@@ -1,21 +1,5 @@
-import * as React from 'react';
-import { Link } from 'gatsby';
-import Header from "./header";
-import Footer from "./footer";
+import * as React from "react"
 
-interface LayoutProps {
-  pageTitle: string;
-  children: React.ReactNode;
-}
-
-const Layout: React.FC<LayoutProps> = ({ pageTitle, children }) => {
-  return (
-    <>
-      <Header />
-        <main>{children}</main>
-      <Footer />
-    </>
-  );
-};
+const Layout = ({ children }: { children: React.ReactNode }) => <div className="global-wrapper">{children}</div>
 
 export default Layout
