@@ -25,8 +25,8 @@ const StyleGuide = () => (
     <Link to="/">Go back to the homepage</Link>
     <nav className="crumbs">
       <ul>
-        <li className="crumb"><Link href="#">Menu</Link></li>
-        <li className="crumb"><a href="#">BMX</a></li>
+        <li className="crumb"><Link to="/">Menu</Link></li>
+        <li className="crumb"><Link to="/">BMX</Link></li>
         <li className="crumb">Jump Bike 3000</li>
       </ul>
     </nav>
