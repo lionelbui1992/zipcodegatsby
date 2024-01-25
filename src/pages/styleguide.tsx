@@ -80,7 +80,7 @@ const StyleGuide = () => (
         <div className="input-text col-6">
           <label>Phone Number*</label>
           <input type="tel" name="phone" className="error" placeholder="Enter Your Phone Number" value="Phone" />
-          <div class="text-error">Incorrect entry.</div>
+          <div className="text-error">Incorrect entry.</div>
         </div>
         <div className="input-text col-6">
           <label>Subject</label>
@@ -88,7 +88,7 @@ const StyleGuide = () => (
         </div>
         <div className="input-text col-12">
           <label>Messages*</label>
-          <textarea type="text" name="messages" placeholder="Enter Your Messages" />
+          <textarea name="messages" placeholder="Enter Your Messages" />
         </div>
         <div className="input-text col-12">
           <button type="submit" className="btn">Submit</button>
