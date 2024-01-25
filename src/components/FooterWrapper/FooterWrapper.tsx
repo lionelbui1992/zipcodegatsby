@@ -1,9 +1,9 @@
 import React from "react";
 import "./style.sass";
 
-export const OverlapGroup = (): JSX.Element => {
+export const FooterWrapper = (): JSX.Element => {
   return (
-    <div className="overlap-group">
+    <footer className="overlap-group site-footer">
       <div className="overlap-2">
         <div className="overlap-3">
           <img className="graphic" alt="Graphic" src="/img/graphic-1.svg" />
@@ -48,6 +48,6 @@ export const OverlapGroup = (): JSX.Element => {
           <span className="text-wrapper-16">LinkedIn</span>
         </p>
       </div>
-    </div>
+    </footer>
   );
 };

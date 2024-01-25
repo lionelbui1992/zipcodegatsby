@@ -9,7 +9,7 @@ import ButtonsPrimary from '../components/Buttons/ButtonsPrimary';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import ButtonsSecondary from "../components/Buttons/ButtonsSecondary";
-import Buttons from "../components/Buttons/Buttons";
+// import Buttons from "../components/Buttons/Buttons";
 
 const StyleGuide = () => (
   <div className="container">
@@ -48,7 +48,7 @@ const StyleGuide = () => (
     <ButtonsSecondary text="Our Partners" url="http://xxxxx" />
     <br />
     <br />
-    <Buttons />
+    {/* <Buttons /> */}
 
     <br />
     <br />
