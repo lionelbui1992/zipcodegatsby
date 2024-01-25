@@ -1,98 +1,67 @@
 import PropTypes from "prop-types";
-import React from "react";
-import { Logo } from "../icons/Logo";
-import { Buttons } from "../Buttons";
+import React, {useState, useEffect} from "react";
 import "./style.sass";
+import { Link } from "gatsby"
 
 interface Props {
-  property1: "desktop";
-  className: any;
-  frameClassName: any;
-  logoStyleOverrideClassName: any;
-  frameClassNameOverride: any;
-  buttonsPropertyClassName: any;
-  buttonsNavBarHoverStateClassName: any;
-  buttonsPropertyClassNameOverride: any;
-  buttonsNavBarHoverStateClassNameOverride: any;
-  buttonsNavBarHoverStateWrapperClassName: any;
-  buttonsProperty1: string;
-  buttonsDivClassName: any;
-  buttonsNavBarHoverStateWrapperClassNameOverride: any;
-  buttonsDivClassNameOverride: any;
-  buttonsPropertyClassName1: any;
-  buttonsNavBarHoverStateClassName1: any;
-  buttonsPropertyClassName2: any;
-  buttonsNavBarHoverStateClassName2: any;
-  lineClassName: any;
-  line: string;
+  mainLogoBlack: string;
+  mainLogoWhite: string;
+}
+
+const colorHeader = (isHeaderBlack:boolean, mainLogoWhite:string, setTranslateX:any, setTextColorHeader:any) => {
+  if(isHeaderBlack) {return;};
+  setTranslateX(mainLogoWhite);
+  setTextColorHeader('#fff');
 }
 
 export const Header = ({
-  property1,
-  className,
-  frameClassName,
-  logoStyleOverrideClassName,
-  frameClassNameOverride,
-  buttonsPropertyClassName,
-  buttonsNavBarHoverStateClassName,
-  buttonsPropertyClassNameOverride,
-  buttonsNavBarHoverStateClassNameOverride,
-  buttonsNavBarHoverStateWrapperClassName,
-  buttonsProperty1 = "navigation",
-  buttonsDivClassName,
-  buttonsNavBarHoverStateWrapperClassNameOverride,
-  buttonsDivClassNameOverride,
-  buttonsPropertyClassName1,
-  buttonsNavBarHoverStateClassName1,
-  buttonsPropertyClassName2,
-  buttonsNavBarHoverStateClassName2,
-  lineClassName,
-  line = "/img/line-13.svg",
+  mainLogoBlack,
+  mainLogoWhite
 }: Props): JSX.Element => {
+
+  const [isHeaderBlack, setIsHeaderBlack] = useState(true);
+  const [textColorHeader, setTextColorHeader] = useState('#1E1E1E');
+  const [mainLogo, setTranslateX] = useState(mainLogoBlack);
+
+  useEffect(() => {
+    colorHeader(isHeaderBlack, mainLogoWhite, setTranslateX, setTextColorHeader);
+  }, []);
   return (
-    <header className={`header ${className}`}>
-      <div className={`frame ${frameClassName}`}>
-        <Logo className={logoStyleOverrideClassName} />
-        <div className={`div ${frameClassNameOverride}`}>
-          <Buttons
-            className={buttonsPropertyClassName}
-            navBarHoverStateClassName={buttonsNavBarHoverStateClassName}
-            property1="navigation"
-            text="About"
-          />
-          <Buttons
-            className={buttonsPropertyClassNameOverride}
-            navBarHoverStateClassName={buttonsNavBarHoverStateClassNameOverride}
-            property1="navigation"
-            text="Projects"
-          />
-          <Buttons
-            className={buttonsNavBarHoverStateWrapperClassName}
-            navBarHoverStateClassName={buttonsDivClassName}
-            property1={buttonsProperty1}
-            text="Careers"
-          />
-          <Buttons
-            className={buttonsNavBarHoverStateWrapperClassNameOverride}
-            navBarHoverStateClassName={buttonsDivClassNameOverride}
-            property1="navigation"
-            text="Philosophy"
-          />
-          <Buttons
-            className={buttonsPropertyClassName1}
-            navBarHoverStateClassName={buttonsNavBarHoverStateClassName1}
-            property1="navigation"
-            text="News"
-          />
-          <Buttons
-            className={buttonsPropertyClassName2}
-            navBarHoverStateClassName={buttonsNavBarHoverStateClassName2}
-            property1="navigation"
-            text="Contact us"
-          />
-        </div>
+    <header
+      className="header container"
+    >
+      <Link
+        to="/"
+      >
+        <img
+          alt="Zipcode"
+          height={37}
+          style={{ margin: 0 }}
+          src={ mainLogo }
+        />
+      </Link>
+  
+      <div className="header__nav" style={{color : textColorHeader}}>
+        <Link className="header__nav--link" to="/about">
+          About
+        </Link>
+        <Link className="header__nav--link" to="/projects">
+          Projects
+        </Link>
+        <Link className="header__nav--link" to="/careers">
+          Careers
+        </Link>
+        <Link className="header__nav--link" to="/philosophy">
+          Philosophy
+        </Link>
+        <Link className="header__nav--link" to="/news">
+          News
+        </Link>
+        <Link className="header__nav--link" to="/rewards">
+          Rewards
+        </Link>
       </div>
-      <img className={`line ${lineClassName}`} alt="Line" src={line} />
+  
     </header>
   );
 };
