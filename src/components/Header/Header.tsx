@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { Logo } from "../../icons/Logo";
+import { Logo } from "../icons/Logo";
 import { Buttons } from "../Buttons";
 import "./style.sass";
 

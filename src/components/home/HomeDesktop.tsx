@@ -1,7 +1,7 @@
 import React from "react";
 import { ButtonsWrapper } from "./sections/ButtonsWrapper";
 import { Overlap } from "./sections/Overlap";
-import { OverlapGroup } from "./sections/OverlapGroup";
+import { FooterWrapper } from "../FooterWrapper";
 import "./style.sass";
 
 export const HomeDesktop = (): JSX.Element => {
@@ -19,7 +19,7 @@ export const HomeDesktop = (): JSX.Element => {
           much as construction and life quality as much as build quality.
         </p>
         <ButtonsWrapper />
-        <OverlapGroup />
+        <FooterWrapper />
       </div>
     </div>
   );

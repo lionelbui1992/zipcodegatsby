@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.sass";
 
-export const OverlapGroup = (): JSX.Element => {
+export const FooterWrapper = (): JSX.Element => {
   return (
     <div className="overlap-group">
       <div className="overlap-2">
