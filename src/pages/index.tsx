@@ -1,6 +1,6 @@
 import * as React from "react"
 import type { HeadFC, PageProps } from "gatsby"
-import { Banner, BannerPreload } from "../components/HomePage"
+import { Banner, BannerPreload, Introduce, Company, Explore } from "../components/HomePage"
 
 import "../assets/sass/homepage.sass";
 
@@ -9,6 +9,9 @@ const IndexPage: React.FC<PageProps> = () => {
     <>
       <BannerPreload />
       <Banner />
+      <Introduce />
+      <Company />
+      <Explore />
     </>
   )
 }

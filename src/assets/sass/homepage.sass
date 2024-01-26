@@ -1,15 +1,3 @@
-.section-banner
-    .inner-section
-        display: flex
-        width: 100%
-        align-items: center
-        justify-content: center
-        padding: 170px 0 195px
-        background: url('/img/homepage/bg-banner.svg')
-        background-size: cover
-        background-repeat: no-repeat
-        background-position: center
-
 .section-bannerpreload
     background-color: #e0e0e0
     font-family: 'Source Sans Pro', sans-serif
@@ -96,3 +84,129 @@
     opacity: 0
     animation-name: fadeInUpPP
     -webkit-animation-name: fadeInUpPP
+
+.section-banner
+    .inner-section
+        display: flex
+        width: 100%
+        align-items: center
+        justify-content: center
+        padding: 170px 0 195px
+        background: url('/img/homepage/bg-banner.svg')
+        background-size: cover
+        background-repeat: no-repeat
+        background-position: center
+
+.d-flex
+    display: flex
+
+.image-with-text-component
+    .col-text
+        font-family: Buenos Aires
+        font-size: 36px
+        font-weight: 400
+        line-height: 46px
+        letter-spacing: 0em
+        text-align: left
+
+.section-introduce
+    padding: 170px 0
+    .image-with-text-component
+        margin-bottom: 100px
+
+        .image-box
+            padding-bottom: calc((619 / 818) * 100%)
+
+    .text-left
+        .d-flex
+            flex-direction: row-reverse
+
+    .d-flex
+        column-gap: 150px
+        row-gap: 100px
+    .col
+        width: calc(50% - 75px)
+
+.image-box
+    position: relative
+    height: 0
+    padding-bottom: 100%
+
+    img
+        position: absolute
+        width: 100%
+        height: 100%
+        object-fit: cover
+        left: 0
+        top: 0
+
+.section-company
+    background: url('/img/image-4.png')
+    padding: 170px 0
+    background-repeat: no-repeat
+    background-position: center
+
+    .title
+        color: #fff
+        text-align: center
+        font-family: "Tiempos Headline"
+        font-size: 107px
+        font-style: normal
+        font-weight: 300
+        line-height: 125px
+
+    .image-box
+        padding-bottom: 370px
+        position: relative
+
+    .text
+        position: absolute
+        top: 0
+        font-family: Buenos Aires
+        font-size: 35px
+        font-weight: 400
+        line-height: 46px
+        letter-spacing: 0em
+        text-align: center
+        z-index: 2
+        left: 0
+        color: #fff
+
+    .text
+    &.text--middle
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
+
+    &.text--bottom
+        left: initial
+        top: initial
+        right: 0
+        bottom: 0
+
+    .c-image
+        max-width: 300px
+        margin: auto
+
+    .c-text
+        color: #fff
+        font-family: "Buenos Aires"
+        font-size: 14px
+        font-style: normal
+        font-weight: 400
+        line-height: 25.612px
+        letter-spacing: 0.28px
+        max-width: 565px
+        margin: auto
+
+        a
+            color: #fff
+            font-family: "Buenos Aires"
+            font-size: 14px
+            font-style: normal
+            font-weight: 400
+            line-height: 25.612px
+            letter-spacing: 0.28px
+            padding: 14px 22px
+            border-radius: 71.146px
+            border: 0.711px solid #fff
