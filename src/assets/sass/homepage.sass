@@ -1,0 +1,212 @@
+.section-bannerpreload
+    background-color: #e0e0e0
+    font-family: 'Source Sans Pro', sans-serif
+    padding: 0
+    margin: 0
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 100%
+    height: 100vh
+    overflow: hidden
+    position: relative
+
+#demo
+    font-weight: 700
+    position: absolute
+
+#svg-bkg
+    background-color: #e5e5f7
+    opacity: 0.7
+    background-image: linear-gradient(#E1E1E1 1px, transparent 1px), linear-gradient(to right, #E1E1E1 1px, #e5e5f7 1px)
+    background-size: 20px 20px
+
+.banner
+    background-image: url(https://maasi2404zip.merket.io/wp-content/uploads/2024/01/image-4.jpg)
+    background-position: center
+    background-size: 100%
+    position: relative
+    width: 100%
+    height: 100%
+
+#image-2
+    position: absolute
+    width: 50%
+    height: auto
+    top: 10%
+    left: 10%
+    rotate: 5deg
+
+#image-3
+    position: absolute
+    width: 50%
+    height: auto
+    bottom: 10%
+    right: 10%
+    rotate: 10deg
+    max-width: 700px
+
+@keyframes fadeInUp
+    from
+        transform: translate3d(0, 40px, 0)
+
+    to
+        transform: translate3d(0, 0, 0)
+        opacity: 1
+        rotate: -5deg
+        left: 15%
+
+@keyframes fadeInUpPP
+    from
+        transform: translate3d(0, 40px, 0)
+
+    to
+        transform: translate3d(0, 0, 0)
+        opacity: 1
+        rotate: 0deg
+        right: 15%
+
+.animated
+    animation-duration: 1s
+    animation-fill-mode: both
+    -webkit-animation-duration: 1s
+    -webkit-animation-fill-mode: both
+
+.animatedFadeInUp
+    opacity: 0
+
+.fadeInUp
+    opacity: 0
+    animation-name: fadeInUp
+    -webkit-animation-name: fadeInUp
+
+.fadeInUpPP
+    opacity: 0
+    animation-name: fadeInUpPP
+    -webkit-animation-name: fadeInUpPP
+
+.section-banner
+    .inner-section
+        display: flex
+        width: 100%
+        align-items: center
+        justify-content: center
+        padding: 170px 0 195px
+        background: url('/img/homepage/bg-banner.svg')
+        background-size: cover
+        background-repeat: no-repeat
+        background-position: center
+
+.d-flex
+    display: flex
+
+.image-with-text-component
+    .col-text
+        font-family: Buenos Aires
+        font-size: 36px
+        font-weight: 400
+        line-height: 46px
+        letter-spacing: 0em
+        text-align: left
+
+.section-introduce
+    padding: 170px 0
+    .image-with-text-component
+        margin-bottom: 100px
+
+        .image-box
+            padding-bottom: calc((619 / 818) * 100%)
+
+    .text-left
+        .d-flex
+            flex-direction: row-reverse
+
+    .d-flex
+        column-gap: 150px
+        row-gap: 100px
+    .col
+        width: calc(50% - 75px)
+
+.image-box
+    position: relative
+    height: 0
+    padding-bottom: 100%
+
+    img
+        position: absolute
+        width: 100%
+        height: 100%
+        object-fit: cover
+        left: 0
+        top: 0
+
+.section-company
+    background: url('/img/image-4.png')
+    padding: 170px 0
+    background-repeat: no-repeat
+    background-position: center
+
+    .title
+        color: #fff
+        text-align: center
+        font-family: "Tiempos Headline"
+        font-size: 107px
+        font-style: normal
+        font-weight: 300
+        line-height: 125px
+
+    .image-box
+        padding-bottom: 370px
+        position: relative
+
+    .text
+        position: absolute
+        top: 0
+        font-family: Buenos Aires
+        font-size: 35px
+        font-weight: 400
+        line-height: 46px
+        letter-spacing: 0em
+        text-align: center
+        z-index: 2
+        left: 0
+        color: #fff
+
+    .text
+    &.text--middle
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
+
+    &.text--bottom
+        left: initial
+        top: initial
+        right: 0
+        bottom: 0
+
+    .c-image
+        max-width: 300px
+        margin: auto
+
+    .c-text
+        color: #fff
+        font-family: "Buenos Aires"
+        font-size: 14px
+        font-style: normal
+        font-weight: 400
+        line-height: 25.612px
+        letter-spacing: 0.28px
+        max-width: 565px
+        margin: auto
+
+        a
+            color: #fff
+            font-family: "Buenos Aires"
+            font-size: 14px
+            font-style: normal
+            font-weight: 400
+            line-height: 25.612px
+            letter-spacing: 0.28px
+            padding: 14px 22px
+            border-radius: 71.146px
+            border: 0.711px solid #fff
