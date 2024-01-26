@@ -43,6 +43,11 @@ const StyleGuide = () => (
     <Link className="btn button btn-secondary" to='#'>Our Partners</Link>
     <br />
     <br />
+    <div style={{backgroundColor: "black", padding: "20px "}}>
+      <Link className="btn button btn-primary btn-white" to='#'>Our Partners</Link>
+    </div>
+    <br />
+    <br />
 
     <br />
     <br />

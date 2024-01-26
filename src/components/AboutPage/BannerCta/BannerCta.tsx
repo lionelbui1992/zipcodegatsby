@@ -15,7 +15,7 @@ export const BannerCta = (): JSX.Element => {
                 <div className="section-content text-center">
                     <div className="content-inner">
                         <h2 className="title">More than a workplace. A calling.</h2>
-                        <Link className="btn btn-primary" to="#">Open Positions</Link>
+                        <Link className="btn btn-primary btn-white" to="#">Open Positions</Link>
                     </div>
                 </div>
             </div>
