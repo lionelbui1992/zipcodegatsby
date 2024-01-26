@@ -4,6 +4,7 @@ import "./style.sass";
 import { Link } from "gatsby"
 import MenuBlack from "../../images/menu-black.svg"
 import MenuWhite from "../../images/menu-white.svg"
+import MenuClose from "../../images/menu-close-black.svg"
 
 interface Props {
   mainLogoBlack: string;
@@ -25,9 +26,16 @@ export const Header = ({
   const [textColorHeader, setTextColorHeader] = useState('#1E1E1E');
   const [mainLogo, setMainLogo] = useState(mainLogoBlack);
 
+  const [isClickMenu, setIsClickMenu] = useState(true);
+
   useEffect(() => {
     colorHeader(isHeaderBlack, mainLogoWhite, setMainLogo, setTextColorHeader);
   }, []);
+
+  const handleMenuMobileClick = () => {
+    setIsClickMenu(prevIsClickMenu => !prevIsClickMenu);
+  }
+
   return (
     <header
       className="header container"
@@ -66,9 +74,9 @@ export const Header = ({
 
       <div className="header__toggle">
         <img
-          src={MenuBlack}
+          src={isClickMenu ? MenuBlack : MenuClose}
           alt="Menu"
-          onClick={() =>{}}
+          onClick={() =>{ handleMenuMobileClick() }}
         />
       </div>
   
