@@ -3,7 +3,6 @@ import { Link } from "gatsby"
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 
-import  "../assets/sass/styles.sass"
 import 'swiper/css';
 import 'swiper/css/navigation';
 
@@ -42,6 +41,11 @@ const StyleGuide = () => (
     <br />
     <br />
     <Link className="btn button btn-secondary" to='#'>Our Partners</Link>
+    <br />
+    <br />
+    <div style={{backgroundColor: "black", padding: "20px "}}>
+      <Link className="btn button btn-primary btn-white" to='#'>Our Partners</Link>
+    </div>
     <br />
     <br />
 

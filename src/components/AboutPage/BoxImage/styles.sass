@@ -1,122 +1,128 @@
 .box-image 
     padding: 108px 0
 
-.box-image .column-box
-    gap: 20px
-    display: flex
+    .container
+        max-width: 1740px
 
-@media (max-width: 991px)
-    .box-image .column-box
+    .column-box
+        gap: 20px
+        display: flex
+
+    .column-image
+        display: flex
         flex-direction: column
-        align-items: stretch
-        gap: 0px
+        line-height: normal
+        width: 49.3152%
+        margin-left: 0px
+        position: relative
 
-.box-image .column-image
-    display: flex
-    flex-direction: column
-    line-height: normal
-    width: 49.3152%
-    margin-left: 0px
+        .icon
+            position: absolute
+            top: -32px
+            left: -29px
+            width: 36.3%
+            z-index: -1
 
-@media (max-width: 991px)
-    .box-image .column-image
+    .column-content
+        display: flex
+        flex-direction: column
+        line-height: normal
+        width: 42.1%
+        margin-left: auto
+
+    .img
+        aspect-ratio: 1.32688
+        object-fit: cover
+        object-position: center
         width: 100%
+        overflow: hidden
+        flex-grow: 1
+        vertical-align: top
+        
+    .content-inner
+        display: flex
+        -top: 32px
+        flex-grow: 1
+        flex-direction: column
+        align-items: start
+        padding: 0 20px
 
-.box-image .img
-    aspect-ratio: 1.32688
-    object-fit: contain
-    object-position: center
-    width: 100%
-    overflow: hidden
-    flex-grow: 1
-    vertical-align: top
+    .title
+        color: #000
+        align-self: stretch
+        font-size: 36px
+        font-weight: 400
+        line-height: 128%
+        margin-top: 0
 
-@media (max-width: 991px)
-    .box-image .img
-        max-width: 100%
-        margin-top: 40px
+    &.box-transformative-together 
+        .column-image
+            width: 40.685%
+            margin-left: auto
 
-.box-image .column-content
-    display: flex
-    flex-direction: column
-    line-height: normal
-    width: 42.1%
-    margin-left: auto
+        .img
+            aspect-ratio: 1.176
 
-@media (max-width: 991px)
-    .box-image .column-content
-        width: 100%
+        .title
+            margin-top: 49px
 
-.content-inner
-    display: flex
-    -top: 32px
-    flex-grow: 1
-    flex-direction: column
-    align-items: start
-    padding: 0 20px
+    .content 
+        margin-top: auto
 
-@media (max-width: 991px)
-    .box-image .content-inner
-        max-width: 100%
-        margin-top: 40px
+    .description
+        color: #232323
+        font-size: 14px
+        font-style: normal
+        font-weight: 400
+        line-height: 25px
+        letter-spacing: 0.28px
+        max-width: 418px
+        margin-bottom: 29px
 
-.box-image .title
-    color: #000
-    align-self: stretch
-    font: 400 36px/128% Buenos Aires, -apple-system, Roboto, Helvetica, sans-serif
-    margin-top: 0
+.box-image-right 
+    .column-image
+        order: 2
 
-@media (max-width: 991px)
-    .box-image .title
-        max-width: 100%
-
-.box-image .content 
-    margin-top: auto
-
-
-.box-image .description
-    color: #232323
-    font-size: 14px
-    font-style: normal
-    font-weight: 400
-    line-height: 25px
-    letter-spacing: 0.28px
-
+    .column-content
+        width: 43.2%
 
 @media (max-width: 991px)
-    .box-image .description
-        max-width: 100%
-        margin-top: 40px
+    .box-image-right 
+        .column-image
+            order: -1
 
-.box-image .div-5
-    display: flex
-    justify-content: center
-    align-items: start
-    border-radius: 71.146px
-    border: 0.711px solid var(--Color-primary-blue, #0068ff)
-    margin-top: 34px
-    gap: 0px
-    padding: 12px
+        .column-content
+            width: 100%
 
-.box-image .div-6
-    color: var(--Color-primary-blue, #0068ff)
-    letter-spacing: 0.28px
-    flex-grow: 1
-    white-space: nowrap
-    font: 400 14px/100% Tiempos Headline, -apple-system, Roboto, Helvetica, sans
+    .box-image 
+        .column-box
+            flex-direction: column
+            align-items: stretch
+            gap: 0px
 
-@media (max-width: 991px)
-    .box-image .div-6
-        white-space: initial
+        .column-image
+            width: 100%
 
-.box-image .div-7
-    color: var(--Color-primary-blue, #0068ff)
-    text-align: center
-    letter-spacing: 0.28px
-    align-self: stretch
-    white-space: nowrap
-    font: 400 14px/100% Inter, -apple-system, Roboto, Helvetica, sans-serif
+        
+        &.box-transformative-together 
+            .column-image
+                width: 100%
 
-@media (max-width: 991px)
-    .box-image .div-7
-        white-space: initial
+        .column-content
+            width: 100%
+
+        .img
+            max-width: 100%
+            margin-top: 40px 
+
+        .content-inner
+            max-width: 100%
+            margin-top: 40px
+            padding: 0
+
+        .title
+            max-width: 100%
+
+        .description
+            max-width: 100%
+            margin-top: 40px
