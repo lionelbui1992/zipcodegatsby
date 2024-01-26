@@ -3,7 +3,6 @@ import { Link } from "gatsby"
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 
-import  "../assets/sass/styles.sass"
 import 'swiper/css';
 import 'swiper/css/navigation';
 
