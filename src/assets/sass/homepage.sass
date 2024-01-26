@@ -1,0 +1,98 @@
+.section-banner
+    .inner-section
+        display: flex
+        width: 100%
+        align-items: center
+        justify-content: center
+        padding: 170px 0 195px
+        background: url('/img/homepage/bg-banner.svg')
+        background-size: cover
+        background-repeat: no-repeat
+        background-position: center
+
+.section-bannerpreload
+    background-color: #e0e0e0
+    font-family: 'Source Sans Pro', sans-serif
+    padding: 0
+    margin: 0
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 100%
+    height: 100vh
+    overflow: hidden
+    position: relative
+
+#demo
+    font-weight: 700
+    position: absolute
+
+#svg-bkg
+    background-color: #e5e5f7
+    opacity: 0.7
+    background-image: linear-gradient(#E1E1E1 1px, transparent 1px), linear-gradient(to right, #E1E1E1 1px, #e5e5f7 1px)
+    background-size: 20px 20px
+
+.banner
+    background-image: url(https://maasi2404zip.merket.io/wp-content/uploads/2024/01/image-4.jpg)
+    background-position: center
+    background-size: 100%
+    position: relative
+    width: 100%
+    height: 100%
+
+#image-2
+    position: absolute
+    width: 50%
+    height: auto
+    top: 10%
+    left: 10%
+    rotate: 5deg
+
+#image-3
+    position: absolute
+    width: 50%
+    height: auto
+    bottom: 10%
+    right: 10%
+    rotate: 10deg
+    max-width: 700px
+
+@keyframes fadeInUp
+    from
+        transform: translate3d(0, 40px, 0)
+
+    to
+        transform: translate3d(0, 0, 0)
+        opacity: 1
+        rotate: -5deg
+        left: 15%
+
+@keyframes fadeInUpPP
+    from
+        transform: translate3d(0, 40px, 0)
+
+    to
+        transform: translate3d(0, 0, 0)
+        opacity: 1
+        rotate: 0deg
+        right: 15%
+
+.animated
+    animation-duration: 1s
+    animation-fill-mode: both
+    -webkit-animation-duration: 1s
+    -webkit-animation-fill-mode: both
+
+.animatedFadeInUp
+    opacity: 0
+
+.fadeInUp
+    opacity: 0
+    animation-name: fadeInUp
+    -webkit-animation-name: fadeInUp
+
+.fadeInUpPP
+    opacity: 0
+    animation-name: fadeInUpPP
+    -webkit-animation-name: fadeInUpPP

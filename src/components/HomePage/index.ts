@@ -1,1 +1,1 @@
-export { HomePage } from "./HomePage";
+export { Banner, BannerPreload } from "./sections/Banner";
