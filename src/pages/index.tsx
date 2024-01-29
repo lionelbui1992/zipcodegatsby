@@ -6,8 +6,9 @@ import { Banner, BannerPreload, Introduce, Company, Explore, ContactForm } from 
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from '@gsap/react';
-import { ScrollSmoother } from 'gsap-trial/ScrollSmoother';
+// import { ScrollSmoother } from 'gsap-trial/ScrollSmoother';
 // import {ScrollSmoother} from '../assets/js/ScrollSmoother';
+import { ScrollSmoother } from "scroll-smoother-dev";
 
 import "../assets/sass/homepage.sass";
 
