@@ -17,7 +17,7 @@ export const Banner = (): JSX.Element => {
 export const BannerPreload = (): JSX.Element => {
     useEffect(() => {
         const tl = gsap.timeline({
-            repeat: -1,
+            repeat: 0,
             yoyo: true,
             repeatDelay: 0.5,
             delay: 2,
@@ -27,7 +27,7 @@ export const BannerPreload = (): JSX.Element => {
         tl.to("#textZ", 1, { x: -1500, y: -300 })
             .to("#textZ", 1, { x: -500, y: -300 })
             .to("#textZ", 1, { x: -1000, y: 0 })
-            .to("#textZ", 1, { x: -2000, y: 0, transform: 'scale(10)', transformOrigin: 'center left' });
+            .to("#textZ", 1, { x: -2000, y: 0, transform: 'scale(20)', transformOrigin: 'center center' });
 
         // Optional: You can return a cleanup function if needed
         return () => {
@@ -64,7 +64,6 @@ export const BannerPreload = (): JSX.Element => {
                         <text text-anchor="middle" x="50%" y="50%" fill="#000" font-size="100">We build</text>
                         <text text-anchor="middle" x="50%" y="80%" fill="#000" font-size="100">differently</text>
                     </g>
-
                 </svg>
             </div>
         </div>
