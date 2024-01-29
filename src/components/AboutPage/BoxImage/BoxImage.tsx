@@ -8,11 +8,12 @@ interface Props {
     boxImage: string,
     boxTitle: string,
     boxContent: string,
+    boxContentMobile: string,
     boxLinkText: string,
     boxLinkUrl: string
 }
 
-export const BoxImage = ({ className, boxIcon, boxImage, boxTitle, boxContent, boxLinkText, boxLinkUrl }: Props): JSX.Element => {
+export const BoxImage = ({ className, boxIcon, boxImage, boxTitle, boxContent, boxContentMobile, boxLinkText, boxLinkUrl }: Props): JSX.Element => {
     return (
         <>
             <div
@@ -50,7 +51,8 @@ export const BoxImage = ({ className, boxIcon, boxImage, boxTitle, boxContent, b
                             <div className="content-inner">
                                 <h2 className="title">{boxTitle}</h2>
                                 <div className="content">
-                                    <div className="description">{boxContent}</div>
+                                    <div className="description visible-desktop">{boxContent}</div>
+                                    <div className="description visible-mobile">{boxContentMobile}</div>
                                     <Link className="btn btn-primary" to={`${boxLinkUrl}`}>{boxLinkText}</Link>
                                 </div>
                             </div>

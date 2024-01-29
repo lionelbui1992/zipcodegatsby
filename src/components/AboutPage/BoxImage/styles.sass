@@ -86,7 +86,58 @@
     .column-content
         width: 43.2%
 
-@media (max-width: 991px)
+.visible-mobile
+    display: none
+
+
+@media (max-width: 1600px)
+    .box-image
+        padding: 77px 0
+
+        .container
+            max-width: 1240px
+
+        .column-image
+            width: 49.971%
+
+            .icon
+                top: -23px
+                left: -21px
+
+        .column-content
+            width: 42.45%
+
+            .content
+                margin-bottom: 0
+        
+        &.box-image-right
+            padding: 98px 0
+
+        &.box-transformative-together
+            .title
+                margin-top: 0
+
+            .column-image
+                width: 42.199%
+
+    .box-image-right 
+        .column-content
+            margin-left: 0
+        .content-inner
+            padding: 0
+
+    .about-box-image 
+        .box-image 
+            .content
+                margin-bottom: 14px
+
+@media (max-width: 767px)
+    .visible-desktop
+        display: none
+
+    .visible-mobile
+        display: block
+
     .box-image-right 
         .column-image
             order: -1
@@ -95,6 +146,8 @@
             width: 100%
 
     .box-image 
+        padding: 58px 0
+
         .column-box
             flex-direction: column
             align-items: stretch
@@ -103,7 +156,14 @@
         .column-image
             width: 100%
 
-        
+            .icon
+                top: -13px
+                left: -13px
+                width: 35.8%
+
+        &.box-image-right
+            padding: 73px 0
+
         &.box-transformative-together 
             .column-image
                 width: 100%
@@ -113,16 +173,31 @@
 
         .img
             max-width: 100%
-            margin-top: 40px 
 
         .content-inner
             max-width: 100%
-            margin-top: 40px
+            margin-top: 80px
             padding: 0
 
         .title
             max-width: 100%
+            margin-bottom: 39px
 
         .description
             max-width: 100%
-            margin-top: 40px
+            margin-bottom: 40px
+
+    .about-box-image .box-image
+        .description
+            font-size: 20px
+            font-style: normal
+            font-weight: 400
+            line-height: 36px
+            letter-spacing: 0.4px
+            margin-bottom: 40px
+
+        .btn
+            padding: 11px 45px 9px 17px
+            height: 42.294px
+            min-width: 235.5px
+            background-position: right 23px center
