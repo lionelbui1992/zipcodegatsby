@@ -91,12 +91,85 @@
     .item-image
         position: relative
 
-.section-heading
-    max-width: 500px
+    .section-heading
+        max-width: 500px
 
-    h2
-        font-size: 36px
-        font-style: normal
-        font-weight: 400
-        line-height: 46px
-        margin-bottom: 46px
+        h2
+            font-size: 36px
+            font-style: normal
+            font-weight: 400
+            line-height: 46px
+            margin-bottom: 46px
+
+@media (max-width: 1600px)
+    .about-our-teams
+        border-radius: 30px
+
+    .our-teams 
+        padding-top: 0px
+        padding-bottom: 137px
+
+        .container
+            max-width: 1240px
+
+    .our-teams-wrapper
+        .section-heading h2
+            margin-top: 26px
+            margin-bottom: 31px
+
+        .swiper
+            .swiper-button-prev, 
+            .swiper-button-next
+                margin-top: -93px
+
+        .item-content
+            margin-top: 19px
+
+        .our-teams-wrapper 
+            .item-inner 
+                .item-info
+                    line-height: 25.157px
+                    padding: 38px 40px 38px 32px
+
+@media (max-width: 767px)
+    .our-teams
+        overflow: hidden
+        padding-bottom: 62px
+
+    .our-teams-wrapper 
+        overflow: visible
+
+        .section-heading 
+            h2
+                margin-top: 23px
+                margin-bottom: 39px
+                padding-right: 10px
+
+        .swiper
+            padding-bottom: 67px
+
+            .swiper-button-prev, .swiper-button-next
+                top: auto
+                margin-top: 0
+                bottom: 0
+                width: 27px
+                height: 25px
+                background-size: contain
+
+            .swiper-button-prev
+                margin-right: 85px
+
+        .item-content
+            .item-name
+                font-size: 28px
+                font-style: normal
+                font-weight: 400
+                line-height: 36px
+                margin-bottom: 8px
+                margin-top: 40px
+
+            .item-position
+                font-size: 22px
+                font-style: normal
+                font-weight: 400
+                line-height: 24px
