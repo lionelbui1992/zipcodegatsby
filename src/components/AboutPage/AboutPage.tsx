@@ -28,7 +28,7 @@ export const AboutPage = (): JSX.Element => {
                     <OurTeams />
                 </div>
             </section>
-            <section className="about-banner-cta about-section">
+            <section className="about-banner-cta about-section bg-black">
                 <BannerCta />
             </section>
             <section className="about-box-image about-section">
