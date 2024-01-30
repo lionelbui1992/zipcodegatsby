@@ -8,7 +8,7 @@ import { MarqueeText } from "./MarqueeText";
 
 export const AboutPage = (): JSX.Element => {
     return (
-        <main className="about-page">
+        <div className="about-page">
             <section className="about-banner-top about-section bg-black">
                 <BannerTop />
             </section>
@@ -43,6 +43,6 @@ export const AboutPage = (): JSX.Element => {
                     boxLinkUrl="#" 
                 />
             </section>
-        </main>
+        </div>
     );
 };
