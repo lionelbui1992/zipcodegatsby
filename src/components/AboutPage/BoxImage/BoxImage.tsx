@@ -22,23 +22,29 @@ export const BoxImage = ({ className, boxIcon, boxImage, boxTitle, boxContent, b
                 <div className="container">
                     <div className="column-box">
                         <div className="column-image">
-                            {boxIcon == 'column' ? (
-                                <div className="icon">
-                                    <img
-                                        loading="lazy"
-                                        srcSet="/img/box-image-icon-column.svg"
-                                        alt=""
-                                    />
-                                </div>
-                            ) : (
-                                <div className="icon">
-                                    <img
-                                        loading="lazy"
-                                        srcSet="/img/box-image-icon-row.svg"
-                                        alt=""
-                                    />
-                                </div>
-                            )}
+                            {(() => {
+                                if (boxIcon == 'column') {
+                                return (
+                                    <div className="icon">
+                                        <img
+                                            loading="lazy"
+                                            srcSet="/img/box-image-icon-column.svg"
+                                            alt=""
+                                        />
+                                    </div>
+                                )
+                                } else if (boxIcon == 'row') {
+                                return (
+                                    <div className="icon icon-row icon-bottom">
+                                        <img
+                                            loading="lazy"
+                                            srcSet="/img/box-image-icon-row.svg"
+                                            alt=""
+                                        />
+                                    </div>
+                                )
+                                }
+                            })()}
                             <div className="image-inner">
                                 <img
                                     loading="lazy"
