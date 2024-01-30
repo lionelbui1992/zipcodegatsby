@@ -222,7 +222,7 @@
         box-sizing: border-box
 
 .container
-    max-width: 1732px
+    max-width: 1730px
     margin-left: auto
     margin-right: auto
     padding-left: 36px
@@ -251,12 +251,16 @@ h1, .h1
     font-style: normal
     font-weight: 400
     line-height: 130px
+    margin-top: 0
+    margin-bottom: 15px
 
 h2, .h2
     font-size: 107px
     font-style: normal
     font-weight: 300
     line-height: 125px
+    margin-top: 0
+    margin-bottom: 15px
 
 h3, .h3
     font-size: 75px
@@ -264,18 +268,23 @@ h3, .h3
     font-weight: 600
     line-height: 86px
     letter-spacing: -1.5px
+    margin-top: 0
+    margin-bottom: 15px
 
 h4, .h4
     font-size: 64px
     font-style: normal
     font-weight: 600
     line-height: 68px
+    margin-bottom: 15px
 
 h5, .h5
     font-size: 36px
     font-style: normal
     font-weight: 400
     line-height: 46px
+    margin-top: 0
+    margin-bottom: 15px
 
 h5.small
     font-size: 33px
@@ -288,6 +297,8 @@ h6, .h6
     font-style: normal
     font-weight: 400
     line-height: 35px
+    margin-top: 0
+    margin-bottom: 15px
 
 a
     color: var(--Color-neutrals-black)
@@ -296,6 +307,18 @@ a
     font-weight: 400
     line-height: 25px
     text-decoration: none
+
+p 
+    margin-top: 0
+    margin-bottom: 24px
+         
+    &:last-child 
+        margin-bottom: 0
+
+ol,
+ul
+    padding-left: 21px    
+    margin-top: 0
 
 img 
     max-width: 100%
@@ -371,7 +394,7 @@ img
 
 .input-row
     display: flex
-    margin: 0 -10px
+    margin: 0 -13.5px
     flex-wrap: wrap
 
 .input-text
@@ -453,6 +476,11 @@ img
 
 .text-right
     text-align: right
+
+    
+@media (max-width: 1600px)
+    .container
+        max-width: 1245px
 
 @media (max-width: 1199px)
     h1, .h1
@@ -545,3 +573,7 @@ img
         min-width: 256.5px
         background-size: 17px
         background-position: right 26px center
+        
+    .input-text
+        &.col-6
+            width: 100%
