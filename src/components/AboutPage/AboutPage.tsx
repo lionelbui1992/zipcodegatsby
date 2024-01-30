@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./styles.sass";
 import { OurTeams } from "./OurTeams";
 import { BoxImage } from "./BoxImage";
@@ -7,6 +7,20 @@ import { BannerTop } from "./BannerTop";
 import { MarqueeText } from "./MarqueeText";
 
 export const AboutPage = (): JSX.Element => {
+    useEffect(() => {
+        const sections: HTMLElement[] = document.getElementsByTagName("section");
+        let i: number;
+
+        window.onscroll = function () {            
+            for (i = 0; i < sections.length; i = i + 1) {                
+                if (window.scrollY > sections[i].offsetTop && window.scrollY < sections[i].offsetTop + sections[i].offsetHeight) {                    
+                    sections[i].classList.add("active");                    
+                } else {
+                    sections[i].classList.remove("active");
+                }                
+            }            
+        }
+    })
     return (
         <div className="about-page">
             <section className="about-banner-top about-section bg-black">
@@ -28,7 +42,7 @@ export const AboutPage = (): JSX.Element => {
                     <OurTeams />
                 </div>
             </section>
-            <section className="about-banner-cta about-section bg-black">
+            <section className="about-banner-cta about-section">
                 <BannerCta />
             </section>
             <section className="about-box-image about-section">
