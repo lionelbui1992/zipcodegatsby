@@ -25,7 +25,7 @@ export const Header = ({
   const [isHeaderBlack, setIsHeaderBlack] = useState(true);
   const [textColorHeader, setTextColorHeader] = useState('#1E1E1E');
   const [mainLogo, setMainLogo] = useState(mainLogoBlack);
-
+  const [menuIcon, setMenuIcon] = useState(MenuBlack);
   const [isClickMenu, setIsClickMenu] = useState(true);
 
   useEffect(() => {
@@ -50,11 +50,13 @@ export const Header = ({
           if (rect.top <= sectionHeader.offsetHeight/2 && rect.top + rect.height > sectionHeader.offsetHeight/2) {
             setIsHeaderBlack(false);
             setMainLogo(mainLogoWhite);
+            setMenuIcon(MenuWhite);
             setTextColorHeader("#fff");
             break;
           } else {
             setIsHeaderBlack(true);
             setMainLogo(mainLogoBlack);
+            setMenuIcon(MenuBlack);
             setTextColorHeader("#1E1E1E");
           }
         }
@@ -128,7 +130,7 @@ export const Header = ({
 
       <div className="header__toggle">
         <img
-          src={isClickMenu ? MenuBlack : MenuClose}
+          src={isClickMenu ? menuIcon : MenuClose}
           alt="Menu"
           onClick={() =>{ handleMenuMobileClick() }}
         />

@@ -1,52 +1,56 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./style.sass";
+import { Link } from "gatsby"
+import SectionLink from "./SectionLink";
 
 export const FooterWrapper = (): JSX.Element => {
+  const titleLeft = 'Want to hear more?';
+  const textLeft = 'Speak to us to learn more or if you are looking for something out of the ordinary.';
+  const buttonLeft = 'Contact us';
+  const titleRight = 'Zipcode Limited';
+  const address = '119 Rama 4 Road, Phra Khanong, Klong Toey, Bangkok 10110';
+  const email = 'contact@zipcode-site.com';
+  const phone = '+662-016-2427';
+  const map = 'https://www.google.com/maps/place/119+Thanon+Rama+IV,+Khwaeng+Phra+Khanong,+Khet+Khlong+Toei,+Krung+Thep+Maha+Nakhon+10110,+Th%C3%A1i+Lan/@13.7116784,100.580415,17z/data=!3m1!4b1!4m6!3m5!1s0x30e29f527eee8b05:0xc4e71bb75405165c!8m2!3d13.7116784!4d100.5829899!16s%2Fg%2F11pzy8ym12?hl=vi-VN&entry=ttu';
+  const imageDesktop = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/01/footer-img-desktop.svg';
+  const imageMobile = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/01/footer-img-mobile.svg';
+  const logoFooter = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/01/logo-footer.svg';
+  const bgFooterDk = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/01/bg-footer-dk.png';
+  const bgFooterMb = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/01/bg-footer-mb.png';
+
+
+
   return (
-    <footer className="overlap-group site-footer">
-      <div className="overlap-2">
-        <div className="overlap-3">
-          <img className="graphic" alt="Graphic" src="/img/graphic-1.svg" />
-          <img className="path-2" alt="Path" src="/img/path-277.svg" />
+    <footer className="site-footer" style={{backgroundImage: "url("+bgFooterDk+")"}}>
+      <div className="container">
+        <div className="section-top">
+          <div className="left">
+            <h2 className="title">{titleLeft}</h2>
+            <div className="content">{textLeft}</div>
+            <div className="button">{buttonLeft}</div>
+          </div>
+          <div className="right">
+            <div className="content-container">
+              <h2 className="title">{titleRight}</h2>
+              <a className="address" href={map} target="_blank">{address}</a>
+              <a className="email" href={`mailto:${email}`} target="_blank">{email}</a>
+              <a className="phone" href={`phone:${phone}`} target="_blank">{phone}</a>
+            </div>
+            <div className="ft-mb"><SectionLink/></div>
+          </div>
         </div>
-        <div className="group-3">
-          <div className="text-wrapper-11">| yourname@email.com</div>
-          <div className="text-wrapper-12">→</div>
+        <div className="section-middle">
+          <div className="img-footer img-dk" style={{backgroundImage: "url("+imageDesktop+")"}}></div>
+          <div className="img-footer img-mb" style={{backgroundImage: "url("+imageMobile+")"}}></div>
+          <div className="icon" style={{backgroundImage: "url("+logoFooter+")"}}></div>
         </div>
+        <div className="ft-dk"><SectionLink/></div>
       </div>
-      <div className="overlap-4">
-        <div className="text-wrapper-13">Want to hear more?</div>
-        <p className="text-wrapper-14">
-          Speak to us to learn more or if you are looking for something out of the ordinary.
-        </p>
-      </div>
-      <div className="flexcontainer">
-        <p className="text">
-          <span className="text-wrapper-15">
-            Cookies policy
-            <br />
-          </span>
-        </p>
-        <p className="text">
-          <span className="text-wrapper-15">
-            Privacy policy
-            <br />
-          </span>
-        </p>
-        <p className="text">
-          <span className="text-wrapper-15">Code of conduct</span>
-        </p>
-      </div>
-      <div className="flexcontainer-2">
-        <p className="span-wrapper">
-          <span className="text-wrapper-16">
-            Email
-            <br />
-          </span>
-        </p>
-        <p className="span-wrapper">
-          <span className="text-wrapper-16">LinkedIn</span>
-        </p>
+      <div className="to-top">
+        <svg width="31" height="33" viewBox="0 0 31 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M30.1991 15.862L26.8782 19.1829L17.6445 9.70623L17.6446 32.6554L12.7847 32.6554L12.7847 9.70623L3.55106 19.1829L0.284179 15.862L15.2146 0.877548L30.1991 15.862Z" fill="#0068FF"/>
+        </svg>
+        <span>Back to top</span>
       </div>
     </footer>
   );
