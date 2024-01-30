@@ -36,7 +36,7 @@ const IndexPage: React.FC<PageProps> = () => {
 
   return (
     <div className="scrollWraper" ref={main}>
-      <div className="scroll-item item1" data-speed="0.5"><BannerPreload /></div>
+      {/* <div className="scroll-item item1" data-speed="0.5"><BannerPreload /></div> */}
       <div className="scroll-item item2" data-speed="0.8"><Banner /></div>
       <div className="scroll-item item3" data-speed="1.1"><Introduce /></div>
       <div className="scroll-item item4" data-speed="1.4"><Company /></div>
