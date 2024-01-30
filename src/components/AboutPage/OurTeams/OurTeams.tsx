@@ -19,18 +19,31 @@ export const OurTeams = (): JSX.Element => {
                             breakpoints={{
                                 0: {
                                     slidesPerView: 1,
+                                    spaceBetween: 13,
                                 },
-                                599:{
+                                767:{
                                     slidesPerView: 1,
+                                    spaceBetween: 13,
                                 },
-                                600: {
+                                768: {
                                     slidesPerView: 2,
+                                    spaceBetween: 16,
                                 },
                                 1023: {
                                     slidesPerView: 2,
+                                    spaceBetween: 16,
                                 },
                                 1024: {
                                     slidesPerView: 3,
+                                    spaceBetween: 16,
+                                },
+                                1600: {
+                                    slidesPerView: 3,
+                                    spaceBetween: 16,
+                                },
+                                1601: {
+                                    slidesPerView: 3,
+                                    spaceBetween: 20,
                                 },
                             }}
                             navigation

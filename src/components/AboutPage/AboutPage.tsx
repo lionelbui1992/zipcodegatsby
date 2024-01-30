@@ -4,13 +4,15 @@ import { OurTeams } from "./OurTeams";
 import { BoxImage } from "./BoxImage";
 import { BannerCta } from "./BannerCta";
 import { BannerTop } from "./BannerTop";
+import { MarqueeText } from "./MarqueeText";
 
 export const AboutPage = (): JSX.Element => {
     return (
-        <div className="about-page">
-            <section className="about-banner-top about-section">
+        <main className="about-page">
+            <section className="about-banner-top about-section bg-black">
                 <BannerTop />
             </section>
+            <MarqueeText />
             <section className="about-our-teams about-section">
                 <BoxImage 
                     className="box-image-left" 
@@ -18,6 +20,7 @@ export const AboutPage = (): JSX.Element => {
                     boxIcon="column" 
                     boxTitle="Foundations of the Future" 
                     boxContent="Our current pipeline is centered around Bangkok, with expansion plans across Thailand." 
+                    boxContentMobile="Places and spaces have never been as vital as they are today. Because in an increasingly virtual world, something real is of even greater value, not just as an asset but for our growth and development. Because how and why we make things is as important as what we make. " 
                     boxLinkText="View our Projects" 
                     boxLinkUrl="#" 
                 />
@@ -25,7 +28,7 @@ export const AboutPage = (): JSX.Element => {
                     <OurTeams />
                 </div>
             </section>
-            <section className="about-banner-cta about-section">
+            <section className="about-banner-cta about-section bg-black">
                 <BannerCta />
             </section>
             <section className="about-box-image about-section">
@@ -35,10 +38,11 @@ export const AboutPage = (): JSX.Element => {
                     boxIcon="" 
                     boxTitle="Transformative Together" 
                     boxContent="We partner with those who share our passion for creating exceptional. Our partnerships span leading financial investors, architectural firms, landowners, tenants, operators, and landscapers. We move further together with close collaboration and a sense of shared mission." 
+                    boxContentMobile="We partner with those who share our passion for creating exceptional. Our partnerships span leading financial investors, architectural firms, landowners, tenants, operators, and landscapers. We move further together with close collaboration and a sense of shared mission." 
                     boxLinkText="Our Partners" 
                     boxLinkUrl="#" 
                 />
             </section>
-        </div>
+        </main>
     );
 };

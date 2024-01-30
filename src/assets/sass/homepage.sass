@@ -146,6 +146,9 @@
     background-repeat: no-repeat
     background-position: center
 
+    .company-box
+        position: relative
+
     .title
         color: #fff
         text-align: center
@@ -172,17 +175,16 @@
         left: 0
         color: #fff
 
-    .text
-    &.text--middle
-        left: 50%
-        top: 50%
-        transform: translate(-50%, -50%)
+        &.text--middle
+            left: 50%
+            top: 50%
+            transform: translate(-50%, -50%)
 
-    &.text--bottom
-        left: initial
-        top: initial
-        right: 0
-        bottom: 0
+        &.text--bottom
+            left: initial
+            top: initial
+            right: 0
+            bottom: 0
 
     .c-image
         max-width: 300px
@@ -210,3 +212,16 @@
             padding: 14px 22px
             border-radius: 71.146px
             border: 0.711px solid #fff
+
+.section-explore
+    .col-left
+        width: 40%
+
+    .col-right
+        width: 60%
+
+        .col-image
+            width: 50%
+
+        .col-text
+            width: 50%

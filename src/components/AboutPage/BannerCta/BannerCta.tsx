@@ -8,7 +8,7 @@ export const BannerCta = (): JSX.Element => {
             <div className="section-bkg">
                 <img
                     loading="lazy"
-                    srcSet="/img/about-banner-bkg.png"
+                    srcSet="/about/about-banner-bkg.png"
                 />
             </div>
             <div className="container">
