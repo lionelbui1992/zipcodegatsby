@@ -18,13 +18,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                 smooth: 2, // seconds it takes to "catch up" to native scroll position
                 effects: true, // look for data-speed and data-lag attributes on elements and animate accordingly
             });
-            // ScrollTrigger.create({
-            //     trigger: '.item6',
-            //     pin: true,
-            //     start: 'center center',
-            //     end: '+=300',
-            //     markers: true,
-            // });
+
         },
         { scope: main }
     );
