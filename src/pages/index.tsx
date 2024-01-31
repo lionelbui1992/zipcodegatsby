@@ -23,16 +23,24 @@ const IndexPage: React.FC<PageProps> = () => {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    // ScrollTrigger animations for elements with class 'box'
+
+
+
 
     ScrollTrigger.create({
       trigger: ".item2",
       start: "top top",
-      end: "+=100%",
+      end: "+=200%",
       pin: true,
       pinSpacing: false
     });
 
+
+
+    return () => {
+      // Kill all ScrollTriggers on unmount
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
   }, []);
 
 
