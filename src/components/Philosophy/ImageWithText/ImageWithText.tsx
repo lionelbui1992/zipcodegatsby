@@ -25,11 +25,11 @@ export const ImageWithText = ({
         <div className="content">
           <div className="label">{index < 10 ? '0'+index : index}</div>
           <div className="text-container">
-            <div className="banner-title">{title}</div>
+            <div className="title">{title}</div>
             <div className="image-container img-mb">
               <div className="image" style={{backgroundImage: "url("+imgUrl+")"}}></div>
             </div>
-            <div className="banner-des">{des}</div>
+            <div className="des">{des}</div>
           </div>
         </div>
       </div>
