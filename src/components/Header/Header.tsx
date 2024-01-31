@@ -33,6 +33,8 @@ export const Header = ({
 
     const sectionsBlack = document.querySelectorAll(".bg-black");
     const sectionHeader = document.querySelector(".header");
+    const mainTag = document.querySelector("main");
+
     // const isGsap = document.querySelector("#___gatsby") as HTMLElement;;
 
     // if (isGsap) {
@@ -43,6 +45,16 @@ export const Header = ({
     // }
 
     const handleScroll = (sectionsBlack:any, sectionHeader:any) => {
+      // add padding header section to main tag
+      if (sectionHeader && mainTag) {
+        const handleResize = () => {
+          const sectionHeaderHeight = sectionHeader.offsetHeight;
+          mainTag.style.paddingTop = `${sectionHeaderHeight}px`;
+        };
+        window.addEventListener("resize", handleResize);
+        handleResize();
+      }
+      // set color header
       if(sectionsBlack.length > 0) {
           for (const sectionBlack of sectionsBlack) {
           const rect = sectionBlack.getBoundingClientRect();
