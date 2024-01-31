@@ -8,6 +8,11 @@ export const Banner = (): JSX.Element => {
     useEffect(() => {
         const modalBtns: HTMLElement[] = Array.from(document.querySelectorAll(".projects-popup-item"));
         modalBtns.forEach((btn: HTMLElement) => {
+            const modal: string | null = btn.getAttribute('data-popup');
+                
+            const btnTop: number = btn.offsetTop;
+            (document.getElementById(modal) as HTMLElement).style.cssText = "--offsetTop: " +btnTop+ 'px';
+            
             btn.onclick = function() {
                 document.querySelectorAll(".projects-popup-item").forEach((element: HTMLElement) => {
                     element.classList.remove('active-popup');
@@ -16,7 +21,6 @@ export const Banner = (): JSX.Element => {
                     element.classList.remove('active-popup');
                 });
                 btn.classList.add('active-popup');
-                const modal: string | null = btn.getAttribute('data-popup');
                 document.getElementById(modal)?.classList.add('active-popup');
             }
         });
@@ -29,7 +33,7 @@ export const Banner = (): JSX.Element => {
                 document.querySelectorAll('[data-popup="'+modalId+'"]').forEach((element: HTMLElement) => {
                     element.classList.remove('active-popup');
                 });
-                modal?.classList.remove('active');
+                modal?.classList.remove('active-popup');
             }
         });
     })
@@ -116,12 +120,12 @@ export const Banner = (): JSX.Element => {
                                     </SwiperSlide>
                                     <SwiperSlide>
                                         <div className="item-gallery">
-                                            <img loading="lazy" srcSet="/projects/ProjectKoala-image-2.jpg" />
+                                            <img loading="lazy" srcSet="/projects/ProjectKoala-image-3.jpg" />
                                         </div>
                                     </SwiperSlide>
                                     <SwiperSlide>
                                         <div className="item-gallery">
-                                            <img loading="lazy" srcSet="/projects/ProjectKoala-image-3.jpg" />
+                                            <img loading="lazy" srcSet="/projects/ProjectKoala-image-2.jpg" />
                                         </div>
                                     </SwiperSlide>
                                 </Swiper>
@@ -252,12 +256,12 @@ export const Banner = (): JSX.Element => {
                                     </SwiperSlide>
                                     <SwiperSlide>
                                         <div className="item-gallery">
-                                            <img loading="lazy" srcSet="/projects/ProjectHeyday-image-3.jpg" />
+                                            <img loading="lazy" srcSet="/projects/ProjectHeyday-image-2.jpg" />
                                         </div>
                                     </SwiperSlide>
                                     <SwiperSlide>
                                         <div className="item-gallery">
-                                            <img loading="lazy" srcSet="/projects/ProjectHeyday-image-2.jpg" />
+                                            <img loading="lazy" srcSet="/projects/ProjectHeyday-image-3.jpg" />
                                         </div>
                                     </SwiperSlide>
                                 </Swiper>

@@ -11,7 +11,7 @@ export const BannerTop = (): JSX.Element => {
                 ttImage.classList.add('active');
                 ttContent?.classList.add('tooltip-active');
                 const ttImageTop: number = ttImage.offsetTop;
-                ttImage.style.cssText = "--offsetTop: " +ttImageTop+ 'px';
+                ttImage.style.cssText = "--offsetTop: " + ttImageTop + 'px';
             })            
             ttImage.addEventListener('mouseleave', () => {
                 ttImage.classList.remove('active');

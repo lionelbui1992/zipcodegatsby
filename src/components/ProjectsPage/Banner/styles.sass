@@ -86,7 +86,7 @@
 .projects-popup
     display: none
     position: absolute
-    top: 100%
+    top: calc(var(--offsetTop) + 270px)
     width: 100%
     z-index: 9
     border-radius: 31.304px
@@ -111,6 +111,7 @@
         position: absolute
         right: -37px
         top: -53px
+        cursor: pointer
 
     .popup-heading
         display: flex
