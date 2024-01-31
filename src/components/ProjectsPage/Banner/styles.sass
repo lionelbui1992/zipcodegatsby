@@ -2,6 +2,9 @@
     position: relative
     padding-top: 207px
 
+    .container 
+        max-width: 1745px
+
     .section-bkg
         position: absolute
         top: 0
@@ -12,12 +15,12 @@
 
         img
             width: 100%
-            height: 100%
+            aspect-ratio: 1.77776
             object-fit: cover
 
 
 .projects-items
-    padding: 54px 0 98px 13.75%
+    padding: 54px 0 98px 0
 
     .item
         display: flex
@@ -25,18 +28,150 @@
         align-items: center
         margin: 13.5px 0
 
-        span
-            color: #000
+        .item-inner
+            position: relative
+            min-width: 540px
+            cursor: pointer
+
+            img
+                display: none
+                width: 116px
+                height: auto
+                aspect-ratio: 1.779
+                object-fit: cover
+                object-position: center
+                margin-left: 20px
+                vertical-align: top
+                margin-top: 12px
+
+            &:hover 
+                img
+                    display: inline-flex
+                .subheading
+                    margin-left: 19px
+
+        &:last-child 
+            .item-inner
+                .subheading
+                    margin-left: 27px
+
+        &.active-popup 
+            .item-inner
+                img
+                    display: inline-flex
+                .subheading
+                    margin-left: 19px
+
+        .subheading
             font-family: "Tiempos Headline"
             font-size: 14px
             font-style: normal
             font-weight: 400
             line-height: 15.936px
             vertical-align: top
-            margin-top: 22px
+            margin-top: 7px
+            position: absolute
+            left: 100%
+            bottom: 15px
+            max-width: 270px
+            width: 100%
+            text-align: left
+            margin-left: 7px
 
         h3
-            margin-right: 38px
             margin-bottom: 0
             line-height: 86.322px
             letter-spacing: -1.5px
+
+.projects-popup
+    display: none
+    position: absolute
+    top: 100%
+    width: 100%
+    z-index: 9
+    border-radius: 31.304px
+    overflow: hidden
+    padding: 88px 0 91px
+    color: #ffffff
+    
+    &.active-popup
+        display: block
+
+    .section-bkg
+        border-radius: 31.304px
+
+    .container
+        position: relative
+        max-width: 1174px
+
+    button.projects-popup-close
+        background: transparent
+        border: none
+        outline: none
+        position: absolute
+        right: -37px
+        top: -53px
+
+    .popup-heading
+        display: flex
+        flex-wrap: wrap
+
+    h4
+        margin: 0
+
+    .heading
+        width: 26.7%
+        padding-right: 20px
+        padding-left: 5px
+
+    .popup-galleries
+        width: 73.3%
+        padding-top: 18px
+        padding-right: 43px
+
+    .heading .subheading
+        font-family: "Tiempos Headline"
+        font-size: 14px
+        font-style: normal
+        font-weight: 400
+        line-height: 17.075px
+        margin-top: 30px
+    
+    .popup-galleries 
+        .swiper-slide
+            width: auto
+
+        .item-gallery img
+            vertical-align: top
+            height: 363.84px
+
+    .popup-content
+        display: flex
+        --gap:88px
+        --columns:3
+        display: flex
+        width: 100%
+        flex-wrap: wrap
+        gap: var(--gap)
+        margin-top: 50px
+        padding-right: 25px
+
+        .column
+            width: calc((100% / var(--columns)) - var(--gap) + (var(--gap) / var(--columns)))
+            border-top: 1px solid #ffffff
+            padding-top: 18px
+
+            h6, .h6
+                font-weight: 600
+                line-height: 35.573px
+
+@media (max-width: 1600px)
+    .projects-banner
+        padding-top: 183px
+
+        
+    .projects-items
+        padding: 69px 0 98px 0
+
+        .item
+            margin: 0

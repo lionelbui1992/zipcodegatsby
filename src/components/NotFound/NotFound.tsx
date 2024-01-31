@@ -10,7 +10,7 @@ export const NotFound = (): JSX.Element => {
                     <div className="section-bkg">
                         <img
                             loading="lazy"
-                            srcSet="/img/page-privacy-policy-bkg.png"
+                            srcSet="/img/page-404-bkg.svg"
                         />
                     </div>
                     <div className="container">

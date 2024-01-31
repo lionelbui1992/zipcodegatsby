@@ -3,62 +3,21 @@
     background: var(--Color-neutrals-white)
     position: relative
     z-index: 1
-
-.box-image 
-    padding: 108px 0
+    padding: 108px 0 91px
 
     .container
-        max-width: 1740px
+        max-width: 1453px
 
     .column-box
-        gap: 20px
+        gap: 18px
         display: flex
-
-    .column-image
-        display: flex
+        flex-wrap: wrap
         flex-direction: column
-        line-height: normal
-        width: 49.3152%
-        margin-left: 0px
-        position: relative
-
-        .icon
-            position: absolute
-            top: -32px
-            left: -29px
-            width: 36.3%
-            z-index: -1
-
-        .icon-row.icon-bottom
-            width: auto
-            top: auto
-            bottom: -33px
-            right: -29px
-            left: -29px
-
-    .column-content
-        display: flex
-        flex-direction: column
-        line-height: normal
-        width: 42.1%
+    
+    .content
+        max-width: 469px
         margin-left: auto
-
-    .img
-        aspect-ratio: 1.32688
-        object-fit: cover
-        object-position: center
-        width: 100%
-        overflow: hidden
-        flex-grow: 1
-        vertical-align: top
-        
-    .content-inner
-        display: flex
-        -top: 32px
-        flex-grow: 1
-        flex-direction: column
-        align-items: start
-        padding: 0 20px
+        margin-right: 5.1%
 
     .title
         color: #000
@@ -68,20 +27,6 @@
         line-height: 128%
         margin-top: 0
 
-    &.box-transformative-together 
-        .column-image
-            width: 40.685%
-            margin-left: auto
-
-        .img
-            aspect-ratio: 1.176
-
-        .title
-            margin-top: 49px
-
-    .content 
-        margin-top: auto
-
     .description
         color: #232323
         font-size: 14px
@@ -89,143 +34,25 @@
         font-weight: 400
         line-height: 25px
         letter-spacing: 0.28px
-        max-width: 418px
-        margin-bottom: 29px
-
-.box-image-right 
-    .column-image
-        order: 2
-
-    .column-content
-        width: 43.2%
-
-.visible-mobile
-    display: none
-
+        margin-bottom: 40px
 
 @media (max-width: 1600px)
     .projects-box-content
         border-radius: 30px
 
-    .box-image
-        padding: 77px 0
+        .box-image
+            padding: 77px 0
 
-        .container
-            max-width: 1240px
-
-        .column-image
-            width: 49.971%
-
-            .icon
-                top: -23px
-                left: -21px
-
-            .icon-row.icon-bottom
-                bottom: -26px
-                right: -21px
-                left: -21px
-
-        .column-content
-            width: 42.45%
-
-            .content
-                margin-bottom: 0
-        
-        &.box-image-right
-            padding: 98px 0
-
-        &.box-transformative-together
-            .title
-                margin-top: 0
-
-            .column-image
-                width: 42.199%
-
-    .box-image-right 
-        .column-content
-            margin-left: 0
-        .content-inner
-            padding: 0
-
-    .about-box-image 
-        .box-image 
-            .content
-                margin-bottom: 14px
+            .container
+                max-width: 1240px
 
 @media (max-width: 767px)
-    .visible-desktop
-        display: none
+    .projects-box-content
+        border-radius: 30px
 
-    .visible-mobile
-        display: block
+        .box-image
+            padding: 77px 0
 
-    .box-image-right 
-        .column-image
-            order: -1
-
-        .column-content
-            width: 100%
-
-    .box-image 
-        padding: 58px 0
-
-        .column-box
-            flex-direction: column
-            align-items: stretch
-            gap: 0px
-
-        .column-image
-            width: 100%
-
-            .icon
-                top: -13px
-                left: -13px
-                width: 35.8%
-
-                
-            .icon-row.icon-bottom
-                bottom: -19px
-                right: -13px
-                left: -13px
-
-        &.box-image-right
-            padding: 73px 0
-
-        &.box-transformative-together 
-            .column-image
-                width: 100%
-
-        .column-content
-            width: 100%
-
-        .img
-            max-width: 100%
-
-        .content-inner
-            max-width: 100%
-            margin-top: 80px
-            padding: 0
-
-        .title
-            max-width: 100%
-            margin-bottom: 39px
-
-        .description
-            max-width: 100%
-            margin-bottom: 40px
-
-    .about-box-image .box-image
-        .description
-            font-size: 20px
-            font-style: normal
-            font-weight: 400
-            line-height: 36px
-            letter-spacing: 0.4px
-            margin-bottom: 40px
-
-        .btn
-            padding: 11px 45px 9px 17px
-            height: 42.294px
-            min-width: 235.5px
-            background-position: right 23px center
+            .container
+                max-width: 1240px
 
