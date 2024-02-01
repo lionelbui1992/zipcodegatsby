@@ -44,12 +44,13 @@ export const Header = ({
     //   }
     // }
 
-    const handleScroll = (sectionsBlack:any, sectionHeader:any) => {
+    const handleScroll = (sectionsBlack:any, sectionHeader:any, resizeStatus:boolean) => {
       // add padding header section to main tag
-      if (sectionHeader && mainTag) {
+      if (sectionHeader && mainTag && resizeStatus) {
         const handleResize = () => {
           const sectionHeaderHeight = sectionHeader.offsetHeight;
-          mainTag.style.paddingTop = `${sectionHeaderHeight}px`;
+          // mainTag.style.paddingTop = `${sectionHeaderHeight}px`;
+          document.documentElement.style.setProperty('--paddingTop', `${sectionHeaderHeight}px`);
         };
         window.addEventListener("resize", handleResize);
         handleResize();
@@ -75,8 +76,8 @@ export const Header = ({
     
       }
     }
-    handleScroll(sectionsBlack, sectionHeader);
-    window.addEventListener("scroll", () => handleScroll(sectionsBlack, sectionHeader));
+    handleScroll(sectionsBlack, sectionHeader, true);
+    window.addEventListener("scroll", () => handleScroll(sectionsBlack, sectionHeader, false));
     
   }, [mainLogoBlack, mainLogoWhite]);
 
