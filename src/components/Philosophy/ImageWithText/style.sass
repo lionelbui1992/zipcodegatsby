@@ -17,9 +17,20 @@
     flex-wrap: nowrap
     gap: 36px
     justify-content: space-between
-
+    @media screen and (max-width: 1440.98px)
+      padding-top: 70px
+      padding-bottom: 57px
+    @media screen and (max-width: 767.98px)
+      padding-top: 82px
+      padding-bottom: 79px
   .image-container
     width: 40.65%
+    @media screen and (max-width: 1440.98px)
+      width: 43.75%
+    @media screen and (max-width: 767.98px)
+      width: calc(100vw - 72px)
+      margin-left: -89px
+      margin-top: 78px
 
     .image
       padding-bottom: 90.6%
@@ -30,7 +41,9 @@
     width: 50%
     max-width: 680px
     display: flex
-    
+    @media screen and (max-width: 767.98px)
+      width: 100%
+      max-width: unset
 
     .label
       font-family: Tiempos Headline
@@ -40,27 +53,41 @@
       letter-spacing: 0.005em
       width: 100px
       color: inherit
+      @media screen and (max-width: 767.98px)
+        font-size: 50px
+        line-height: 61px
+        width: 89px
 
     .text-container
       width: calc(100% - 100px)
       display: flex
       flex-wrap: wrap
       align-content: space-between
-
+      @media screen and (max-width: 767.98px)
+        width: calc(100% - 89px)
       .title
         font-size: 36px
         font-weight: 400
         line-height: 46px
         color: inherit
+        @media screen and (max-width: 1440.98px)
+          max-width: 484px
       .des
         font-size: 14px
         font-weight: 400
-        line-height: 26px
+        line-height: 25px
         letter-spacing: 0.02em
         color: inherit
         min-height: 160px
         padding-bottom: 50px
         max-width: 495px
+        @media screen and (max-width: 1440.98px)
+          padding-bottom: 20px
+        @media screen and (max-width: 767.98px)
+          width: calc(100vw - 72px)
+          margin-left: -89px
+          padding-bottom: 0
+          margin-top: 39px
 
   .img-right
     .content
