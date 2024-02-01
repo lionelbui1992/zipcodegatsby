@@ -1,0 +1,27 @@
+.pixelate-container
+    position: absolute
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+    display: flex
+    flex-wrap: wrap
+    .front
+        transition: transform 0.5s
+
+    .cell *
+        position: absolute
+        width: 100%
+        height: 100%
+
+    .cell
+        box-sizing: border-box
+        overflow: hidden
+        position: relative
+
+.animation-image
+    position: relative
+    display: flex
+    img
+        opacity: 0
+        z-index: -1
