@@ -7,6 +7,7 @@ interface Props {
   des: string;
   imgUrl: string;
   backgroundUrl: string;
+  isDarkBackground: boolean;
 }
 
 export const ImageWithText = ({
@@ -15,9 +16,10 @@ export const ImageWithText = ({
   des,
   imgUrl,
   backgroundUrl,
+  isDarkBackground,
 }: Props): JSX.Element => {
   return (
-    <div className="phi-content-container" style={{backgroundImage: "url("+backgroundUrl+")"}}>
+    <div className={`phi-content-container ${isDarkBackground ? 'bg-black' : ''}`} style={{backgroundImage: "url("+backgroundUrl+")"}}>
       <div className={`container ${index % 2 === 0 ? "img-right" : "img-left"}`}>
         <div className="image-container img-dk">
           <div className="image" style={{backgroundImage: "url("+imgUrl+")"}}></div>

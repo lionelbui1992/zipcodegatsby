@@ -51,7 +51,6 @@ export const Header = ({
           const sectionHeaderHeight = sectionHeader.offsetHeight;
           // mainTag.style.paddingTop = `${sectionHeaderHeight}px`;
           document.documentElement.style.setProperty('--paddingTop', `${sectionHeaderHeight}px`);
-          console.log(1111);
         };
         window.addEventListener("resize", handleResize);
         handleResize();
