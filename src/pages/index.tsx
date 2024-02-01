@@ -13,29 +13,23 @@ gsap.registerPlugin(ScrollTrigger);
 
 
 const IndexPage: React.FC<PageProps> = () => {
-  // const container = useRef();
-  // useGSAP(() => {
 
-  // }, { scope: container })
 
   const container = useRef(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-
-
-
-
-    ScrollTrigger.create({
-      trigger: ".item2",
-      start: "top top",
-      end: "+=200%",
-      pin: true,
-      pinSpacing: false
-    });
-
-
+    gsap.utils.toArray('.pinning').forEach((item) => {
+      ScrollTrigger.create({
+        trigger: item,
+        start: "top top",
+        end: "bottom top",
+        pin: true,
+        pinSpacing: false,
+        markers: true
+      });
+    })
 
     return () => {
       // Kill all ScrollTriggers on unmount
@@ -47,7 +41,7 @@ const IndexPage: React.FC<PageProps> = () => {
   return (
     <div className="scrollTrigger" ref={container}>
       {/* <div className="scroll-section item1" data-speed="0.5"><BannerPreload /></div> */}
-      <div className="scroll-section item2" data-speed="0.8">
+      <div className="scroll-section item2 pinning" data-speed="0.8">
         <Banner />
         <TextMarquee />
       </div>

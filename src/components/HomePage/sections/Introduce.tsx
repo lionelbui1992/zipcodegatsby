@@ -1,4 +1,5 @@
 import React from "react";
+import { ImageAnimation } from "../../ImageAnimation";
 
 export const Introduce = (): JSX.Element => {
     return (
@@ -19,9 +20,7 @@ export const Introduce = (): JSX.Element => {
                 <div className="image-with-text-component ">
                     <div className="d-flex">
                         <div className="col col-image">
-                            <div className="image-box">
-                                <img src="/img/mask-group-20.png" alt="image" />
-                            </div>
+                            <ImageAnimation src="/img/mask-group-20.png" alt="" width="500" />
                         </div>
                         <div className="col col-text text-animation" data-dir="ltr" >
 
@@ -35,9 +34,7 @@ export const Introduce = (): JSX.Element => {
                 <div className="image-with-text-component text-left">
                     <div className="d-flex">
                         <div className="col col-image">
-                            <div className="image-box">
-                                <img src="/img/image-5.png" alt="image" />
-                            </div>
+                            <ImageAnimation src="/img/image-5.png" alt="" width="500" />
                         </div>
                         <div className="col col-text text-animation" data-dir="rtl">
 
