@@ -3,7 +3,7 @@
     background: var(--Color-neutrals-white)
     position: relative
     z-index: 1
-    padding: 108px 0 91px
+    padding: 108px 0 92px
 
     .container
         max-width: 1453px
@@ -39,20 +39,34 @@
 @media (max-width: 1600px)
     .projects-box-content
         border-radius: 30px
+        padding: 78px 0 100px
 
-        .box-image
-            padding: 77px 0
+        .container
+            max-width: 1243px
 
-            .container
-                max-width: 1240px
+        .column-box
+            gap: 4px
+        
+        .content
+            max-width: 418px
+
+@media (max-width: 1199px)
+    .projects-box-content
+        padding: 81px 0 50px
+
+        .column-box
+            gap: 66px
 
 @media (max-width: 767px)
     .projects-box-content
         border-radius: 30px
 
-        .box-image
-            padding: 77px 0
+        .content 
+            max-width: 100%
+            margin-right: 0
 
-            .container
-                max-width: 1240px
+            .btn
+                width: 100%
+                padding: 12px 45px 10px 17px
+                height: auto
 
