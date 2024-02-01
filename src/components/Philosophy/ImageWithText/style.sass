@@ -1,4 +1,8 @@
+.phi-content-container.bg-black
+  color: #fff
 .phi-content-container
+  color: #000
+  border-radius: 45px
   .img-dk
     @media screen and (max-width: 767.98px)
       display: none
@@ -19,10 +23,12 @@
 
     .image
       padding-bottom: 90.6%
-      
+      background-position: center
+      background-size: cover
+
   .content
     width: 50%
-    max-width: 580px
+    max-width: 680px
     display: flex
     
 
@@ -33,10 +39,28 @@
       line-height: 84px
       letter-spacing: 0.005em
       width: 100px
+      color: inherit
 
     .text-container
       width: calc(100% - 100px)
+      display: flex
+      flex-wrap: wrap
+      align-content: space-between
 
+      .title
+        font-size: 36px
+        font-weight: 400
+        line-height: 46px
+        color: inherit
+      .des
+        font-size: 14px
+        font-weight: 400
+        line-height: 26px
+        letter-spacing: 0.02em
+        color: inherit
+        min-height: 160px
+        padding-bottom: 50px
+        max-width: 495px
 
   .img-right
     .content
