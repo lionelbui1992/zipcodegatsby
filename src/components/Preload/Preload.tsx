@@ -10,6 +10,18 @@ export const Preload = (): JSX.Element => {
 
     const preloadElement = document.querySelector('.preload');
 
+    const text = gsap.timeline({
+      delay: 0,
+    });
+    text.to("#text-1", { text: "A Bold", duration: 0.25, delay: 0, ease: "none" });
+    text.to("#text-2", { text: "New Vision", duration: 0.25, delay: 0.5, ease: "none" })
+
+    const underLine = gsap.timeline({
+      delay: 0,
+    });
+    underLine.to("#underline-1", { width: "100%", duration: 0.5, delay: 0.35, ease: "none" });
+    underLine.to("#underline-2", { width: "100%", duration: 0.5, delay: 0.25, ease: "none" });
+
     const tl = gsap.timeline({
       // repeat: -1,
       // yoyo: true,
@@ -18,13 +30,13 @@ export const Preload = (): JSX.Element => {
       // defaults: { ease: "power3.inOut" }
     });
 
-    tl.to(".textZ", { duration: 1, x: "-90vw", y: "-60vh" })
-    tl.to(".textZ", { duration: 1, x: "-30vw", y: "-60vh" })
-    tl.to(".textZ", { duration: 1, x: "-75vw", y: "-30vh" })
+    tl.to(".textZ", { duration: 1, x: "-86vw", y: "-64vh" })
+    tl.to(".textZ", { duration: 1, x: "-44vw", y: "-64vh" })
+    tl.to(".textZ", { duration: 1, x: "-72vw", y: "-40vh" })
     tl.to(".textZ", { duration: 1, fontSize: "500vw" })
-      .call(() => {
-        preloadElement?.classList.remove('loading');
-      });
+      // .call(() => {
+      //   preloadElement?.classList.remove('loading');
+      // });
 
 
     const textZ = gsap.timeline({
@@ -65,6 +77,7 @@ export const Preload = (): JSX.Element => {
         <img id="preload-image-1" className="preload-image animated animatedFadeInUp fadeInUp-1" src="https://maasi2404zip.merket.io/wp-content/uploads/2024/01/svg-shape-back.svg" />
         <img id="preload-image-2" className="preload-image animated animatedFadeInUp fadeInUp-2" src="https://maasi2404zip.merket.io/wp-content/uploads/2024/01/pexels-helena-lopes-1015568-scaled.jpg" />
         <img id="preload-image-3" className="preload-image animated animatedFadeInUp fadeInUp-3" src="https://maasi2404zip.merket.io/wp-content/uploads/2024/01/image-2.png" />
+        <img id="preload-image-4" className="preload-image animated animatedFadeInUp fadeInUp-4" src="https://maasi2404zip.merket.io/wp-content/uploads/2024/01/svg-khung-luoi.svg" />
       </div>
       <div className="preload-text">
         <div className="wordToUnderline">

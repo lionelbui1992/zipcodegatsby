@@ -1,9 +1,11 @@
 import type { GatsbyConfig } from "gatsby";
-
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `zipcode`,
-    siteUrl: `https://www.yourdomain.tld`
+    siteUrl: process.env.SITE_URL
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
@@ -12,7 +14,7 @@ const config: GatsbyConfig = {
   plugins: [{
     resolve: 'gatsby-source-wordpress',
     options: {
-      "url": "https://maasi2404zip.merket.io/graphql"
+      "url": process.env.WPGRAPHQL_URL
     }
   }, "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp", "gatsby-plugin-sass"]
 };

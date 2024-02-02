@@ -1,0 +1,89 @@
+$paddingTop: var(--paddingTop)
+.phi-banner-container
+  margin-top: #{$paddingTop}
+  background-size: cover
+  .label
+    font-size: 12px
+    font-weight: 600
+    line-height: 17px
+    letter-spacing: 0.01em
+    text-transform: uppercase
+    color: #1E1E1E
+    @media screen and (max-width: 1440.98px)
+      margin-top: -40px
+    @media screen and (max-width: 767.98px)
+      font-size: 16px
+      line-height: 24px
+      margin-top: -28px
+
+  .content
+    display: flex
+    flex-wrap: nowrap
+    justify-content: space-between
+    padding: 92px 0 165px
+    @media screen and (max-width: 1440.98px)
+      padding: 102px 0 33px
+    @media screen and (max-width: 767.98px)
+      flex-wrap: wrap
+      padding: 107px 0 73px
+      gap: 85px
+
+  .banner-title
+    font-size: 64px
+    font-weight: 600
+    line-height: 68px
+    color: #000
+    margin-top: 60px
+    margin-bottom: 0
+    max-width: 650px
+    @media screen and (max-width: 1440.98px)
+      margin-top: 36px
+
+    @media screen and (max-width: 767.98px)
+      font-size: 50px
+      font-weight: 600
+      line-height: 64px
+
+  .banner-des
+    font-size: 14px
+    font-weight: 400
+    line-height: 26px
+    letter-spacing: 0.02em
+    margin-top: 85px
+    color: #000
+    max-width: 495px
+
+    @media screen and (max-width: 767.98px)
+      font-size: 20px
+      font-weight: 400
+      line-height: 36px
+      max-width: unset
+      margin-top: 40px
+
+  .text-container
+    width: 50%
+    display: flex
+    flex-wrap: wrap
+    align-content: center
+    padding-top: 40px
+    @media screen and (max-width: 1440.98px)
+      width: 55%
+      padding-top: 0
+      align-content: flex-start
+    @media screen and (max-width: 767.98px)
+      width: 100%
+
+  .image-container
+    width: 40.55%
+    position: relative
+    @media screen and (max-width: 1440.98px)
+      width: 41.55%
+    @media screen and (max-width: 767.98px)
+      width: 100%
+    .image
+      padding-bottom: 90.9226%
+      width: 100%
+      background-size: cover
+      background-repeat: no-repeat
+      background-position: center
+
