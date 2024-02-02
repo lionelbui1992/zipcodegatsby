@@ -1,5 +1,9 @@
 import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+
+
 import './style.sass';
 export const ImageAnimation = (props): JSX.Element => {
 
@@ -8,9 +12,6 @@ export const ImageAnimation = (props): JSX.Element => {
     const mainImage = useRef(null);
     const col = 12;
     const row = 12;
-
-    console.log(['axis', axis])
-    console.log(['from', from])
 
     useEffect(() => {
         const canvas = image.current;
@@ -44,7 +45,7 @@ export const ImageAnimation = (props): JSX.Element => {
         }
 
         const tl = gsap.timeline({
-            repeat: -1, repeatDelay: 0.5
+            repeat: 0, repeatDelay: 0.5
         });
 
         const cells = canvas.querySelectorAll('.cell');
@@ -52,8 +53,7 @@ export const ImageAnimation = (props): JSX.Element => {
             duration: duration ?? .8,
             scale: 0,
             y: 40,
-            yoyo: true,
-            repeat: 1,
+            repeat: 0,
             ease: "none",
             stagger: {
                 amount: 1,
@@ -62,6 +62,13 @@ export const ImageAnimation = (props): JSX.Element => {
                 grid: "auto"
             }
         });
+        ScrollTrigger.create({
+            trigger: canvas,
+            start: "top 90%",
+            end: "bottom bottom",
+            animation: tl,
+            markers: true
+        })
     }, [src])
 
     return (
