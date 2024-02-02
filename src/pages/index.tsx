@@ -41,7 +41,7 @@ const IndexPage: React.FC<PageProps> = () => {
         <TextMarquee />
       </div>
       <div className="scroll-section introduce" data-speed="1.2"><Introduce /></div>
-      <div className="scroll-section item4" data-speed="1.4"><Company /></div>
+      <div className="scroll-section company" data-speed="1.4"><Company /></div>
       <div className="scroll-section item5" data-speed="1.7"><Explore /></div>
       <div className="scroll-section item6" data-speed="2"><ContactForm /></div>
     </div>
