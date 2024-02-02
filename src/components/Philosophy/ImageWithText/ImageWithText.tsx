@@ -19,23 +19,33 @@ export const ImageWithText = ({
   isDarkBackground,
 }: Props): JSX.Element => {
   return (
-    <div className={`phi-content-container ${isDarkBackground ? 'bg-black' : ''}`} style={{backgroundImage: "url("+backgroundUrl+")"}}>
-      <div className={`container ${index % 2 === 0 ? "img-right" : "img-left"}`}>
-        <div className="image-container img-dk">
-          <div className="image" style={{backgroundImage: "url("+imgUrl+")"}}></div>
-        </div>
-        <div className="content">
-          <div className="label">{index < 10 ? '0'+index : index}</div>
-          <div className="text-container">
-            <div className="title">{title}</div>
-            <div className="image-container img-mb">
-              <div className="image" style={{backgroundImage: "url("+imgUrl+")"}}></div>
-            </div>
-            <div className="des">{des}</div>
+    <>
+      { (title || des || imgUrl ) && 
+        <div className={`phi-content-container ${isDarkBackground ? 'bg-black' : ''}`} style={{backgroundImage: "url("+backgroundUrl+")"}}>
+          <div className={`container ${index % 2 === 0 ? "img-right" : "img-left"}`}>
+            { imgUrl && 
+              <div className="image-container img-dk">
+                <div className="image" style={{backgroundImage: "url("+imgUrl+")"}}></div>
+              </div>
+            }
+            { ( imgUrl || des ) && 
+              <div className="content">
+                <div className="label">{index < 10 ? '0'+index : index}</div>
+                <div className="text-container">
+                  { title && <div className="title">{title}</div> }
+                  { imgUrl && 
+                    <div className="image-container img-mb">
+                      <div className="image" style={{backgroundImage: "url("+imgUrl+")"}}></div>
+                    </div>
+                  }
+                  { des && <div className="des">{des}</div> }
+                </div>
+              </div>
+            }
           </div>
         </div>
-      </div>
-    </div>
+      }
+    </>
   );
 }
 export default ImageWithText;

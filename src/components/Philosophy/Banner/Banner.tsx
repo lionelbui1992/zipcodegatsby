@@ -17,20 +17,28 @@ export const Banner = ({
   bannerBackground,
 }: Props): JSX.Element => {
   return (
-    <div className="phi-banner-container" style={{backgroundImage: "url("+bannerBackground+")"}}>
-      <div className="container">
-        <div className="content">
-          <div className="text-container">
-            <div className="label">{label}</div>
-            <h1 className="banner-title">{bannerTitle}</h1>
-            <div className="banner-des">{bannerDescription}</div>
-          </div>
-          <div className="image-container">
-            <div className="image" style={{backgroundImage: "url("+bannerImageUrl+")"}}></div>
+    <>
+      { (label || bannerTitle || bannerDescription || bannerImageUrl) && 
+        <div className="phi-banner-container" style={{backgroundImage: "url("+bannerBackground+")"}}>
+          <div className="container">
+            <div className="content">
+              { (label || bannerTitle || bannerDescription) && 
+                <div className="text-container">
+                  { label && <div className="label">{label}</div> }
+                  { bannerTitle && <h1 className="banner-title">{bannerTitle}</h1> }
+                  { bannerDescription && <div className="banner-des">{bannerDescription}</div> }
+                </div>
+              }
+              { bannerImageUrl && 
+                <div className="image-container">
+                  <div className="image" style={{backgroundImage: "url("+bannerImageUrl+")"}}></div>
+                </div>
+              }
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+      }
+    </>
   );
 }
 export default Banner;

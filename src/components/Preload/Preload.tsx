@@ -10,6 +10,18 @@ export const Preload = (): JSX.Element => {
 
     const preloadElement = document.querySelector('.preload');
 
+    const text = gsap.timeline({
+      delay: 0,
+    });
+    text.to("#text-1", { text: "A Bold", duration: 0.25, delay: 0, ease: "none" });
+    text.to("#text-2", { text: "New Vision", duration: 0.25, delay: 0.5, ease: "none" })
+
+    const underLine = gsap.timeline({
+      delay: 0,
+    });
+    underLine.to("#underline-1", { width: "100%", duration: 0.5, delay: 0.35, ease: "none" });
+    underLine.to("#underline-2", { width: "100%", duration: 0.5, delay: 0.25, ease: "none" });
+
     const tl = gsap.timeline({
       // repeat: -1,
       // yoyo: true,

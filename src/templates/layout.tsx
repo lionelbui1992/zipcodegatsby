@@ -15,12 +15,10 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     const smoother = useRef();
     useEffect(
         () => {
-            console.log(smoother.current)
             smoother.current = ScrollSmoother.create({
-                smooth: 3, // seconds it takes to "catch up" to native scroll position
-                effects: true, // look for data-speed and data-lag attributes on elements and animate accordingly
+                smooth: .8, // seconds it takes to "catch up" to native scroll position
+                effects: false, // look for data-speed and data-lag attributes on elements and animate accordingly
             });
-
 
         }, [smoother]);
 
@@ -34,9 +32,10 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                         <main>
                             <div id="smooth-content">
                                 {children}
+                                <FooterWrapper />
                             </div>
                         </main>
-                        <FooterWrapper />
+
                     </div>
                 </div>
                 <ClipPath />
