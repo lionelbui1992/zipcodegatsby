@@ -44,11 +44,22 @@ export const Banner = (): JSX.Element => {
                 document.querySelector('html')!.classList.remove('active-overlay');
             }
         });
-    })
+    }, [])
+
+    const popupOverlay = () => {
+        document.querySelector('html')!.classList.remove('active-overlay');
+        document.querySelectorAll(".projects-popup-item").forEach((element: HTMLElement) => {
+            element.classList.remove('active-popup');
+        });
+        document.querySelectorAll(".projects-popup").forEach((element: HTMLElement) => {
+            element.classList.remove('active-popup');
+        });
+    }   
+
     return (
         <>
             <section className="projects-banner projects-section">
-                <div className="poup-overlay"></div>
+                <div className="poup-overlay" onClick={() => popupOverlay()}></div>
                 <div className="section-bkg">
                     <img loading="lazy" srcSet="/img/page-privacy-policy-bkg.png" />
                 </div>

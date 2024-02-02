@@ -106,7 +106,7 @@ const PrivacyPolicy: React.FC<PageProps> = () => {
           </div> 
         </section>
       </div>
-      <style jsx>{`
+      <style>{`
         .privacy-policy-page .section-banner {
             position: relative;
             padding: 310px 0 181px;
