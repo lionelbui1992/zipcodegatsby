@@ -3,11 +3,14 @@ import gsap from "gsap";
 import './style.sass';
 export const ImageAnimation = (props): JSX.Element => {
 
-    const { src, alt, width, height } = props;
+    const { src, alt, width, height, axis, from, duration } = props;
     const image = useRef(null);
     const mainImage = useRef(null);
     const col = 12;
     const row = 12;
+
+    console.log(['axis', axis])
+    console.log(['from', from])
 
     useEffect(() => {
         const canvas = image.current;
@@ -46,15 +49,17 @@ export const ImageAnimation = (props): JSX.Element => {
 
         const cells = canvas.querySelectorAll('.cell');
         tl.from(cells, {
-            duration: 1,
+            duration: duration ?? .8,
             scale: 0,
             y: 40,
             yoyo: true,
             repeat: 1,
-            ease: "power1.inOut",
+            ease: "none",
             stagger: {
                 amount: 1,
-                from: "random"
+                axis: axis ?? false,
+                from: from ?? 'random',
+                grid: "auto"
             }
         });
     }, [src])
