@@ -1,5 +1,6 @@
 import * as React from "react"
 import "../styles.css"
+import "../assets/sass/styleguide.sass"
 import { Slice } from "gatsby"
 import { useRef, useEffect } from "react";
 import { gsap } from 'gsap';
