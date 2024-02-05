@@ -17,7 +17,7 @@ const colorHeader = (isHeaderBlack:boolean, mainLogoWhite:string, setMainLogo:an
   setTextColorHeader('#fff');
 }
 
-export const Header = ({
+export const HeaderInner = ({
   mainLogoBlack,
   mainLogoWhite
 }: Props): JSX.Element => {
@@ -153,7 +153,7 @@ export const Header = ({
   );
 };
 
-Header.propTypes = {
+HeaderInner.propTypes = {
   property1: PropTypes.oneOf(["desktop"]),
   buttonsProperty1: PropTypes.string,
   line: PropTypes.string,

@@ -5,7 +5,7 @@ import "./style.sass";
 
 gsap.registerPlugin(TextPlugin);
 
-export const Preload = (): JSX.Element => {
+export default function Preload(): JSX.Element {
   useEffect(() => {
 
     const preloadElement = document.querySelector('.preload');

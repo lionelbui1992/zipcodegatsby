@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
-import "./footer.sass";
+import "./FooterWrapper/footer.sass";
 import { Link } from "gatsby"
-import SectionLink from "./SectionLink";
+import SectionLink from "./FooterWrapper/SectionLink";
 import gsap from "gsap";
 
-export const FooterWrapper = (): JSX.Element => {
+export default function Footer(): JSX.Element {
   const titleLeft = 'Want to hear more?';
   const textLeft = 'Speak to us to learn more or if you are looking for something out of the ordinary.';
   const buttonLeft = 'Contact us';
