@@ -16,13 +16,16 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@apollo/client": "^3.9.2",
     "@gsap/react": "^2.1.0",
     "gatsby": "^5.13.1",
+    "gatsby-plugin-apollo": "^4.0.3",
     "gatsby-plugin-image": "^3.13.1",
     "gatsby-plugin-sass": "^6.13.1",
     "gatsby-plugin-sharp": "^5.13.1",
     "gatsby-source-wordpress": "^7.13.2",
     "gatsby-transformer-sharp": "^5.13.1",
+    "graphql": "^16.8.1",
     "gsap": "^3.12.5",
     "gsap-trial": "^3.12.5",
     "react": "^18.2.0",
@@ -34,6 +37,9 @@
     "@types/node": "^20.10.6",
     "@types/react": "^18.2.46",
     "@types/react-dom": "^18.2.18",
+    "apollo-link-error": "^1.1.13",
+    "apollo-link-token-refresh": "^0.6.1",
+    "jwt-decode": "^4.0.0",
     "swiper": "^11.0.5",
     "typescript": "^5.3.3"
   }

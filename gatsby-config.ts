@@ -16,7 +16,8 @@ const config: GatsbyConfig = {
     options: {
       "url": process.env.WPGRAPHQL_URL
     }
-  }, "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp", "gatsby-plugin-sass"]
-};
+  }, "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp", "gatsby-plugin-sass",
+  "gatsby-plugin-apollo"
+]};
 
 export default config;
