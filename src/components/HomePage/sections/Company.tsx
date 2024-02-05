@@ -8,21 +8,21 @@ export const Company = (): JSX.Element => {
     const animationBox = useRef(null);
     const Cwrapper = useRef(null);
 
-    useEffect(() => {
-        let box = animationBox.current
-        let container = Cwrapper.current
-        if (!box) return
-        let tl = gsap.fromTo(box, { yPercent: 200 }, { yPercent: -300, duration: 5 })
-        ScrollTrigger.create({
-            trigger: container,
-            start: "top top",
-            end: "bottom bottom",
-            pin: true,
-            animation: tl,
-            scrub: true,
-            markers: true
-        })
-    }, [])
+    // useEffect(() => {
+    //     let box = animationBox.current
+    //     let container = Cwrapper.current
+    //     if (!box) return
+    //     let tl = gsap.fromTo(box, { yPercent: 200 }, { yPercent: -300, duration: 15 })
+    //     ScrollTrigger.create({
+    //         trigger: container,
+    //         start: "top top",
+    //         end: "bottom bottom",
+    //         pin: true,
+    //         animation: tl,
+    //         scrub: true,
+    //         markers: true
+    //     })
+    // }, [])
 
     return (
         <div className="section section-company" ref={Cwrapper}>

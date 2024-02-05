@@ -44,31 +44,30 @@ export const ImageAnimation = (props): JSX.Element => {
             }
         }
 
-        const tl = gsap.timeline({
-            repeat: 0, repeatDelay: 0.5
-        });
+        // const tl = gsap.timeline({
+        //     repeat: 0, repeatDelay: 0.5
+        // });
 
-        const cells = canvas.querySelectorAll('.cell');
-        tl.from(cells, {
-            duration: duration ?? .8,
-            scale: 0,
-            y: 40,
-            repeat: 0,
-            ease: "none",
-            stagger: {
-                amount: 1,
-                axis: axis ?? false,
-                from: from ?? 'random',
-                grid: "auto"
-            }
-        });
-        ScrollTrigger.create({
-            trigger: canvas,
-            start: "top 90%",
-            end: "bottom bottom",
-            animation: tl,
-            markers: true
-        })
+        // const cells = canvas.querySelectorAll('.cell');
+        // tl.from(cells, {
+        //     duration: duration ?? .5,
+        //     scale: 0,
+        //     y: 40,
+        //     repeat: 0,
+        //     ease: "none",
+        //     stagger: {
+        //         amount: 1,
+        //         axis: axis ?? false,
+        //         from: from ?? 'random',
+        //         grid: "auto"
+        //     }
+        // });
+        // ScrollTrigger.create({
+        //     trigger: canvas,
+        //     start: "top center",
+        //     animation: tl,
+        //     markers: true
+        // })
     }, [src])
 
     return (

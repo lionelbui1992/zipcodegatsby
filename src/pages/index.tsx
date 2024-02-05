@@ -14,17 +14,77 @@ gsap.registerPlugin(ScrollTrigger);
 const IndexPage: React.FC<PageProps> = () => {
   const container = useRef(null);
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.utils.toArray('.pinning').forEach((item) => {
-      ScrollTrigger.create({
-        trigger: item,
+
+    if (!container) return;
+
+    const absoluteSections = document.querySelectorAll('.scroll-section .relative-section');
+    const totalHeight = [...absoluteSections].reduce((acc, section) => {
+      section.classList.replace('relative-section', 'absolute-section'); // Replace class
+      return acc + section.offsetHeight;
+    }, 0);;
+
+    document.querySelector('.pinning-2').style.height = totalHeight + 'px';
+
+    ScrollTrigger.create({
+      trigger: ".pinning-1",
+      start: "top top",
+      end: "bottom top",
+      pin: true,
+      pinSpacing: false,
+      markers: false,
+      scrub: false
+    });
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".pinning-2",
         start: "top top",
-        end: "bottom top",
+        end: totalHeight,
         pin: true,
         pinSpacing: false,
+        scrub: 0.01,
         markers: true
+      },
+      ease: "none",
+      smoothChildTiming: true
+
+    });
+    tl.to(".item-1", { yPercent: -100, })
+    tl.fromTo(".c-image", { yPercent: 100 }, { yPercent: -200, })
+    tl.to(".item-2", { yPercent: -100, })
+
+
+
+    gsap.utils.toArray(".pixelate-container").forEach((item) => {
+      let tl2 = gsap.timeline({
+        repeat: 0, repeatDelay: 0.5,
+        scrollTrigger: {
+          trigger: item,
+          start: "top bottom",
+          end: "+=500",
+          animation: tl,
+          markers: true
+        }
       });
+
+      let cells = item.querySelectorAll('.cell');
+      tl2.from(cells, {
+        duration: 1.5,
+        scale: 0,
+        y: 40,
+        repeat: 0,
+        ease: "none",
+        stagger: {
+          amount: 1,
+          axis: false,
+          from: 'random',
+          grid: "auto"
+        }
+      });
+
     })
+
+
 
     return () => {
       // Kill all ScrollTriggers on unmount
@@ -36,14 +96,15 @@ const IndexPage: React.FC<PageProps> = () => {
   return (
     <div className="scrollTrigger" ref={container}>
       {/* <div className="scroll-section item1" data-speed="0.5"><BannerPreload /></div> */}
-      <div className="scroll-section item2 pinning" data-speed="0.8">
+      <div className="scroll-section pinning-1" data-speed="0.2">
         <Banner />
         <TextMarquee />
       </div>
-      <div className="scroll-section introduce" data-speed="1.2"><Introduce /></div>
-      <div className="scroll-section company" data-speed="1.4"><Company /></div>
-      <div className="scroll-section item5" data-speed="1.7"><Explore /></div>
-      <div className="scroll-section item6" data-speed="2"><ContactForm /></div>
+      <div className="scroll-section pinning-2 company" data-speed="0.3">
+        <div className="relative-section item-1"><Introduce /></div>
+        <div className="relative-section item-2"><Company /></div>
+        <div className="absolute-section item-3"><Explore /></div>
+      </div>
     </div>
   );
 };
