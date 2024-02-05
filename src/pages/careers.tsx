@@ -3,6 +3,9 @@ import type { HeadFC, PageProps } from "gatsby"
 import { Banner } from "../components/Careers/Banner";
 import { Life } from "../components/Careers/Life";
 import { OurCulture } from "../components/Careers/OurCulture";
+import { TextMarquee } from "../components/TextMarquee";
+import { OurValues } from "../components/Careers/OurValues";
+import { CareerPerks } from "../components/Careers/CareerPerks";
 
 const Careers: React.FC<PageProps> = () => {
   const label = 'Passion. teamwork. Mindset.';
@@ -11,12 +14,41 @@ const Careers: React.FC<PageProps> = () => {
   const bannerImageUrl = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/careers-banner-image.jpg';
   const bannerBackground = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/01/bg-banner-grid.png';
 
-  const lifeTitle = 'Life @ zipcode';
+  const lifeTitle = 'Life @<br/> zipcode';
   const lifeBackground = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/careers-life-bkg.jpg';
 
   const OurCultureTitle = 'Our Culture';
-  const OurCultureimage = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/our-culture-image.png';
+  const OurCultureImage = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/our-culture-image.png';
   const OurCultureContent = 'We team up with the best talent to enhance our projects in the construction and real estate industry to new heights level. Moreover, we value open communication and collaboration. Our goal is to create an environment where you can thrive both personally and professionally.';
+  
+  const OurValuesTitle = 'Our Values';
+  const OurValuesContents = [
+    {
+      title:        "Integrity", 
+      imgUrl:       'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-2.png',
+      imgSecondUrl: 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-6.png',
+    },
+    {
+      title:        "Ambition", 
+      imgUrl:       'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-5.png',
+      imgSecondUrl: 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-10.png',
+    },
+    {
+      title:        "Growth Mindset", 
+      imgUrl:       'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-3.png',
+      imgSecondUrl: 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-8.png',
+    },
+    {
+      title:        "Accountability", 
+      imgUrl:       'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-1.png',
+      imgSecondUrl: 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-7.png',
+    },
+    {
+      title:        "Leadership and Collaboration", 
+      imgUrl:       'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-4.png',
+      imgSecondUrl: 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-9.png',
+    }
+  ]
 
   return (
     <>
@@ -34,9 +66,15 @@ const Careers: React.FC<PageProps> = () => {
         />
         <OurCulture
           OurCultureTitle = {OurCultureTitle}
-          OurCultureimage = {OurCultureimage}
+          OurCultureImage = {OurCultureImage}
           OurCultureContent = {OurCultureContent}
         />
+        <OurValues 
+          OurValuesTitle = {OurValuesTitle}
+          OurValuesContents = {OurValuesContents}
+        />
+        <TextMarquee />
+        <CareerPerks />
       </div>          
     </>
   );
