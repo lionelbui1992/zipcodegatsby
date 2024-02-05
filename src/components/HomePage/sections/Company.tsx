@@ -12,13 +12,12 @@ export const Company = (): JSX.Element => {
         let box = animationBox.current
         let container = Cwrapper.current
         if (!box) return
-        let tl = gsap.fromTo(box, { yPercent: 200 }, { yPercent: -300, duration: 2 })
+        let tl = gsap.fromTo(box, { yPercent: 200 }, { yPercent: -300, duration: 5 })
         ScrollTrigger.create({
             trigger: container,
             start: "top top",
             end: "bottom bottom",
             pin: true,
-            pinSpacing: false,
             animation: tl,
             scrub: true,
             markers: true
