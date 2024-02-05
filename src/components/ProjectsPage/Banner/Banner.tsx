@@ -13,7 +13,8 @@ export const Banner = (): JSX.Element => {
                 
             const modalOffsetTop = (): void => {
                 const btnTop: number = btn.offsetTop;
-                (document.getElementById(modal) as HTMLElement).style.cssText = "--offsetTop: " +btnTop+ 'px';
+                console.log(btnTop);
+                document.getElementById(modal).style.setProperty("--offsetTop", `${btnTop}px`);
             };
                 
             window.addEventListener("resize", modalOffsetTop);
