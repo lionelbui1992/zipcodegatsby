@@ -1,32 +1,40 @@
 import * as React from "react"
-import { Link, HeadFC, PageProps } from "gatsby"
-import { NotFound } from "../components/NotFound"
+import { useRef, useEffect } from "react";
+import { HeadFC, PageProps } from "gatsby";
+import { NotFound } from "../components/NotFound";
+import { gsap } from 'gsap';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const pageStyles = {
-  color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
+gsap.registerPlugin(ScrollTrigger);
 
 const NotFoundPage: React.FC<PageProps> = () => {
+  const container = useRef(null);
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.utils.toArray('.pinning').forEach((item) => {
+      ScrollTrigger.create({
+        trigger: item,
+        start: "top top",
+        end: "bottom top",
+        pin: true,
+        pinSpacing: false,
+        markers: true
+      });
+    })
+
+    return () => {
+      // Kill all ScrollTriggers on unmount
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
   return (
-    <NotFound />
+    <div className="page-404 not-found text-center">
+      <section className="section-404">
+        <div className="scrollTrigger" ref={container}>
+          <NotFound />
+        </div>
+      </section>
+    </div>
   )
 }
 

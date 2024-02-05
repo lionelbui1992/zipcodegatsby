@@ -83,20 +83,25 @@
             margin-bottom: 0
             line-height: 86.322px
             letter-spacing: -1.5px
-
+    
 .projects-popup
-    display: none
     position: absolute
-    top: calc(var(--offsetTop) + 248px)
+    top: calc(var(--offsetTop) + 221px)
     width: 100%
     z-index: 9
     border-radius: 31.304px
     overflow: hidden
     padding: 88px 0 91px
     color: #ffffff
+    opacity: 0
+    visibility: hidden
+    transform: translateY(100%)
+    transition: all 1s
     
     &.active-popup
-        display: block
+        opacity: 1
+        visibility: visible
+        transform: translateY(0)
 
     .section-bkg
         border-radius: 31.304px
@@ -140,6 +145,11 @@
         margin-top: 30px
     
     .popup-galleries 
+        overflow: visible
+        
+        .swiper
+            overflow: visible
+
         .swiper-slide
             width: auto
 
@@ -180,6 +190,12 @@
         .swiper-button-next.swiper-button-disabled
             opacity: 0
 
+        .swiper-button-prev
+            left: -35px
+
+        .swiper-button-next
+            right: -35px
+
 .popup-content.visible-mobile,
 .visible-tablet, 
 .visible-mobile
@@ -199,7 +215,7 @@
             margin: 0
 
     .projects-popup 
-        top: calc(var(--offsetTop) + 198px)
+        // top: calc(var(--offsetTop) + 198px)
         padding: 88px 0 57px
 
         .popup-content
@@ -224,7 +240,6 @@
 
             .item-gallery img
                 height: 309px
-               
             
 @media (max-width: 1300px)
     .projects-items
@@ -238,6 +253,16 @@
             top: -53px
 
 @media (max-width: 1199px)
+    .active-overlay .poup-overlay
+        z-index: 2
+        position: fixed
+        width: 100%
+        height: 100%
+        background-color: #000000
+        opacity: 0.5
+        top: 0
+        left: 0
+        
     .visible-tablet
         display: inline-flex
 
