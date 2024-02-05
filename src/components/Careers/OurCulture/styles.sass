@@ -1,10 +1,10 @@
 .our-culture-box 
     border-radius: 45px
-    background: var(--Color-neutrals-white)
+    background: #E1E1E1
     position: relative
     z-index: 1
-    padding: 96px 0 113px
-    margin-top: -53px
+    padding: 96px 0 134px
+    margin-top: -60px
 
     .column-box
         display: flex
@@ -55,11 +55,24 @@
             max-width: 418px
 
 @media (max-width: 1199px)
-    .our-culture-box
-        padding: 81px 0 50px
+    .our-culture-box .column-box
+        .column-title
+            width: 50%
 
-        .column-box
-            gap: 66px
+        .column-image
+            width: 40%
+            max-width: 212px
+            margin-left: auto
+            margin-top: 0
+
+        .column-content
+            width: 100%
+            margin-top: 50px
+            margin-right: 0
+
+    .our-values-box .our-values-items .item .image-inner
+        height: 250px
+
 
 @media (max-width: 767px)
     .our-culture-box

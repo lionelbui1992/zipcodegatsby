@@ -6,6 +6,7 @@ import { OurCulture } from "../components/Careers/OurCulture";
 import { TextMarquee } from "../components/TextMarquee";
 import { OurValues } from "../components/Careers/OurValues";
 import { CareerPerks } from "../components/Careers/CareerPerks";
+import { AvailablePositions } from "../components/Careers/AvailablePositions";
 
 const Careers: React.FC<PageProps> = () => {
   const label = 'Passion. teamwork. Mindset.';
@@ -24,19 +25,9 @@ const Careers: React.FC<PageProps> = () => {
   const OurValuesTitle = 'Our Values';
   const OurValuesContents = [
     {
-      title:        "Integrity", 
-      imgUrl:       'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-2.png',
-      imgSecondUrl: 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-6.png',
-    },
-    {
       title:        "Ambition", 
       imgUrl:       'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-5.png',
       imgSecondUrl: 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-10.png',
-    },
-    {
-      title:        "Growth Mindset", 
-      imgUrl:       'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-3.png',
-      imgSecondUrl: 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-8.png',
     },
     {
       title:        "Accountability", 
@@ -44,9 +35,89 @@ const Careers: React.FC<PageProps> = () => {
       imgSecondUrl: 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-7.png',
     },
     {
+      title:        "Integrity", 
+      imgUrl:       'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-2.png',
+      imgSecondUrl: 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-6.png',
+    },
+    {
+      title:        "Growth Mindset", 
+      imgUrl:       'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-3.png',
+      imgSecondUrl: 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-8.png',
+    },
+    {
       title:        "Leadership and Collaboration", 
       imgUrl:       'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-4.png',
       imgSecondUrl: 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-9.png',
+    }
+  ]
+  
+  const PerksTitle = 'Perks<br/> at zipcode';
+  const PerksDesc = 'Just some of the reasons working here is so great.';
+  const PerksContent = [
+    {
+      title:    "Health and wellness", 
+      imgUrl:   "https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/Chang_Profile.png",
+      content:  "Your personal and professional development is a priority at Zipcode. Brainfood is a budget that you can spend on activities or trainings which help you develop your hard skill and soft skill.",
+    },
+    {
+      title:    "Brainfood (Training & Development)", 
+      imgUrl:   "https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/Roong_Profile.png",
+      content:  "Your personal and professional development is a priority at Zipcode. Brainfood is a budget that you can spend on activities or trainings which help you develop your hard skill and soft skill.",
+    },
+    {
+      title:    "Provident Fund", 
+      imgUrl:   "https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/CareerPerks-image-1.png",
+      content:  "Your personal and professional development is a priority at Zipcode. Brainfood is a budget that you can spend on activities or trainings which help you develop your hard skill and soft skill.",
+    },
+    {
+      title:    "Health and wellness", 
+      imgUrl:   "https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/Chang_Profile.png",
+      content:  "Your personal and professional development is a priority at Zipcode. Brainfood is a budget that you can spend on activities or trainings which help you develop your hard skill and soft skill.",
+    },
+    {
+      title:    "Brainfood (Training & Development)", 
+      imgUrl:   "https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/Roong_Profile.png",
+      content:  "Your personal and professional development is a priority at Zipcode. Brainfood is a budget that you can spend on activities or trainings which help you develop your hard skill and soft skill.",
+    },
+    {
+      title:    "Provident Fund", 
+      imgUrl:   "https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/CareerPerks-image-1.png",
+      content:  "Your personal and professional development is a priority at Zipcode. Brainfood is a budget that you can spend on activities or trainings which help you develop your hard skill and soft skill.",
+    }
+  ]
+  
+  const AvailableTitle = 'Available Positions';
+  const AvailableBackground = 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/careers-life-bkg.jpg';
+  const AvailableContent = [
+    {
+      content:  "Executive Assistant"
+    },
+    {
+      content:  "Senior Construction Manager / Civil construction manager"
+    },
+    {
+      content:  "Senior Project Development Architect"
+    },
+    {
+      content:  "Leasing Manager"
+    },
+    {
+      content:  "Facilities Coordinator"
+    },
+    {
+      content:  "Senior Business Development Manager"
+    },
+    {
+      content:  "Business Development Analyst"
+    },
+    {
+      content:  "People Manager"
+    },
+    {
+      content:  "Legal Officer"
+    },
+    {
+      content:  "Quantity Surveyor Manager"
     }
   ]
 
@@ -74,7 +145,16 @@ const Careers: React.FC<PageProps> = () => {
           OurValuesContents = {OurValuesContents}
         />
         <TextMarquee />
-        <CareerPerks />
+        <CareerPerks 
+          PerksTitle = {PerksTitle}
+          PerksDesc = {PerksDesc}
+          PerksContent = {PerksContent}
+        />
+        <AvailablePositions 
+          AvailableTitle = {AvailableTitle}
+          AvailableBackground = {AvailableBackground}
+          AvailableContent = {AvailableContent}
+        />
       </div>          
     </>
   );
