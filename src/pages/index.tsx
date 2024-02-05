@@ -9,25 +9,13 @@ import { TextMarquee } from "../components/TextMarquee";
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEOHead from "../components/head"
-
-interface PageProps {
-  data: {
-    page: {
-      id: string
-      title: string
-      slug: string
-      description: string
-      image: { id: string; url: string }
-      html: string
-    }
-  }
-}
+import { IPageProps } from "../shared/model/IPageProps";
 
 gsap.registerPlugin(ScrollTrigger);
 
 
 
-const IndexPage: React.FC<PageProps> = (props: PageProps) => {
+const IndexPage: React.FC<IPageProps> = (props: IPageProps) => {
   // const { page } = props.data
   const container = useRef(null);
   useEffect(() => {
@@ -69,7 +57,7 @@ const IndexPage: React.FC<PageProps> = (props: PageProps) => {
 
 export default IndexPage;
 
-export const Head = (props: PageProps) => {
+export const Head = (props: IPageProps) => {
   const { page } = props.data
   return <SEOHead {...page} />
 }
