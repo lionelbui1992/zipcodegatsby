@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
 import React, {useState, useEffect} from "react";
-import "./style.sass";
+import "../assets/sass/style.sass";
 import { Link } from "gatsby"
-import MenuBlack from "../../images/menu-black.svg"
-import MenuWhite from "../../images/menu-white.svg"
-import MenuClose from "../../images/menu-close-black.svg"
+import MenuBlack from "../images/menu-black.svg"
+import MenuWhite from "../images/menu-white.svg"
+import MenuClose from "../images/menu-close-black.svg"
 
 interface Props {
   mainLogoBlack: string;
@@ -17,10 +17,10 @@ const colorHeader = (isHeaderBlack:boolean, mainLogoWhite:string, setMainLogo:an
   setTextColorHeader('#fff');
 }
 
-export const Header = ({
+export default function Header({
   mainLogoBlack,
   mainLogoWhite
-}: Props): JSX.Element => {
+}: Props): JSX.Element {
 
   const [isHeaderBlack, setIsHeaderBlack] = useState(true);
   const [textColorHeader, setTextColorHeader] = useState('#1E1E1E');
