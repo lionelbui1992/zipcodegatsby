@@ -1,7 +1,7 @@
 import React from "react";
 // import "./style.sass";
 
-export const ClipPath = (): JSX.Element => {
+export default function ClipPath(): JSX.Element {
     return (
 
         <div className="preload-clippath">
