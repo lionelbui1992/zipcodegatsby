@@ -34,9 +34,9 @@ export default function Preload(): JSX.Element {
     tl.to(".textZ", { duration: 1, x: "-44vw", y: "-64vh" })
     tl.to(".textZ", { duration: 1, x: "-72vw", y: "-40vh" })
     tl.to(".textZ", { duration: 1, x: "-50vw", fontSize: "500vw" })
-    // .call(() => {
-    //   preloadElement?.classList.remove('loading');
-    // });
+      .call(() => {
+        preloadElement?.classList.remove('loading');
+      });
 
 
     const textZ = gsap.timeline({
