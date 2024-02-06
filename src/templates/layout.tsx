@@ -18,6 +18,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             smoother.current = ScrollSmoother.create({
                 smooth: .5, // seconds it takes to "catch up" to native scroll position
                 effects: false, // look for data-speed and data-lag attributes on elements and animate accordingly
+                speed: .5,
+                smoothTouch: 0.1
             });
 
         }, [smoother]);
