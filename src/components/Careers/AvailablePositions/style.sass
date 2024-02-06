@@ -9,18 +9,22 @@
         font-family: 'Tiempos Headline'
 
     .container
-        max-width: 1085px
+        max-width: 1450px
+        @media (max-width: 1600px) 
+            max-width: 1085px
 
     .available-items
         display: flex
         flex-wrap: wrap
         --gap:71px
-        --columns:3
+        --columns:4
         display: flex
         width: 100%
         flex-wrap: wrap
         gap: 53px var(--gap)
-        margin-top: 98px     
+        margin-top: 98px    
+        @media (max-width: 1600px)  
+            --columns:3
         
         @media (max-width: 1024px)
             --columns:2
