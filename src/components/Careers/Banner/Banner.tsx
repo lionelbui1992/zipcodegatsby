@@ -17,7 +17,7 @@ export const Banner = ({
   bannerBackground,
 }: Props): JSX.Element => {
   return (
-    <div className="phi-banner-container" style={{backgroundImage: "url("+bannerBackground+")"}}>
+    <div className="phi-banner-container careers-section" style={{backgroundImage: "url("+bannerBackground+")"}}>
       <div className="container">
         <div className="content">
           <div className="text-container">
