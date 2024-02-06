@@ -12,7 +12,7 @@
    *background-size: 100%;
    *position: relative;
    *width: 100%;
-   *height: 100vh;
+   *height: 100vh; */
 
   &.loading
     background-image: url(https://maasi2404zip.merket.io/wp-content/uploads/2024/01/image-4.jpg)
@@ -26,7 +26,7 @@
 .preload-elements
   position: absolute
   top: 50%
-  left: 50%
+  left: 49.8%
   transform: translate(-50%, -50%)
   max-width: 1320px
   max-height: 950px
@@ -48,22 +48,22 @@
   transform: translate(-50%, -50%)
 
 #preload-image-1
-  top: 1%
-  left: 9%
+  top: 0.5%
+  left: 8.7%
   width: 100%
   height: auto
   rotate: 5deg
-  max-width: 55%
+  max-width: 55.5%
 
 #preload-image-2
-  top: 23%
-  left: 4%
+  top: 22.5%
+  left: 3.8%
   width: 100%
   height: auto
   rotate: 5deg
-  max-width: 66.5%
+  max-width: 67.6%
 
-  /* position: absolute;
+  /* position: absolute;*/
 
 #preload-image-3
   top: 50%
@@ -71,51 +71,63 @@
   width: 100%
   height: auto
   rotate: 10deg
-  max-width: 65%
+  max-width: 67%
+
+#preload-image-4 
+  width: 100%
+  max-width: 29.5%
+  right: 0
+  top: auto
+  bottom: 10%
+  z-index: -1
+
 
 .preload-text
   position: absolute
-  color: white
+  color: #FFC107
   font-size: 20px
   height: auto
-  opacity: 0.75
-  top: 25%
-  right: 0
-
-  /* rotate: 5deg;
+  opacity: 0.45
+  top: 25.3%
+  right: 12%
   max-width: 600px
-  opacity: 0.75
+  text-transform: uppercase
+  font-size: 18px
+  display: flex
+  flex-direction: column
+  gap: 6px
+  font-weight: bold
 
 .textZ
-  font-size: 300px
+  font-size: 450px
   font-family: Zipcode
 
 .wordToUnderline
   position: relative
   display: block
-  width: 250px
+  width: 165px
 
 .underline
   position: absolute
-  background-color: white
+  background-color: #FFC107
   height: 2px
-  bottom: 0
+  bottom: -3px
   left: 0px
   z-index: 1
   width: 0
 
 @keyframes fadeInUp-1
   from
-    /* transform: translate3d(0, 40px, 0);
+    transform: translate3d(0, 100px, 0)
 
   to
     transform: translate3d(0, 0, 0)
     opacity: 1
-    rotate: -3deg
+    rotate: -2.5deg
 
 @keyframes fadeInUp-2
   from
-    transform: translate3d(0, 40px, 0)
+    transform: translate3d(-200px, 0, 0)
 
   to
     transform: translate3d(0, 0, 0)
@@ -125,7 +137,7 @@
 
 @keyframes fadeInUp-3
   from
-    transform: translate3d(0, 40px, 0)
+    transform: translate3d(200px, 0, 0)
 
   to
     transform: translate3d(0, 0, 0)
@@ -133,11 +145,24 @@
     rotate: 0deg
     left: 32%
 
-.animated
-  animation-duration: 1s
+@keyframes fadeInUp-4
+  from
+    transform: translate3d(0, 90px, 0)
+    opacity: 0.3
+    rotate: 4.5deg
+    left: 59.5%
+
+  to
+    transform: translate3d(0, 0, 0)
+    opacity: 1
+    rotate: 4.5deg
+    left: 59.5%
+
+.preload-image.animated
   animation-fill-mode: both
-  -webkit-animation-duration: 1s
   -webkit-animation-fill-mode: both
+  animation-duration: 1.5s
+  -webkit-animation-duration: 1.5s
 
 .animatedFadeInUp
   opacity: 0
@@ -146,21 +171,25 @@
   opacity: 0
   animation-name: fadeInUp-1
   -webkit-animation-name: fadeInUp-1
+  animation-delay: 0.2s
 
 .fadeInUp-2
   opacity: 0
   animation-name: fadeInUp-2
   -webkit-animation-name: fadeInUp-2
+  animation-delay: 0.4s
 
 .fadeInUp-3
   opacity: 0
   animation-name: fadeInUp-3
   -webkit-animation-name: fadeInUp-3
+  animation-delay: 0.6s
 
-/* .clipPath {
- *    width: 240px;
- *    height: 240px;
- *}
+.fadeInUp-4
+  opacity: 0
+  animation-name: fadeInUp-4
+  -webkit-animation-name: fadeInUp-4
+  animation-delay: 0.8s
 
 .global-wrapper
   background-color: #fff

@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.sass";
+// import "./style.sass";
 
 export const ClipPath = (): JSX.Element => {
     return (
