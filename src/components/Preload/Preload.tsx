@@ -33,10 +33,10 @@ export default function Preload(): JSX.Element {
     tl.to(".textZ", { duration: 1, x: "-86vw", y: "-64vh" })
     tl.to(".textZ", { duration: 1, x: "-44vw", y: "-64vh" })
     tl.to(".textZ", { duration: 1, x: "-72vw", y: "-40vh" })
-    tl.to(".textZ", { duration: 1, fontSize: "500vw" })
-      // .call(() => {
-      //   preloadElement?.classList.remove('loading');
-      // });
+    tl.to(".textZ", { duration: 1, x: "-50vw", fontSize: "500vw" })
+    // .call(() => {
+    //   preloadElement?.classList.remove('loading');
+    // });
 
 
     const textZ = gsap.timeline({
@@ -47,26 +47,26 @@ export default function Preload(): JSX.Element {
       // defaults: { ease: "power3.inOut" }
     });
 
-    textZ.to(".textZ", { duration: 0.2, text: "&#xe900;" })
-    textZ.to(".textZ", { duration: 0.2, text: "&#xe901;" })
-    textZ.to(".textZ", { duration: 0.2, text: "&#xe902;" })
-    textZ.to(".textZ", { duration: 0.2, text: "&#xe904;" })
-    textZ.to(".textZ", { duration: 0.2, text: "&#xe905;" })
-    textZ.to(".textZ", { duration: 0.2, text: "&#xe906;" })
-    textZ.to(".textZ", { duration: 0.2, text: "&#xe907;" })
+    textZ.to(".textZ", { duration: 0.175, text: "&#xe900;" })
+    textZ.to(".textZ", { duration: 0.175, text: "&#xe901;" })
+    textZ.to(".textZ", { duration: 0.175, text: "&#xe902;" })
+    textZ.to(".textZ", { duration: 0.175, text: "&#xe904;" })
+    textZ.to(".textZ", { duration: 0.175, text: "&#xe905;" })
+    textZ.to(".textZ", { duration: 0.175, text: "&#xe906;" })
+    textZ.to(".textZ", { duration: 0.175, text: "&#xe907;" })
     // tl.to(".textZ", { duration: 0.2, text:  text: "&#xe908;" })
-    textZ.to(".textZ", { duration: 0.2, text: "&#xe909;" })
-    textZ.to(".textZ", { duration: 0.2, text: "&#xe90b;" })
-    textZ.to(".textZ", { duration: 0.2, text: "&#xe90c;" })
-    textZ.to(".textZ", { duration: 0.2, text: "&#xe90d;" })
-    textZ.to(".textZ", { duration: 0.2, text: "&#xe90e;" })
-    textZ.to(".textZ", { duration: 0.2, text: "&#xe90f;" })
-    textZ.to(".textZ", { duration: 0.2, text: "&#xe910;" })
-    textZ.to(".textZ", { duration: 0.2, text: "&#xe911;" })
-    textZ.to(".textZ", { duration: 0.2, text: "&#xe912;" })
-    textZ.to(".textZ", { duration: 0.2, text: "&#xe913;" })
-    textZ.to(".textZ", { duration: 0.2, text: "&#xe914;" })
-    textZ.to(".textZ", { duration: 0.2, text: "&#xe90f;" })
+    textZ.to(".textZ", { duration: 0.175, text: "&#xe909;" })
+    textZ.to(".textZ", { duration: 0.175, text: "&#xe90b;" })
+    textZ.to(".textZ", { duration: 0.175, text: "&#xe90c;" })
+    textZ.to(".textZ", { duration: 0.175, text: "&#xe90d;" })
+    textZ.to(".textZ", { duration: 0.175, text: "&#xe90e;" })
+    textZ.to(".textZ", { duration: 0.175, text: "&#xe90f;" })
+    textZ.to(".textZ", { duration: 0.175, text: "&#xe910;" })
+    textZ.to(".textZ", { duration: 0.15, text: "&#xe911;" })
+    textZ.to(".textZ", { duration: 0.15, text: "&#xe912;" })
+    textZ.to(".textZ", { duration: 0.15, text: "&#xe913;" })
+    textZ.to(".textZ", { duration: 0.15, text: "&#xe914;" })
+    textZ.to(".textZ", { duration: 0.15, text: "&#xe90f;" })
 
   }, []);
 
