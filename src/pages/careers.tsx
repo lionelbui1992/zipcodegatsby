@@ -1,5 +1,4 @@
 import * as React from "react"
-import type { HeadFC, PageProps } from "gatsby"
 import { Banner } from "../components/Careers/Banner";
 import { Life } from "../components/Careers/Life";
 import { OurCulture } from "../components/Careers/OurCulture";
@@ -7,8 +6,13 @@ import { TextMarquee } from "../components/TextMarquee";
 import { OurValues } from "../components/Careers/OurValues";
 import { CareerPerks } from "../components/Careers/CareerPerks";
 import { AvailablePositions } from "../components/Careers/AvailablePositions";
+import { graphql } from "gatsby"
+import Layout from "../components/layout"
+import SEOHead from "../components/head"
+import { IPageProps } from "../shared/model/IPageProps";
 
-const Careers: React.FC<PageProps> = () => {
+const Careers: React.FC<IPageProps> = (props: IPageProps) => {
+  // const { page } = props.data
   const label = 'Passion. teamwork. Mindset.';
   const bannerTitle = "Seeking<br/> Passionate Souls ";
   const bannerDescription = '<h5>Embark on the Journey with Zipcode</h5>';
@@ -122,7 +126,7 @@ const Careers: React.FC<PageProps> = () => {
   ]
 
   return (
-    <>
+    <Layout>
       <div className="careers-page">
         <Banner 
           label={label} 
@@ -156,10 +160,28 @@ const Careers: React.FC<PageProps> = () => {
           AvailableContent = {AvailableContent}
         />
       </div>          
-    </>
+    </Layout>
   );
 }
 
 export default Careers
 
-export const Head: HeadFC = () => <title>Careers</title>
+export const Head = (props: IPageProps) => {
+  const { page } = props.data
+  return <SEOHead {...page} />
+}
+export const query = graphql`
+  query PageContent($id: String!) {
+    page(id: { eq: $id }) {
+      id
+      title
+      slug
+      description
+      image {
+        id
+        url
+      }
+      html
+    }
+  }
+`
