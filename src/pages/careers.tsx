@@ -23,6 +23,8 @@ const Careers: React.FC<IPageProps> = (props: IPageProps) => {
   const lifeBackground = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/careers-life-bkg.jpg';
   const lifeIconRow = 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/gallery-box-icon-row.svg';
   const lifeIconCol = 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/gallery-box-icon-col.svg';
+  const lifeImagePlaceholder1 = 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/life-zipcode-placeholder-1.png';
+  const lifeImagePlaceholder2 = 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/life-zipcode-placeholder-2.png';
   const lifeGallery = [
     {
       imgUrl: 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/gallery-image-1-1.png',
@@ -49,6 +51,8 @@ const Careers: React.FC<IPageProps> = (props: IPageProps) => {
   const OurCultureContent = 'We team up with the best talent to enhance our projects in the construction and real estate industry to new heights level. Moreover, we value open communication and collaboration. Our goal is to create an environment where you can thrive both personally and professionally.';
   
   const OurValuesTitle = 'Our Values';
+  const OurValuesImagePlaceholder1 = 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-placeholder-1.png';
+  const OurValuesImagePlaceholder2 = 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-placeholder-2.png';
   const OurValuesContents = [
     {
       title:        "Ambition", 
@@ -161,6 +165,8 @@ const Careers: React.FC<IPageProps> = (props: IPageProps) => {
         lifeBackground = {lifeBackground}
         lifeIconRow = {lifeIconRow}
         lifeIconCol = {lifeIconCol}
+        lifeImagePlaceholder1 = {lifeImagePlaceholder1}
+        lifeImagePlaceholder2 = {lifeImagePlaceholder2}
         lifeGallery = {lifeGallery}
       />
       <OurCulture
@@ -171,6 +177,8 @@ const Careers: React.FC<IPageProps> = (props: IPageProps) => {
       <OurValues 
         OurValuesTitle = {OurValuesTitle}
         OurValuesContents = {OurValuesContents}
+        OurValuesImagePlaceholder1 = {OurValuesImagePlaceholder1}
+        OurValuesImagePlaceholder2 = {OurValuesImagePlaceholder2}
       />
       <div className="careers-section">
         <TextMarquee />
