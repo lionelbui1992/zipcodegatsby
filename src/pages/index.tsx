@@ -38,7 +38,7 @@ const IndexPage: React.FC<IPageProps> = (props: IPageProps) => {
       pin: true,
       pinSpacing: false,
       markers: false,
-      scrub: false,
+      scrub: 0.0001,
       onUpdate: (self) => {
         if (document.querySelector('.item-2')) {
           document.querySelector('.item-2').style.opacity = '0';

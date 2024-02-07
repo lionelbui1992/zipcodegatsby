@@ -12,32 +12,34 @@ import { ZIcon } from "../components/HomePage/sections/ZIcon";
 gsap.registerPlugin(useGSAP, ScrollSmoother, ScrollTrigger);
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
-    const main = useRef();
     const smoother = useRef();
     useEffect(
         () => {
-            smoother.current = ScrollSmoother.create({
-                smooth: .5, // seconds it takes to "catch up" to native scroll position
-                effects: false, // look for data-speed and data-lag attributes on elements and animate accordingly
+            let scroller = ScrollSmoother.create({
+                smooth: .5,
+                effects: false,
                 speed: .5,
-                smoothTouch: 0.1
+                smoothTouch: 0.1,
+                wrapper: smoother.current
             });
-
+            // scroller.scrollTo(0);
         }, [smoother]);
 
     return (
-        <main className="preload loading  scrollWraper ScrollSmoother-wrapper viewport" ref={smoother}>
+        <div className="preload loading  scrollWraper ScrollSmoother-wrapper viewport" >
             <Preload />
             <ZIcon />
             <HeaderWrapper />
-            <div id="smooth-wrapper">
-                <div id="smooth-content">
-                    {children}
-                    <FooterWrapper />
+            <main>
+                <div id="smooth-wrapper" ref={smoother}>
+                    <div id="smooth-content">
+                        {children}
+                        <FooterWrapper />
+                    </div>
                 </div>
-            </div>
+            </main>
             <ClipPath />
-        </main>
+        </div>
     )
 
 }

@@ -6,13 +6,18 @@ import "./style.sass";
 gsap.registerPlugin(TextPlugin);
 
 export default function Preload(): JSX.Element {
+
+  const preload = useRef(null);
+
   useEffect(() => {
 
-    const preloadElement = document.querySelector('.preload');
+    let preloadElement = preload.current;
+
 
     const text = gsap.timeline({
       delay: 0,
     });
+
     text.to("#text-1", { text: "A Bold", duration: 0.25, delay: 0, ease: "none" });
     text.to("#text-2", { text: "New Vision", duration: 0.25, delay: 0.5, ease: "none" })
 
@@ -68,11 +73,21 @@ export default function Preload(): JSX.Element {
     textZ.to(".textZ", { duration: 0.15, text: "&#xe914;" })
     textZ.to(".textZ", { duration: 0.15, text: "&#xe90f;" })
 
-  }, []);
+
+
+
+    textZ.to(preloadElement, {
+      onComplete: () => {
+        preloadElement.remove();
+        document.querySelector('.preload-clippath')?.remove();
+      }
+    })
+
+  }, [preload]);
 
   return (
 
-    <div className="preload-elements">
+    <div className="preload-elements" ref={preload}>
       <div className="preload-images">
         <img id="preload-image-1" className="preload-image animated animatedFadeInUp fadeInUp-1" src="https://maasi2404zip.merket.io/wp-content/uploads/2024/01/svg-shape-back.svg" />
         <img id="preload-image-2" className="preload-image animated animatedFadeInUp fadeInUp-2" src="https://maasi2404zip.merket.io/wp-content/uploads/2024/01/pexels-helena-lopes-1015568-scaled.jpg" />
