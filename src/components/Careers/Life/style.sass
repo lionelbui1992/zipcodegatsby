@@ -9,23 +9,46 @@
 
     .container
         @media screen and (max-width: 1600.98px)
-            max-width: 1235px
+            max-width: 1232px
 
     .life-gallery
         display: flex
         flex-wrap: wrap
-        gap: 20px 16px
+        --gap: 16px
+        gap: 20px var(--gap)
         position: relative
 
     .section-content
         margin-top: 51px
         position: relative
 
-    .life-gallery .item .item-image img
-        vertical-align: top
-        height: 414px
-        @media screen and (max-width: 1600.98px)
-            height: 288px
+    .life-gallery 
+        .item 
+            position: relative
+
+            &:nth-child(6n + 1), 
+            &:nth-child(6n + 3), 
+            &:nth-child(6n + 5), 
+            &:nth-child(3n)
+                width: calc(39.569% - var(--gap) / 2)
+
+            &:nth-child(6n + 2), 
+            &:nth-child(6n + 4)
+                width: calc(20.174% - var(--gap) / 2)
+
+            .item-image 
+                img
+                    vertical-align: top
+                    cursor: pointer
+                    width: 100%
+
+                    &.img-default
+                        position: absolute
+                        top: 0
+                        left: 0
+                        width: 100%
+                        height: 100%
+
 
     .gallery-icon
         position: absolute
@@ -43,3 +66,46 @@
             bottom: -25px
             left: -11px
             width: 10.6%
+
+    .gallery-popup-active 
+        .life-gallery-wrapper
+            opacity: 0.5
+
+        .life-gallery-popup
+            display: block
+
+    .life-gallery-popup
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        padding: 0 10%
+        height: 100%
+        overflow: hidden
+        display: none
+        
+        .swiper
+            overflow: visible
+            position: static
+            
+            .swiper-button-next 
+                background-image: url(images/icon-arrows-white.svg)
+                right: 0
+
+            .swiper-button-prev
+                background-image: url(images/icon-arrows-white.svg)
+                left: 0
+
+        .swiper, .item, .item-image, .item img
+            height: 100%
+
+        .item-image
+            text-align: center
+
+        .swiper-slide
+            opacity: 0
+            transition: all 0.3s
+
+            &.swiper-slide-active
+                opacity: 1
+
