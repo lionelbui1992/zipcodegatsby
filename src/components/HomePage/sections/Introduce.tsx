@@ -20,7 +20,7 @@ export const Introduce = (): JSX.Element => {
                 <div className="image-with-text-component ">
                     <div className="d-flex">
                         <div className="col col-image">
-                            <ImageAnimation src="/img/mask-group-20.png" alt="" duration="0.5" from="random" />
+                            <ImageAnimation classes="animation-image image-1" src="/img/mask-group-20.png" alt="" duration="0.5" from="random" />
                         </div>
                         <div className="col col-text text-animation" data-dir="ltr" >
 
@@ -34,7 +34,7 @@ export const Introduce = (): JSX.Element => {
                 <div className="image-with-text-component text-left">
                     <div className="d-flex">
                         <div className="col col-image">
-                            <ImageAnimation src="/img/image-5.png" alt="" from="start" axis="x" />
+                            <ImageAnimation classes="animation-image image-2" src="/img/image-5.png" alt="" from="start" axis="x" />
                         </div>
                         <div className="col col-text text-animation" data-dir="rtl">
 

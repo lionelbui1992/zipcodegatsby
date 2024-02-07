@@ -1,12 +1,16 @@
-import type { HeadFC, PageProps } from "gatsby"
 import React, { useEffect } from "react";
 import { OurTeams } from "../components/AboutPage/OurTeams";
 import { BoxImage } from "../components/AboutPage/BoxImage";
 import { BannerCta } from "../components/AboutPage/BannerCta";
 import { MarqueeText } from "../components/AboutPage/MarqueeText";
 import { BannerTop } from "../components/AboutPage/BannerTop";
+import { graphql } from "gatsby"
+import Layout from "../components/layout"
+import SEOHead from "../components/head"
+import { IPageProps } from "../shared/model/IPageProps";
 
-const About: React.FC<PageProps> = () => {
+const About: React.FC<IPageProps> = (props: IPageProps) => {
+  // const { page } = props.data
   useEffect(() => {
       const sections: HTMLElement[] = document.getElementsByTagName("section");
       let i: number;
@@ -22,7 +26,7 @@ const About: React.FC<PageProps> = () => {
       }
   })
   return (
-    <>
+    <Layout>
       <div className="about-page">
           <section className="about-banner-top about-section bg-black">
               <BannerTop />
@@ -59,10 +63,29 @@ const About: React.FC<PageProps> = () => {
               />
           </section>
       </div>
-    </>
+    </Layout>
   )
 }
 
 export default About
 
-export const Head: HeadFC = () => <title>About</title>
+export const Head = (props: IPageProps) => {
+    const { page } = props.data
+    return <SEOHead {...page} />
+  }
+  export const query = graphql`
+    query PageContent($id: String!) {
+      page(id: { eq: $id }) {
+        id
+        title
+        slug
+        description
+        image {
+          id
+          url
+        }
+        html
+      }
+    }
+  `
+  

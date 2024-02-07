@@ -1,5 +1,4 @@
 import * as React from "react"
-import type { HeadFC, PageProps } from "gatsby"
 import { Banner } from "../components/Careers/Banner";
 import { Life } from "../components/Careers/Life";
 import { OurCulture } from "../components/Careers/OurCulture";
@@ -7,8 +6,13 @@ import { TextMarquee } from "../components/TextMarquee";
 import { OurValues } from "../components/Careers/OurValues";
 import { CareerPerks } from "../components/Careers/CareerPerks";
 import { AvailablePositions } from "../components/Careers/AvailablePositions";
+import { graphql } from "gatsby"
+import Layout from "../components/layout"
+import SEOHead from "../components/head"
+import { IPageProps } from "../shared/model/IPageProps";
 
-const Careers: React.FC<PageProps> = () => {
+const Careers: React.FC<IPageProps> = (props: IPageProps) => {
+  // const { page } = props.data
   const label = 'Passion. teamwork. Mindset.';
   const bannerTitle = "Seeking<br/> Passionate Souls ";
   const bannerDescription = '<h5>Embark on the Journey with Zipcode</h5>';
@@ -17,6 +21,28 @@ const Careers: React.FC<PageProps> = () => {
 
   const lifeTitle = 'Life @<br/> zipcode';
   const lifeBackground = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/careers-life-bkg.jpg';
+  const lifeIconRow = 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/gallery-box-icon-row.svg';
+  const lifeIconCol = 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/gallery-box-icon-col.svg';
+  const lifeGallery = [
+    {
+      imgUrl: 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/gallery-image-1-1.png',
+    },
+    {
+      imgUrl: 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/gallery-image-2-1.png',
+    },
+    {
+      imgUrl: 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/gallery-image-3-1.png',
+    },
+    {
+      imgUrl: 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/gallery-image-4-1.png',
+    },
+    {
+      imgUrl: 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/gallery-image-5-1.png',
+    },
+    {
+      imgUrl: 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/gallery-image-6-1.png',
+    }
+  ]
 
   const OurCultureTitle = 'Our Culture';
   const OurCultureImage = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/our-culture-image.png';
@@ -122,44 +148,65 @@ const Careers: React.FC<PageProps> = () => {
   ]
 
   return (
-    <>
-      <div className="careers-page">
-        <Banner 
-          label={label} 
-          bannerTitle={bannerTitle}
-          bannerDescription={bannerDescription}
-          bannerImageUrl={bannerImageUrl}
-          bannerBackground={bannerBackground}
-        />
-        <Life 
-          lifeTitle = {lifeTitle}
-          lifeBackground = {lifeBackground}
-        />
-        <OurCulture
-          OurCultureTitle = {OurCultureTitle}
-          OurCultureImage = {OurCultureImage}
-          OurCultureContent = {OurCultureContent}
-        />
-        <OurValues 
-          OurValuesTitle = {OurValuesTitle}
-          OurValuesContents = {OurValuesContents}
-        />
+    <Layout>
+      <Banner 
+        label={label} 
+        bannerTitle={bannerTitle}
+        bannerDescription={bannerDescription}
+        bannerImageUrl={bannerImageUrl}
+        bannerBackground={bannerBackground}
+      />
+      <Life 
+        lifeTitle = {lifeTitle}
+        lifeBackground = {lifeBackground}
+        lifeIconRow = {lifeIconRow}
+        lifeIconCol = {lifeIconCol}
+        lifeGallery = {lifeGallery}
+      />
+      <OurCulture
+        OurCultureTitle = {OurCultureTitle}
+        OurCultureImage = {OurCultureImage}
+        OurCultureContent = {OurCultureContent}
+      />
+      <OurValues 
+        OurValuesTitle = {OurValuesTitle}
+        OurValuesContents = {OurValuesContents}
+      />
+      <div className="careers-section">
         <TextMarquee />
-        <CareerPerks 
-          PerksTitle = {PerksTitle}
-          PerksDesc = {PerksDesc}
-          PerksContent = {PerksContent}
-        />
-        <AvailablePositions 
-          AvailableTitle = {AvailableTitle}
-          AvailableBackground = {AvailableBackground}
-          AvailableContent = {AvailableContent}
-        />
-      </div>          
-    </>
+      </div>
+      <CareerPerks 
+        PerksTitle = {PerksTitle}
+        PerksDesc = {PerksDesc}
+        PerksContent = {PerksContent}
+      />
+      <AvailablePositions 
+        AvailableTitle = {AvailableTitle}
+        AvailableBackground = {AvailableBackground}
+        AvailableContent = {AvailableContent}
+      />       
+    </Layout>
   );
 }
 
 export default Careers
 
-export const Head: HeadFC = () => <title>Careers</title>
+export const Head = (props: IPageProps) => {
+  const { page } = props.data
+  return <SEOHead {...page} />
+}
+export const query = graphql`
+  query PageContent($id: String!) {
+    page(id: { eq: $id }) {
+      id
+      title
+      slug
+      description
+      image {
+        id
+        url
+      }
+      html
+    }
+  }
+`

@@ -1,9 +1,13 @@
 import * as React from "react"
-import type { HeadFC, PageProps } from "gatsby"
 import { Banner } from "../components/Philosophy/Banner";
 import { ImageWithText } from "../components/Philosophy/ImageWithText";
+import { graphql } from "gatsby"
+import Layout from "../components/layout"
+import SEOHead from "../components/head"
+import { IPageProps } from "../shared/model/IPageProps";
 
-const Philosophy: React.FC<PageProps> = () => {
+const Philosophy: React.FC<IPageProps> = (props: IPageProps) => {
+  // const { page } = props.data
   const label = 'Perspective. Passion. Precision.';
   const bannerTitle = "Zipcode's difference lies in our design and build principles.";
   const bannerDescription = 'At our core, we are passionate creators and makers. Our design and build principles articulate our mindset, guiding how we conceptualize and deliver each project.';
@@ -53,7 +57,7 @@ const Philosophy: React.FC<PageProps> = () => {
 
   
   return (
-    <>
+    <Layout>
       <Banner 
         label={label} 
         bannerTitle={bannerTitle} 
@@ -71,10 +75,28 @@ const Philosophy: React.FC<PageProps> = () => {
           isDarkBackground={list.isDarkBackground}
         />
       ))}
-    </>
+    </Layout>
   );
 }
 
 export default Philosophy
 
-export const Head: HeadFC = () => <title>Philosophy</title>
+export const Head = (props: IPageProps) => {
+  const { page } = props.data
+  return <SEOHead {...page} />
+}
+export const query = graphql`
+  query PageContent($id: String!) {
+    page(id: { eq: $id }) {
+      id
+      title
+      slug
+      description
+      image {
+        id
+        url
+      }
+      html
+    }
+  }
+`
