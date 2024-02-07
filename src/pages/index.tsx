@@ -53,6 +53,10 @@ const IndexPage: React.FC<IPageProps> = (props: IPageProps) => {
         scrub: 0.001,
         markers: true,
         onUpdate: (self) => {
+          // console.log(['', ])
+          if (document.querySelector('.item-2')) {
+            document.querySelector('.item-2').style.opacity = '1';
+          }
           if (gsap.utils.toArray('.pixelate-container').length > 0 && gsap.utils.toArray('.pixelate-container').length != i) {
             gsap.utils.toArray('.pixelate-container').forEach((item) => {
               if (!item.classList.contains('active-animation')) {
@@ -118,10 +122,8 @@ const IndexPage: React.FC<IPageProps> = (props: IPageProps) => {
       smoothChildTiming: true
     });
 
-
     tl.to(".item-1", { yPercent: -100 })
     tl.fromTo(".c-image", { yPercent: 100 }, { yPercent: -200, })
-    tl.to(".item-2", { yPercent: -100 })
     tl.to(".item-2", { yPercent: -100 })
 
 
@@ -148,11 +150,11 @@ const IndexPage: React.FC<IPageProps> = (props: IPageProps) => {
         </div>
         <div className="scroll-section pinning-2 company" data-speed="0.3">
           <div className="relative-section item-1"><Introduce /></div>
-          <div className="relative-section item-2"><Company /></div>
+          <div className="relative-section item-2" style={{ opacity: 0 }}><Company /></div>
           <div className="absolute-section item-3"><Explore /></div>
         </div>
       </div>
-    </Layout>
+    </Layout >
   );
 };
 
