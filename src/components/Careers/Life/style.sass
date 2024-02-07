@@ -14,6 +14,7 @@
     .section-content
         margin-top: 51px
         position: relative
+        overflow: hidden
 
     .life-gallery 
         display: flex
@@ -79,12 +80,12 @@
     .life-gallery-popup
         position: absolute
         top: 0
-        left: 0
-        width: 100%
-        padding: 0 10%
+        left: 10%
+        right: 10%
+        width: auto
+        padding: 0
         height: 100%
-        overflow: hidden
-        // display: none
+        overflow: visible
         
         .swiper
             overflow: visible
@@ -92,11 +93,11 @@
             
             .swiper-button-next 
                 background-image: url(images/icon-arrows-white.svg)
-                right: 0
+                right: -13%
 
             .swiper-button-prev
                 background-image: url(images/icon-arrows-white.svg)
-                left: 0
+                left: -13%
 
         .swiper, .item, .item-image, .item img
             height: 100%
