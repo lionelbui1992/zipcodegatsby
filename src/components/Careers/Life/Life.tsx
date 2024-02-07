@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.sass";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
@@ -22,17 +22,14 @@ export const Life = ({
     lifeImagePlaceholder2,
     lifeGallery,
 }: Props): JSX.Element => {
-    const galleryContent: HTMLElement | null = document.querySelector('.section-gallery-content');
 
-    // document.onclick = (e: MouseEvent): void => {
-    //     if (e.target && (e.target as HTMLElement).id !== 'life-gallery-popup' && galleryContent?.classList.contains('gallery-popup-active')) {
-    //         galleryContent?.classList.remove('gallery-popup-active');
-    //     }
-    // };
+    const [openPopUp, setOpenPopUp] = useState(false)
 
-    // const openPopup = () => {
-    //     galleryContent?.classList.add('gallery-popup-active');
-    // }
+    const openPopup = () => {
+        // galleryContent?.classList.add('gallery-popup-active');
+        setOpenPopUp(!openPopUp);
+    }
+
 
     return (
         <>
@@ -58,7 +55,7 @@ export const Life = ({
                                     <div className="life-gallery">
                                         { lifeGallery.map((list, index) => (
                                             (list.imgUrl) && 
-                                                <div className="item" data-index={index} key={index} onClick={() => openPopup()}>
+                                                <div onClick={() => openPopup()} className="item" data-index={index} key={index}>
                                                     <div className="item-image">
                                                         {((index + 1) % 6 == 2 || (index + 1) % 6 == 4) ? (
                                                             <img className="img-placeholder" loading="lazy" srcSet={lifeImagePlaceholder2} alt="" />
@@ -71,7 +68,7 @@ export const Life = ({
                                         ))}
                                     </div>
                                 </div>
-                                <div className="life-gallery-popup" id="life-gallery-popup">
+                                { openPopUp && (<div className="life-gallery-popup" id="life-gallery-popup">
                                     <Swiper
                                         modules={[Navigation]}
                                         spaceBetween={20}
@@ -96,7 +93,7 @@ export const Life = ({
                                             </SwiperSlide>
                                         ))}
                                     </Swiper>
-                                </div>
+                                </div>)}
                             </div>
                         }
                     </div>
