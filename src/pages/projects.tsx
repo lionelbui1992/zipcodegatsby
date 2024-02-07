@@ -36,19 +36,19 @@ export const Head = (props: IPageProps) => {
   const { page } = props.data
   return <SEOHead {...page} />
 }
-export const query = graphql`
-  query PageContent($id: String!) {
-    page(id: { eq: $id }) {
-      id
-      title
-      slug
-      description
-      image {
-        id
-        url
-      }
-      html
-    }
-  }
-`
+// export const query = graphql`
+//   query PageContent($id: String!) {
+//     page(id: { eq: $id }) {
+//       id
+//       title
+//       slug
+//       description
+//       image {
+//         id
+//         url
+//       }
+//       html
+//     }
+//   }
+// `
 
