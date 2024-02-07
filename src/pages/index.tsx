@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useRef, useEffect } from "react";
 import type { HeadFC } from "gatsby";
-import { Banner, BannerPreload, Introduce, Company, Explore, ContactForm } from "../components/HomePage";
+import { Banner, Introduce, Company, Explore, ContactForm } from "../components/HomePage";
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "../assets/sass/homepage.sass";
@@ -30,40 +30,6 @@ const IndexPage: React.FC<IPageProps> = (props: IPageProps) => {
 
     document.querySelector('.pinning-2').style.height = totalHeight + 'px';
 
-
-    // let cells = document.querySelectorAll('.image-1 .cell');
-    // let cells2 = document.querySelectorAll('.image-2 .cell');
-
-    // const tl1 = gsap.timeline({ repeat: 0, paused: true, });
-    // tl1.from(cells, {
-    //   duration: .5,
-    //   scale: 0,
-    //   y: 40,
-    //   repeat: 0,
-    //   ease: "none",
-    //   stagger: {
-    //     amount: 1,
-    //     axis: false,
-    //     from: 'random',
-    //     grid: "auto"
-    //   }
-    // });
-
-    // const tl2 = gsap.timeline({ repeat: 0, paused: true, });
-
-    // tl2.from(cells2, {
-    //   duration: .5,
-    //   scale: 0,
-    //   y: 40,
-    //   repeat: 0,
-    //   ease: "none",
-    //   stagger: {
-    //     amount: 1,
-    //     axis: "x",
-    //     from: 'start',
-    //     grid: "auto"
-    //   }
-    // });
 
     ScrollTrigger.create({
       trigger: ".pinning-1",
@@ -150,7 +116,6 @@ const IndexPage: React.FC<IPageProps> = (props: IPageProps) => {
       },
       ease: "none",
       smoothChildTiming: true
-
     });
 
 
@@ -176,7 +141,7 @@ const IndexPage: React.FC<IPageProps> = (props: IPageProps) => {
             <path d="M0.564941 0.181519V13.6738H82.2601L0.564941 60.8401V135.105H117.414V121.557H35.7185L117.414 74.3896V0.181519H0.564941Z" fill="#0068FF" />
           </svg>
         </div> */}
-        {/* <div className="scroll-section item1" data-speed="0.5"><BannerPreload /></div> */}
+        <div className="scroll-section header-placeholder" ></div>
         <div className="scroll-section pinning-1" data-speed="0.2">
           <Banner />
           <TextMarquee />
@@ -197,18 +162,18 @@ export const Head = (props: IPageProps) => {
   const { page } = props.data
   return <SEOHead {...page} />
 }
-export const query = graphql`
-  query PageContent($id: String!) {
-    page(id: { eq: $id }) {
-      id
-      title
-      slug
-      description
-      image {
-        id
-        url
-      }
-      html
-    }
-  }
-`
+// export const query = graphql`
+//   query PageContent($id: String!) {
+//     page(id: { eq: $id }) {
+//       id
+//       title
+//       slug
+//       description
+//       image {
+//         id
+//         url
+//       }
+//       html
+//     }
+//   }
+// `
