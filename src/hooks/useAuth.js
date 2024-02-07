@@ -11,7 +11,7 @@ import {
 import { gql, useMutation } from "@apollo/client"
 import useNetwork from "./useNetwork"
 import { navigate } from "gatsby"
-import uuid from "uuid"
+import { v5 as uuid} from "uuid"
 
 const AuthContext = createContext(null)
 
