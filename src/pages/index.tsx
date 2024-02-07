@@ -38,7 +38,12 @@ const IndexPage: React.FC<IPageProps> = (props: IPageProps) => {
       pin: true,
       pinSpacing: false,
       markers: false,
-      scrub: false
+      scrub: false,
+      onUpdate: (self) => {
+        if (document.querySelector('.item-2')) {
+          document.querySelector('.item-2').style.opacity = '0';
+        }
+      }
     });
 
     let i = 0;
@@ -51,7 +56,7 @@ const IndexPage: React.FC<IPageProps> = (props: IPageProps) => {
         pin: true,
         pinSpacing: false,
         scrub: 0.001,
-        markers: true,
+        markers: false,
         onUpdate: (self) => {
           // console.log(['', ])
           if (document.querySelector('.item-2')) {
@@ -138,11 +143,6 @@ const IndexPage: React.FC<IPageProps> = (props: IPageProps) => {
   return (
     <Layout>
       <div className="scrollTrigger" ref={container}>
-        {/* <div className="scroll-section icon-z pinning-0" data-speed="0.2">
-          <svg xmlns="http://www.w3.org/2000/svg" width="118" height="136" viewBox="0 0 118 136" fill="none">
-            <path d="M0.564941 0.181519V13.6738H82.2601L0.564941 60.8401V135.105H117.414V121.557H35.7185L117.414 74.3896V0.181519H0.564941Z" fill="#0068FF" />
-          </svg>
-        </div> */}
         <div className="scroll-section header-placeholder" ></div>
         <div className="scroll-section pinning-1" data-speed="0.2">
           <Banner />

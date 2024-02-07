@@ -7,6 +7,7 @@ import { gsap } from 'gsap';
 import { ScrollSmoother } from "scroll-smoother-dev";
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ZIcon } from "../components/HomePage/sections/ZIcon";
 
 gsap.registerPlugin(useGSAP, ScrollSmoother, ScrollTrigger);
 
@@ -25,24 +26,18 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         }, [smoother]);
 
     return (
-        <div className="scrollWraper ScrollSmoother-wrapper viewport" ref={smoother}>
-            <div className="preload loading">
-                <Preload />
-                <div className="global-wrapper">
-                    <HeaderWrapper />
-                    <div id="smooth-wrapper">
-                        <main>
-                            <div id="smooth-content">
-                                {children}
-                                <FooterWrapper />
-                            </div>
-                        </main>
-
-                    </div>
+        <main className="preload loading  scrollWraper ScrollSmoother-wrapper viewport" ref={smoother}>
+            <Preload />
+            <ZIcon />
+            <HeaderWrapper />
+            <div id="smooth-wrapper">
+                <div id="smooth-content">
+                    {children}
+                    <FooterWrapper />
                 </div>
-                <ClipPath />
             </div>
-        </div>
+            <ClipPath />
+        </main>
     )
 
 }
