@@ -19,17 +19,147 @@ const IndexPage: React.FC<IPageProps> = (props: IPageProps) => {
   // const { page } = props.data
   const container = useRef(null);
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.utils.toArray('.pinning').forEach((item) => {
-      ScrollTrigger.create({
-        trigger: item,
+
+    if (!container) return;
+
+    const absoluteSections = document.querySelectorAll('.scroll-section .relative-section');
+    const totalHeight = [...absoluteSections].reduce((acc, section) => {
+      section.classList.replace('relative-section', 'absolute-section'); // Replace class
+      return acc + section.offsetHeight;
+    }, 0);;
+
+    document.querySelector('.pinning-2').style.height = totalHeight + 'px';
+
+
+    // let cells = document.querySelectorAll('.image-1 .cell');
+    // let cells2 = document.querySelectorAll('.image-2 .cell');
+
+    // const tl1 = gsap.timeline({ repeat: 0, paused: true, });
+    // tl1.from(cells, {
+    //   duration: .5,
+    //   scale: 0,
+    //   y: 40,
+    //   repeat: 0,
+    //   ease: "none",
+    //   stagger: {
+    //     amount: 1,
+    //     axis: false,
+    //     from: 'random',
+    //     grid: "auto"
+    //   }
+    // });
+
+    // const tl2 = gsap.timeline({ repeat: 0, paused: true, });
+
+    // tl2.from(cells2, {
+    //   duration: .5,
+    //   scale: 0,
+    //   y: 40,
+    //   repeat: 0,
+    //   ease: "none",
+    //   stagger: {
+    //     amount: 1,
+    //     axis: "x",
+    //     from: 'start',
+    //     grid: "auto"
+    //   }
+    // });
+
+    ScrollTrigger.create({
+      trigger: ".pinning-1",
+      start: "top top",
+      end: "bottom top",
+      pin: true,
+      pinSpacing: false,
+      markers: false,
+      scrub: false
+    });
+
+    let i = 0;
+    let j = 0;
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".pinning-2",
         start: "top top",
-        end: "bottom top",
+        end: totalHeight,
         pin: true,
         pinSpacing: false,
-        markers: true
-      });
-    })
+        scrub: 0.001,
+        markers: true,
+        onUpdate: (self) => {
+          if (gsap.utils.toArray('.pixelate-container').length > 0 && gsap.utils.toArray('.pixelate-container').length != i) {
+            gsap.utils.toArray('.pixelate-container').forEach((item) => {
+              if (!item.classList.contains('active-animation')) {
+                let offset = item.getBoundingClientRect().y
+                if (offset < innerHeight - 200) {
+                  // tl1.play()
+                  const animate = gsap.timeline({ repeat: 0 });
+                  let cells = item.querySelectorAll('.cell');
+                  console.log(cells)
+                  animate.from(cells, {
+                    duration: .5,
+                    scale: 0,
+                    y: 40,
+                    repeat: 0,
+                    ease: "none",
+                    stagger: {
+                      amount: 1,
+                      axis: false,
+                      from: 'random',
+                      grid: "auto"
+                    }
+                  });
+                  item.classList.add('active-animation');
+                  i++;
+                }
+              }
+            })
+          }
+          if (gsap.utils.toArray('.text-animation').length > 0 && gsap.utils.toArray('.text-animation').length != j) {
+            gsap.utils.toArray('.text-animation').forEach((item) => {
+              if (!item.classList.contains('active-animation')) {
+                let offset = item.getBoundingClientRect().y
+                if (offset < innerHeight - 200) {
+                  // tl1.play()
+                  const animate = gsap.timeline({ repeat: 0 });
+                  let cells = item.querySelectorAll('p');
+                  console.log(cells)
+                  animate.fromTo(cells, {
+                    x: -50,
+                    opacity: 0,
+                  },
+                    {
+                      x: 0,
+                      duration: 1,
+                      opacity: 1,
+                      repeat: 0,
+                      ease: "none",
+                      stagger: {
+                        stagger: 0.3,
+                        axis: "y",
+                        from: 'start'
+                      }
+                    });
+                  item.classList.add('active-animation');
+                  j++;
+                }
+              }
+            })
+          }
+        },
+      },
+      ease: "none",
+      smoothChildTiming: true
+
+    });
+
+
+    tl.to(".item-1", { yPercent: -100 })
+    tl.fromTo(".c-image", { yPercent: 100 }, { yPercent: -200, })
+    tl.to(".item-2", { yPercent: -100 })
+    tl.to(".item-2", { yPercent: -100 })
+
+
 
     return () => {
       // Kill all ScrollTriggers on unmount
@@ -41,15 +171,21 @@ const IndexPage: React.FC<IPageProps> = (props: IPageProps) => {
   return (
     <Layout>
       <div className="scrollTrigger" ref={container}>
+        {/* <div className="scroll-section icon-z pinning-0" data-speed="0.2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="118" height="136" viewBox="0 0 118 136" fill="none">
+            <path d="M0.564941 0.181519V13.6738H82.2601L0.564941 60.8401V135.105H117.414V121.557H35.7185L117.414 74.3896V0.181519H0.564941Z" fill="#0068FF" />
+          </svg>
+        </div> */}
         {/* <div className="scroll-section item1" data-speed="0.5"><BannerPreload /></div> */}
-        <div className="scroll-section item2 pinning" data-speed="0.8">
+        <div className="scroll-section pinning-1" data-speed="0.2">
           <Banner />
           <TextMarquee />
         </div>
-        <div className="scroll-section introduce" data-speed="1.2"><Introduce /></div>
-        <div className="scroll-section company" data-speed="1.4"><Company /></div>
-        <div className="scroll-section item5" data-speed="1.7"><Explore /></div>
-        <div className="scroll-section item6" data-speed="2"><ContactForm /></div>
+        <div className="scroll-section pinning-2 company" data-speed="0.3">
+          <div className="relative-section item-1"><Introduce /></div>
+          <div className="relative-section item-2"><Company /></div>
+          <div className="absolute-section item-3"><Explore /></div>
+        </div>
       </div>
     </Layout>
   );
