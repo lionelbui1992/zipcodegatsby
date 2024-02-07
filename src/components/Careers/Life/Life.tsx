@@ -22,14 +22,11 @@ export const Life = ({
     lifeImagePlaceholder2,
     lifeGallery,
 }: Props): JSX.Element => {
-
-    const [openPopUp, setOpenPopUp] = useState(false)
+    const [openPopUp, setOpenPopUp] = useState(false);
 
     const openPopup = () => {
-        // galleryContent?.classList.add('gallery-popup-active');
         setOpenPopUp(!openPopUp);
     }
-
 
     return (
         <>
@@ -39,8 +36,9 @@ export const Life = ({
                         <div className="section-title">
                             <h2 className="h4" dangerouslySetInnerHTML={{__html: lifeTitle}} />
                         </div>
+                        
                         { lifeGallery && 
-                            <div className="section-content section-gallery-content">
+                            <div className={`section-content section-gallery-content ${openPopUp? ' gallery-popup-active' : ''}`}>
                                 <div className="life-gallery-wrapper">
                                     { lifeIconRow && 
                                         <div className="gallery-icon gallery-icon-row">
@@ -68,6 +66,7 @@ export const Life = ({
                                         ))}
                                     </div>
                                 </div>
+                                
                                 { openPopUp && (<div className="life-gallery-popup" id="life-gallery-popup">
                                     <Swiper
                                         modules={[Navigation]}
@@ -81,7 +80,7 @@ export const Life = ({
                                             bulletActiveClass: "swiper-custom-bullet-active",
                                             clickable: true,
                                         }}
-                                        >
+                                    >
                                         { lifeGallery.map((list, index) => (
                                             (list.imgUrl) && 
                                             <SwiperSlide key={index} data-index={index}>
