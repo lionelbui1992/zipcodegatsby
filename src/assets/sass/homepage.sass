@@ -132,7 +132,7 @@
     padding-bottom: 131px
 
 .section-introduce
-    padding: 170px 0
+    padding: 105px 0
     background-color: #fff
     border-radius: 32px
     position: relative
@@ -150,8 +150,12 @@
     .d-flex
         column-gap: 150px
         row-gap: 100px
-    .col
-        width: calc(50% - 75px)
+
+    .col-right
+        width: calc(55.5% - 75px)
+
+    .col-left
+        width: calc(45.5% - 75px)
 
 .image-box
     position: relative
@@ -171,6 +175,8 @@
     padding: 170px 0
     background-repeat: no-repeat
     background-position: center
+    background-size: cover
+    border-radius: 0 0 32px 32px
 
     .company-box
         position: relative
@@ -215,6 +221,8 @@
     .c-image
         max-width: 300px
         margin: auto
+        position: relative
+        z-index: 2
 
     .c-text
         color: #fff
@@ -271,6 +279,28 @@
     opacity: 0
     &.active-animation
         opacity: 1
+
+.image-box.overlay-top-right:before
+    width: 297px
+    height: 590px
+    content: ""
+    position: absolute
+    top: -31px
+    background: url(/img/image-16.png)
+    right: -31px
+    background-size: contain
+
+.overlay-bottom-center .animation-image:before
+    width: calc(100% + 84px)
+    height: 500px
+    content: ""
+    position: absolute
+    bottom: -34px
+    background: url(/img/image-17.png)
+    background-size: 100% auto
+    background-repeat: no-repeat
+    left: -51px
+    background-position: 0px 100%
 
 @media screen and (max-width: 1499px)
     .section-banner
