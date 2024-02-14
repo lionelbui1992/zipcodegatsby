@@ -25,23 +25,18 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
  
         }, [smoother]);
     return (
-        <div className="scrollWraper ScrollSmoother-wrapper viewport" ref={smoother}>
-            <div className="preload loading">
-                <Slice alias="preload" />
-                <div className="global-wrapper">
-                    <Slice alias="header" />
-                    <div id="smooth-wrapper">
-                        <main>
-                            <div id="smooth-content">
-                                {children}
-                                <Slice alias="footer" />
-                            </div>
-                        </main>
-
+        <div className="scrollWraper ScrollSmoother-wrapper viewport">
+            <Slice alias="preload" />
+            <Slice alias="clipPath" />
+            <Slice alias="header" />
+            <main className="global-wrapper">
+                <div id="smooth-wrapper" ref={smoother}>
+                    <div id="smooth-content">
+                            {children}
+                            <Slice alias="footer" />
+                        </div>
                     </div>
-                </div>
-                <Slice alias="clipPath" />
-            </div>
+            </main>
         </div>
     )
 }
