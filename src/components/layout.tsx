@@ -7,6 +7,7 @@ import { gsap } from 'gsap';
 import { ScrollSmoother } from "scroll-smoother-dev";
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ContactForm } from "./HomePage";
  
 gsap.registerPlugin(useGSAP, ScrollSmoother, ScrollTrigger);
 interface LayoutProps {
@@ -29,6 +30,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <Slice alias="preload" />
             <Slice alias="clipPath" />
             <Slice alias="header" />
+            {/* <Slice alias="contactform" /> */}
+            <ContactForm />
             <main className="global-wrapper">
                 <div id="smooth-wrapper" ref={smoother}>
                     <div id="smooth-content">
