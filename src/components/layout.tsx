@@ -27,9 +27,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
         }, [smoother]);
     return (
-        <div className="scrollWraper ScrollSmoother-wrapper viewport">
+        <div className="preload loading scrollWraper ScrollSmoother-wrapper viewport">
             <Slice alias="preload" />
-            <Slice alias="clipPath" />
             <Slice alias="header" />
             {/* <Slice alias="contactform" /> */}
             <ContactForm />
@@ -42,6 +41,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                     </div>
                 </div>
             </main>
+            <Slice alias="clipPath" />
         </div>
     )
 }
