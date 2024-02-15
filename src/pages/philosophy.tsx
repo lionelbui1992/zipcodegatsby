@@ -71,7 +71,7 @@ const Philosophy: React.FC<IPageProps> = (props: IPageProps) => {
       return acc + section.offsetHeight;
     }, 0);;
 
-    document.querySelector('.pinning-2').style.height = totalHeight + 'px';
+    document.querySelector('.pinning-2').style.height = totalHeight - 200 + 'px';
     // const test = totalHeight + 'px 450px';
 
     ScrollTrigger.create({
@@ -89,12 +89,12 @@ const Philosophy: React.FC<IPageProps> = (props: IPageProps) => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: ".pinning-2",
-        start: "top 300px",
+        start: "top 90px",
         end: totalHeight,
         pin: true,
         pinSpacing: false,
         scrub: 0.001,
-        markers: true,
+        markers: false,
       },
       ease: "none",
       smoothChildTiming: true
@@ -105,7 +105,7 @@ const Philosophy: React.FC<IPageProps> = (props: IPageProps) => {
     tl.to(".phi-2", { yPercent: -200 })
     tl.to(".phi-3", { yPercent: -300 })
     tl.to(".phi-4", { yPercent: -400 })
-    tl.to(".phi-5", { yPercent: -500 })
+    // tl.to(".phi-5", { yPercent: 0 })
 
 
     return () => {
@@ -126,30 +126,20 @@ const Philosophy: React.FC<IPageProps> = (props: IPageProps) => {
       />
       </div>
       <div className="scroll-section pinning-2 company" data-speed="0.3">
-      {contents.map((list, index, contents) => (
-        
-        <div className={`phi-${index+1} ${index+1 !== contents.length  ? "relative-section" : "absolute-section"} `} style={{zIndex: 100 - index}}>
-        <ImageWithText 
-          index={index + 1}
-          title={list.title} 
-          des={list.des} 
-          imgUrl={list.imgUrl} 
-          backgroundUrl={list.backgroundUrl} 
-          isDarkBackground={list.isDarkBackground}
-        />
-        </div>
-        
-      ))}
-      </div>
-      <div> 
-        <ImageWithText 
-          index={contents.length}
-          title={lastItem.title} 
-          des={lastItem.des} 
-          imgUrl={lastItem.imgUrl} 
-          backgroundUrl={lastItem.backgroundUrl} 
-          isDarkBackground={lastItem.isDarkBackground}
-        />
+        {contents.map((list, index, contents) => (
+          
+          <div className={`phi-${index+1} ${index+1 !== contents.length  ? "relative-section" : "absolute-section"} `} style={{zIndex: 100 - index}}>
+          <ImageWithText 
+            index={index + 1}
+            title={list.title} 
+            des={list.des} 
+            imgUrl={list.imgUrl} 
+            backgroundUrl={list.backgroundUrl} 
+            isDarkBackground={list.isDarkBackground}
+          />
+          </div>
+          
+        ))}
       </div>
     </Layout>
   );
