@@ -8,10 +8,10 @@ import { ScrollSmoother } from "scroll-smoother-dev";
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ContactForm } from "./HomePage";
- 
+
 gsap.registerPlugin(useGSAP, ScrollSmoother, ScrollTrigger);
 interface LayoutProps {
-  children?: React.ReactNode
+    children?: React.ReactNode
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
@@ -23,23 +23,23 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 smooth: .8, // seconds it takes to "catch up" to native scroll position
                 effects: false, // look for data-speed and data-lag attributes on elements and animate accordingly
             });
- 
+
         }, [smoother]);
     return (
-        <div className="scrollWraper ScrollSmoother-wrapper viewport">
+        <div className="preload loading scrollWraper ScrollSmoother-wrapper viewport">
             <Slice alias="preload" />
-            <Slice alias="clipPath" />
             <Slice alias="header" />
             {/* <Slice alias="contactform" /> */}
             <ContactForm />
             <main className="global-wrapper">
                 <div id="smooth-wrapper" ref={smoother}>
                     <div id="smooth-content">
-                            {children}
-                            <Slice alias="footer" />
-                        </div>
+                        {children}
+                        <Slice alias="footer" />
                     </div>
+                </div>
             </main>
+            <Slice alias="clipPath" />
         </div>
     )
 }
