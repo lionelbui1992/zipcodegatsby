@@ -567,3 +567,4 @@ exports.createPages = ({ actions }) => {
     component: require.resolve("./src/components/footer.tsx"),
   });
 }
+      
