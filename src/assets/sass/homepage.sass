@@ -273,7 +273,7 @@
             letter-spacing: 0em
             text-align: left
 
-    p 
+    p
         font-family: Buenos Aires
         font-size: 14px
         font-weight: 400
@@ -291,8 +291,6 @@
         padding: 22px 44px
         border: 1px solid #0068FF
         border-radius: 71px
-
-
 
 .absolute-section
     position: absolute
@@ -336,7 +334,7 @@
     left: -51px
     background-position: 0px 100%
 
-.section-contact-popup 
+.section-contact-popup
     position: fixed
     width: 100vw
     height: 100vh
@@ -351,7 +349,7 @@
     visibility: hidden
     pointer-events: none
     transition: opacity .2s
-    
+
     &.show
         display: flex !important
         &.active
@@ -359,13 +357,13 @@
             visibility: visible
             pointer-events: auto
 
-    .btn-close 
+    .btn-close
         position: absolute
         right: 67px
         top: 37px
         cursor: pointer
-    
-    .container 
+
+    .container
         background: #fff
         width: 100%
         display: flex
@@ -374,25 +372,23 @@
         border-radius: 45px
         position: relative
 
-        .col-text 
+        .col-text
             width: 20%
 
-        .col-form 
+        .col-form
             width: calc(80% - 64px)
 
-
-fieldset.fieldset 
+fieldset.fieldset
     border: 0
     display: flex
     flex-wrap: wrap
     column-gap: 27px
 
-    .field 
-        width: 100% 
+    .field
+        width: 100%
 
-        &.col-6 
+        &.col-6
             width: calc(50% - 14px)
-
 
         input ,textarea
             width: 100%
@@ -407,6 +403,15 @@ fieldset.fieldset
             letter-spacing: 0.02em
             text-align: left
 
+.icon-z
+    position: fixed
+    width: 100vw
+    height: 100vh
+    display: flex
+    justify-content: center
+    z-index: 2
+    padding: 100px
+    pointer-events: none
 
 @media screen and (max-width: 1499px)
     .section-banner
@@ -420,5 +425,3 @@ fieldset.fieldset
     .section-banner
         .inner-section
             padding: 255px 0 260px
-
-
