@@ -2,7 +2,7 @@ import { ApolloClient, ApolloLink, from, HttpLink, InMemoryCache } from "@apollo
 import { TokenRefreshLink } from "apollo-link-token-refresh"
 import { onError } from "apollo-link-error"
 import fetch from "isomorphic-fetch"
-import uuid from "uuid"
+import { v5 as uuid} from "uuid"
 
 import possibleTypes from "./possibleTypes.json"
 import {

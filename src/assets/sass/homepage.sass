@@ -104,7 +104,7 @@
         width: 100%
         align-items: center
         justify-content: center
-        padding: 330px 0 360px
+        padding: 330px 0 200px
         background: url('/img/homepage/bg-banner.svg')
         background-size: cover
         background-repeat: no-repeat
@@ -132,7 +132,7 @@
     padding-bottom: 131px
 
 .section-introduce
-    padding: 170px 0
+    padding: 105px 0
     background-color: #fff
     border-radius: 32px
     position: relative
@@ -150,8 +150,12 @@
     .d-flex
         column-gap: 150px
         row-gap: 100px
-    .col
-        width: calc(50% - 75px)
+
+    .col-right
+        width: calc(55.5% - 75px)
+
+    .col-left
+        width: calc(45.5% - 75px)
 
 .image-box
     position: relative
@@ -167,10 +171,12 @@
         top: 0
 
 .section-company
-    background: url('/img/image-4.png')
+    background: url('/img/img-4.jpg')
     padding: 170px 0
     background-repeat: no-repeat
     background-position: center
+    background-size: cover
+    border-radius: 0 0 32px 32px
 
     .company-box
         position: relative
@@ -215,6 +221,8 @@
     .c-image
         max-width: 300px
         margin: auto
+        position: relative
+        z-index: 2
 
     .c-text
         color: #fff
@@ -240,17 +248,51 @@
             border: 0.711px solid #fff
 
 .section-explore
+    padding: 250px 0
+
     .col-left
-        width: 40%
+        width: 32.8%
 
     .col-right
-        width: 60%
+        width: 67.2%
+        padding-left: 162px
 
         .col-image
             width: 50%
 
         .col-text
             width: 50%
+
+    .heading-text
+        margin-bottom: 230px
+        h4
+            font-family: Buenos Aires
+            font-size: 36px
+            font-weight: 400
+            line-height: 46px
+            letter-spacing: 0em
+            text-align: left
+
+    p 
+        font-family: Buenos Aires
+        font-size: 14px
+        font-weight: 400
+        line-height: 25px
+        letter-spacing: 0.02em
+        text-align: left
+
+    a
+        font-family: Tiempos Headline
+        font-size: 14px
+        font-weight: 400
+        line-height: 14px
+        letter-spacing: 0.02em
+        text-align: left
+        padding: 22px 44px
+        border: 1px solid #0068FF
+        border-radius: 71px
+
+
 
 .absolute-section
     position: absolute
@@ -271,3 +313,112 @@
     opacity: 0
     &.active-animation
         opacity: 1
+
+.image-box.overlay-top-right:before
+    width: 297px
+    height: 590px
+    content: ""
+    position: absolute
+    top: -31px
+    background: url(/img/image-16.png)
+    right: -31px
+    background-size: contain
+
+.overlay-bottom-center .animation-image:before
+    width: calc(100% + 84px)
+    height: 500px
+    content: ""
+    position: absolute
+    bottom: -34px
+    background: url(/img/image-17.png)
+    background-size: 100% auto
+    background-repeat: no-repeat
+    left: -51px
+    background-position: 0px 100%
+
+.section-contact-popup 
+    position: fixed
+    width: 100vw
+    height: 100vh
+    top: 0
+    left: 0
+    z-index: 223
+    background: rgba(0,0,0,.5)
+    display: flex
+    align-items: center
+    justify-content: center
+    opacity: 0
+    visibility: hidden
+    pointer-events: none
+    transition: opacity .2s
+    
+    &.show
+        display: flex !important
+        &.active
+            opacity: 1
+            visibility: visible
+            pointer-events: auto
+
+    .btn-close 
+        position: absolute
+        right: 67px
+        top: 37px
+        cursor: pointer
+    
+    .container 
+        background: #fff
+        width: 100%
+        display: flex
+        padding: 80px 200px
+        column-gap: 64px
+        border-radius: 45px
+        position: relative
+
+        .col-text 
+            width: 20%
+
+        .col-form 
+            width: calc(80% - 64px)
+
+
+fieldset.fieldset 
+    border: 0
+    display: flex
+    flex-wrap: wrap
+    column-gap: 27px
+
+    .field 
+        width: 100% 
+
+        &.col-6 
+            width: calc(50% - 14px)
+
+
+        input ,textarea
+            width: 100%
+            border: 0
+            border-radius: 10px
+            background: #E2E2E2
+            padding: 12px 22px
+            font-family: Buenos Aires
+            font-size: 14px
+            font-weight: 400
+            line-height: 26px
+            letter-spacing: 0.02em
+            text-align: left
+
+
+@media screen and (max-width: 1499px)
+    .section-banner
+        .inner-section
+            padding: 168px 0 190px
+
+    .header-placeholder
+        padding-bottom: 98px
+
+@media screen and (max-width: 767px)
+    .section-banner
+        .inner-section
+            padding: 255px 0 260px
+
+

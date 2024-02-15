@@ -38,7 +38,12 @@ const IndexPage: React.FC<IPageProps> = (props: IPageProps) => {
       pin: true,
       pinSpacing: false,
       markers: false,
-      scrub: false
+      scrub: 0.0001,
+      onUpdate: (self) => {
+        if (document.querySelector('.item-2')) {
+          document.querySelector('.item-2').style.opacity = '0';
+        }
+      }
     });
 
     let i = 0;
@@ -51,8 +56,12 @@ const IndexPage: React.FC<IPageProps> = (props: IPageProps) => {
         pin: true,
         pinSpacing: false,
         scrub: 0.001,
-        markers: true,
+        markers: false,
         onUpdate: (self) => {
+          // console.log(['', ])
+          if (document.querySelector('.item-2')) {
+            document.querySelector('.item-2').style.opacity = '1';
+          }
           if (gsap.utils.toArray('.pixelate-container').length > 0 && gsap.utils.toArray('.pixelate-container').length != i) {
             gsap.utils.toArray('.pixelate-container').forEach((item) => {
               if (!item.classList.contains('active-animation')) {
@@ -118,10 +127,8 @@ const IndexPage: React.FC<IPageProps> = (props: IPageProps) => {
       smoothChildTiming: true
     });
 
-
     tl.to(".item-1", { yPercent: -100 })
     tl.fromTo(".c-image", { yPercent: 100 }, { yPercent: -200, })
-    tl.to(".item-2", { yPercent: -100 })
     tl.to(".item-2", { yPercent: -100 })
 
 
@@ -136,11 +143,6 @@ const IndexPage: React.FC<IPageProps> = (props: IPageProps) => {
   return (
     <Layout>
       <div className="scrollTrigger" ref={container}>
-        {/* <div className="scroll-section icon-z pinning-0" data-speed="0.2">
-          <svg xmlns="http://www.w3.org/2000/svg" width="118" height="136" viewBox="0 0 118 136" fill="none">
-            <path d="M0.564941 0.181519V13.6738H82.2601L0.564941 60.8401V135.105H117.414V121.557H35.7185L117.414 74.3896V0.181519H0.564941Z" fill="#0068FF" />
-          </svg>
-        </div> */}
         <div className="scroll-section header-placeholder" ></div>
         <div className="scroll-section pinning-1" data-speed="0.2">
           <Banner />
@@ -148,11 +150,11 @@ const IndexPage: React.FC<IPageProps> = (props: IPageProps) => {
         </div>
         <div className="scroll-section pinning-2 company" data-speed="0.3">
           <div className="relative-section item-1"><Introduce /></div>
-          <div className="relative-section item-2"><Company /></div>
+          <div className="relative-section item-2" style={{ opacity: 0 }}><Company /></div>
           <div className="absolute-section item-3"><Explore /></div>
         </div>
       </div>
-    </Layout>
+    </Layout >
   );
 };
 
@@ -162,18 +164,18 @@ export const Head = (props: IPageProps) => {
   const { page } = props.data
   return <SEOHead {...page} />
 }
-export const query = graphql`
-  query PageContent($id: String!) {
-    page(id: { eq: $id }) {
-      id
-      title
-      slug
-      description
-      image {
-        id
-        url
-      }
-      html
-    }
-  }
-`
+// export const query = graphql`
+//   query PageContent($id: String!) {
+//     page(id: { eq: $id }) {
+//       id
+//       title
+//       slug
+//       description
+//       image {
+//         id
+//         url
+//       }
+//       html
+//     }
+//   }
+// `
