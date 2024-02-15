@@ -6,13 +6,19 @@ import "./style.sass";
 gsap.registerPlugin(TextPlugin);
 
 export default function Preload(): JSX.Element {
+
+  const preload = useRef(null);
+
   useEffect(() => {
 
-    const preloadElement = document.querySelector('.preload');
+    let preloadElement = preload.current;
+
+    document.body.classList.add('preload-active')
 
     const text = gsap.timeline({
       delay: 0,
     });
+
     text.to("#text-1", { text: "A Bold", duration: 0.25, delay: 0, ease: "none" });
     text.to("#text-2", { text: "New Vision", duration: 0.25, delay: 0.5, ease: "none" })
 
@@ -36,6 +42,7 @@ export default function Preload(): JSX.Element {
     tl.to(".textZ", { duration: 1, x: "-50vw", fontSize: "500vw" })
       .call(() => {
         preloadElement?.classList.remove('loading');
+        document.body.classList.remove('preload-active')
       });
 
 
@@ -68,25 +75,37 @@ export default function Preload(): JSX.Element {
     textZ.to(".textZ", { duration: 0.15, text: "&#xe914;" })
     textZ.to(".textZ", { duration: 0.15, text: "&#xe90f;" })
 
-  }, []);
+
+
+
+    textZ.to(preloadElement, {
+      onComplete: () => {
+        preloadElement.remove();
+        document.querySelector('.preload-clippath')?.remove();
+        document.body.classList.add('preload-active')
+      }
+    })
+
+  }, [preload]);
 
   return (
-
-    <div className="preload-elements">
-      <div className="preload-images">
-        <img id="preload-image-1" className="preload-image animated animatedFadeInUp fadeInUp-1" src="https://maasi2404zip.merket.io/wp-content/uploads/2024/01/svg-shape-back.svg" />
-        <img id="preload-image-2" className="preload-image animated animatedFadeInUp fadeInUp-2" src="https://maasi2404zip.merket.io/wp-content/uploads/2024/01/pexels-helena-lopes-1015568-scaled.jpg" />
-        <img id="preload-image-3" className="preload-image animated animatedFadeInUp fadeInUp-3" src="https://maasi2404zip.merket.io/wp-content/uploads/2024/01/image-2.png" />
-        <img id="preload-image-4" className="preload-image animated animatedFadeInUp fadeInUp-4" src="https://maasi2404zip.merket.io/wp-content/uploads/2024/01/svg-khung-luoi.svg" />
-      </div>
-      <div className="preload-text">
-        <div className="wordToUnderline">
-          <div id="underline-1" className="underline " />
-          <p id="text-1">&nbsp;</p>
+    <div className="preload loading" ref={preload}>
+      <div className="preload-elements" >
+        <div className="preload-images">
+          <img id="preload-image-1" className="preload-image animated animatedFadeInUp fadeInUp-1" src="https://maasi2404zip.merket.io/wp-content/uploads/2024/01/svg-shape-back.svg" />
+          <img id="preload-image-2" className="preload-image animated animatedFadeInUp fadeInUp-2" src="https://maasi2404zip.merket.io/wp-content/uploads/2024/01/pexels-helena-lopes-1015568-scaled.jpg" />
+          <img id="preload-image-3" className="preload-image animated animatedFadeInUp fadeInUp-3" src="https://maasi2404zip.merket.io/wp-content/uploads/2024/01/image-2.png" />
+          <img id="preload-image-4" className="preload-image animated animatedFadeInUp fadeInUp-4" src="https://maasi2404zip.merket.io/wp-content/uploads/2024/01/svg-khung-luoi.svg" />
         </div>
-        <div className="wordToUnderline">
-          <div id="underline-2" className="underline underline" />
-          <p id="text-2">&nbsp;</p>
+        <div className="preload-text">
+          <div className="wordToUnderline">
+            <div id="underline-1" className="underline " />
+            <p id="text-1">&nbsp;</p>
+          </div>
+          <div className="wordToUnderline">
+            <div id="underline-2" className="underline underline" />
+            <p id="text-2">&nbsp;</p>
+          </div>
         </div>
       </div>
     </div>

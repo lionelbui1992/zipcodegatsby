@@ -21,7 +21,10 @@
     position: relative
     width: 100%
     height: 100vh
+    z-index: 222
 
+body.preload-active 
+  overflow-y: hidden
 
 .preload-elements
   position: absolute
@@ -37,7 +40,7 @@
 .preload-clippath
   display: none
 
-.preload.loading
+.preload.loading, body.preload-active
   .preload-elements, .preload-clippath
     display: block
 
