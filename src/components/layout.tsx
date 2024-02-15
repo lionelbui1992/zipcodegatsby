@@ -16,7 +16,6 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
-    const main = useRef();
     const smoother = useRef();
     useEffect(
         () => {
