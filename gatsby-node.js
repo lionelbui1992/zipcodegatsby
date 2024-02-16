@@ -332,6 +332,8 @@ exports.onCreateNode = ({
   if (node.internal.type === "WpPage") {
     switch (node.slug) {
       case "homepage":
+        // console.log(node);
+        console.log(node.blocks);
         // prettier-ignore
         const {
           description,
@@ -567,4 +569,3 @@ exports.createPages = ({ actions }) => {
     component: require.resolve("./src/components/footer.tsx"),
   });
 }
-      
