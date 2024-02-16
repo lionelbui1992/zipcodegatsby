@@ -79,12 +79,12 @@ export default function Footer(): JSX.Element {
         setHiddenBackToTop(true);
       }
     }
-    window.addEventListener("scroll", () => handleScroll());
+    // window.addEventListener("scroll", () => handleScroll());
   }, []);
 
-  const handleBackToTopClick = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  // const handleBackToTopClick = () => {
+  //   window.scrollTo({ top: 0, behavior: "smooth" });
+  // };
 
   return (
     <footer className="site-footer" style={{ backgroundImage: "url(" + backgroundFooter + ")" }}>
@@ -113,12 +113,12 @@ export default function Footer(): JSX.Element {
         </div>
         <div className="ft-dk"><SectionLink /></div>
       </div>
-      <div className={`to-top ${hiddenBackToTop ? 'hidden' : ''}`}>
+      {/* <div className={`to-top ${hiddenBackToTop ? 'hidden' : ''}`}>
         <svg onClick={() => { handleBackToTopClick() }} width="31" height="33" viewBox="0 0 31 33" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M30.1991 15.862L26.8782 19.1829L17.6445 9.70623L17.6446 32.6554L12.7847 32.6554L12.7847 9.70623L3.55106 19.1829L0.284179 15.862L15.2146 0.877548L30.1991 15.862Z" fill="#0068FF" />
         </svg>
         <span>Back to top</span>
-      </div>
+      </div> */}
     </footer>
   );
 };
