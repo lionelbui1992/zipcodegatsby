@@ -78,7 +78,8 @@ const IndexPage: React.FC<IPageProps> = (props: IPageProps) => {
                   let cells = item.querySelectorAll('.cell');
                   let axis = item.getAttribute("data-axis") ?? false,
                     from = item.getAttribute("data-from") ?? "random",
-                    duration = item.getAttribute("data-duration") ?? .5;
+                    duration = item.getAttribute("data-duration") ?? .5,
+                    amount = item.getAttribute("data-amount") ?? 1;
 
                   axis = axis === "0" ? false : axis;
 
@@ -90,7 +91,7 @@ const IndexPage: React.FC<IPageProps> = (props: IPageProps) => {
                     repeat: 0,
                     ease: "none",
                     stagger: {
-                      amount: 1,
+                      amount: amount,
                       axis: axis,
                       from: from,
                       grid: "auto"

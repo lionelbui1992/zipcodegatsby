@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 import './style.sass';
 export const ImageAnimation = (props): JSX.Element => {
 
-    const { src, alt, classes, from, axis, duration } = props;
+    const { src, alt, classes, from, axis, duration, amount } = props;
     const image = useRef(null);
     const mainImage = useRef(null);
     const col = 12;
@@ -42,7 +42,7 @@ export const ImageAnimation = (props): JSX.Element => {
 
     return (
         <div className={"animation-image " + classes} >
-            <div className="pixelate-container" data-from={from ?? "random"} data-axis={axis ?? "0"} data-duration={duration ?? "0.5"} ref={image}></div>
+            <div className="pixelate-container" data-amount={amount} data-from={from ?? "random"} data-axis={axis ?? "0"} data-duration={duration ?? "0.5"} ref={image}></div>
             <img src={src} alt={alt} width={"100%"} ref={mainImage} />
         </div>
     );
