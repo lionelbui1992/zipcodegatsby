@@ -10,6 +10,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEOHead from "../components/head"
 import { IPageProps } from "../shared/model/IPageProps";
+import { Profile } from "../components/Careers/Profile";
 
 const Careers: React.FC<IPageProps> = (props: IPageProps) => {
   // const { page } = props.data
@@ -53,29 +54,35 @@ const Careers: React.FC<IPageProps> = (props: IPageProps) => {
   const OurValuesTitle = 'Our Values';
   const OurValuesImagePlaceholder1 = 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-placeholder-1.png';
   const OurValuesImagePlaceholder2 = 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-placeholder-2.png';
+  const openPopUpBackground = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/careers-life-bkg.jpg';
   const OurValuesContents = [
     {
       title:        "Ambition", 
+      content:      "<ul><li>Strong sense of ownership in projects and the company.</li><li>Align personal and organizational goals.</li><li>Strive and make an effort to achieve success.</li><li>Seek new opportunities and be willing to go the extra mile to create business value for Zipcode.</li><ul>", 
       imgUrl:       'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-5.png',
       imgSecondUrl: 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-10.png',
     },
     {
       title:        "Accountability", 
+      content:      "<ul><li>Strong sense of ownership in projects and the company.</li><li>Align personal and organizational goals.</li><li>Strive and make an effort to achieve success.</li><li>Seek new opportunities and be willing to go the extra mile to create business value for Zipcode.</li><ul>", 
       imgUrl:       'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-1.png',
       imgSecondUrl: 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-7.png',
     },
     {
       title:        "Integrity", 
+      content:      "<ul><li>Strong sense of ownership in projects and the company.</li><li>Align personal and organizational goals.</li><li>Strive and make an effort to achieve success.</li><li>Seek new opportunities and be willing to go the extra mile to create business value for Zipcode.</li><ul>", 
       imgUrl:       'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-2.png',
       imgSecondUrl: 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-6.png',
     },
     {
       title:        "Growth Mindset", 
+      content:      "<ul><li>Strong sense of ownership in projects and the company.</li><li>Align personal and organizational goals.</li><li>Strive and make an effort to achieve success.</li><li>Seek new opportunities and be willing to go the extra mile to create business value for Zipcode.</li><ul>", 
       imgUrl:       'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-3.png',
       imgSecondUrl: 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-8.png',
     },
     {
       title:        "Leadership and Collaboration", 
+      content:      "<ul><li>Strong sense of ownership in projects and the company.</li><li>Align personal and organizational goals.</li><li>Strive and make an effort to achieve success.</li><li>Seek new opportunities and be willing to go the extra mile to create business value for Zipcode.</li><ul>", 
       imgUrl:       'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-4.png',
       imgSecondUrl: 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-9.png',
     }
@@ -151,6 +158,9 @@ const Careers: React.FC<IPageProps> = (props: IPageProps) => {
     }
   ]
 
+  const ProfileTitle = "Leave your profile to be part of our welcoming team";
+  const ProfileFormTitle = "Contact Information";
+
   return (
     <Layout>
       <Banner 
@@ -179,6 +189,7 @@ const Careers: React.FC<IPageProps> = (props: IPageProps) => {
         OurValuesContents = {OurValuesContents}
         OurValuesImagePlaceholder1 = {OurValuesImagePlaceholder1}
         OurValuesImagePlaceholder2 = {OurValuesImagePlaceholder2}
+        openPopUpBackground = {openPopUpBackground}
       />
       <div className="careers-section">
         <TextMarquee />
@@ -192,7 +203,11 @@ const Careers: React.FC<IPageProps> = (props: IPageProps) => {
         AvailableTitle = {AvailableTitle}
         AvailableBackground = {AvailableBackground}
         AvailableContent = {AvailableContent}
-      />       
+      />
+      <Profile 
+        ProfileTitle = {ProfileTitle}
+        ProfileFormTitle = {ProfileFormTitle}
+      />
     </Layout>
   );
 }
