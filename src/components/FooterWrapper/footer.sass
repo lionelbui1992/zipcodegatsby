@@ -1,33 +1,35 @@
+.to-top.hidden
+  display: none
+.to-top
+  display: flex
+  flex-wrap: wrap
+  width: 50px
+  justify-content: center
+  text-transform: uppercase
+  font-size: 10px
+  font-weight: 600
+  line-height: 14px
+  letter-spacing: 0.02em
+  text-align: center
+  position: fixed
+  bottom: 130px
+  right: 74px
+  @media screen and (max-width: 767.98px)
+    bottom: calc(290px + 0.22 * (100vw - 72px))
+    right: 36px
+
+  svg
+    width: 31px
+    height: 30px
+    cursor: pointer
+
 .site-footer
   z-index: 2
   padding: 63px 0 48px
   position: relative
   @media screen and (max-width: 767.98px)
     padding: 51px 0 30px
-  .to-top.hidden
-    display: none
-  .to-top
-    display: flex
-    flex-wrap: wrap
-    width: 50px
-    justify-content: center
-    text-transform: uppercase
-    font-size: 10px
-    font-weight: 600
-    line-height: 14px
-    letter-spacing: 0.02em
-    text-align: center
-    position: fixed
-    bottom: 130px
-    right: 74px
-    @media screen and (max-width: 767.98px)
-      bottom: calc(290px + 0.22 * (100vw - 72px))
-      right: 36px
 
-    svg
-      width: 31px
-      height: 30px
-      cursor: pointer
   h5
     font-size: 35px
     line-height: 45px

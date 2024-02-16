@@ -21,7 +21,7 @@ export const ImageWithText = ({
   return (
     <>
       { (title || des || imgUrl ) && 
-        <div className={`phi-content-container ${isDarkBackground ? 'bg-black' : ''}`} style={{backgroundImage: "url("+backgroundUrl+")"}}>
+        <div className={`phi-content-container ${isDarkBackground ? 'bg-black' : ''}`} style={{ backgroundImage: backgroundUrl ? `url(${backgroundUrl})` : 'none', backgroundColor: backgroundUrl ? 'transparent' : '#fff' }}>
           <div className={`container ${index % 2 === 0 ? "img-right" : "img-left"}`}>
             { imgUrl && 
               <div className="image-container img-dk">
