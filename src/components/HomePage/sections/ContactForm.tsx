@@ -11,14 +11,6 @@ export const ContactForm = (): JSX.Element => {
     // const fetchData = async () => {
     const test = useQuery(GET_FORMINATOR_FORM);
 
-
-    console.log(['test', test])
-
-    // if (loading) return null;
-    // if (error) return `Error! ${error}`;
-
-
-
     // };
     // fetchData()
 
@@ -29,12 +21,18 @@ export const ContactForm = (): JSX.Element => {
             }
         };
 
+
+
         const timer = setTimeout(showForm, 6000); // Show after 10 seconds
         setTimeout(() => {
-            ctform.current.classList.add('active')
+            if (ctform.current) {
+                ctform.current.classList.add('active')
+            }
         }, 6100)
+
         return () => clearTimeout(timer);
-    }, []);
+
+    }, [ctform]);
 
     const handleClose = () => {
         setFormVisible(false);

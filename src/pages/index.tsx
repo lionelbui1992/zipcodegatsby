@@ -68,19 +68,31 @@ const IndexPage: React.FC<IPageProps> = (props: IPageProps) => {
                 let offset = item.getBoundingClientRect().y
                 if (offset < innerHeight - 200) {
                   // tl1.play()
-                  const animate = gsap.timeline({ repeat: 0 });
+                  const animate = gsap.timeline({
+                    repeat: 0,
+                    onComplete: () => {
+                      // item.classList.remove('active-animation')
+                      item.nextElementSibling.classList.add('active')
+                    }
+                  });
                   let cells = item.querySelectorAll('.cell');
-                  console.log(cells)
+                  let axis = item.getAttribute("data-axis") ?? false,
+                    from = item.getAttribute("data-from") ?? "random",
+                    duration = item.getAttribute("data-duration") ?? .5;
+
+                  axis = axis === "0" ? false : axis;
+
+                  console.log(['axis', axis])
                   animate.from(cells, {
-                    duration: .5,
+                    duration: duration,
                     scale: 0,
-                    y: 40,
+                    y: 0,
                     repeat: 0,
                     ease: "none",
                     stagger: {
                       amount: 1,
-                      axis: false,
-                      from: 'random',
+                      axis: axis,
+                      from: from,
                       grid: "auto"
                     }
                   });
@@ -94,13 +106,14 @@ const IndexPage: React.FC<IPageProps> = (props: IPageProps) => {
             gsap.utils.toArray('.text-animation').forEach((item) => {
               if (!item.classList.contains('active-animation')) {
                 let offset = item.getBoundingClientRect().y
+                let dir = item.getAttribute('data-dir') ?? 'ltr'
+
                 if (offset < innerHeight - 200) {
                   // tl1.play()
                   const animate = gsap.timeline({ repeat: 0 });
                   let cells = item.querySelectorAll('p');
-                  console.log(cells)
                   animate.fromTo(cells, {
-                    x: -50,
+                    x: dir === 'ltr' ? -50 : 50,
                     opacity: 0,
                   },
                     {
@@ -112,7 +125,7 @@ const IndexPage: React.FC<IPageProps> = (props: IPageProps) => {
                       stagger: {
                         stagger: 0.3,
                         axis: "y",
-                        from: 'start'
+                        from: dir === 'ltr' ? 'start' : 'end'
                       }
                     });
                   item.classList.add('active-animation');
