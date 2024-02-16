@@ -8,6 +8,7 @@ import { ScrollSmoother } from "scroll-smoother-dev";
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ContactForm } from "./HomePage";
+import { ZIcon } from "./HomePage/sections/ZIcon";
 
 gsap.registerPlugin(useGSAP, ScrollSmoother, ScrollTrigger);
 interface LayoutProps {
@@ -15,7 +16,6 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
-    const main = useRef();
     const smoother = useRef();
     useEffect(
         () => {
@@ -31,6 +31,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <Slice alias="header" />
             {/* <Slice alias="contactform" /> */}
             <ContactForm />
+            <ZIcon />
             <main className="global-wrapper">
                 <div id="smooth-wrapper" ref={smoother}>
                     <div id="smooth-content">
