@@ -56,25 +56,25 @@ export const HeaderInner = ({
         handleResize();
       }
       // set color header
-      if(sectionsBlack.length > 0) {
-          for (const sectionBlack of sectionsBlack) {
-          const rect = sectionBlack.getBoundingClientRect();
+      // if(sectionsBlack.length > 0) {
+      //     for (const sectionBlack of sectionsBlack) {
+      //     const rect = sectionBlack.getBoundingClientRect();
 
-          if (rect.top <= sectionHeader.offsetHeight/2 && rect.top + rect.height > sectionHeader.offsetHeight/2) {
-            setIsHeaderBlack(false);
-            setMainLogo(mainLogoWhite);
-            setMenuIcon(MenuWhite);
-            setTextColorHeader("#fff");
-            break;
-          } else {
-            setIsHeaderBlack(true);
-            setMainLogo(mainLogoBlack);
-            setMenuIcon(MenuBlack);
-            setTextColorHeader("#1E1E1E");
-          }
-        }
+      //     if (rect.top <= sectionHeader.offsetHeight/2 && rect.top + rect.height > sectionHeader.offsetHeight/2) {
+      //       setIsHeaderBlack(false);
+      //       setMainLogo(mainLogoWhite);
+      //       setMenuIcon(MenuWhite);
+      //       setTextColorHeader("#fff");
+      //       break;
+      //     } else {
+      //       setIsHeaderBlack(true);
+      //       setMainLogo(mainLogoBlack);
+      //       setMenuIcon(MenuBlack);
+      //       setTextColorHeader("#1E1E1E");
+      //     }
+      //   }
     
-      }
+      // }
     }
     handleScroll(sectionsBlack, sectionHeader, true);
     window.addEventListener("scroll", () => handleScroll(sectionsBlack, sectionHeader, false));
