@@ -37,35 +37,35 @@ export default function Footer(): JSX.Element {
       }
     };
 
-    let textZ = animationZ.current;
-    if (textZ) {
+    // let textZ = animationZ.current;
+    // if (textZ) {
 
-      let tl = gsap.timeline({
+    //   let tl = gsap.timeline({
 
-        repeat: -1,
-        yoyo: true,
-        ease: "none"
-      })
+    //     repeat: -1,
+    //     yoyo: true,
+    //     ease: "none"
+    //   })
 
-      tl.to(textZ, { x: 200, y: -50, duration: 4 })
-        .to(textZ, { x: 400, y: -30, duration: 4 })
-        .to(textZ, { x: 600, y: -50, duration: 4 })
-        .to(textZ, { x: 700, y: -100, duration: 4 })
-        .to(textZ, { x: 800, y: 100, duration: 4 })
-        .to(textZ, { x: 600, y: 50, duration: 4 })
-        .to(textZ, { x: 400, y: 70, duration: 4 })
-        .to(textZ, { x: 200, y: 50, duration: 4 })
-        .to(textZ, { x: 100, y: 30, duration: 4 })
-        .to(textZ, { x: 0, y: 10, duration: 4 })
-        .to(textZ, { x: -200, y: 0, duration: 4 })
-        .to(textZ, { x: 200, y: -50, duration: 4 })
-        .to(textZ, { x: 400, y: -30, duration: 4 })
-        .to(textZ, { x: 600, y: -50, duration: 4 })
-        .to(textZ, { x: 700, y: -100, duration: 4 })
-        .to(textZ, { x: 800, y: 100, duration: 4 })
+    //   tl.to(textZ, { x: 200, y: -50, duration: 4 })
+    //     .to(textZ, { x: 400, y: -30, duration: 4 })
+    //     .to(textZ, { x: 600, y: -50, duration: 4 })
+    //     .to(textZ, { x: 700, y: -100, duration: 4 })
+    //     .to(textZ, { x: 800, y: 100, duration: 4 })
+    //     .to(textZ, { x: 600, y: 50, duration: 4 })
+    //     .to(textZ, { x: 400, y: 70, duration: 4 })
+    //     .to(textZ, { x: 200, y: 50, duration: 4 })
+    //     .to(textZ, { x: 100, y: 30, duration: 4 })
+    //     .to(textZ, { x: 0, y: 10, duration: 4 })
+    //     .to(textZ, { x: -200, y: 0, duration: 4 })
+    //     .to(textZ, { x: 200, y: -50, duration: 4 })
+    //     .to(textZ, { x: 400, y: -30, duration: 4 })
+    //     .to(textZ, { x: 600, y: -50, duration: 4 })
+    //     .to(textZ, { x: 700, y: -100, duration: 4 })
+    //     .to(textZ, { x: 800, y: 100, duration: 4 })
 
 
-    }
+    // }
 
 
     window.addEventListener("resize", handleResize);
@@ -107,9 +107,6 @@ export default function Footer(): JSX.Element {
         </div>
         <div className="section-middle">
           <div className="img-footer" style={{ backgroundImage: "url(" + imageFooter + ")" }}></div>
-          <div className="icon-container" ref={animationZ}>
-            <div className="icon" style={{ backgroundImage: "url(" + logoFooter + ")" }}></div>
-          </div>
         </div>
         <div className="ft-dk"><SectionLink /></div>
       </div>
