@@ -78,32 +78,32 @@ export const StyleGuide = (): JSX.Element => {
                     <br />
                     <h4>Inputs</h4>
                     <form>
-                    <div className="input-row">
-                        <div className="input-text col-6">
-                        <label>Full Name*</label>
-                        <input type="text" name="name" placeholder="Enter Your Full Name" />
+                        <div className="input-row">
+                            <div className="input-text col-6">
+                                <label>Full Name*</label>
+                                <input type="text" name="name" placeholder="Enter Your Full Name" />
+                            </div>
+                            <div className="input-text col-6">
+                                <label>Email*</label>
+                                <input type="email" name="email" placeholder="Enter Your Email" />
+                            </div>
+                            <div className="input-text col-6">
+                                <label>Phone Number*</label>
+                                <input type="tel" name="phone" className="error" placeholder="Enter Your Phone Number" value="Phone" />
+                                <div className="text-error">Incorrect entry.</div>
+                            </div>
+                            <div className="input-text col-6">
+                                <label>Subject</label>
+                                <input type="text" name="subject" placeholder="Enter Your Subject" value="Sub" />
+                            </div>
+                            <div className="input-text col-12">
+                                <label>Messages*</label>
+                                <textarea name="messages" placeholder="Enter Your Messages" />
+                            </div>
+                            <div className="input-text col-12">
+                                <button type="submit" className="btn">Submit</button>
+                            </div>
                         </div>
-                        <div className="input-text col-6">
-                        <label>Email*</label>
-                        <input type="email" name="email" placeholder="Enter Your Email" />
-                        </div>
-                        <div className="input-text col-6">
-                        <label>Phone Number*</label>
-                        <input type="tel" name="phone" className="error" placeholder="Enter Your Phone Number" value="Phone" />
-                        <div className="text-error">Incorrect entry.</div>
-                        </div>
-                        <div className="input-text col-6">
-                        <label>Subject</label>
-                        <input type="text" name="subject" placeholder="Enter Your Subject" value="Sub" />
-                        </div>
-                        <div className="input-text col-12">
-                        <label>Messages*</label>
-                        <textarea name="messages" placeholder="Enter Your Messages" />
-                        </div>
-                        <div className="input-text col-12">
-                        <button type="submit" className="btn">Submit</button>
-                        </div>
-                    </div>
                     </form>
 
 

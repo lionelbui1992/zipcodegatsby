@@ -8,30 +8,32 @@ import { Navigation } from "swiper/modules";
 export const Banner = (): JSX.Element => {
     useEffect(() => {
         const modalBtns: HTMLElement[] = Array.from(document.querySelectorAll(".projects-popup-item"));
-        modalBtns.forEach((btn: HTMLElement) => {
-            const modal: string | null = btn.getAttribute('data-popup');
+
+        if (modalBtns.length > 0) {
+            modalBtns.forEach((btn: HTMLElement) => {
+                const modal: string | null = btn.getAttribute('data-popup');
+                    
+                const modalOffsetTop = (): void => {
+                    const btnTop: number = btn.offsetTop;
+                    document.getElementById(modal).style.setProperty("--offsetTop", `${btnTop}px`);
+                };
+                    
+                window.addEventListener("resize", modalOffsetTop);
+                modalOffsetTop();
                 
-            const modalOffsetTop = (): void => {
-                const btnTop: number = btn.offsetTop;
-                console.log(btnTop);
-                document.getElementById(modal).style.setProperty("--offsetTop", `${btnTop}px`);
-            };
-                
-            window.addEventListener("resize", modalOffsetTop);
-            modalOffsetTop();
-            
-            btn.onclick = function() {
-                document.querySelectorAll(".projects-popup-item").forEach((element: HTMLElement) => {
-                    element.classList.remove('active-popup');
-                });
-                document.querySelectorAll(".projects-popup").forEach((element: HTMLElement) => {
-                    element.classList.remove('active-popup');
-                });
-                btn.classList.add('active-popup');
-                document.getElementById(modal)?.classList.add('active-popup');
-                document.querySelector('html')!.classList.add('active-overlay');
-            }
-        });
+                btn.onclick = function() {
+                    document.querySelectorAll(".projects-popup-item").forEach((element: HTMLElement) => {
+                        element.classList.remove('active-popup');
+                    });
+                    document.querySelectorAll(".projects-popup").forEach((element: HTMLElement) => {
+                        element.classList.remove('active-popup');
+                    });
+                    btn.classList.add('active-popup');
+                    document.getElementById(modal)?.classList.add('active-popup');
+                    document.querySelector('html')!.classList.add('active-overlay');
+                }
+            });
+        }
 
         const closeBtns: HTMLElement[] = Array.from(document.querySelectorAll(".projects-popup-close"));
         closeBtns.forEach((btn: HTMLElement) => {

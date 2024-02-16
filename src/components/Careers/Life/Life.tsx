@@ -28,11 +28,16 @@ export const Life = ({
         setOpenPopUp(!openPopUp);
     }
 
+    const hidePopup = () => {
+        setOpenPopUp(openPopUp);
+    }
+
     return (
         <>
             { (lifeTitle || lifeGallery) && 
                 <div className="careers-life careers-section" style={{backgroundImage: "url("+lifeBackground+")"}}>
                     <div className="container">
+                        <div className="section-overlay" onClick={() => hidePopup()}></div>
                         <div className="section-title">
                             <h2 className="h4" dangerouslySetInnerHTML={{__html: lifeTitle}} />
                         </div>
@@ -61,6 +66,7 @@ export const Life = ({
                                                             <img className="img-placeholder" loading="lazy" srcSet={lifeImagePlaceholder1} alt="" />
                                                         )}
                                                         <img className="img-default" loading="lazy" srcSet={list.imgUrl} alt="" />
+                                                        <a href="{list.imgUrl}" data-lightbox="roadtrip"></a>
                                                     </div>
                                                 </div>
                                         ))}
