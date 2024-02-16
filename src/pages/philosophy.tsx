@@ -61,59 +61,95 @@ const Philosophy: React.FC<IPageProps> = (props: IPageProps) => {
   ];
   const lastItem = contents[contents.length - 1];
   const container = useRef(null);
-  useEffect(() => {
+  // useEffect(() => {
 
-    if (!container) return;
+  //   if (!container) return;
 
-    const absoluteSections = document.querySelectorAll('.scroll-section .relative-section');
-    const totalHeight = [...absoluteSections].reduce((acc, section) => {
-      section.classList.replace('relative-section', 'absolute-section'); // Replace class
-      return acc + section.offsetHeight;
-    }, 0);;
+  //   const absoluteSections = document.querySelectorAll('.scroll-section .relative-section');
+  //   const absoluteSection = document.querySelector('.scroll-section .relative-section');
+  //   const heightSection = absoluteSection.clientHeight;
 
-    document.querySelector('.pinning-2').style.height = totalHeight - 200 + 'px';
-    // const test = totalHeight + 'px 450px';
+  //   const totalHeight = [...absoluteSections].reduce((acc, section) => {
+  //     section.classList.replace('relative-section', 'absolute-section'); // Replace class
+  //     return acc + section.offsetHeight;
+  //   }, 0);;
 
-    ScrollTrigger.create({
-      trigger: ".pinning-1",
-      start: "top top",
-      end: "bottom top",
-      pin: true,
-      pinSpacing: false,
-      markers: false,
-      scrub: false
-    });
+  //   document.querySelector('.pinning-2').style.height = totalHeight - heightSection + 'px';
+  //   // const test = totalHeight + 'px 450px';
 
-    let i = 0;
-    let j = 0;
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".pinning-2",
-        start: "top 90px",
-        end: totalHeight,
-        pin: true,
-        pinSpacing: false,
-        scrub: 0.001,
-        markers: false,
-      },
-      ease: "none",
-      smoothChildTiming: true
-    });
+  //   ScrollTrigger.create({
+  //     trigger: ".pinning-1",
+  //     start: "top top",
+  //     end: "bottom top",
+  //     pin: true,
+  //     pinSpacing: false,
+  //     markers: false,
+  //     scrub: false
+  //   });
 
+  //   let i = 0;
+  //   let j = 0;
+  //   const test = window.innerHeight - heightSection;
+  //   var configStart = "top " + test + "px";
+  //   const tl = gsap.timeline({
+  //     scrollTrigger: {
+  //       trigger: ".pinning-2",
+  //       start: configStart,
+  //       end: totalHeight,
+  //       pin: true,
+  //       pinSpacing: false,
+  //       scrub: 0.001,
+  //       markers: true,
+  //     },
+  //     ease: "none",
+  //     smoothChildTiming: true
+  //   });
+    
+  //   const onScrollUpSectionComplete = () => {
+  //     console.log('1111');
+  //   };
+  //   const onScrollDownSectionComplete = () => {
+  //     console.log('2222');
+  //   };
+    
+  //   tl.to(".phi-1", { y: -heightSection * 1 })
+  //     .to(".phi-2", { y: -heightSection * 2, onComplete: () => onScrollUpSectionComplete() })
+  //     .to(".phi-3", { y: -heightSection * 3 })
+  //     .to(".phi-4", { y: -heightSection * 4 })
+  //     .to(".phi-5", { y: -heightSection * 5 })
 
-    tl.to(".phi-1", { yPercent: -100 })
-    tl.to(".phi-2", { yPercent: -200 })
-    tl.to(".phi-3", { yPercent: -300 })
-    tl.to(".phi-4", { yPercent: -400 })
-    // tl.to(".phi-5", { yPercent: 0 })
+  //   // tl.to(".phi-5", { y: -heightSection * 5 })
+  //   //   .to(".phi-4", { y: -heightSection * 4 })
+  //   //   .to(".phi-3", { y: -heightSection * 3 })
+  //   //   .to(".phi-2", { y: -heightSection * 2, onComplete: () => onScrollDownSectionComplete() })
+  //   //   .to(".phi-1", { y: -heightSection * 1 })
 
-
-    return () => {
-      // Kill all ScrollTriggers on unmount
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
-  }, []);
-  
+  //   return () => {
+  //     // Kill all ScrollTriggers on unmount
+  //     ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+  //   };
+  // }, []);
+  // useEffect(() => {
+  //   const absoluteSection = document.querySelector('.scroll-section .test');
+  //   const heightSection = absoluteSection.clientHeight;
+  //   const tl = gsap.timeline({
+  //     scrollTrigger: {
+  //       trigger: ".pinning-2",
+  //       pin: true,
+  //       start: "top 10%",
+  //       end: "bottom bottom",
+  //       //markers: true,
+  //       scrub: true
+  //     }
+  //   });
+    
+  //   tl.to(".phi-1", { y: -heightSection * 1 })
+  //     .to(".phi-2", { y: -heightSection * 2 })
+  //     .to(".phi-3", { y: -heightSection * 3 })
+  //     .to(".phi-4", { y: -heightSection * 4 });
+  //     // .to(".phi-5", { y: -heightSection * 5 });
+    
+  // }, []);
   return (
     <Layout>
       <div className="scroll-section pinning-1" data-speed="0.2">
@@ -128,15 +164,15 @@ const Philosophy: React.FC<IPageProps> = (props: IPageProps) => {
       <div className="scroll-section pinning-2 company" data-speed="0.3">
         {contents.map((list, index, contents) => (
           
-          <div className={`phi-${index+1} ${index+1 !== contents.length  ? "relative-section" : "absolute-section"} `} style={{zIndex: 100 - index}}>
-          <ImageWithText 
-            index={index + 1}
-            title={list.title} 
-            des={list.des} 
-            imgUrl={list.imgUrl} 
-            backgroundUrl={list.backgroundUrl} 
-            isDarkBackground={list.isDarkBackground}
-          />
+          <div className={`phi-${index+1} test `} >
+            <ImageWithText 
+              index={index + 1}
+              title={list.title} 
+              des={list.des} 
+              imgUrl={list.imgUrl} 
+              backgroundUrl={list.backgroundUrl} 
+              isDarkBackground={list.isDarkBackground}
+            />
           </div>
           
         ))}
