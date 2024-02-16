@@ -3,8 +3,6 @@ import gsap from 'gsap';
 import { TextPlugin } from 'gsap/TextPlugin';
 import "./style.sass";
 
-history.scrollRestoration = "manual";
-
 gsap.registerPlugin(TextPlugin);
 
 export default function Preload(): JSX.Element {
@@ -14,6 +12,8 @@ export default function Preload(): JSX.Element {
   useEffect(() => {
 
     window.scrollTo(0, 0);
+
+    window.history.scrollRestoration = "manual";
 
     let preloadElement = preload.current;
 

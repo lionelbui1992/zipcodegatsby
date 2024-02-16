@@ -16,9 +16,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     useEffect(
         () => {
             let scroller = ScrollSmoother.create({
-                smooth: .5,
+                smooth: .1,
                 effects: false,
-                speed: .5,
+                speed: .1,
                 smoothTouch: 0.1,
                 wrapper: smoother.current
             });
