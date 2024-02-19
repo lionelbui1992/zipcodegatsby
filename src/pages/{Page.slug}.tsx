@@ -1,44 +1,72 @@
 import * as React from "react"
 import { graphql } from "gatsby"
+import Seo from 'gatsby-plugin-wpgraphql-seo';
 import Layout from "../components/layout"
-import { Container, Box, Heading } from "../components/ui"
-import SEOHead from "../components/head"
-import { IPageProps } from "../shared/model/IPageProps"
+import { Container, Box } from "../components/ui"
+import * as sections from "../components/sections"
+import Fallback from "../components/fallback"
 
-export default function Page(props: IPageProps) {
-  const { page } = props.data
-
+export default function Page({ data: { wpPage, pageDetail } }: any) {
+  const post = pageDetail.nodes[0];
   return (
-    <Layout>
-      <Box paddingY={5}>
-        <Container width="narrow">
-          <Heading as="h1">{page.title}</Heading>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: page.html,
-            }}
-          />
-        </Container>
-      </Box>
-    </Layout>
+    <>
+      <Seo post={wpPage} />
+      <Layout>
+        <Box paddingY={5}>
+          <Container width="narrow">
+            {post.blocks.map((block: any) => {
+              const { id, blocktype, ...componentProps } = block
+              const Component = sections[blocktype] || Fallback
+              return <Component key={id} {...(componentProps as any)} />
+            })}
+          </Container>
+        </Box>
+      </Layout>
+    </>
   )
 }
-export const Head = (props: IPageProps) => {
-  const { page } = props.data
-  return <SEOHead {...page} />
-}
-export const query = graphql`
-  query PageContent($id: String!) {
-    page(id: { eq: $id }) {
-      id
-      title
-      slug
-      description
-      image {
-        id
-        url
-      }
-      html
+
+export const pageQuery = graphql`
+    query GET_PAGE($slug: String!) {
+        wpPage: wpPage(slug: { eq: $slug }) {
+            nodeType
+            title
+            uri
+            seo {
+                title
+                metaDesc
+                focuskw
+                metaKeywords
+                metaRobotsNoindex
+                metaRobotsNofollow
+                opengraphTitle
+                opengraphDescription
+                opengraphImage {
+                    altText
+                    sourceUrl
+                    srcSet
+                }
+                twitterTitle
+                twitterDescription
+                twitterImage {
+                    altText
+                    sourceUrl
+                    srcSet
+                }
+                canonical
+                cornerstone
+                schema {
+                    articleType
+                    pageType
+                    raw
+                }
+            }
+        }
+        pageDetail: allWpPage(filter: {slug: {eq: $slug}}) {
+          nodes {
+            title
+            blocks
+          }
+        }
     }
-  }
-`
+`;

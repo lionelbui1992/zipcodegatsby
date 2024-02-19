@@ -332,6 +332,8 @@ exports.onCreateNode = ({
   if (node.internal.type === "WpPage") {
     switch (node.slug) {
       case "homepage":
+        // console.log(node);
+        console.log(node.blocks);
         // prettier-ignore
         const {
           description,
@@ -507,6 +509,7 @@ exports.onCreateNode = ({
         actions.createNode({
           ...node.homepage,
           id: createNodeId(`${node.id} >>> Homepage`),
+          _id: node.id,
           internal: {
             type: "Homepage",
             contentDigest: node.internal.contentDigest,
@@ -537,6 +540,7 @@ exports.onCreateNode = ({
             contentDigest: node.internal.contentDigest,
           },
           parent: node.id,
+          _id: node.id,
           slug: node.slug,
           title: node.title,
           description: node.page?.description,
