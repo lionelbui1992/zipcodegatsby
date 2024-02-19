@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 export const Explore = (): JSX.Element => {
     return (
         <div className="section section-explore">
-            <div className="container">
+            <div className="small-container">
                 <div className="d-flex">
                     <div className="col-left">
                         <div className="image-box">
@@ -20,10 +20,10 @@ export const Explore = (): JSX.Element => {
                                 </div>
                                 <div className="col-image">
                                     <div className="image-box">
-                                        <img src="/img/mask-group-34.png" alt="image" />
+                                        <img src="/img/mask-group-33.png" alt="image" />
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
