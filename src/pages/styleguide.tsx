@@ -1,12 +1,12 @@
 import * as React from "react"
 import { StyleGuide } from "../components/StyleGuide";
-import Layout from "../components/layout"
+import LayoutStatic from "../components/layout-static";
 
 const StyleGuidePage: React.FC = () => {
     return (
-        <Layout>
+        <LayoutStatic>
             <StyleGuide />
-        </Layout>
+        </LayoutStatic>
     )
 }
 

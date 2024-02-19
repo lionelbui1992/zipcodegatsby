@@ -34,14 +34,6 @@ module.exports = {
         }
       }
     },
-    "gatsby-plugin-react-helmet",
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
@@ -60,6 +52,7 @@ module.exports = {
         icon: "./static/favicon-32x32.png",
       },
     },
-    "gatsby-plugin-apollo"
+    "gatsby-plugin-apollo",
+    "gatsby-plugin-graphql-component",
   ],
 }

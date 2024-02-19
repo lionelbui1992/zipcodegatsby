@@ -509,6 +509,7 @@ exports.onCreateNode = ({
         actions.createNode({
           ...node.homepage,
           id: createNodeId(`${node.id} >>> Homepage`),
+          _id: node.id,
           internal: {
             type: "Homepage",
             contentDigest: node.internal.contentDigest,
@@ -539,6 +540,7 @@ exports.onCreateNode = ({
             contentDigest: node.internal.contentDigest,
           },
           parent: node.id,
+          _id: node.id,
           slug: node.slug,
           title: node.title,
           description: node.page?.description,

@@ -8,15 +8,17 @@ import "../assets/sass/homepage.sass";
 import { TextMarquee } from "../components/TextMarquee";
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
-import SEOHead from "../components/head"
 import { IPageProps } from "../shared/model/IPageProps";
 
 gsap.registerPlugin(ScrollTrigger);
 
 
 
-const IndexPage: React.FC<IPageProps> = (props: IPageProps) => {
+const IndexPage: React.FC<IPageProps> = ({data}:any) => {
   // const { page } = props.data
+  console.log(data)
+
+
   const container = useRef(null);
   useEffect(() => {
 
@@ -173,22 +175,13 @@ const IndexPage: React.FC<IPageProps> = (props: IPageProps) => {
 
 export default IndexPage;
 
-export const Head = (props: IPageProps) => {
-  const { page } = props.data
-  return <SEOHead {...page} />
-}
-// export const query = graphql`
-//   query PageContent($id: String!) {
-//     page(id: { eq: $id }) {
-//       id
-//       title
-//       slug
-//       description
-//       image {
-//         id
-//         url
-//       }
-//       html
-//     }
-//   }
-// `
+export const query = graphql`
+  query($id: String!) {
+    allWpPage(filter: {id: {eq: $id}}) {
+      nodes {
+        title
+        blocks ### changed content to Blocks
+      }
+    }
+  }
+`
