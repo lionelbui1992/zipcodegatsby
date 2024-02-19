@@ -8,15 +8,17 @@ import "../assets/sass/homepage.sass";
 import { TextMarquee } from "../components/TextMarquee";
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
-import SEOHead from "../components/head"
 import { IPageProps } from "../shared/model/IPageProps";
 
 gsap.registerPlugin(ScrollTrigger);
 
 
 
-const IndexPage: React.FC<IPageProps> = (props: IPageProps) => {
+const IndexPage: React.FC<IPageProps> = ({data}:any) => {
   // const { page } = props.data
+  console.log(data)
+
+
   const container = useRef(null);
   useEffect(() => {
 
@@ -78,7 +80,8 @@ const IndexPage: React.FC<IPageProps> = (props: IPageProps) => {
                   let cells = item.querySelectorAll('.cell');
                   let axis = item.getAttribute("data-axis") ?? false,
                     from = item.getAttribute("data-from") ?? "random",
-                    duration = item.getAttribute("data-duration") ?? .5;
+                    duration = item.getAttribute("data-duration") ?? .5,
+                    amount = item.getAttribute("data-amount") ?? 1;
 
                   axis = axis === "0" ? false : axis;
 
@@ -90,7 +93,7 @@ const IndexPage: React.FC<IPageProps> = (props: IPageProps) => {
                     repeat: 0,
                     ease: "none",
                     stagger: {
-                      amount: 1,
+                      amount: amount,
                       axis: axis,
                       from: from,
                       grid: "auto"
@@ -110,24 +113,25 @@ const IndexPage: React.FC<IPageProps> = (props: IPageProps) => {
 
                 if (offset < innerHeight - 200) {
                   // tl1.play()
-                  const animate = gsap.timeline({ repeat: 0 });
+                  const animate = gsap.timeline({ repeat: -1 });
                   let cells = item.querySelectorAll('p');
-                  animate.fromTo(cells, {
-                    x: dir === 'ltr' ? -50 : 50,
-                    opacity: 0,
-                  },
-                    {
-                      x: 0,
-                      duration: 1,
-                      opacity: 1,
-                      repeat: 0,
-                      ease: "none",
-                      stagger: {
-                        stagger: 0.3,
-                        axis: "y",
-                        from: dir === 'ltr' ? 'start' : 'end'
-                      }
+
+                  if (cells.length > 0) {
+                    cells.forEach((cell, index) => {
+                      gsap.fromTo(cell, {
+                        x: dir === 'ltr' ? -50 : 50,
+                        opacity: 0,
+                      },
+                        {
+                          x: 0,
+                          duration: .6,
+                          opacity: 1,
+                          ease: "none",
+                          delay: 0.08 * index
+                        });
                     });
+                  }
+
                   item.classList.add('active-animation');
                   j++;
                 }
@@ -173,22 +177,13 @@ const IndexPage: React.FC<IPageProps> = (props: IPageProps) => {
 
 export default IndexPage;
 
-export const Head = (props: IPageProps) => {
-  const { page } = props.data
-  return <SEOHead {...page} />
-}
-// export const query = graphql`
-//   query PageContent($id: String!) {
-//     page(id: { eq: $id }) {
-//       id
-//       title
-//       slug
-//       description
-//       image {
-//         id
-//         url
-//       }
-//       html
-//     }
-//   }
-// `
+export const query = graphql`
+  query {
+    allWpPage(filter: {slug: {eq: "home"}}) {
+      nodes {
+        title
+        blocks ### changed content to Blocks
+      }
+    }
+  }
+`

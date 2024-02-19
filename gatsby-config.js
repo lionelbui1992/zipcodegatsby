@@ -15,7 +15,23 @@ module.exports = {
     {
       resolve: 'gatsby-source-wordpress',
       options: {
-        "url": process.env.WPGRAPHQL_URL
+        url: process.env.WPGRAPHQL_URL,
+        verbose: process.env.NODE_ENV === 'development',
+        debug: {
+          preview: process.env.NODE_ENV === 'development',
+          graphql: {
+            showQueryVarsOnError: process.env.NODE_ENV === 'development',
+            showQueryOnError: process.env.NODE_ENV === 'development',
+            writeQueriesToDisk: process.env.NODE_ENV === 'development',
+          },
+        },
+        develop: {
+          hardCacheMediaFiles: process.env.NODE_ENV === 'development',
+          hardCacheData: process.env.NODE_ENV === 'development'
+        },
+        html: {
+          useGatsbyImage: false
+        }
       }
     },
     "gatsby-plugin-image",
@@ -36,6 +52,6 @@ module.exports = {
         icon: "./static/favicon-32x32.png",
       },
     },
-    "gatsby-plugin-apollo"
+    "gatsby-plugin-apollo",
   ],
 }

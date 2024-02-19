@@ -4,15 +4,13 @@ import { BoxImage } from "../components/AboutPage/BoxImage";
 import { BannerCta } from "../components/AboutPage/BannerCta";
 import { MarqueeText } from "../components/AboutPage/MarqueeText";
 import { BannerTop } from "../components/AboutPage/BannerTop";
-import { graphql } from "gatsby"
-import Layout from "../components/layout"
-import SEOHead from "../components/head"
 import { IPageProps } from "../shared/model/IPageProps";
+import LayoutStatic from "../components/layout-static";
 
 const About: React.FC<IPageProps> = (props: IPageProps) => {
-  // const { page } = props.data
+    // const { page } = props.data
     useEffect(() => {
-        const sections: HTMLElement[] = document.getElementsByTagName("section");
+        const sections: HTMLElement[] = Array.from(document.getElementsByTagName("section"));
         let i: number;
 
         window.onscroll = function () {            
@@ -59,9 +57,9 @@ const About: React.FC<IPageProps> = (props: IPageProps) => {
             position:  "Personal Assistant",
         },
     ]
-
+    
     return (
-        <Layout>
+        <LayoutStatic>
         <div className="about-page">
             <section className="about-banner-top about-section bg-black">
                 <BannerTop />
@@ -79,10 +77,10 @@ const About: React.FC<IPageProps> = (props: IPageProps) => {
                     boxLinkUrl="#" 
                 />
                 <div className="our-teams">
-                    <OurTeams 
-                        OurTeamsHeading = {OurTeamsHeading}
-                        OurTeamsContent = {OurTeamsContent}
-                    />
+                <OurTeams 
+                    OurTeamsHeading = {OurTeamsHeading}
+                    OurTeamsContent = {OurTeamsContent}
+                />
                 </div>
             </section>
             <section className="about-banner-cta about-section">
@@ -101,29 +99,8 @@ const About: React.FC<IPageProps> = (props: IPageProps) => {
                 />
             </section>
         </div>
-        </Layout>
+        </LayoutStatic>
     )
 }
 
 export default About
-
-export const Head = (props: IPageProps) => {
-    const { page } = props.data
-    return <SEOHead {...page} />
-}
-  // export const query = graphql`
-  //   query PageContent($id: String!) {
-  //     page(id: { eq: $id }) {
-  //       id
-  //       title
-  //       slug
-  //       description
-  //       image {
-  //         id
-  //         url
-  //       }
-  //       html
-  //     }
-  //   }
-  // `
-  
