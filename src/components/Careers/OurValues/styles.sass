@@ -119,6 +119,9 @@
 
         @media (max-width: 1199px) 
             padding: 0 20px
+            
+        @media (max-width: 767px) 
+            padding: 0
 
         .item-inner
             cursor: pointer
@@ -127,6 +130,8 @@
             display: flex
             flex-wrap: wrap
             width: 46.4%
+            @media (max-width: 767px) 
+                width: 100%
             
             .image-inner
                 display: flex
@@ -149,6 +154,7 @@
                 .image-second
                     width: 54.112%
                     margin-left: auto
+
         .column-content
             width: 42.6%
             margin-left: auto
@@ -162,6 +168,10 @@
 
             @media (max-width: 1199px) 
                 margin-bottom: 64px
+
+            @media (max-width: 767px) 
+                width: 100%
+                margin-bottom: 0
 
         .column-title
             margin-top: 26px

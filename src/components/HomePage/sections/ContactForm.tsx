@@ -43,8 +43,8 @@ export const ContactForm = (): JSX.Element => {
             <div className="container">
                 <div className="btn-close" onClick={handleClose}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 32 29" fill="none">
-                        <line y1="-1.06719" x2="39.2529" y2="-1.06719" transform="matrix(0.724999 0.688749 -0.724999 0.688749 1.66455 1.70703)" stroke="#0068FF" stroke-width="2.13437" />
-                        <line y1="-1.06719" x2="39.2529" y2="-1.06719" transform="matrix(0.724999 -0.688749 0.724999 0.688749 1.66455 28.7422)" stroke="#0068FF" stroke-width="2.13437" />
+                        <line y1="-1.06719" x2="39.2529" y2="-1.06719" transform="matrix(0.724999 0.688749 -0.724999 0.688749 1.66455 1.70703)" stroke="#0068FF" strokeWidth="{'2.13437'}" />
+                        <line y1="-1.06719" x2="39.2529" y2="-1.06719" transform="matrix(0.724999 -0.688749 0.724999 0.688749 1.66455 28.7422)" stroke="#0068FF" strokeWidth="{'2.13437'}" />
                     </svg>
                 </div>
                 <div className="col-text">
@@ -54,35 +54,35 @@ export const ContactForm = (): JSX.Element => {
                     <form action="">
                         <fieldset className="fieldset">
                             <div className="field name col-6 required">
-                                <label className="label" for="name"><span>Full Name</span></label>
+                                <label className="label" htmlFor="{'name}"><span>Full Name</span></label>
                                 <div className="control">
                                     <input name="name" id="name" title="Name" value="" className="input-text" type="text"
                                         data-validate="{required:true}" aria-required="true" />
                                 </div>
                             </div>
                             <div className="field email col-6 required">
-                                <label className="label" for="name"><span>Email</span></label>
+                                <label className="label" htmlFor="{'name'}"><span>Email</span></label>
                                 <div className="control">
                                     <input name="name" id="name" title="Name" value="" className="input-text" type="text"
                                         data-validate="{required:true}" aria-required="true" />
                                 </div>
                             </div>
                             <div className="field phone col-6 required">
-                                <label className="label" for="name"><span>Phone Number</span></label>
+                                <label className="label" htmlFor="{'name'}"><span>Phone Number</span></label>
                                 <div className="control">
                                     <input name="name" id="name" title="Name" value="" className="input-text" type="text"
                                         data-validate="{required:true}" aria-required="true" />
                                 </div>
                             </div>
                             <div className="field subject col-6 required">
-                                <label className="label" for="name"><span>Subject</span></label>
+                                <label className="label" htmlFor="{'name'}"><span>Subject</span></label>
                                 <div className="control">
                                     <input name="name" id="name" title="Name" value="" className="input-text" type="text"
                                         data-validate="{required:true}" aria-required="true" />
                                 </div>
                             </div>
                             <div className="field name full required">
-                                <label className="label" for="name"><span>Messages</span></label>
+                                <label className="label" htmlFor="{'name'}"><span>Messages</span></label>
                                 <div className="control">
                                     <textarea name="name" id="name" title="Name" value="" className="input-text" type="text"
                                         data-validate="{required:true}" aria-required="true" />
