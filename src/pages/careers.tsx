@@ -22,28 +22,28 @@ const Careers: React.FC<IPageProps> = (props: IPageProps) => {
 
   const lifeTitle = 'Life @<br/> zipcode';
   const lifeBackground = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/careers-life-bkg.jpg';
-  const lifeIconRow = 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/gallery-box-icon-row.svg';
-  const lifeIconCol = 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/gallery-box-icon-col.svg';
-  const lifeImagePlaceholder1 = 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/life-zipcode-placeholder-1.png';
-  const lifeImagePlaceholder2 = 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/life-zipcode-placeholder-2.png';
+  const lifeIconRow = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/gallery-box-icon-row.svg';
+  const lifeIconCol = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/gallery-box-icon-col.svg';
+  const lifeImagePlaceholder1 = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/life-zipcode-placeholder-1.png';
+  const lifeImagePlaceholder2 = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/life-zipcode-placeholder-2.png';
   const lifeGallery = [
     {
-      imgUrl: 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/gallery-image-1-1.png',
+      imgUrl: 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/gallery-image-1.png',
     },
     {
-      imgUrl: 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/gallery-image-2-1.png',
+      imgUrl: 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/gallery-image-2.png',
     },
     {
-      imgUrl: 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/gallery-image-3-1.png',
+      imgUrl: 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/gallery-image-3.png',
     },
     {
-      imgUrl: 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/gallery-image-4-1.png',
+      imgUrl: 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/gallery-image-4.png',
     },
     {
-      imgUrl: 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/gallery-image-5-1.png',
+      imgUrl: 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/gallery-image-5.png',
     },
     {
-      imgUrl: 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/gallery-image-6-1.png',
+      imgUrl: 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/gallery-image-6.png',
     }
   ]
 
@@ -52,39 +52,39 @@ const Careers: React.FC<IPageProps> = (props: IPageProps) => {
   const OurCultureContent = 'We team up with the best talent to enhance our projects in the construction and real estate industry to new heights level. Moreover, we value open communication and collaboration. Our goal is to create an environment where you can thrive both personally and professionally.';
   
   const OurValuesTitle = 'Our Values';
-  const OurValuesImagePlaceholder1 = 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-placeholder-1.png';
-  const OurValuesImagePlaceholder2 = 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-placeholder-2.png';
+  const OurValuesImagePlaceholder1 = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/our-values-image-placeholder-1.png';
+  const OurValuesImagePlaceholder2 = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/our-values-image-placeholder-2.png';
   const openPopUpBackground = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/careers-life-bkg.jpg';
   const OurValuesContents = [
     {
       title:        "Ambition", 
       content:      "<ul><li>Strong sense of ownership in projects and the company.</li><li>Align personal and organizational goals.</li><li>Strive and make an effort to achieve success.</li><li>Seek new opportunities and be willing to go the extra mile to create business value for Zipcode.</li><ul>", 
-      imgUrl:       'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-5.png',
-      imgSecondUrl: 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-10.png',
+      imgUrl:       'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/our-values-image-5.png',
+      imgSecondUrl: 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/our-values-image-10.png',
     },
     {
       title:        "Accountability", 
       content:      "<ul><li>Strong sense of ownership in projects and the company.</li><li>Align personal and organizational goals.</li><li>Strive and make an effort to achieve success.</li><li>Seek new opportunities and be willing to go the extra mile to create business value for Zipcode.</li><ul>", 
-      imgUrl:       'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-1.png',
-      imgSecondUrl: 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-7.png',
+      imgUrl:       'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/our-values-image-1.png',
+      imgSecondUrl: 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/our-values-image-7.png',
     },
     {
       title:        "Integrity", 
       content:      "<ul><li>Strong sense of ownership in projects and the company.</li><li>Align personal and organizational goals.</li><li>Strive and make an effort to achieve success.</li><li>Seek new opportunities and be willing to go the extra mile to create business value for Zipcode.</li><ul>", 
-      imgUrl:       'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-2.png',
-      imgSecondUrl: 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-6.png',
+      imgUrl:       'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/our-values-image-2.png',
+      imgSecondUrl: 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/our-values-image-6.png',
     },
     {
       title:        "Growth Mindset", 
       content:      "<ul><li>Strong sense of ownership in projects and the company.</li><li>Align personal and organizational goals.</li><li>Strive and make an effort to achieve success.</li><li>Seek new opportunities and be willing to go the extra mile to create business value for Zipcode.</li><ul>", 
-      imgUrl:       'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-3.png',
-      imgSecondUrl: 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-8.png',
+      imgUrl:       'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/our-values-image-3.png',
+      imgSecondUrl: 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/our-values-image-8.png',
     },
     {
       title:        "Leadership and Collaboration", 
       content:      "<ul><li>Strong sense of ownership in projects and the company.</li><li>Align personal and organizational goals.</li><li>Strive and make an effort to achieve success.</li><li>Seek new opportunities and be willing to go the extra mile to create business value for Zipcode.</li><ul>", 
-      imgUrl:       'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-4.png',
-      imgSecondUrl: 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/our-values-image-9.png',
+      imgUrl:       'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/our-values-image-4.png',
+      imgSecondUrl: 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/our-values-image-9.png',
     }
   ]
   
@@ -93,38 +93,38 @@ const Careers: React.FC<IPageProps> = (props: IPageProps) => {
   const PerksContent = [
     {
       title:    "Health and wellness", 
-      imgUrl:   "https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/Chang_Profile.png",
+      imgUrl:   "https://maasi2404zip.merket.io/wp-content/uploads/2024/02/Chang_Profile.png",
       content:  "Your personal and professional development is a priority at Zipcode. Brainfood is a budget that you can spend on activities or trainings which help you develop your hard skill and soft skill.",
     },
     {
       title:    "Brainfood (Training & Development)", 
-      imgUrl:   "https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/Roong_Profile.png",
+      imgUrl:   "https://maasi2404zip.merket.io/wp-content/uploads/2024/02/Roong_Profile.png",
       content:  "Your personal and professional development is a priority at Zipcode. Brainfood is a budget that you can spend on activities or trainings which help you develop your hard skill and soft skill.",
     },
     {
       title:    "Provident Fund", 
-      imgUrl:   "https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/CareerPerks-image-1.png",
+      imgUrl:   "https://maasi2404zip.merket.io/wp-content/uploads/2024/02/CareerPerks-image-1.png",
       content:  "Your personal and professional development is a priority at Zipcode. Brainfood is a budget that you can spend on activities or trainings which help you develop your hard skill and soft skill.",
     },
     {
       title:    "Health and wellness", 
-      imgUrl:   "https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/Chang_Profile.png",
+      imgUrl:   "https://maasi2404zip.merket.io/wp-content/uploads/2024/02/Chang_Profile.png",
       content:  "Your personal and professional development is a priority at Zipcode. Brainfood is a budget that you can spend on activities or trainings which help you develop your hard skill and soft skill.",
     },
     {
       title:    "Brainfood (Training & Development)", 
-      imgUrl:   "https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/Roong_Profile.png",
+      imgUrl:   "https://maasi2404zip.merket.io/wp-content/uploads/2024/02/Roong_Profile.png",
       content:  "Your personal and professional development is a priority at Zipcode. Brainfood is a budget that you can spend on activities or trainings which help you develop your hard skill and soft skill.",
     },
     {
       title:    "Provident Fund", 
-      imgUrl:   "https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/CareerPerks-image-1.png",
+      imgUrl:   "https://maasi2404zip.merket.io/wp-content/uploads/2024/02/CareerPerks-image-1.png",
       content:  "Your personal and professional development is a priority at Zipcode. Brainfood is a budget that you can spend on activities or trainings which help you develop your hard skill and soft skill.",
     }
   ]
   
   const AvailableTitle = 'Available Positions';
-  const AvailableBackground = 'https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/careers-life-bkg.jpg';
+  const AvailableBackground = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/careers-life-bkg.jpg';
   const AvailableContent = [
     {
       content:  "Executive Assistant"
