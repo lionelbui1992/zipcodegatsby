@@ -3,15 +3,16 @@ import "./styles.sass";
 
 export const BannerTop = (): JSX.Element => {
     useEffect(() => {
-        const ttContent: HTMLElement | null = document.getElementById("content-tooltip");
+        const ttContent: HTMLElement | null = document.querySelector("content-tooltip");
         const ttImages: NodeListOf<Element> = document.querySelectorAll('.tt-image');
 
         ttImages.forEach((ttImage: Element) => {
             ttImage.addEventListener('mouseover', () => {
+                console.log(ttImage);
                 ttImage.classList.add('active');
                 ttContent?.classList.add('tooltip-active');
                 const ttImageTop: number = ttImage.offsetTop;
-                ttImage.style.cssText = "--offsetTop: " + ttImageTop + 'px';
+                ttImage?.style.setProperty('--offsetTop', `${ttImageTop}px`);
             })            
             ttImage.addEventListener('mouseleave', () => {
                 ttImage.classList.remove('active');
@@ -25,7 +26,7 @@ export const BannerTop = (): JSX.Element => {
                 <div className="section-content">
                     <h1>Perspective. Passion. Precision.</h1>
                     <div className="content">
-                        <div id="content-tooltip">
+                        <div className="content-tooltip">
                             We are putting back the real in <span className="tt-image"> real estate
                                 <img loading="lazy" srcSet="/about/about-tooltip-image-5.jpg" alt="" />
                             </span>, 
@@ -38,8 +39,7 @@ export const BannerTop = (): JSX.Element => {
                             </span> element in steel, glass, and concrete. We strive to develop category-challenging projects where creative programming and <span className="tt-image">efficient designs
                                 <img loading="lazy" srcSet="/about/about-tooltip-image-4.jpg" alt="" />
                             </span> combine to create something unique and enduring.
-                        </div>
-                        <div id="tooltip"></div>                        
+                        </div>                      
                     </div>
                 </div>
             </div>
