@@ -9,7 +9,8 @@ export const ZIcon = (): JSX.Element => {
         if (icon) {
             const tl = gsap.timeline({
                 repeat: -1,
-                yoyo: true
+                yoyo: true,
+                ease: "none",
 
             })
 

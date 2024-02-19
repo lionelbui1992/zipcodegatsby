@@ -136,10 +136,10 @@
     position: relative
     z-index: 2
     .image-with-text-component
-        margin-bottom: 100px
+        margin-bottom: 120px
 
         .image-box
-            padding-bottom: calc((619 / 818) * 100%)
+            padding-bottom: 619px
 
     .text-left
         .d-flex
@@ -175,9 +175,13 @@
     background-position: center
     background-size: cover
     border-radius: 0 0 32px 32px
+    min-height: 100vh
 
     .company-box
         position: relative
+        max-width: 1404px
+        margin: auto
+        margin-top: 106px
 
     .title
         color: #fff
@@ -187,6 +191,8 @@
         font-style: normal
         font-weight: 300
         line-height: 125px
+        max-width: 700px
+        margin: auto
 
     .image-box
         padding-bottom: 370px
@@ -194,7 +200,7 @@
 
     .text
         position: absolute
-        top: 0
+        top: -15px
         font-family: Buenos Aires
         font-size: 35px
         font-weight: 400
@@ -231,7 +237,8 @@
         line-height: 25.612px
         letter-spacing: 0.28px
         max-width: 565px
-        margin: auto
+        margin-right: 16%
+        margin-left: auto
 
         a
             color: #fff
@@ -244,6 +251,9 @@
             padding: 14px 22px
             border-radius: 71.146px
             border: 0.711px solid #fff
+
+            .icon
+                margin-left: 20px
 
 .section-explore
     padding: 250px 0
@@ -319,6 +329,7 @@
     background: url(/img/image-16.png)
     right: -31px
     background-size: contain
+    background-repeat: no-repeat
 
 .overlay-bottom-center .animation-image:before
     width: calc(100% + 84px)
@@ -331,6 +342,7 @@
     background-repeat: no-repeat
     left: -51px
     background-position: 0px 100%
+    background-repeat: no-repeat
 
 .section-contact-popup
     position: fixed
@@ -423,7 +435,86 @@ fieldset.fieldset
     .header-placeholder
         padding-bottom: 98px
 
+    .section-introduce
+        .d-flex
+            column-gap: 165px
+        .col-right
+            width: calc(55.5% - 33px)
+        .col-left
+            width: calc(42.5% - 50px)
+
+        .image-with-text-component
+            .image-box
+                padding-bottom: 440px
+                &.overlay-top-right:before
+                    width: 210px
+                    height: 419px
+
+@media screen and (max-width: 1199px)
+
+    .section-introduce
+        .d-flex
+            column-gap: 90px
+        .col-right
+            width: calc(54.5% - 45px)
+        .col-left
+            width: calc(45.5% - 45px)
+
+@media screen and (max-width: 1199px)
+
+    .section-introduce
+        .d-flex
+            column-gap: 50px
+        .col-right
+            width: calc(54.5% - 25px)
+        .col-left
+            width: calc(45.5% - 25px)
+
+    .scroll-section , .pin-spacer
+        max-width: 100% !important
+
 @media screen and (max-width: 767px)
     .section-banner
         .inner-section
             padding: 255px 0 260px
+
+    .section-introduce
+        .text-left .d-flex, .d-flex
+            flex-direction: column
+            row-gap: 82px
+
+        .col-right, .col-left
+            width: 100%
+
+        .col-text
+            order: -1
+
+    .section-company
+        .text
+            font-size: 22px
+            line-height: 24px
+            top: 0
+            left: -15px
+
+        .image-box
+            padding-bottom: 185px
+
+@media screen and (max-width: 499px)
+    .section-introduce
+        padding: 80px 0 20px
+        .image-with-text-component
+            margin-bottom: 82px
+            .image-box
+                padding-bottom: 268px
+
+                &.overlay-top-right:before
+                    width: 131px
+                    height: 257px
+                    top: -10px
+                    right: -18px
+
+        .overlay-bottom-center
+            .animation-image:before
+                width: calc(100% + 20px)
+                left: -10px
+                bottom: -10px

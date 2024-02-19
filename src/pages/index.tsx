@@ -111,24 +111,25 @@ const IndexPage: React.FC<IPageProps> = (props: IPageProps) => {
 
                 if (offset < innerHeight - 200) {
                   // tl1.play()
-                  const animate = gsap.timeline({ repeat: 0 });
+                  const animate = gsap.timeline({ repeat: -1 });
                   let cells = item.querySelectorAll('p');
-                  animate.fromTo(cells, {
-                    x: dir === 'ltr' ? -50 : 50,
-                    opacity: 0,
-                  },
-                    {
-                      x: 0,
-                      duration: 1,
-                      opacity: 1,
-                      repeat: 0,
-                      ease: "none",
-                      stagger: {
-                        stagger: 0.3,
-                        axis: "y",
-                        from: dir === 'ltr' ? 'start' : 'end'
-                      }
+
+                  if (cells.length > 0) {
+                    cells.forEach((cell, index) => {
+                      gsap.fromTo(cell, {
+                        x: dir === 'ltr' ? -50 : 50,
+                        opacity: 0,
+                      },
+                        {
+                          x: 0,
+                          duration: .6,
+                          opacity: 1,
+                          ease: "none",
+                          delay: 0.08 * index
+                        });
                     });
+                  }
+
                   item.classList.add('active-animation');
                   j++;
                 }

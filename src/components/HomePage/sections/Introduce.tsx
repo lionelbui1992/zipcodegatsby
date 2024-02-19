@@ -22,10 +22,8 @@ export const Introduce = (): JSX.Element => {
                         <div className="col col-image col-left">
                             <ImageAnimation classes="animation-image image-1" src="/img/mask-group-20.png" alt="" duration="1" from="random" />
                         </div>
-                        <div className="col col-text text-animation col-left" data-dir="ltr" >
-                            <p>Our projects resonate with</p>
-                            <p>individuality yet are considerate</p>
-                            <p>of their surroundings.</p>
+                        <div className="col col-text text-animation col-right" data-dir="ltr" >
+                            <p>Our projects resonate with individuality yet are considerate of their surroundings.</p>
                         </div>
                     </div>
                 </div>
@@ -35,8 +33,7 @@ export const Introduce = (): JSX.Element => {
                             <ImageAnimation classes="animation-image image-2" src="/img/image-5.png" amount={.3} alt="" duration=".5" from="end" axis="x" />
                         </div>
                         <div className="col col-text text-animation col-left" data-dir="rtl">
-                            <p>Our spaces make cities better</p>
-                            <p>and lift living standards.</p>
+                            <p>Our spaces make cities better and lift living standards.</p>
                         </div>
                     </div>
                 </div>
