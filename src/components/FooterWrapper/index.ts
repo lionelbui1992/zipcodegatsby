@@ -1,1 +1,1 @@
-export { FooterWrapper } from "./FooterWrapper";
+export {SectionLink} from "./SectionLink";
