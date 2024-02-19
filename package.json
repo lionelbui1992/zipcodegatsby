@@ -23,7 +23,6 @@
     "apollo-link-token-refresh": "^0.6.1",
     "gatsby": "^5.13.1",
     "gatsby-plugin-apollo": "^4.0.3",
-    "gatsby-plugin-graphql-component": "^0.2.4",
     "gatsby-plugin-image": "^3.13.1",
     "gatsby-plugin-manifest": "^5.13.1",
     "gatsby-plugin-sass": "^6.13.1",

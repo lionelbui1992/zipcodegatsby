@@ -53,6 +53,5 @@ module.exports = {
       },
     },
     "gatsby-plugin-apollo",
-    "gatsby-plugin-graphql-component",
   ],
 }
