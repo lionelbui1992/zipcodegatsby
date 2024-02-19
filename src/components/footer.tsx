@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./FooterWrapper/footer.sass";
 import { Link } from "gatsby"
-import SectionLink from "./FooterWrapper/SectionLink";
+import {SectionLink} from "./FooterWrapper";
 import gsap from "gsap";
 
 export default function Footer(): JSX.Element {
