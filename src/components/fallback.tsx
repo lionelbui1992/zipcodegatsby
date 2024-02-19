@@ -1,8 +1,8 @@
 interface FallbackProps {
-  blocktype: string
+  name: string
 }
 
-export default function Fallback({ blocktype }: FallbackProps) {
-  console.warn(`No component found for: ${blocktype}`)
+export default function Fallback({ name }: FallbackProps) {
+  console.warn(`No component found for: ${name}`)
   return null
 }
