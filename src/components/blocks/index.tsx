@@ -3,6 +3,7 @@ import loadable from '@loadable/component'
 import CommonBlocks from './common'
 import FormatBlocks from './format'
 import LayoutBlocks from './layout'
+import CustomBlocks from './custom'
 
 const DefaultHtmlBlock = loadable(() => import('./format/html'))
 
@@ -25,6 +26,8 @@ export function GetTheBlock(name: string) {
     case 'core/pullquote': return FormatBlocks.Pullquote
 
     case 'core/columns': return LayoutBlocks.Columns
+    // custom zipcode blocks
+    case 'acf/banner-with-image-right': return CustomBlocks.BannerImageRight
     default: return DefaultHtmlBlock
   }
 }
