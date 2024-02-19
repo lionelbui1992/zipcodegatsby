@@ -35,9 +35,13 @@ export const OurValues = ({
     const openPopup = async (index: string) => {
         await setOpenPopUp(!openPopUp);
 
-        let itemPopUp = document.querySelector('.popup-item[data-popup="' + index + '"]')
+        const itemWrapper: Element | null = document.querySelector('.our-values-box');
+        const itemPopUp: HTMLElement | null = document.querySelector('.popup-item[data-popup="' + index + '"]');
+        const itemPosition: HTMLElement | null = document.querySelector('.our-values-item[data-item="' + index + '"]');
+        const itemPositionTop: number = itemPosition?.offsetTop || 0;
+        itemWrapper?.style.setProperty('--offsetTop', `${itemPositionTop}px`);
 
-        itemPopUp?.classList.add('open')
+        itemPopUp?.classList.add('open');
 
     }
 
@@ -86,7 +90,7 @@ export const OurValues = ({
                                         {OurValuesContents.map((list, index) => (
                                             ((index + 1) <= numCol) &&
                                             (list.title || list.imgUrl || list.imgSecondUrl) &&
-                                            <div className="item" onClick={() => openPopup(index)} key={index}>
+                                            <div className="our-values-item item" data-item={index} onClick={() => openPopup(index)} key={index}>
                                                 <div className="item-inner">
                                                     {(list.imgUrl || list.imgSecondUrl) &&
                                                         <div className="column-image">
@@ -135,7 +139,7 @@ export const OurValues = ({
                                         {OurValuesContents.map((list, index) => (
                                             (index + 1) > numCol &&
                                             (list.title || list.imgUrl || list.imgSecondUrl) &&
-                                            <div className="item" onClick={() => openPopup(index)} key={index}>
+                                            <div className="our-values-item item" data-item={index} onClick={() => openPopup(index)} key={index}>
                                                 <div className="item-inner">
                                                     {(list.imgUrl || list.imgSecondUrl) &&
                                                         <div className="column-image">

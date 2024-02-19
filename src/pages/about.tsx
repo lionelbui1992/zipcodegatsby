@@ -34,19 +34,19 @@ const About: React.FC<IPageProps> = (props: IPageProps) => {
         },
         {
             title:    "Roong Wongsmith", 
-            imgUrl:   "https://maasi2404zip.merket.io/wp-content/uploads/2024/02/ourteam-2.png",
+            imgUrl:   "https://maasi2404zip.merket.io/wp-content/uploads/2024/02/ourteam-2.jpg",
             content:  "<p>Short biography of the person. A few words describing background, maybe a quote.</p>",
             position:  "Managing Partner and Co-Founder",
         },
         {
             title:    "Sappachoat Sawatruengphaisarn", 
-            imgUrl:   "https://maasi2404zip.merket.io/wp-content/uploads/2024/02/ourteam-3.png",
+            imgUrl:   "https://maasi2404zip.merket.io/wp-content/uploads/2024/02/ourteam-3.jpg",
             content:  "<p>Short biography of the person. A few words describing background, maybe a quote.</p>",
             position:  "Associate Manager",
         },
         {
             title:    "Natpreeya Yongdeemittapap", 
-            imgUrl:   "https://maasi2404zip.merket.io/wp-content/uploads/2024/02/ourteam-4.png",
+            imgUrl:   "https://maasi2404zip.merket.io/wp-content/uploads/2024/02/ourteam-4.jpg",
             content:  "<p>Short biography of the person. A few words describing background, maybe a quote.</p>",
             position:  "Associate Manager",
         },
