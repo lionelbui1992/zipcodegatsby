@@ -176,8 +176,8 @@ const IndexPage: React.FC<IPageProps> = ({data}:any) => {
 export default IndexPage;
 
 export const query = graphql`
-  query($id: String!) {
-    allWpPage(filter: {id: {eq: $id}}) {
+  query {
+    allWpPage(filter: {slug: {eq: "home"}}) {
       nodes {
         title
         blocks ### changed content to Blocks
