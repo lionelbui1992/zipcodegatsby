@@ -1,14 +1,13 @@
 import { CoreParagraphProps } from "./blocks/core-paragraph"
 
-export { default as HomepageHero } from "./blocks/core-paragraph"
+export { default as CoreParagraph } from "./blocks/core/paragraph"
 
 
 export type SectionProps =
   | CoreParagraphProps
 
 type Blocktypes =
-  | "HomepageHero"
-  | "CoreParagraph"
+  | "core/paragraph"
 
 type WithBlocktype<B = Blocktypes, P = SectionProps> = {
   id: string
@@ -16,5 +15,5 @@ type WithBlocktype<B = Blocktypes, P = SectionProps> = {
 } & P
 
 export type HomepageBlock =
-  | WithBlocktype<"CoreParagraph", CoreParagraphProps>
+  | WithBlocktype<"core/paragraph", CoreParagraphProps>
 
