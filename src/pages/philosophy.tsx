@@ -70,8 +70,8 @@ const Philosophy: React.FC<IPageProps> = ({ data: { wpPage, pageDetail } }: any)
 export default Philosophy;
 
 export const pageQuery = graphql`
-    query GET_PAGE($slug: String!) {
-        wpPage: wpPage(slug: { eq: $slug }) {
+    query GET_PAGE {
+        wpPage: wpPage(slug: { eq: "philosophy" }) {
             nodeType
             title
             uri
@@ -105,7 +105,7 @@ export const pageQuery = graphql`
                 }
             }
         }
-        pageDetail: allWpPage(filter: {slug: {eq: $slug}}) {
+        pageDetail: allWpPage(filter: {slug: {eq: "philosophy"}}) {
           nodes {
             title
             blocks
