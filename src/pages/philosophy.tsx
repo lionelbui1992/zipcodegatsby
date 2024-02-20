@@ -14,48 +14,48 @@ gsap.registerPlugin(ScrollTrigger);
 const Philosophy: React.FC<IPageProps> = ({ data: { wpPage, pageDetail } }: any) => {
   const blocks= pageDetail.nodes[0].blocks;
 
-  const bgGrey ='https://maasi2404zip.merket.io/wp-content/uploads/2024/01/bg-grey.png';
-  const bgBlue ='https://maasi2404zip.merket.io/wp-content/uploads/2024/01/bg-blue.png';
+  // const bgGrey ='https://maasi2404zip.merket.io/wp-content/uploads/2024/01/bg-grey.png';
+  // const bgBlue ='https://maasi2404zip.merket.io/wp-content/uploads/2024/01/bg-blue.png';
 
-  const contents = [
-    {
-      title: "We look further—beyond the financials and at the planet. ", 
-      des: "Sustainability starts with treating the natural environment and people as stakeholders. Our projects feature climate-responsive designs, innovative green technologies, and sustainable builds that are conscious and cost-efficient. Project Koala is one of Thailand's first to track its carbon footprint. We work with nature and time, not against them. ",
-      imgUrl: 'https://maasi2404zip.merket.io/wp-content/uploads/2024/01/philosophy-content.jpg',
-      backgroundUrl: bgGrey,
-      isDarkBackground: false,
-    },
-    {
-      title: "We look further—beyond the financials and at the planet. ", 
-      des: "Sustainability starts with treating the natural environment and people as stakeholders. Our projects feature climate-responsive designs, innovative green technologies, and sustainable builds that are conscious and cost-efficient. Project Koala is one of Thailand's first to track its carbon footprint. We work with nature and time, not against them. ",
-      imgUrl: 'https://maasi2404zip.merket.io/wp-content/uploads/2024/01/philosophy-content.jpg',
-      backgroundUrl: bgBlue,
-      isDarkBackground: true,
-    },
-    {
-      title: "We look further—beyond the financials and at the planet. ", 
-      des: "Sustainability starts with treating the natural environment and people as stakeholders. Our projects feature climate-responsive designs, innovative green technologies, and sustainable builds that are conscious and cost-efficient. Project Koala is one of Thailand's first to track its carbon footprint. We work with nature and time, not against them. ",
-      imgUrl: 'https://maasi2404zip.merket.io/wp-content/uploads/2024/01/philosophy-content.jpg',
-      backgroundUrl: '',
-      isDarkBackground: false,
-    },
-    {
-      title: "We look further—beyond the financials and at the planet. ", 
-      des: "Sustainability starts with treating the natural environment and people as stakeholders. Our projects feature climate-responsive designs, innovative green technologies, and sustainable builds that are conscious and cost-efficient. Project Koala is one of Thailand's first to track its carbon footprint. We work with nature and time, not against them. ",
-      imgUrl: 'https://maasi2404zip.merket.io/wp-content/uploads/2024/01/philosophy-content.jpg',
-      backgroundUrl: bgGrey,
-      isDarkBackground: false,
-    },
-    {
-      title: "We look further—beyond the financials and at the planet. ", 
-      des: "Sustainability starts with treating the natural environment and people as stakeholders. Our projects feature climate-responsive designs, innovative green technologies, and sustainable builds that are conscious and cost-efficient. Project Koala is one of Thailand's first to track its carbon footprint. We work with nature and time, not against them. ",
-      imgUrl: 'https://maasi2404zip.merket.io/wp-content/uploads/2024/01/philosophy-content.jpg',
-      backgroundUrl: bgBlue,
-      isDarkBackground: true,
-    },
-  ];
-  const lastItem = contents[contents.length - 1];
-  const container = useRef(null);
+  // const contents = [
+  //   {
+  //     title: "We look further—beyond the financials and at the planet. ", 
+  //     des: "Sustainability starts with treating the natural environment and people as stakeholders. Our projects feature climate-responsive designs, innovative green technologies, and sustainable builds that are conscious and cost-efficient. Project Koala is one of Thailand's first to track its carbon footprint. We work with nature and time, not against them. ",
+  //     imgUrl: 'https://maasi2404zip.merket.io/wp-content/uploads/2024/01/philosophy-content.jpg',
+  //     backgroundUrl: bgGrey,
+  //     isDarkBackground: false,
+  //   },
+  //   {
+  //     title: "We look further—beyond the financials and at the planet. ", 
+  //     des: "Sustainability starts with treating the natural environment and people as stakeholders. Our projects feature climate-responsive designs, innovative green technologies, and sustainable builds that are conscious and cost-efficient. Project Koala is one of Thailand's first to track its carbon footprint. We work with nature and time, not against them. ",
+  //     imgUrl: 'https://maasi2404zip.merket.io/wp-content/uploads/2024/01/philosophy-content.jpg',
+  //     backgroundUrl: bgBlue,
+  //     isDarkBackground: true,
+  //   },
+  //   {
+  //     title: "We look further—beyond the financials and at the planet. ", 
+  //     des: "Sustainability starts with treating the natural environment and people as stakeholders. Our projects feature climate-responsive designs, innovative green technologies, and sustainable builds that are conscious and cost-efficient. Project Koala is one of Thailand's first to track its carbon footprint. We work with nature and time, not against them. ",
+  //     imgUrl: 'https://maasi2404zip.merket.io/wp-content/uploads/2024/01/philosophy-content.jpg',
+  //     backgroundUrl: '',
+  //     isDarkBackground: false,
+  //   },
+  //   {
+  //     title: "We look further—beyond the financials and at the planet. ", 
+  //     des: "Sustainability starts with treating the natural environment and people as stakeholders. Our projects feature climate-responsive designs, innovative green technologies, and sustainable builds that are conscious and cost-efficient. Project Koala is one of Thailand's first to track its carbon footprint. We work with nature and time, not against them. ",
+  //     imgUrl: 'https://maasi2404zip.merket.io/wp-content/uploads/2024/01/philosophy-content.jpg',
+  //     backgroundUrl: bgGrey,
+  //     isDarkBackground: false,
+  //   },
+  //   {
+  //     title: "We look further—beyond the financials and at the planet. ", 
+  //     des: "Sustainability starts with treating the natural environment and people as stakeholders. Our projects feature climate-responsive designs, innovative green technologies, and sustainable builds that are conscious and cost-efficient. Project Koala is one of Thailand's first to track its carbon footprint. We work with nature and time, not against them. ",
+  //     imgUrl: 'https://maasi2404zip.merket.io/wp-content/uploads/2024/01/philosophy-content.jpg',
+  //     backgroundUrl: bgBlue,
+  //     isDarkBackground: true,
+  //   },
+  // ];
+  // const lastItem = contents[contents.length - 1];
+  // const container = useRef(null);
 
   return (
     <>
