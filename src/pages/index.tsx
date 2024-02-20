@@ -23,8 +23,12 @@ const IndexPage: React.FC<IPageProps> = ({ data: { wpPage: page } }: any) => {
     const absoluteSections = document.querySelectorAll('.scroll-section .relative-section');
     const totalHeight = [...absoluteSections].reduce((acc, section) => {
       section.classList.replace('relative-section', 'absolute-section'); // Replace class
+      console.log(['section.offsetHeight', section.offsetHeight])
       return acc + section.offsetHeight;
     }, 0);;
+
+    console.log(['totalHeight', totalHeight])
+    
 
     document.querySelector('.pinning-2').style.height = totalHeight + 'px';
 
@@ -53,7 +57,7 @@ const IndexPage: React.FC<IPageProps> = ({ data: { wpPage: page } }: any) => {
         end: totalHeight,
         pin: true,
         pinSpacing: false,
-        scrub: 0.001,
+        scrub: 0.0001,
         markers: false,
         onUpdate: (self) => {
           // console.log(['', ])
@@ -140,9 +144,9 @@ const IndexPage: React.FC<IPageProps> = ({ data: { wpPage: page } }: any) => {
       smoothChildTiming: true
     });
 
-    tl.to(".item-1", { yPercent: -100 })
-    tl.fromTo(".c-image", { yPercent: 100 }, { yPercent: -200, })
-    tl.to(".item-2", { yPercent: -100 })
+    tl.to(".item-1", { yPercent: -100,  duration: 2 })
+    tl.fromTo(".c-image", { yPercent: 100 }, { yPercent: -220, duration: 2 })
+    tl.to(".item-2", { yPercent: -100, duration: 2  })
 
 
 
@@ -178,6 +182,7 @@ export default IndexPage;
 
 export const query = graphql`
   query {
+
     wpPage(isFrontPage: {eq: true}) {
       nodeType
       title
