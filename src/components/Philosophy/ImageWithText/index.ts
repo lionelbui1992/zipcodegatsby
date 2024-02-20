@@ -1,1 +1,1 @@
-export { ImageWithText } from "./ImageWithText";
+export { ImageWithText } from "../../blocks/custom/ImageWithText";
