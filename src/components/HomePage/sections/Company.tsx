@@ -44,13 +44,7 @@ export const Company = (): JSX.Element => {
                     </div>
                     <div className="c-text">
                         <p>Our business model, design and build principles, and interdisciplinary team greenlight a unique approach. It helps us challenge the stereotype of what it means to be a real estate developer in 21st-century Thailand. </p>
-                        <a href="#">We exemplify a new possibility
-                            <span className="icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 12 10" fill="none">
-                                    <path d="M6.70505 9.5L5.93942 8.74432L9.09141 5.59233H0.928058V4.49858H9.09141L5.93942 1.35653L6.70505 0.590909L11.1596 5.04545L6.70505 9.5Z" fill="white" />
-                                </svg>
-                            </span>
-                        </a>
+                        <a className="btn btn-primary btn-white" href="#">We exemplify a new possibility</a>
                     </div>
                 </div>
             </div>

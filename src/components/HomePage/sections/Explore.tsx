@@ -16,7 +16,7 @@ export const Explore = (): JSX.Element => {
                             <div className="d-flex">
                                 <div className="col-text">
                                     <p>Zipcode builds with intention, and we explore alternative spaces and partnerships. We focus on community as much as construction and life quality as much as build quality.</p>
-                                    <a href="">It all starts with thinking differently</a>
+                                    <a className="btn btn-primary" href="">It all starts with thinking differently</a>
                                 </div>
                                 <div className="col-image">
                                     <div className="image-box">

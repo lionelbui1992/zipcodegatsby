@@ -9,15 +9,11 @@ import { TextMarquee } from "../components/TextMarquee";
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import { IPageProps } from "../shared/model/IPageProps";
+import Seo from "gatsby-plugin-wpgraphql-seo";
 
 gsap.registerPlugin(ScrollTrigger);
 
-
-
-const IndexPage: React.FC<IPageProps> = ({data}:any) => {
-  // const { page } = props.data
-  console.log(data)
-
+const IndexPage: React.FC<IPageProps> = ({ data: { wpPage: page } }: any) => {
 
   const container = useRef(null);
   useEffect(() => {
@@ -158,20 +154,23 @@ const IndexPage: React.FC<IPageProps> = ({data}:any) => {
 
 
   return (
-    <Layout>
-      <div className="scrollTrigger" ref={container}>
-        <div className="scroll-section header-placeholder" ></div>
-        <div className="scroll-section pinning-1" data-speed="0.2">
-          <Banner />
-          <TextMarquee />
+    <>
+      <Seo post={page} />
+      <Layout>
+        <div className="scrollTrigger" ref={container}>
+          <div className="scroll-section header-placeholder" ></div>
+          <div className="scroll-section pinning-1" data-speed="0.2">
+            <Banner />
+            <TextMarquee />
+          </div>
+          <div className="scroll-section pinning-2 company" data-speed="0.3">
+            <div className="relative-section item-1"><Introduce /></div>
+            <div className="relative-section item-2" style={{ opacity: 0 }}><Company /></div>
+            <div className="absolute-section item-3"><Explore /></div>
+          </div>
         </div>
-        <div className="scroll-section pinning-2 company" data-speed="0.3">
-          <div className="relative-section item-1"><Introduce /></div>
-          <div className="relative-section item-2" style={{ opacity: 0 }}><Company /></div>
-          <div className="absolute-section item-3"><Explore /></div>
-        </div>
-      </div>
-    </Layout >
+      </Layout >
+    </>
   );
 };
 
@@ -179,11 +178,40 @@ export default IndexPage;
 
 export const query = graphql`
   query {
-    allWpPage(filter: {slug: {eq: "home"}}) {
-      nodes {
+    wpPage(isFrontPage: {eq: true}) {
+      nodeType
+      title
+      uri
+      seo {
         title
-        blocks ### changed content to Blocks
+        metaDesc
+        focuskw
+        metaKeywords
+        metaRobotsNoindex
+        metaRobotsNofollow
+        opengraphTitle
+        opengraphDescription
+        opengraphImage {
+          altText
+          sourceUrl
+          srcSet
+        }
+        twitterTitle
+        twitterDescription
+        twitterImage {
+          altText
+          sourceUrl
+          srcSet
+        }
+        canonical
+        cornerstone
+        schema {
+          articleType
+          pageType
+          raw
+        }
       }
+      blocks
     }
   }
 `
