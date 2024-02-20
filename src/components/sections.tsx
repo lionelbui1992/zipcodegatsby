@@ -1,4 +1,4 @@
-import { CoreParagraphProps } from "./blocks/core-paragraph"
+import { CoreParagraphProps } from "./blocks/core/paragraph"
 
 export { default as CoreParagraph } from "./blocks/core/paragraph"
 

@@ -18,10 +18,11 @@ class WPGHtmlBlock extends React.Component<IWPGBlock> {
       innerHTML
     } = this.props
 
-    const scriptHtml = innerHTML.replace(/<script(>|\s)/gm, `<script data-script="${this.id}"$1`)
+    // const scriptHtml = innerHTML.replace(/<script(>|\s)/gm, `<script data-script="${this.id}"$1`)
 
     return (
-      <div className="wpg-block wpg-b_html" dangerouslySetInnerHTML={{ __html: scriptHtml }}/>
+      // <div className="wpg-block wpg-b_html" dangerouslySetInnerHTML={{ __html: scriptHtml }}/>
+      <></>
     )
   }
 }
