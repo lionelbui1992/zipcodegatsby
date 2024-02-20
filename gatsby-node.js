@@ -50,19 +50,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
       id: ID!
       blocktype: String
     }
-
-    interface BannerImageRight implements Node {
-      id: ID!
-      anchor: String
-      className: String
-      blocktype: String
-      background: String
-      is_dark_section: Boolean
-      label: String
-      title: String
-      description: String
-      image: String
-    }
   `)
 
   // blocks

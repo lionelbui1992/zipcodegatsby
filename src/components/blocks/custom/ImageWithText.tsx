@@ -1,12 +1,13 @@
 import React from "react";
 import "./image-with-text.sass";
+import {IImage} from "../types";
 
 interface Props {
   index: number;
   title: string;
   des: string;
-  imgUrl: string;
-  backgroundUrl: string;
+  image: IImage;
+  backgroundUrl: IImage;
   isDarkBackground: boolean;
 }
 
@@ -14,28 +15,28 @@ export const ImageWithText = ({
   index,
   title,
   des,
-  imgUrl,
+  image,
   backgroundUrl,
   isDarkBackground,
 }: Props): JSX.Element => {
   return (
     <>
-      { (title || des || imgUrl ) && 
-        <div className={`phi-content-container ${isDarkBackground ? 'bg-black' : ''}`} style={{ backgroundImage: backgroundUrl ? `url(${backgroundUrl})` : 'none', backgroundColor: backgroundUrl ? 'transparent' : '#fff' }}>
+      { (title || des || image ) && 
+        <div className={`phi-content-container ${isDarkBackground ? 'bg-black' : ''}`} style={{ backgroundImage: backgroundUrl.src ? `url(${backgroundUrl.src})` : 'none', backgroundColor: backgroundUrl ? 'transparent' : '#fff' }}>
           <div className={`container ${index % 2 === 0 ? "img-right" : "img-left"}`}>
-            { imgUrl && 
+            { image && 
               <div className="image-container img-dk">
-                <div className="image" style={{backgroundImage: "url("+imgUrl+")"}}></div>
+                <div className="image" style={{backgroundImage: "url("+image.src+")"}}></div>
               </div>
             }
-            { ( imgUrl || des ) && 
+            { ( image || des ) && 
               <div className="content">
                 <div className="label">{index < 10 ? '0'+index : index}</div>
                 <div className="text-container">
                   { title && <div className="title">{title}</div> }
-                  { imgUrl && 
+                  { image && 
                     <div className="image-container img-mb">
-                      <div className="image" style={{backgroundImage: "url("+imgUrl+")"}}></div>
+                      <div className="image" style={{backgroundImage: "url("+image.src+")"}}></div>
                     </div>
                   }
                   { des && <div className="des">{des}</div> }
