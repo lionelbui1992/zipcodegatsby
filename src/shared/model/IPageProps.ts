@@ -9,7 +9,7 @@ export interface IPageProps {
             html: string
             blocks: []
         }
-        wpPage: {
+        wpPage?: {
             nodeType: string
             title: string
             uri: string
@@ -42,6 +42,12 @@ export interface IPageProps {
                     raw: string
                 }
             }
+        }
+        pageDetail?: {
+            nodes: {
+                title: string
+                blocks: []
+            } []
         }
     }
 }
