@@ -561,8 +561,14 @@ fieldset.fieldset
     .section-explore
         padding: 120px 0
 
+        .heading-text 
+            margin-bottom: 38px
+
         .col-left
             width: 100%
+            margin-bottom: 42px
+            .image-box 
+                padding-bottom: 126%
 
         .d-flex 
             flex-wrap: wrap
@@ -570,6 +576,28 @@ fieldset.fieldset
         .col-right 
             padding-left: 0
             width: 100%
+            .col-text
+                display: flex
+                flex-wrap: wrap
+                padding-left: 3px
+                a 
+                    font-size: 14.23px
+                    line-height: 14.23px
+                    margin-top: 22px
+                
+                p
+                    width: 48%
+                .col-image.mobile   
+                    display: block !important
+                    width: 52%
+                    padding-left: 48px
+    .hide-mobile
+        display: none !important
+
+    
+    .scrollTrigger
+        margin-bottom: 200px
+    
 
 
 @media screen and (max-width: 499px)
