@@ -244,39 +244,43 @@
         max-width: 565px
         margin-right: 16%
         margin-left: auto
-
-        a
-            color: #fff
-            font-family: "Buenos Aires"
-            font-size: 14px
-            font-style: normal
-            font-weight: 400
-            line-height: 25.612px
-            letter-spacing: 0.28px
-            padding: 14px 22px
-            border-radius: 71.146px
-            border: 0.711px solid #fff
-
-            .icon
-                margin-left: 20px
-
 .section-explore
     padding: 250px 0
 
     .col-left
-        width: 32.8%
+        width: 39.5%
         .image-box
             padding-bottom: 129%
 
     .col-right
-        width: 67.2%
-        padding-left: 162px
+        width: 60.5%
+        padding-left: 155px
 
         .col-image
             width: 50%
+            padding-left: 40px
+
+            img 
+                z-index: 1
+            .image-box:after 
+                content: ""
+                width: calc(100% + 30px)
+                height: calc(100% + 30px)
+                position: absolute
+                left: 50%
+                top: 50%
+                background: url(/img/image-7-tinified.png)
+                transform: translate(-50%,-50%)
+                background-repeat: no-repeat
+                background-size: cover
+
+        
+            
 
         .col-text
             width: 50%
+            padding-top: 78px
+            padding-left: 7px
 
     .heading-text
         margin-bottom: 270px
@@ -298,17 +302,6 @@
         line-height: 25px
         letter-spacing: 0.02em
         text-align: left
-
-    a
-        font-family: Tiempos Headline
-        font-size: 14px
-        font-weight: 400
-        line-height: 14px
-        letter-spacing: 0.02em
-        text-align: left
-        padding: 22px 44px
-        border: 1px solid #0068FF
-        border-radius: 71px
 
 .absolute-section
     position: absolute
@@ -459,6 +452,32 @@ fieldset.fieldset
                 &.overlay-top-right:before
                     width: 210px
                     height: 419px
+    
+    .section-explore
+        padding: 200px 0
+        .heading-text
+            margin-bottom: 302px
+            margin-top: 45px
+
+        .col-right
+            padding-left: 108px
+            width: 59%
+            .col-text
+                padding-top: 0
+                width: 55.1%
+            .col-image
+                width: 44.9%
+                padding-left: 47px
+        .col-left
+            width: 41%
+
+        p
+            margin-bottom: 8px
+
+    .small-container
+        max-width: 1246px
+
+
 
 @media screen and (max-width: 1199px)
 
@@ -469,6 +488,29 @@ fieldset.fieldset
             width: calc(54.5% - 45px)
         .col-left
             width: calc(45.5% - 45px)
+
+    .section-explore
+        padding: 200px 0
+        .heading-text
+            margin-bottom: 10px
+            margin-top: 10px
+        .col-right
+            padding-left: 50px
+            
+            .d-flex 
+                flex-wrap: wrap
+
+            .col-image 
+                width: 50%
+                padding-left: 15px
+
+            .col-text
+                width: 100%
+                padding-left: 0
+                margin-bottom: 50px
+        
+
+
 
 @media screen and (max-width: 1199px)
 
@@ -515,6 +557,20 @@ fieldset.fieldset
         .c-text
             margin-left: 0
             margin-right: 0
+
+    .section-explore
+        padding: 120px 0
+
+        .col-left
+            width: 100%
+
+        .d-flex 
+            flex-wrap: wrap
+
+        .col-right 
+            padding-left: 0
+            width: 100%
+
 
 @media screen and (max-width: 499px)
     .section-introduce
