@@ -16,9 +16,14 @@ export const Explore = (): JSX.Element => {
                             <div className="d-flex">
                                 <div className="col-text">
                                     <p>Zipcode builds with intention, and we explore alternative spaces and partnerships. We focus on community as much as construction and life quality as much as build quality.</p>
+                                     <div style={{display: "none"}} className="col-image mobile">
+                                        <div className="image-box">
+                                            <img src="/img/mask-group-33.png" alt="image" />
+                                        </div>
+                                    </div>
                                     <a className="btn btn-primary" href="">It all starts with thinking differently</a>
                                 </div>
-                                <div className="col-image">
+                                <div className="col-image hide-mobile">
                                     <div className="image-box">
                                         <img src="/img/mask-group-33.png" alt="image" />
                                     </div>
