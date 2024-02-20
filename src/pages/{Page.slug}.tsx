@@ -3,8 +3,10 @@ import { graphql } from "gatsby"
 import Seo from 'gatsby-plugin-wpgraphql-seo';
 import Layout from "../components/layout"
 import { Container, Box } from "../components/ui"
-import * as sections from "../components/sections"
-import Fallback from "../components/fallback"
+// import * as sections from "../components/sections"
+// import Fallback from "../components/fallback"
+import WPGBlocks from "../components/WPGBlocks"
+// import { IWPGBlock } from "react-gutenberg/src/types"
 
 export default function Page({ data: { wpPage, pageDetail } }: any) {
   const post = pageDetail.nodes[0];
@@ -14,11 +16,7 @@ export default function Page({ data: { wpPage, pageDetail } }: any) {
       <Layout>
         <Box paddingY={5}>
           <Container width="narrow">
-            {post.blocks.map((block: any) => {
-              const { id, blocktype, ...componentProps } = block
-              const Component = sections[blocktype] || Fallback
-              return <Component key={id} {...(componentProps as any)} />
-            })}
+            <WPGBlocks blocks={post.blocks} />
           </Container>
         </Box>
       </Layout>
