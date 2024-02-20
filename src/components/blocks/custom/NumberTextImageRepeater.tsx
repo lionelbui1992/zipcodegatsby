@@ -16,7 +16,6 @@ export interface NumberTextImageRepeaterProps {
 
 export default function NumberTextImageRepeater(props: Readonly<NumberTextImageRepeaterProps>): JSX.Element {
   const {attributes: {data}} = props;
-  console.log('prop dataa ', data)
   return (
     <div className="scroll-section pinning-2 company" data-speed="0.3">
       {data.map((list, index) => (

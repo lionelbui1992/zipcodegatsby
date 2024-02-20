@@ -23,8 +23,6 @@ export default function BannerImageRight(props: BannerImageRightProps): JSX.Elem
     image: bannerImageUrl
   }}} = props;
   
-  console.log(props.attributes.data);
-  
   return (
     <div className="phi-banner-container careers-section" style={{backgroundImage: "url("+ bannerBackground.src +")"}}>
       <div className="container">
