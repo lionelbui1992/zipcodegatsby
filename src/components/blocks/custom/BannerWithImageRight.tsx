@@ -1,4 +1,5 @@
 import React from "react";
+import { IImage } from "../types";
 
 export interface BannerImageRightProps {
   attributes: {
@@ -6,8 +7,8 @@ export interface BannerImageRightProps {
         label: string,
         title: string
         description: string,
-        background: string,
-        image: string,
+        background: IImage,
+        image: IImage,
         is_dark_section: string,
     }
   }
@@ -23,7 +24,7 @@ export default function BannerImageRight(props: BannerImageRightProps): JSX.Elem
   }}} = props;
   
   return (
-    <div className="phi-banner-container careers-section" style={{backgroundImage: "url("+ bannerImageUrl +")"}}>
+    <div className="phi-banner-container careers-section" style={{backgroundImage: "url("+ bannerBackground.src +")"}}>
       <div className="container">
         <div className="content">
           <div className="text-container">
@@ -32,7 +33,7 @@ export default function BannerImageRight(props: BannerImageRightProps): JSX.Elem
             <div className="banner-des" dangerouslySetInnerHTML={{__html: bannerDescription}} />
           </div>
           <div className="image-container">
-            <div className="image" style={{backgroundImage: "url("+bannerImageUrl+")"}}></div>
+            <div className="image" style={{backgroundImage: "url("+bannerImageUrl.src+")"}}></div>
           </div>
         </div>
       </div>

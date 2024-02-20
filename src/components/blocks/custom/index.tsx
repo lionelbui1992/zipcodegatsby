@@ -1,6 +1,6 @@
 import loadable from '@loadable/component'
 
-const BannerImageRight = loadable(() => import('./banner-with-image-right'))
+const BannerImageRight = loadable(() => import('./BannerWithImageRight'))
 const NumberTextImageRepeater = loadable(() => import('./NumberTextImageRepeater'))
 const ImageWithText = loadable(() => import('./ImageWithText'))
 
