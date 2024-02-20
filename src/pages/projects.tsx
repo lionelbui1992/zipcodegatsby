@@ -2,6 +2,7 @@ import * as React from "react"
 import { Banner } from "../components/ProjectsPage/Banner";
 import { TextMarquee } from "../components/TextMarquee";
 import { BoxContent } from "../components/ProjectsPage/BoxContent";
+import { BannerPoup } from "../components/ProjectsPage/Banner/BannerPopup";
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEOHead from "../components/head"
@@ -97,23 +98,29 @@ const Projects: React.FC<IPageProps> = (props: IPageProps) => {
   ]
   
   return (
-    <Layout>
-      <div className="projects-page">
-        <Banner 
-          ProjectBannerHeading={ProjectBannerHeading}
-          ProjectBannerButton={ProjectBannerButton}
-          ProjectBannerBkgPopup={ProjectBannerBkgPopup}
-          ProjectBannerContent={ProjectBannerContent}
-        />
-        <TextMarquee />
-        <BoxContent 
-          BoxContentTitle={BoxContentTitle} 
-          BoxContentContent={BoxContentContent} 
-          BoxContentButtonLink={BoxContentButtonLink} 
-          BoxContentButtonText={BoxContentButtonText} 
-        />
-      </div>
-    </Layout>
+    <>
+      <BannerPoup 
+        ProjectBannerBkgPopup={ProjectBannerBkgPopup}
+        ProjectBannerContent={ProjectBannerContent}
+      />
+      <Layout>
+        <div className="projects-page">
+          <Banner 
+            ProjectBannerHeading={ProjectBannerHeading}
+            ProjectBannerButton={ProjectBannerButton}
+            ProjectBannerContent={ProjectBannerContent}
+            ProjectBannerBkgPopup={ProjectBannerBkgPopup}
+          />
+          <TextMarquee />
+          <BoxContent 
+            BoxContentTitle={BoxContentTitle} 
+            BoxContentContent={BoxContentContent} 
+            BoxContentButtonLink={BoxContentButtonLink} 
+            BoxContentButtonText={BoxContentButtonText} 
+          />
+        </div>
+      </Layout>
+    </>
   );
 }
 
