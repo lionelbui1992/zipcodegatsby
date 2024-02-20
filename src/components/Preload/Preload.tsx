@@ -32,12 +32,33 @@ export default function Preload(): JSX.Element {
     underLine.to("#underline-1", { width: "100%", duration: 0.5, delay: 0.35, ease: "none" });
     underLine.to("#underline-2", { width: "100%", duration: 0.5, delay: 0.25, ease: "none" });
 
-    const tl = gsap.timeline({});
+    var screenWidth = window.innerWidth;
+    var screenHeight = window.innerHeight;
+    var textZclipPath = document.getElementById("textZ");
 
-    tl.to(".textZ", { duration: 1, x: "-86vw", y: "-64vh" })
-    tl.to(".textZ", { duration: 1, x: "-44vw", y: "-64vh" })
-    tl.to(".textZ", { duration: 1, x: "-72vw", y: "-40vh" })
-    tl.to(".textZ", { duration: 2, x: "-50vw", fontSize: "500vw" })
+    var setX = screenWidth + (screenWidth / 2);
+    var setY = screenHeight + (screenHeight / 2);
+    textZclipPath?.setAttribute("x", setX);
+    textZclipPath?.setAttribute("y", setY);
+
+    const tl = gsap.timeline({
+      // repeat: -1,
+      // yoyo: true,
+    });
+
+    setX = screenWidth / 8;
+    setY = screenHeight / 5;
+    tl.to(".textZ", { duration: 1, attr: { "x": setX, "y": setY }, transformOrigin: "50% center" });
+
+    setX = screenWidth / 1.1;
+    tl.to(".textZ", { duration: 1, attr: { "x": setX, "y": setY }, transformOrigin: "50% center" });
+
+    setX = screenWidth / 3;
+    setY = screenHeight / 2;
+    tl.to(".textZ", { duration: 1, attr: { "x": setX, "y": setY }, transformOrigin: "50% center" });
+
+    // tl.to(".textZ", { duration: 2, x: "-50vw", fontSize: "500vw" })
+    tl.to(".textZ", { duration: 2, scale: 15, transformOrigin: "50% center" });
 
     let icon = zicon.current
     const tl2 = gsap.timeline({
@@ -57,6 +78,8 @@ export default function Preload(): JSX.Element {
     tl2.to(icon, { y: 0, x: 0, duration: 4 })
 
     const textZ = gsap.timeline({
+      // repeat: -1,
+      // yoyo: true,
       onComplete: () => {
         document.body.classList.remove('preload-active')
         preloadElement.classList.remove('loading')
@@ -65,26 +88,23 @@ export default function Preload(): JSX.Element {
       }
     });
 
-    textZ.to(".textZ", { duration: 0.175, text: "&#xe900;" })
-    textZ.to(".textZ", { duration: 0.175, text: "&#xe901;" })
-    textZ.to(".textZ", { duration: 0.175, text: "&#xe902;" })
-    textZ.to(".textZ", { duration: 0.175, text: "&#xe904;" })
-    textZ.to(".textZ", { duration: 0.175, text: "&#xe905;" })
-    textZ.to(".textZ", { duration: 0.175, text: "&#xe906;" })
-    textZ.to(".textZ", { duration: 0.175, text: "&#xe907;" })
-    textZ.to(".textZ", { duration: 0.175, text: "&#xe909;" })
-    textZ.to(".textZ", { duration: 0.175, text: "&#xe90b;" })
-    textZ.to(".textZ", { duration: 0.175, text: "&#xe90c;" })
-    textZ.to(".textZ", { duration: 0.175, text: "&#xe90d;" })
-    textZ.to(".textZ", { duration: 0.175, text: "&#xe90e;" })
-    textZ.to(".textZ", { duration: 0.175, text: "&#xe90f;" })
-    textZ.to(".textZ", { duration: 0.175, text: "&#xe910;" })
-    textZ.to(".textZ", { duration: 0.15, text: "&#xe911;" })
-    textZ.to(".textZ", { duration: 0.15, text: "&#xe912;" })
-    textZ.to(".textZ", { duration: 0.15, text: "&#xe913;" })
-    textZ.to(".textZ", { duration: 0.15, text: "&#xe914;" })
-    textZ.to(".textZ", { duration: 0.15, text: "&#xe90f;" })
-
+    textZ.to(".textZ", { duration: 0.25, attr: { "xlink:href": "#textZa" } })
+    textZ.to(".textZ", { duration: 0.25, attr: { "xlink:href": "#textZb" } })
+    textZ.to(".textZ", { duration: 0.25, attr: { "xlink:href": "#textZc" } })
+    textZ.to(".textZ", { duration: 0.25, attr: { "xlink:href": "#textZd" } })
+    textZ.to(".textZ", { duration: 0.25, attr: { "xlink:href": "#textZe" } })
+    textZ.to(".textZ", { duration: 0.25, attr: { "xlink:href": "#textZf" } })
+    // textZ.to(".textZ", { duration: 0.175, attr: { "xlink:href": "#textZg" } })
+    textZ.to(".textZ", { duration: 0.25, attr: { "xlink:href": "#textZh" } })
+    textZ.to(".textZ", { duration: 0.25, attr: { "xlink:href": "#textZi" } })
+    textZ.to(".textZ", { duration: 0.2, attr: { "xlink:href": "#textZk" } })
+    textZ.to(".textZ", { duration: 0.2, attr: { "xlink:href": "#textZl" } })
+    textZ.to(".textZ", { duration: 0.2, attr: { "xlink:href": "#textZm" } })
+    textZ.to(".textZ", { duration: 0.2, attr: { "xlink:href": "#textZn" } })
+    textZ.to(".textZ", { duration: 0.2, attr: { "xlink:href": "#textZo" } })
+    textZ.to(".textZ", { duration: 0.2, attr: { "xlink:href": "#textZp" } })
+    textZ.to(".textZ", { duration: 0.2, attr: { "xlink:href": "#textZq" } })
+    // textZ.to(".textZ", { duration: 0.175, attr: { "xlink:href": "#textZr" } })
 
   }, []);
 

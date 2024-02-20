@@ -1,50 +1,30 @@
 import React from "react";
 import "./styles.sass";
 
-export const TextMarquee = (): JSX.Element => {
-  return (
-    <>
-        <section className="marquee-section">
-            <div className="section-bkg">
-                <img
-                    loading="lazy"
-                    srcSet="/img/MarqueeText-bkg.png"
-                />
-            </div>
-            <div className="marquee">
-                <div className="marquee-items">
-                    <div className="item"><span>Making Real Estate <i>Real Again</i></span></div>
-                    <div className="item"><span>Making Real Estate <i>Real Again</i></span></div>
-                    <div className="item"><span>Making Real Estate <i>Real Again</i></span></div>
-                    <div className="item"><span>Making Real Estate <i>Real Again</i></span></div>
-                    <div className="item"><span>Making Real Estate <i>Real Again</i></span></div>
-                    <div className="item"><span>Making Real Estate <i>Real Again</i></span></div>
-                    <div className="item"><span>Making Real Estate <i>Real Again</i></span></div>
-                    <div className="item"><span>Making Real Estate <i>Real Again</i></span></div>
-                    <div className="item"><span>Making Real Estate <i>Real Again</i></span></div>
-                    <div className="item"><span>Making Real Estate <i>Real Again</i></span></div>
-                    <div className="item"><span>Making Real Estate <i>Real Again</i></span></div>
-                    <div className="item"><span>Making Real Estate <i>Real Again</i></span></div>
-                    <div className="item"><span>Making Real Estate <i>Real Again</i></span></div>
-                    <div className="item"><span>Making Real Estate <i>Real Again</i></span></div>
-                    <div className="item"><span>Making Real Estate <i>Real Again</i></span></div>
-                    <div className="item"><span>Making Real Estate <i>Real Again</i></span></div>
-                    <div className="item"><span>Making Real Estate <i>Real Again</i></span></div>
-                    <div className="item"><span>Making Real Estate <i>Real Again</i></span></div>
-                    <div className="item"><span>Making Real Estate <i>Real Again</i></span></div>
-                    <div className="item"><span>Making Real Estate <i>Real Again</i></span></div>
-                    <div className="item"><span>Making Real Estate <i>Real Again</i></span></div>
-                    <div className="item"><span>Making Real Estate <i>Real Again</i></span></div>
-                    <div className="item"><span>Making Real Estate <i>Real Again</i></span></div>
-                    <div className="item"><span>Making Real Estate <i>Real Again</i></span></div>
-                    <div className="item"><span>Making Real Estate <i>Real Again</i></span></div>
-                    <div className="item"><span>Making Real Estate <i>Real Again</i></span></div>
-                    <div className="item"><span>Making Real Estate <i>Real Again</i></span></div>
-                    <div className="item"><span>Making Real Estate <i>Real Again</i></span></div>
-                    <div className="item"><span>Making Real Estate <i>Real Again</i></span></div>
-                </div>
-            </div>
-        </section>
-    </>
-  );
+interface Props {
+    marqueeBkg: string;
+    marqueeContent: any[];
+}
+
+export const TextMarquee = ({
+    marqueeBkg,
+    marqueeContent
+}: Props): JSX.Element => {
+    return (
+        <>
+            { (marqueeContent) &&
+                <section className="marquee-section" style={{backgroundImage: "url("+marqueeBkg+")"}}>
+                    <div className="marquee">
+                        <div className="marquee-items">
+                            { marqueeContent.map((list, index) =>  
+                                <div className="item" key={index}>
+                                    <div className="content" dangerouslySetInnerHTML={{__html: list.content}} />
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                </section>
+            }
+        </>
+    );
 };
