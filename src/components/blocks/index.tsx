@@ -28,6 +28,7 @@ export function GetTheBlock(name: string) {
     case 'core/columns': return LayoutBlocks.Columns
     // custom zipcode blocks
     case 'acf/banner-with-image-right': return CustomBlocks.BannerImageRight
+    case 'acf/number-text-image-repeater': return CustomBlocks.NumberTextImageRepeater
     default: return DefaultHtmlBlock
   }
 }

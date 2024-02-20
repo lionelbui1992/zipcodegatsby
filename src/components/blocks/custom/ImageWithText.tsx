@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.sass";
+import "./image-with-text.sass";
 
 interface Props {
   index: number;
