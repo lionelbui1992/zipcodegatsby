@@ -96,7 +96,7 @@ html.active-overlay
     top: 0
     left: 0
     width: 100%
-    z-index: 9
+    z-index: 101
     opacity: 0
     visibility: hidden
     transition: all 1s
@@ -119,6 +119,9 @@ html.active-overlay
         max-height: 100%
         overflow-y: auto
         z-index: 3
+        background-position: center
+        background-repeat: no-repeat
+        background-size: cover
 
     .section-bkg
         border-radius: 31.304px
@@ -203,6 +206,8 @@ html.active-overlay
             height: 29px
             background-size: contain
             margin-top: -14px
+            &:hover                
+                background-image: url(images/icon-arrows.svg)
 
         .swiper-button-prev.swiper-button-disabled, 
         .swiper-button-next.swiper-button-disabled
@@ -257,6 +262,17 @@ html.active-overlay
 
             .item-gallery img
                 height: 308px
+
+.active-overlay
+    .poup-overlay
+        z-index: 100
+        position: fixed
+        width: 100%
+        height: 100%
+        background-color: #000000
+        opacity: 0.5
+        top: 0
+        left: 0
             
 @media (max-width: 1300px)
     .projects-items
@@ -268,20 +284,6 @@ html.active-overlay
         button.projects-popup-close
             right: -30px
             top: -53px
-
-.active-overlay .global-wrapper
-    position: relative
-    z-index: 99
-
-    .poup-overlay
-        z-index: 2
-        position: fixed
-        width: 100%
-        height: 100%
-        background-color: #000000
-        opacity: 0.5
-        top: 0
-        left: 0
     
 @media (max-width: 1199px)        
     .btn.visible-tablet,
@@ -314,6 +316,7 @@ html.active-overlay
                 min-width: 0
                 display: flex
                 flex-wrap: wrap
+                text-align: left
 
                 .subheading 
                     position: static
@@ -339,9 +342,6 @@ html.active-overlay
                 line-height: 80px
 
     .projects-popup 
-        top: calc(var(--offsetTop) + 49px)
-        padding: 55px 0 33px
-
         .popup-content
             padding-left: 0
             margin-top: 56px
