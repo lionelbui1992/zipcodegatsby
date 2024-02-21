@@ -3,13 +3,10 @@ import { gsap } from 'gsap';
 
 export const handleAddPixelateAnimation = () => {
     if (gsap.utils.toArray('.pixelate-container:not(.active-animation)').length > 0) {
-        gsap.utils.toArray('.pixelate-container').forEach((item) => {
+        gsap.utils.toArray('.pixelate-container:not(.active-animation)').forEach((item) => {
 
             if (!item.classList.contains('active-animation')) {
                 let offset = item.getBoundingClientRect().y
-                console.log(offset)
-                console.log(innerHeight)
-                console.log("-----------")
                 if (offset < innerHeight - 100) {
                     // tl1.play()
                     const animate = gsap.timeline({
@@ -27,7 +24,6 @@ export const handleAddPixelateAnimation = () => {
 
                     axis = axis === "0" ? false : axis;
 
-                    console.log(['axis', axis])
                     animate.from(cells, {
                         duration: duration,
                         scale: 0,
