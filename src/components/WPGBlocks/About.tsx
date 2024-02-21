@@ -39,14 +39,15 @@ export const AboutBlock: React.FunctionComponent<IWPGBlockProps> = ({ block, map
               </section>
             )
         case 'acf/our-team':
+        case 'acf/box-image':
             return (
               <section className="about-our-teams about-section">
                 <TheBlock blockName={name} attributes={attributes.data} />
               </section>
             )
-        case 'acf/box-image':
+        case 'acf/text-center-with-link':
             return (
-              <section className="about-our-teams about-section">
+              <section className="about-banner-cta about-section">
                 <TheBlock blockName={name} attributes={attributes.data} />
               </section>
             )
