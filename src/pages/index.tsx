@@ -148,7 +148,7 @@ export default IndexPage;
 
 export const query = graphql`
   query {
-    getForminatorForm(id: 10)
+    
     wpPage(isFrontPage: {eq: true}) {
       nodeType
       title
