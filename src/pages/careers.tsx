@@ -160,6 +160,46 @@ const Careers: React.FC<IPageProps> = (props: IPageProps) => {
 
   const ProfileTitle = "Leave your profile to be part of our welcoming team";
   const ProfileFormTitle = "Contact Information";
+  
+  const marqueeBkg = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/careers-life-bkg.jpg';
+  const marqueeContent = [
+    {
+      content:  "Making Real Estate <i>Real Again</i>"
+    },
+    {
+      content:  "Making Real Estate <i>Real Again</i>"
+    },
+    {
+      content:  "Making Real Estate <i>Real Again</i>"
+    },
+    {
+      content:  "Making Real Estate <i>Real Again</i>"
+    },
+    {
+      content:  "Making Real Estate <i>Real Again</i>"
+    },
+    {
+      content:  "Making Real Estate <i>Real Again</i>"
+    },
+    {
+      content:  "Making Real Estate <i>Real Again</i>"
+    },
+    {
+      content:  "Making Real Estate <i>Real Again</i>"
+    },
+    {
+      content:  "Making Real Estate <i>Real Again</i>"
+    },
+    {
+      content:  "Making Real Estate <i>Real Again</i>"
+    },
+    {
+      content:  "Making Real Estate <i>Real Again</i>"
+    },
+    {
+      content:  "Making Real Estate <i>Real Again</i>"
+    }
+  ]
 
   return (
     <Layout>
@@ -192,7 +232,10 @@ const Careers: React.FC<IPageProps> = (props: IPageProps) => {
         openPopUpBackground = {openPopUpBackground}
       />
       <div className="careers-section">
-        <TextMarquee />
+        <TextMarquee 
+          marqueeBkg = {marqueeBkg}
+          marqueeContent = {marqueeContent}
+        />
       </div>
       <CareerPerks 
         PerksTitle = {PerksTitle}

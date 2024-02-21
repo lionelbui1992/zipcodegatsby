@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from "react";
 import gsap from 'gsap';
 import { TextPlugin } from 'gsap/TextPlugin';
 import "./style.sass";
+import { handlePreloadAnimation } from "../../animation";
 
 gsap.registerPlugin(TextPlugin);
 
@@ -11,80 +12,7 @@ export default function Preload(): JSX.Element {
 
   useEffect(() => {
 
-    window.scrollTo(0, 0);
-
-    window.history.scrollRestoration = "manual";
-
-    let preloadElement = document.querySelector('.preload');
-
-    document.body.classList.add('preload-active')
-
-    const text = gsap.timeline({
-      delay: 0,
-    });
-
-    text.to("#text-1", { text: "A Bold", duration: 0.25, delay: 0, ease: "none" });
-    text.to("#text-2", { text: "New Vision", duration: 0.25, delay: 0.5, ease: "none" })
-
-    const underLine = gsap.timeline({
-      delay: 0,
-    });
-    underLine.to("#underline-1", { width: "100%", duration: 0.5, delay: 0.35, ease: "none" });
-    underLine.to("#underline-2", { width: "100%", duration: 0.5, delay: 0.25, ease: "none" });
-
-    const tl = gsap.timeline({});
-
-    tl.to(".textZ", { duration: 1, x: "-86vw", y: "-64vh" })
-    tl.to(".textZ", { duration: 1, x: "-44vw", y: "-64vh" })
-    tl.to(".textZ", { duration: 1, x: "-72vw", y: "-40vh" })
-    tl.to(".textZ", { duration: 2, x: "-50vw", fontSize: "500vw" })
-
-    let icon = zicon.current
-    const tl2 = gsap.timeline({
-      repeat: -1,
-      yoyo: true,
-      paused: true
-    })
-
-    tl2.fromTo(icon, { y: 100, x: -10 }, { y: 200, x: -10, duration: 2 })
-    tl2.to(icon, { y: 420, x: -50, duration: 2 })
-    tl2.to(icon, { y: 600, x: 10, duration: 2 })
-    tl2.to(icon, { y: 700, x: -10, duration: 2 })
-    tl2.to(icon, { y: 600, duration: 2 })
-    tl2.to(icon, { y: 420, x: -50, duration: 2 })
-    tl2.to(icon, { y: 420, x: -40, duration: 2 })
-    tl2.to(icon, { y: 220, x: 10, duration: 2 })
-    tl2.to(icon, { y: 0, x: 0, duration: 4 })
-
-    const textZ = gsap.timeline({
-      onComplete: () => {
-        document.body.classList.remove('preload-active')
-        preloadElement.classList.remove('loading')
-        document.querySelector('.icon-z').classList.add('active')
-        tl2.play()
-      }
-    });
-
-    textZ.to(".textZ", { duration: 0.175, text: "&#xe900;" })
-    textZ.to(".textZ", { duration: 0.175, text: "&#xe901;" })
-    textZ.to(".textZ", { duration: 0.175, text: "&#xe902;" })
-    textZ.to(".textZ", { duration: 0.175, text: "&#xe904;" })
-    textZ.to(".textZ", { duration: 0.175, text: "&#xe905;" })
-    textZ.to(".textZ", { duration: 0.175, text: "&#xe906;" })
-    textZ.to(".textZ", { duration: 0.175, text: "&#xe907;" })
-    textZ.to(".textZ", { duration: 0.175, text: "&#xe909;" })
-    textZ.to(".textZ", { duration: 0.175, text: "&#xe90b;" })
-    textZ.to(".textZ", { duration: 0.175, text: "&#xe90c;" })
-    textZ.to(".textZ", { duration: 0.175, text: "&#xe90d;" })
-    textZ.to(".textZ", { duration: 0.175, text: "&#xe90e;" })
-    textZ.to(".textZ", { duration: 0.175, text: "&#xe90f;" })
-    textZ.to(".textZ", { duration: 0.175, text: "&#xe910;" })
-    textZ.to(".textZ", { duration: 0.15, text: "&#xe911;" })
-    textZ.to(".textZ", { duration: 0.15, text: "&#xe912;" })
-    textZ.to(".textZ", { duration: 0.15, text: "&#xe913;" })
-    textZ.to(".textZ", { duration: 0.15, text: "&#xe914;" })
-    textZ.to(".textZ", { duration: 0.15, text: "&#xe90f;" })
-
+    handlePreloadAnimation()
 
   }, []);
 

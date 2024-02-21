@@ -1,0 +1,1 @@
+export { BannerPoup } from "./BannerPoup";

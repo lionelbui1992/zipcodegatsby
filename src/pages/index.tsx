@@ -27,11 +27,7 @@ const IndexPage: React.FC<IPageProps> = ({ data: { wpPage: page } }: any) => {
       return acc + section.offsetHeight;
     }, 0);;
 
-    console.log(['totalHeight', totalHeight])
-    
-
     document.querySelector('.pinning-2').style.height = totalHeight + 'px';
-
 
     ScrollTrigger.create({
       trigger: ".pinning-1",
@@ -64,89 +60,18 @@ const IndexPage: React.FC<IPageProps> = ({ data: { wpPage: page } }: any) => {
           if (document.querySelector('.item-2')) {
             document.querySelector('.item-2').style.opacity = '1';
           }
-          if (gsap.utils.toArray('.pixelate-container').length > 0 && gsap.utils.toArray('.pixelate-container').length != i) {
-            gsap.utils.toArray('.pixelate-container').forEach((item) => {
-              if (!item.classList.contains('active-animation')) {
-                let offset = item.getBoundingClientRect().y
-                if (offset < innerHeight - 200) {
-                  // tl1.play()
-                  const animate = gsap.timeline({
-                    repeat: 0,
-                    onComplete: () => {
-                      // item.classList.remove('active-animation')
-                      item.nextElementSibling.classList.add('active')
-                    }
-                  });
-                  let cells = item.querySelectorAll('.cell');
-                  let axis = item.getAttribute("data-axis") ?? false,
-                    from = item.getAttribute("data-from") ?? "random",
-                    duration = item.getAttribute("data-duration") ?? .5,
-                    amount = item.getAttribute("data-amount") ?? 1;
 
-                  axis = axis === "0" ? false : axis;
 
-                  console.log(['axis', axis])
-                  animate.from(cells, {
-                    duration: duration,
-                    scale: 0,
-                    y: 0,
-                    repeat: 0,
-                    ease: "none",
-                    stagger: {
-                      amount: amount,
-                      axis: axis,
-                      from: from,
-                      grid: "auto"
-                    }
-                  });
-                  item.classList.add('active-animation');
-                  i++;
-                }
-              }
-            })
-          }
-          if (gsap.utils.toArray('.text-animation').length > 0 && gsap.utils.toArray('.text-animation').length != j) {
-            gsap.utils.toArray('.text-animation').forEach((item) => {
-              if (!item.classList.contains('active-animation')) {
-                let offset = item.getBoundingClientRect().y
-                let dir = item.getAttribute('data-dir') ?? 'ltr'
-
-                if (offset < innerHeight - 200) {
-                  // tl1.play()
-                  const animate = gsap.timeline({ repeat: -1 });
-                  let cells = item.querySelectorAll('p');
-
-                  if (cells.length > 0) {
-                    cells.forEach((cell, index) => {
-                      gsap.fromTo(cell, {
-                        x: dir === 'ltr' ? -50 : 50,
-                        opacity: 0,
-                      },
-                        {
-                          x: 0,
-                          duration: .6,
-                          opacity: 1,
-                          ease: "none",
-                          delay: 0.08 * index
-                        });
-                    });
-                  }
-
-                  item.classList.add('active-animation');
-                  j++;
-                }
-              }
-            })
-          }
         },
       },
       ease: "none",
       smoothChildTiming: true
     });
 
-    tl.to(".item-1", { yPercent: -100,  duration: 2 })
+    // tl.to(".item-1", { yPercent: 0, duration: 1 })
+    tl.fromTo(".item-1", { yPercent: 0 }, { yPercent: -100, duration: 2 })
     tl.fromTo(".c-image", { yPercent: 100 }, { yPercent: -220, duration: 2 })
-    tl.to(".item-2", { yPercent: -100, duration: 2  })
+    tl.to(".item-2", { yPercent: -100, duration: 2 })
 
 
 
