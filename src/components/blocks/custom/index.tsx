@@ -8,6 +8,8 @@ const Marquee = loadable(() => import('./Marquee'))
 const BoxImage = loadable(() => import('./BoxImage'))
 const OurTeams = loadable(() => import('./OurTeams'))
 const BannerCta = loadable(() => import('./BannerCta'))
+const LifeZipCode = loadable(() => import('./LifeZipCode'))
+const BannerThreeColumns = loadable(() => import('./BannerThreeColumns'))
 
 export default {
   ImageWithText,
@@ -18,4 +20,6 @@ export default {
   BoxImage,
   OurTeams,
   BannerCta,
+  LifeZipCode,
+  BannerThreeColumns,
 }

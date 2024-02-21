@@ -22,7 +22,7 @@ export default function BannerImageRight({attributes}: {attributes: IBannerImage
             <div className="banner-des" dangerouslySetInnerHTML={{__html: description}} />
           </div>
           <div className="image-container">
-            <div className="image" style={{backgroundImage: "url("+image.src+")"}}></div>
+            <div className="image" style={{backgroundImage: `url(${image.src})`}}></div>
           </div>
         </div>
       </div>

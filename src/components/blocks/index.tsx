@@ -34,6 +34,11 @@ export function GetTheBlock(name: string) {
     case 'acf/box-image': return CustomBlocks.BoxImage
     case 'acf/our-team': return CustomBlocks.OurTeams
     case 'acf/text-center-with-link': return CustomBlocks.BannerCta
+    case 'acf/life-zip-code': return CustomBlocks.LifeZipCode
+    case 'acf/banner-three-columns': return CustomBlocks.BannerThreeColumns
+    // case 'acf/gallery-two-columns': return CustomBlocks.LifeZipCode
+    // case 'acf/listing-three-columns': return CustomBlocks.LifeZipCode
+    // case 'acf/contact-information': return CustomBlocks.LifeZipCode
     default: return DefaultHtmlBlock
   }
 }

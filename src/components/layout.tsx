@@ -9,6 +9,7 @@ import { ScrollSmoother } from "scroll-smoother-dev";
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ContactForm } from "./HomePage";
+import Test from "./blocks/custom/Test";
 import { handleAddPixelateAnimation, handleTextAnimation } from '../animation'
 
 gsap.registerPlugin(useGSAP, ScrollSmoother, ScrollTrigger);
@@ -143,6 +144,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                     </div>
                 </main>
                 <Slice alias="clipPath" />
+                <Test />
             </div>
         </SEOContext.Provider>
     )
