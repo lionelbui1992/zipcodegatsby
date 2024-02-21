@@ -27,7 +27,7 @@ const IndexPage: React.FC<IPageProps> = ({ data: { wpPage: page } }: any) => {
       return acc + section.offsetHeight;
     }, 0);;
 
-    document.querySelector('.pinning-2').style.height = totalHeight + 'px';
+    document.querySelector('.pinning-2').style.height = (totalHeight + 500) + 'px';
 
     ScrollTrigger.create({
       trigger: ".pinning-1",
@@ -36,7 +36,7 @@ const IndexPage: React.FC<IPageProps> = ({ data: { wpPage: page } }: any) => {
       pin: true,
       pinSpacing: false,
       markers: false,
-      scrub: 0.0001,
+      scrub: 0.000001,
       onUpdate: (self) => {
         if (document.querySelector('.item-2')) {
           document.querySelector('.item-2').style.opacity = '0';
@@ -53,7 +53,7 @@ const IndexPage: React.FC<IPageProps> = ({ data: { wpPage: page } }: any) => {
         end: totalHeight,
         pin: true,
         pinSpacing: false,
-        scrub: 0.0001,
+        scrub: 0.000001,
         markers: false,
         onUpdate: (self) => {
           // console.log(['', ])
@@ -67,10 +67,11 @@ const IndexPage: React.FC<IPageProps> = ({ data: { wpPage: page } }: any) => {
       ease: "none",
       smoothChildTiming: true
     });
-
     // tl.to(".item-1", { yPercent: 0, duration: 1 })
-    tl.fromTo(".item-1", { yPercent: 0 }, { yPercent: -100, duration: 2 })
-    tl.fromTo(".c-image", { yPercent: 100 }, { yPercent: -220, duration: 2 })
+    tl.fromTo(".item-1", { yPercent: 0 }, { yPercent: -100, duration: 4 })
+    tl.fromTo(".c-image", {
+      y: document.querySelector('.c-image').getBoundingClientRect().y - screen.height
+    }, { y: -700, duration: 2 })
     tl.to(".item-2", { yPercent: -100, duration: 2 })
 
 
@@ -95,7 +96,7 @@ const IndexPage: React.FC<IPageProps> = ({ data: { wpPage: page } }: any) => {
           <div className="scroll-section pinning-2 company" data-speed="0.3">
             <div className="relative-section item-1"><Introduce /></div>
             <div className="relative-section item-2" style={{ opacity: 0 }}><Company /></div>
-            <div className="absolute-section item-3"><Explore /></div>
+            <div className="relative-section item-3"><Explore /></div>
           </div>
         </div>
       </Layout >

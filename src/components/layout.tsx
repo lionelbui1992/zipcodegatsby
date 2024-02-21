@@ -9,7 +9,7 @@ import { ScrollSmoother } from "scroll-smoother-dev";
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ContactForm } from "./HomePage";
-import { handleAddPixelateAnimation } from '../animation'
+import { handleAddPixelateAnimation, handleTextAnimation } from '../animation'
 
 gsap.registerPlugin(useGSAP, ScrollSmoother, ScrollTrigger);
 interface LayoutProps {
@@ -115,6 +115,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
             window.addEventListener("scroll", () => handleScroll());
             window.addEventListener("scroll", () => handleAddPixelateAnimation());
+            window.addEventListener("scroll", () => handleTextAnimation());
         }, [smoother]);
     const handleBackToTopClick = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
