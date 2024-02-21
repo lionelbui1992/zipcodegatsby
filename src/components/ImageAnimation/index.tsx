@@ -10,8 +10,8 @@ export const ImageAnimation = (props): JSX.Element => {
     const { src, alt, classes, from, axis, duration, amount } = props;
     const image = useRef(null);
     const mainImage = useRef(null);
-    const col = 12;
-    const row = 12;
+    const col = screen.width < 768 ? 8 : 12;
+    const row = screen.width < 768 ? 8 : 12;
 
     useEffect(() => {
         const canvas = image.current;
