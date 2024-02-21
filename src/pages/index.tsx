@@ -96,7 +96,7 @@ const IndexPage: React.FC<IPageProps> = ({ data: { wpPage: page } }: any) => {
         end: totalHeight,
         pin: true,
         pinSpacing: false,
-        scrub: 0.1,
+        scrub: 0.000001,
         markers: false,
         onUpdate: (self) => {
           if (document.querySelector('.item-2')) {
