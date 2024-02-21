@@ -20,7 +20,7 @@ export const Introduce = (): JSX.Element => {
                 <div className="image-with-text-component ">
                     <div className="d-flex">
                         <div className="col col-image col-left">
-                            <ImageAnimation classes="animation-image image-1" src="/img/mask-group-20.png" alt="" duration="1" from="random" />
+                            <ImageAnimation classes="animation-image image-1" src="/img/mask-group-20.png" alt="" amount={.8} duration=".5" from="random" />
                         </div>
                         <div className="col col-text text-animation col-right" data-dir="ltr" >
                             <p>Our projects resonate with individuality yet are considerate of their surroundings.</p>
