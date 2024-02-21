@@ -71,6 +71,7 @@ interface IImageWithTextProps {
 
 interface IOurTeamsProps {
     title: string;
+    content: string;
     peoples: {
         name: string,
         position: string,

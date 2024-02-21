@@ -10,16 +10,21 @@ import 'swiper/css/scrollbar';
 import { IOurTeamsProps } from "../types";
 
 export const OurTeams = ({ attributes }: { attributes: IOurTeamsProps }): JSX.Element => {
-    const { title, peoples } = attributes;
+    const { title, content, peoples } = attributes;
 
     return (
         <>
             { (title || peoples ) && 
                 <div className="container">
                     <div className="our-teams-wrapper">
-                        { (title) && 
+                        { (title || content) && 
                             <div className="section-heading">
-                                <h2 className="h5" dangerouslySetInnerHTML={{__html: title}} />
+                                { (title) && 
+                                    <h2 className="h5" dangerouslySetInnerHTML={{__html: title}} />
+                                }
+                                { (content) && 
+                                    <div className="content" dangerouslySetInnerHTML={{__html: content}} />
+                                }
                             </div>
                         }
                         { (peoples) && 
@@ -82,8 +87,12 @@ export const OurTeams = ({ attributes }: { attributes: IOurTeamsProps }): JSX.El
                                                     }
                                                     { (list.name || list.position ) && 
                                                         <div className="item-content">
-                                                            <h6 className="item-name" dangerouslySetInnerHTML={{__html: list.name}} />
-                                                            <div className="item-position" dangerouslySetInnerHTML={{__html: list.position}} />
+                                                            { (list.name) && 
+                                                                <h6 className="item-name" dangerouslySetInnerHTML={{__html: list.name}} />
+                                                            }
+                                                            { (list.position) && 
+                                                                <div className="item-position" dangerouslySetInnerHTML={{__html: list.position}} />
+                                                            }
                                                         </div>
                                                     }
                                                 </div>
