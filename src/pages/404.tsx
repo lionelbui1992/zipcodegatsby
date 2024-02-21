@@ -4,6 +4,7 @@ import { HeadFC, PageProps } from "gatsby";
 import { NotFound } from "../components/NotFound";
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Layout from "../components/layout"
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -28,13 +29,15 @@ const NotFoundPage: React.FC<PageProps> = () => {
     };
   }, []);
   return (
-    <div className="page-404 not-found text-center">
-      <section className="section-404">
-        <div className="scrollTrigger" ref={container}>
-          <NotFound />
+    <>
+      <Layout>
+        <div className="page-404 not-found text-center">
+          <section className="section-404">
+              <NotFound />
+          </section>
         </div>
-      </section>
-    </div>
+      </Layout>
+    </>
   )
 }
 
