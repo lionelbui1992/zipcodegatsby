@@ -2,29 +2,31 @@ import * as React from 'react'
 import { GetTheBlock } from '../blocks'
 import { IWPGBlocksProps, IWPGBlockProps } from './types'
 
-const AboutBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBlock }) => {
+const CareersBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBlock }) => {
     return (
-        <div className="about-page">
+        <>
             {blocks.filter(block => {
                 return !!block.name}).map((block, index) => 
-                  <AboutBlock key={index} order={`${index}`} block={block} mapToBlock={mapToBlock} />)
+                  <CareersBlock key={index} block={block} mapToBlock={mapToBlock} />)
             }
-        </div>
+        </>
     )
 }
 
-export const AboutBlock: React.FunctionComponent<IWPGBlockProps> = ({order, block, mapToBlock }) => {
+export const CareersBlock: React.FunctionComponent<IWPGBlockProps> = ({ block, mapToBlock }) => {
 
   const {
     name,
     attributes
   } = block
 
+  console.log('>>>>>>>>>>>> Initial for block: ', name);
+
   if (!name) return null
 
-  if (mapToBlock) (AboutBlock as any).MapToBlock = mapToBlock
+  if (mapToBlock) (CareersBlock as any).MapToBlock = mapToBlock
 
-  let TheBlock = (AboutBlock as any).MapToBlock ? (AboutBlock as any).MapToBlock(name) : null
+  let TheBlock = (CareersBlock as any).MapToBlock ? (CareersBlock as any).MapToBlock(name) : null
   if (!TheBlock) TheBlock = GetTheBlock(name)
 
   if (!TheBlock) return null
@@ -32,17 +34,11 @@ export const AboutBlock: React.FunctionComponent<IWPGBlockProps> = ({order, bloc
   if (name.includes('acf/')) {
     // custom blocks
     switch (name) {
-        case 'acf/banner-text-has-animation':
-            return (
-              <section className="about-banner-top about-section bg-black">
-                <TheBlock order={order} blockName={name} attributes={attributes.data} />
-              </section>
-            )
         case 'acf/our-team':
         case 'acf/box-image':
             return (
               <section className="about-our-teams about-section">
-                <TheBlock order={order} blockName={name} attributes={attributes.data} />
+                <TheBlock blockName={name} attributes={attributes.data} />
               </section>
             )
         case 'acf/text-center-with-link':
@@ -63,4 +59,4 @@ export const AboutBlock: React.FunctionComponent<IWPGBlockProps> = ({order, bloc
   )
 }
 
-export default AboutBlocks
+export default CareersBlocks

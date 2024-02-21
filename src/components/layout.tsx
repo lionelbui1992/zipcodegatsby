@@ -9,6 +9,7 @@ import { ScrollSmoother } from "scroll-smoother-dev";
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ContactForm } from "./HomePage";
+import Test from "./blocks/custom/Test";
 import { handleAddPixelateAnimation, handleTextAnimation } from '../animation'
 
 gsap.registerPlugin(useGSAP, ScrollSmoother, ScrollTrigger);
@@ -20,6 +21,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     const {
         wp: { seo },
     } = useStaticQuery(graphql`
+
         query SiteInfoQuery {
             wp {
                 seo {
@@ -125,7 +127,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <div className="preload loading scrollWraper ScrollSmoother-wrapper viewport">
                 <Slice alias="preload" />
                 <Slice alias="header" />
-                {/* <Slice alias="contactform" /> */}
                 <ContactForm />
                 {/* <ZIcon /> */}
                 <main className="global-wrapper">
@@ -143,6 +144,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                     </div>
                 </main>
                 <Slice alias="clipPath" />
+                <Test />
             </div>
         </SEOContext.Provider>
     )
