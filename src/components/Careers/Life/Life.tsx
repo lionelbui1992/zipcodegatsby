@@ -23,6 +23,7 @@ export const Life = ({
     lifeGallery,
 }: Props): JSX.Element => {
     const [openPopUp, setOpenPopUp] = useState(false);
+    const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {
         if (openPopUp) {
@@ -36,8 +37,10 @@ export const Life = ({
     }, [openPopUp]);
 
 
-    const openPopup = () => {
+    const openPopup = (index: number) => {
         setOpenPopUp(!openPopUp);
+        console.log(index);
+        setCurrentIndex(index)
     }
 
     const hidePopup = () => {
@@ -88,7 +91,7 @@ export const Life = ({
                                     <div className="life-gallery">
                                         {lifeGallery.map((list, index) => (
                                             (list.imgUrl) &&
-                                            <div onClick={() => openPopup()} className="item" data-index={index} key={index}>
+                                            <div onClick={() => openPopup(index)} className="item" data-index={index} key={index}>
                                                 <div className="item-image">
                                                     {((index + 1) % 6 == 2 || (index + 1) % 6 == 4) ? (
                                                         <img className="img-placeholder" loading="lazy" srcSet={lifeImagePlaceholder2} alt="" />
@@ -106,6 +109,7 @@ export const Life = ({
                                 {openPopUp && (<div className="life-gallery-popup" id="life-gallery-popup">
                                     <Swiper
                                         modules={[Navigation]}
+                                        initialSlide={currentIndex}
                                         spaceBetween={20}
                                         slidesPerView={1}
                                         navigation

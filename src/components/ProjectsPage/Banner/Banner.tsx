@@ -22,10 +22,10 @@ export const Banner = ({
     const openPopup = (index: number) => {
         setOpenPopUp(!openPopUp);
         document.querySelector('html')!.classList.add('active-overlay');
-        setTimeout(() => {
+        // setTimeout(() => {
             document.querySelector('.projects-popup-item-'+ index)?.classList.add('active-popup');
             document.querySelector('.projects-popup-'+ index)?.classList.add('active-popup');
-        }, 300);
+        // }, 300);
     }   
 
     useEffect(() => {
