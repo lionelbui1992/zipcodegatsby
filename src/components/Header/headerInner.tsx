@@ -5,6 +5,7 @@ import { Link } from "gatsby"
 import MenuBlack from "../../images/menu-black.svg"
 import MenuWhite from "../../images/menu-white.svg"
 import MenuClose from "../../images/menu-close-black.svg"
+import { NavLink } from 'react-router-dom';
 
 interface Props {
   mainLogoBlack: string;
@@ -129,7 +130,7 @@ export const HeaderInner = ({
             Philosophy
           </Link>
         </div>
-        <div className="header__nav--link">
+        {/* <div className="header__nav--link">
           <Link to="/news" activeClassName="active">
             News
           </Link>
@@ -138,7 +139,7 @@ export const HeaderInner = ({
           <Link to="/rewards" activeClassName="active">
             Rewards
           </Link>
-        </div>
+        </div> */}
       </div>
 
       <div className="header__toggle">
