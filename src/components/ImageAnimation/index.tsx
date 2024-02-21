@@ -16,27 +16,28 @@ export const ImageAnimation = (props): JSX.Element => {
     useEffect(() => {
         const canvas = image.current;
         const mainImg = mainImage.current;
-        // console.log(['mainImg', mainImg])
+
         if (!mainImg) return;
+        mainImg.onload = () => {
+            const colWidth = 100 / col;
+            const rowHeight = 100 / row;
 
-        const colWidth = 100 / col;
-        const rowHeight = 100 / row;
-
-        for (let i = 0; i < row; i++) {
-            for (let j = 0; j < col; j++) {
-                const cell = document.createElement('div');
-                cell.classList.add('cell');
-                cell.style.width = colWidth + '%';
-                cell.style.height = rowHeight + '%';
-                const front = document.createElement('div');
-                front.classList.add('front');
-                front.style.backgroundImage = `url(${src})`;
-                front.style.backgroundSize = `${mainImg.offsetWidth}px ${mainImg.offsetHeight}px`;
-                front.style.backgroundPosition = (100 / (col - 1) * j) + '% ' + (100 / (row - 1) * i) + '%';
-                cell.appendChild(front);
-                canvas.appendChild(cell);
+            for (let i = 0; i < row; i++) {
+                for (let j = 0; j < col; j++) {
+                    const cell = document.createElement('div');
+                    cell.classList.add('cell');
+                    cell.style.width = colWidth + '%';
+                    cell.style.height = rowHeight + '%';
+                    const front = document.createElement('div');
+                    front.classList.add('front');
+                    front.style.backgroundImage = `url(${src})`;
+                    front.style.backgroundSize = `${mainImg.offsetWidth}px ${mainImg.offsetHeight}px`;
+                    front.style.backgroundPosition = (100 / (col - 1) * j) + '% ' + (100 / (row - 1) * i) + '%';
+                    cell.appendChild(front);
+                    canvas.appendChild(cell);
+                }
             }
-        }
+        };
 
     }, [src])
 

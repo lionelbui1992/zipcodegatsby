@@ -1,5 +1,7 @@
 import React from 'react';
 import { gsap } from 'gsap';
+import { handleAddPixelateAnimation, handleTextAnimation } from './index'
+
 export const handlePreloadAnimation = () => {
     window.scrollTo(0, 0);
 
@@ -36,19 +38,35 @@ export const handlePreloadAnimation = () => {
         // yoyo: true,
     });
 
-    setX = screenWidth / 8;
-    setY = screenHeight / 5;
-    tl.to(".textZ", { duration: 1, attr: { "x": setX, "y": setY }, transformOrigin: "50% center" });
+    if (screenWidth < 768) {
+        tl.set(".clippath-Z", { scale: 0.35, transformOrigin: 'center center' });
+        setX = -100;
+        setY = 0;
+        tl.to(".textZ", { duration: 1, attr: { "x": setX, "y": setY } });
 
-    setX = screenWidth / 1.1;
-    tl.to(".textZ", { duration: 1, attr: { "x": setX, "y": setY }, transformOrigin: "50% center" });
+        setX = 80;
+        tl.to(".textZ", { duration: 1, attr: { "x": setX, "y": setY } });
 
-    setX = screenWidth / 3;
-    setY = screenHeight / 2;
-    tl.to(".textZ", { duration: 1, attr: { "x": setX, "y": setY }, transformOrigin: "50% center" });
+        setX = -70;
+        setY = 200;
+        tl.to(".textZ", { duration: 1, attr: { "x": setX, "y": setY } });
 
-    // tl.to(".textZ", { duration: 2, x: "-50vw", fontSize: "500vw" })
-    tl.to(".textZ", { duration: 2, scale: 15, transformOrigin: "50% center" });
+        tl.to(".clippath-Z", { duration: 2, scale: 50, transformOrigin: 'center center' });
+    } else {
+        tl.set(".clippath-Z", { scale: 0.85, transformOrigin: 'center center' });
+        setX = screenWidth / 8;
+        setY = screenHeight / 15;
+        tl.to(".textZ", { duration: 1, attr: { "x": setX, "y": setY } });
+
+        setX = screenWidth / 1.5;
+        tl.to(".textZ", { duration: 1, attr: { "x": setX, "y": setY } });
+
+        setX = screenWidth / 3;
+        setY = screenHeight / 2;
+        tl.to(".textZ", { duration: 1, attr: { "x": setX, "y": setY } });
+
+        tl.to(".clippath-Z", { duration: 2, scale: 50, transformOrigin: 'center center' });
+    }
 
     let icon = document.querySelector('.icon-z svg')
     const tl2 = gsap.timeline({
@@ -75,6 +93,8 @@ export const handlePreloadAnimation = () => {
             preloadElement.classList.remove('loading')
             document.querySelector('.icon-z').classList.add('active')
             tl2.play()
+            handleAddPixelateAnimation()
+            handleTextAnimation()
         }
     });
 
@@ -93,6 +113,6 @@ export const handlePreloadAnimation = () => {
     textZ.to(".textZ", { duration: 0.2, attr: { "xlink:href": "#textZn" } })
     textZ.to(".textZ", { duration: 0.2, attr: { "xlink:href": "#textZo" } })
     textZ.to(".textZ", { duration: 0.2, attr: { "xlink:href": "#textZp" } })
-    textZ.to(".textZ", { duration: 0.2, attr: { "xlink:href": "#textZq" } })
+    // textZ.to(".textZ", { duration: 0.2, attr: { "xlink:href": "#textZq" } })
     // textZ.to(".textZ", { duration: 0.175, attr: { "xlink:href": "#textZr" } })
 }
