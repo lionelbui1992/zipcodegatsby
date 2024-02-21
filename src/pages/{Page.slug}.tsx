@@ -3,8 +3,9 @@ import { graphql } from "gatsby"
 import Seo from 'gatsby-plugin-wpgraphql-seo';
 import Layout from "../components/layout"
 import WPGBlocks from "../components/WPGBlocks"
-import PhilosophyBlocks from "../components/WPGBlocks/Philosophy";
 import AboutBlocks from "../components/WPGBlocks/About";
+import CareersBlocks from "../components/WPGBlocks/Careers";
+import PhilosophyBlocks from "../components/WPGBlocks/Philosophy";
 
 export default function Page({ data: { wpPage, pageDetail } }: any) {
   const post = pageDetail.nodes[0];
@@ -15,6 +16,15 @@ export default function Page({ data: { wpPage, pageDetail } }: any) {
           <Seo post={wpPage} />
           <Layout>
             <AboutBlocks blocks={post.blocks} />
+          </Layout>
+        </>
+      )
+    case 'careers':
+      return (
+        <>
+          <Seo post={wpPage} />
+          <Layout>
+            <CareersBlocks blocks={post.blocks} />
           </Layout>
         </>
       )

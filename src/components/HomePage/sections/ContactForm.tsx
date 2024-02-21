@@ -8,20 +8,13 @@ export const ContactForm = (): JSX.Element => {
     const [isFormVisible, setFormVisible] = useState(false)
     const ctform = useRef(null)
 
-    // const fetchData = async () => {
     const test = useQuery(GET_FORMINATOR_FORM);
-
-    // };
-    // fetchData()
-
     useEffect(() => {
         const showForm = () => {
             if (!Cookies.get('contact-form')) {
                 setFormVisible(true);
             }
         };
-
-
 
         const timer = setTimeout(showForm, 6000); // Show after 10 seconds
         setTimeout(() => {
@@ -88,17 +81,17 @@ export const ContactForm = (): JSX.Element => {
                                         data-validate="{required:true}" aria-required="true" />
                                 </div>
                             </div>
-                            
+
                             <div className="field checkbox  full required">
                                 <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
                                 <label className="label" htmlFor="{'#vehicle1'}">
-                                    <span>Introduce a checkbox to grant permission for sharing information within the internal Zipcode’s company</span>
+                                    <span>Grant permission for sharing information within the internal Zipcode’s company</span>
                                 </label>
                             </div>
 
                             <div className="field checkbox  full required">
                                 <input type="checkbox" id="vehicle2" name="vehicle2" value="Bike" />
-                                <label className="label" htmlFor="{'#vehicle2'}"><span>Introduce a checkbox for receiving news or updates from Zipcode</span></label>
+                                <label className="label" htmlFor="{'#vehicle2'}"><span>Receiving news or updates from Zipcode</span></label>
                             </div>
                         </fieldset>
                         <div className="action">

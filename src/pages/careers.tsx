@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Banner } from "../components/Careers/Banner";
-import { Life } from "../components/Careers/Life";
+import { Life } from "../components/Careers/Life/Life";
 import { OurCulture } from "../components/Careers/OurCulture";
 import { TextMarquee } from "../components/TextMarquee";
 import { OurValues } from "../components/Careers/OurValues";

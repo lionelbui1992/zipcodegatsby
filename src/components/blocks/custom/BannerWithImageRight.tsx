@@ -13,7 +13,7 @@ export default function BannerImageRight({attributes}: {attributes: IBannerImage
   
   return (
     <div className="phi-banner">
-    <div className="phi-banner-container careers-section" style={{backgroundImage: "url("+ (background && background.src) ? background.src : '' +")"}}>
+    <div className="phi-banner-container careers-section" style={{backgroundImage: `url(${background?.src})`}}>
       <div className="container">
         <div className="content">
           <div className="text-container">
@@ -22,7 +22,7 @@ export default function BannerImageRight({attributes}: {attributes: IBannerImage
             <div className="banner-des" dangerouslySetInnerHTML={{__html: description}} />
           </div>
           <div className="image-container">
-            <div className="image" style={{backgroundImage: "url("+image.src+")"}}></div>
+            <div className="image" style={{backgroundImage: `url(${image.src})`}}></div>
           </div>
         </div>
       </div>

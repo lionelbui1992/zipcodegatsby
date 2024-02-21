@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles.sass";
+import "./banner-three-columns.sass";
 
 interface Props {
     OurCultureTitle: string;

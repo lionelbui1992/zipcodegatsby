@@ -5,7 +5,7 @@ export default function ClipPath(): JSX.Element {
     return (
 
         <div className="preload-clippath">
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+            <svg version="1.1" viewBox="0 0 395.31 457.68" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                 <defs>
                     <polyline className="clippath-Z" id="textZa" points="14.22 120.61 24.99 0 530.37 21.32 519.36 315.75 208.43 480.84 510.42 493.22 509.05 537.94 0 537.94 6.88 301.3 328.13 127.26 14.22 120.61" />
                     <polygon className="clippath-Z" id="textZb" points="38.53 46.7 39.44 0 443.92 34.4 430.85 242.14 46.32 426.5 412.97 454.7 410.22 502.85 0 468.69 18.34 257.73 401.73 77.05 38.53 46.7" />
@@ -28,12 +28,6 @@ export default function ClipPath(): JSX.Element {
                     <clipPath id="clippp">
                         {/* <text className="textZ" id="textZ" x="110vw" y="110vh" dominantBaseline="middle" textAnchor="middle">&#xe900;</text> */}
                         <use className="textZ" id="textZ" xlinkHref="#textZa" />
-                    </clipPath>
-                    <clipPath id="mask">
-                        <rect x="0" y="0" width="200" height="600">
-                            <animate attributeType="XML" attributeName="x" from="-200" to="740"
-                                dur="10s" repeatCount="indefinite" />
-                        </rect>
                     </clipPath>
                 </defs>
             </svg>
