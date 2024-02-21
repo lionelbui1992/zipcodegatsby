@@ -59,6 +59,7 @@ const data = {
 
 const IndexPage: React.FC<IPageProps> = ({ data: { wpPage: page } }: any) => {
 
+  console.log(page)
   const container = useRef(null);
   useEffect(() => {
 
@@ -67,11 +68,11 @@ const IndexPage: React.FC<IPageProps> = ({ data: { wpPage: page } }: any) => {
     const absoluteSections = document.querySelectorAll('.scroll-section .relative-section');
     const totalHeight = [...absoluteSections].reduce((acc, section) => {
       section.classList.replace('relative-section', 'absolute-section'); // Replace class
-      console.log(['section.offsetHeight', section.offsetHeight])
       return acc + section.offsetHeight;
     }, 0);;
 
-    document.querySelector('.pinning-2').style.height = (totalHeight + 200) + 'px';
+    let temp = screen.height < 767 ? 300 : 0
+    document.querySelector('.pinning-2').style.height = (totalHeight + temp) + 'px';
 
     ScrollTrigger.create({
       trigger: ".pinning-1",
@@ -88,8 +89,6 @@ const IndexPage: React.FC<IPageProps> = ({ data: { wpPage: page } }: any) => {
       }
     });
 
-    let i = 0;
-    let j = 0;
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: ".pinning-2",
@@ -100,12 +99,9 @@ const IndexPage: React.FC<IPageProps> = ({ data: { wpPage: page } }: any) => {
         scrub: 0.000001,
         markers: false,
         onUpdate: (self) => {
-          // console.log(['', ])
           if (document.querySelector('.item-2')) {
             document.querySelector('.item-2').style.opacity = '1';
           }
-
-
         },
       },
       ease: "none",
@@ -152,7 +148,7 @@ export default IndexPage;
 
 export const query = graphql`
   query {
-
+    getForminatorForm(id: 10)
     wpPage(isFrontPage: {eq: true}) {
       nodeType
       title
