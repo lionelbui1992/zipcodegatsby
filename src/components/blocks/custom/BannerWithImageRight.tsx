@@ -1,4 +1,5 @@
 import React from "react";
+import "./banner-image-right.sass";
 import { IBannerImageRightProps } from "../types";
 
 export default function BannerImageRight({attributes}: {attributes: IBannerImageRightProps}): JSX.Element {
@@ -11,6 +12,7 @@ export default function BannerImageRight({attributes}: {attributes: IBannerImage
   } = attributes;
   
   return (
+    <div className="phi-banner">
     <div className="phi-banner-container careers-section" style={{backgroundImage: "url("+ (background && background.src) ? background.src : '' +")"}}>
       <div className="container">
         <div className="content">
@@ -24,6 +26,7 @@ export default function BannerImageRight({attributes}: {attributes: IBannerImage
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };
