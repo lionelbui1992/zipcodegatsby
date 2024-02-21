@@ -19,7 +19,7 @@ const NotFoundPage: React.FC<PageProps> = () => {
         end: "bottom top",
         pin: true,
         pinSpacing: false,
-        markers: true
+        markers: false
       });
     })
 
