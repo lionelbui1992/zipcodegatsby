@@ -2,16 +2,22 @@ import * as React from "react"
 import { graphql } from "gatsby"
 import Seo from 'gatsby-plugin-wpgraphql-seo';
 import Layout from "../components/layout"
-import { Container, Box } from "../components/ui"
-// import * as sections from "../components/sections"
-// import Fallback from "../components/fallback"
 import WPGBlocks from "../components/WPGBlocks"
 import PhilosophyBlocks from "../components/WPGBlocks/Philosophy";
-// import { IWPGBlock } from "react-gutenberg/src/types"
+import AboutBlocks from "../components/WPGBlocks/About";
 
 export default function Page({ data: { wpPage, pageDetail } }: any) {
   const post = pageDetail.nodes[0];
   switch (wpPage.slug) {
+    case 'about':
+      return (
+        <>
+          <Seo post={wpPage} />
+          <Layout>
+            <AboutBlocks blocks={post.blocks} />
+          </Layout>
+        </>
+      )
     case 'philosophy':
       return (
         <>
