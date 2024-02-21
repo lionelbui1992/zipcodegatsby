@@ -9,8 +9,6 @@ export const handleTextAnimation = () => {
 
 
                 if (offset < innerHeight - 100) {
-                    // tl1.play()
-                    const animate = gsap.timeline({ repeat: -1 });
                     let cells = item.querySelectorAll('p');
 
                     if (cells.length > 0) {
