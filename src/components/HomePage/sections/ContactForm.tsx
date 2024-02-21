@@ -8,20 +8,13 @@ export const ContactForm = (): JSX.Element => {
     const [isFormVisible, setFormVisible] = useState(false)
     const ctform = useRef(null)
 
-    // const fetchData = async () => {
     const test = useQuery(GET_FORMINATOR_FORM);
-
-    // };
-    // fetchData()
-
     useEffect(() => {
         const showForm = () => {
             if (!Cookies.get('contact-form')) {
                 setFormVisible(true);
             }
         };
-
-
 
         const timer = setTimeout(showForm, 6000); // Show after 10 seconds
         setTimeout(() => {

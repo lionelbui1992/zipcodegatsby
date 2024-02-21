@@ -21,6 +21,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     const {
         wp: { seo },
     } = useStaticQuery(graphql`
+
         query SiteInfoQuery {
             wp {
                 seo {
@@ -126,7 +127,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <div className="preload loading scrollWraper ScrollSmoother-wrapper viewport">
                 <Slice alias="preload" />
                 <Slice alias="header" />
-                {/* <Slice alias="contactform" /> */}
                 <ContactForm />
                 {/* <ZIcon /> */}
                 <main className="global-wrapper">

@@ -90,8 +90,8 @@ export const handlePreloadAnimation = () => {
         // yoyo: true,
         onComplete: () => {
             document.body.classList.remove('preload-active')
-            preloadElement.classList.remove('loading')
-            document.querySelector('.icon-z').classList.add('active')
+            preloadElement?.classList.remove('loading')
+            document.querySelector('.icon-z')?.classList.add('active')
             tl2.play()
             handleAddPixelateAnimation()
             handleTextAnimation()
