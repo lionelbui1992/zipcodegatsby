@@ -99,11 +99,14 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     const [hiddenBackToTop, setHiddenBackToTop] = useState(true);
     useEffect(
         () => {
-            smoother.current = ScrollSmoother.create({
-                smooth: .5, // seconds it takes to "catch up" to native scroll position
-                effects: false, // look for data-speed and data-lag attributes on elements and animate accordingly
-                smoothTouch: 0.1,
-            });
+            if (screen.width > 767) {
+                smoother.current = ScrollSmoother.create({
+                    smooth: .5, // seconds it takes to "catch up" to native scroll position
+                    effects: false, // look for data-speed and data-lag attributes on elements and animate accordingly
+                    smoothTouch: 0.1,
+                });
+            }
+
 
             const handleScroll = () => {
                 if (window.scrollY > 2000) {
