@@ -71,7 +71,7 @@ const IndexPage: React.FC<IPageProps> = ({ data: { wpPage: page } }: any) => {
       return acc + section.offsetHeight;
     }, 0);;
 
-    let temp = screen.height < 767 ? 300 : 0
+    let temp = screen.width < 767 ? 100 : 0
     document.querySelector('.pinning-2').style.height = (totalHeight + temp) + 'px';
 
     ScrollTrigger.create({
@@ -96,7 +96,7 @@ const IndexPage: React.FC<IPageProps> = ({ data: { wpPage: page } }: any) => {
         end: totalHeight,
         pin: true,
         pinSpacing: false,
-        scrub: 0.000001,
+        scrub: 0.1,
         markers: false,
         onUpdate: (self) => {
           if (document.querySelector('.item-2')) {
@@ -107,11 +107,16 @@ const IndexPage: React.FC<IPageProps> = ({ data: { wpPage: page } }: any) => {
       ease: "none",
       smoothChildTiming: true
     });
+
+
+    let imgFrom = screen.width > 500 ? 800 : 400
+
+
     // tl.to(".item-1", { yPercent: 0, duration: 1 })
     tl.fromTo(".item-1", { yPercent: 0 }, { yPercent: -100, duration: 4 })
     tl.fromTo(".c-image", {
-      y: document.querySelector('.c-image').getBoundingClientRect().y - screen.height
-    }, { y: -700, duration: 2 })
+      y: imgFrom
+    }, { y: -800, duration: 2 })
     tl.to(".item-2", { yPercent: -100, duration: 2 })
 
 
