@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.sass";
-
+import {ImageAnimation} from '../../ImageAnimation'
 interface Props {
   label: string;
   bannerTitle: string;
@@ -26,7 +26,8 @@ export const Banner = ({
             <div className="banner-des" dangerouslySetInnerHTML={{__html: bannerDescription}} />
           </div>
           <div className="image-container">
-            <div className="image" style={{backgroundImage: "url("+bannerImageUrl+")"}}></div>
+            {/* <div className="image" style={{backgroundImage: "url("+bannerImageUrl+")"}}></div> */}
+            <ImageAnimation classes="animation-image image-2" src={bannerImageUrl} amount={.3} alt="" duration=".5" from="end" axis="x" />
           </div>
         </div>
       </div>
