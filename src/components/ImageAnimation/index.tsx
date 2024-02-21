@@ -16,7 +16,7 @@ export const ImageAnimation = (props): JSX.Element => {
     useEffect(() => {
         const canvas = image.current;
         const mainImg = mainImage.current;
-        console.log(['mainImg', mainImg])
+        // console.log(['mainImg', mainImg])
         if (!mainImg) return;
 
         const colWidth = 100 / col;

@@ -4,11 +4,11 @@ import { IWPGBlocksProps, IWPGBlockProps } from './types'
 
 const WPGBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBlock }) => {
     return (
-        <div className="wpg-blocks">
-            {blocks.filter(block => {
-                console.log(block); return !!block.name}).map((block, index) => <WPGBlock key={index} block={block} mapToBlock={mapToBlock} />)
+        <>
+            {blocks && blocks.filter(block => {
+                return !!block.name}).map((block, index) => <WPGBlock key={index} block={block} mapToBlock={mapToBlock} />)
             }
-        </div>
+        </>
     )
 }
 
@@ -19,8 +19,6 @@ export const WPGBlock: React.FunctionComponent<IWPGBlockProps> = ({ block, mapTo
     attributes,
     innerBlocks,
     innerHTML } = block
-    
-    console.log('>>>>>>>>>>> render for : ', block)
 
   if (!name) return null
 
@@ -30,6 +28,11 @@ export const WPGBlock: React.FunctionComponent<IWPGBlockProps> = ({ block, mapTo
   if (!TheBlock) TheBlock = GetTheBlock(name)
 
   if (!TheBlock) return null
+
+  if (name.includes('acf/')) {
+    const {data} = attributes
+    return <TheBlock blockName={name} attributes={data} />
+  }
 
   return (
     <TheBlock blockName={name} attributes={attributes} innerBlocks={innerBlocks} innerHTML={innerHTML} />
