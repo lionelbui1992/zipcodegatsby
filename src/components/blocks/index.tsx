@@ -29,6 +29,11 @@ export function GetTheBlock(name: string) {
     // custom zipcode blocks
     case 'acf/banner-with-image-right': return CustomBlocks.BannerImageRight
     case 'acf/number-text-image-repeater': return CustomBlocks.NumberTextImageRepeater
+    case 'acf/banner-text-has-animation': return CustomBlocks.BannerTextHasAnimation
+    case 'acf/marquee': return CustomBlocks.Marquee
+    case 'acf/box-image': return CustomBlocks.BoxImage
+    case 'acf/our-team': return CustomBlocks.OurTeams
+    case 'acf/text-center-with-link': return CustomBlocks.BannerCta
     default: return DefaultHtmlBlock
   }
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles.sass";
+import "./marquee.sass";
 
 export const MarqueeText = (): JSX.Element => {
     return (

@@ -2,26 +2,43 @@ import * as React from "react"
 import { graphql } from "gatsby"
 import Seo from 'gatsby-plugin-wpgraphql-seo';
 import Layout from "../components/layout"
-import { Container, Box } from "../components/ui"
-// import * as sections from "../components/sections"
-// import Fallback from "../components/fallback"
 import WPGBlocks from "../components/WPGBlocks"
-// import { IWPGBlock } from "react-gutenberg/src/types"
+import PhilosophyBlocks from "../components/WPGBlocks/Philosophy";
+import AboutBlocks from "../components/WPGBlocks/About";
 
 export default function Page({ data: { wpPage, pageDetail } }: any) {
   const post = pageDetail.nodes[0];
-  return (
-    <>
-      <Seo post={wpPage} />
-      <Layout>
-        <Box paddingY={5}>
-          <Container width="narrow">
-            <WPGBlocks blocks={post.blocks} />
-          </Container>
-        </Box>
-      </Layout>
-    </>
-  )
+  switch (wpPage.slug) {
+    case 'about':
+      return (
+        <>
+          <Seo post={wpPage} />
+          <Layout>
+            <AboutBlocks blocks={post.blocks} />
+          </Layout>
+        </>
+      )
+    case 'philosophy':
+      return (
+        <>
+          <Seo post={wpPage} />
+          <Layout>
+            <PhilosophyBlocks blocks={post.blocks} />
+          </Layout>
+        </>
+      )
+    default:
+      return (
+        <>
+          <Seo post={wpPage} />
+          <Layout>
+            <div class="container">
+              <WPGBlocks blocks={post.blocks} />
+            </div>
+          </Layout>
+        </>
+      )
+  }
 }
 
 export const pageQuery = graphql`
@@ -29,6 +46,7 @@ export const pageQuery = graphql`
         wpPage: wpPage(slug: { eq: $slug }) {
             nodeType
             title
+            slug
             uri
             seo {
                 title

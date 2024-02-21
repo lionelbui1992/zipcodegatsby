@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles.sass";
+import "./text-center-with-link.sass";
 import { Link } from "gatsby";
 
 export const BannerCta = (): JSX.Element => {

@@ -1,29 +1,20 @@
 import React from "react";
-import "./styles.sass";
+import "./box-image.sass";
 import { Link } from "gatsby";
+import { IBoxImageProps } from "../types";
 
-interface Props {
-    className: string,
-    boxIcon: string | null,
-    boxImage: string,
-    boxTitle: string,
-    boxContent: string,
-    boxContentMobile: string,
-    boxLinkText: string,
-    boxLinkUrl: string
-}
-
-export const BoxImage = ({ className, boxIcon, boxImage, boxTitle, boxContent, boxContentMobile, boxLinkText, boxLinkUrl }: Props): JSX.Element => {
+export const BoxImage = ({attributes}: {attributes: IBoxImageProps}): JSX.Element => {
+    
     return (
         <>
             <div
-                className={`box-image ${className}`}
+                className={`box-image ${attributes?.className? attributes.className : 'box-image-left'}`}
             >
                 <div className="container">
                     <div className="column-box">
                         <div className="column-image">
                             {(() => {
-                                if (boxIcon == 'column') {
+                                if (attributes.background_position == 'column') {
                                 return (
                                     <div className="icon">
                                         <img
@@ -33,7 +24,7 @@ export const BoxImage = ({ className, boxIcon, boxImage, boxTitle, boxContent, b
                                         />
                                     </div>
                                 )
-                                } else if (boxIcon == 'row') {
+                                } else if (attributes.background_position == 'row') {
                                 return (
                                     <div className="icon icon-row icon-bottom">
                                         <img
@@ -45,21 +36,27 @@ export const BoxImage = ({ className, boxIcon, boxImage, boxTitle, boxContent, b
                                 )
                                 }
                             })()}
-                            <div className="image-inner">
-                                <img
-                                    loading="lazy"
-                                    srcSet={`${boxImage}`} className="img"
-                                    alt={`${boxTitle}`}
-                                />
-                            </div>
+                            {attributes.image && attributes.image.src &&
+                            (
+                                <div className="image-inner">
+                                    <img
+                                        loading="lazy"
+                                        srcSet={`${attributes.image.src}`} className="img"
+                                        alt={`${attributes.image.alt}`}
+                                    />
+                                </div>
+                            )}
                         </div>
                         <div className="column-content">
                             <div className="content-inner">
-                                <h2 className="title">{boxTitle}</h2>
+                            <h2 className="title">{attributes.title}</h2>
                                 <div className="content">
-                                    <div className="description visible-desktop">{boxContent}</div>
-                                    <div className="description visible-mobile">{boxContentMobile}</div>
-                                    <Link className="btn btn-primary" to={`${boxLinkUrl}`}>{boxLinkText}</Link>
+                                    <div className="description visible-desktop">{attributes.description}</div>
+                                    <div className="description visible-mobile">{attributes.description_mobile}</div>
+                                    {attributes.button && attributes.button.title &&
+                                    (
+                                        <Link className="btn btn-primary" to={`${attributes.button.target}`}>{attributes.button.title}</Link>
+                                    )}
                                 </div>
                             </div>
                         </div>
