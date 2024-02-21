@@ -1,5 +1,7 @@
 import React from 'react';
 import { gsap } from 'gsap';
+import { handleAddPixelateAnimation, handleTextAnimation } from './index'
+
 export const handlePreloadAnimation = () => {
     window.scrollTo(0, 0);
 
@@ -75,6 +77,8 @@ export const handlePreloadAnimation = () => {
             preloadElement.classList.remove('loading')
             document.querySelector('.icon-z').classList.add('active')
             tl2.play()
+            handleAddPixelateAnimation()
+            handleTextAnimation()
         }
     });
 
