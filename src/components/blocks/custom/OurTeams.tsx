@@ -7,27 +7,22 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import { IOurTeamsProps } from "../types";
 
-interface Props {
-    OurTeamsHeading: string;
-    OurTeamsContent: any[];
-}
+export const OurTeams = ({ attributes }: { attributes: IOurTeamsProps }): JSX.Element => {
+    const { title, peoples } = attributes;
 
-export const OurTeams = ({
-    OurTeamsHeading,
-    OurTeamsContent
-}: Props): JSX.Element => {
     return (
         <>
-            { (OurTeamsHeading || OurTeamsContent ) && 
+            { (title || peoples ) && 
                 <div className="container">
                     <div className="our-teams-wrapper">
-                        { (OurTeamsHeading) && 
+                        { (title) && 
                             <div className="section-heading">
-                                <h2 className="h5" dangerouslySetInnerHTML={{__html: OurTeamsHeading}} />
+                                <h2 className="h5" dangerouslySetInnerHTML={{__html: title}} />
                             </div>
                         }
-                        { (OurTeamsContent) && 
+                        { (peoples) && 
                             <div className="section-content">
                                 <Swiper
                                     modules={[Navigation]}
@@ -65,29 +60,29 @@ export const OurTeams = ({
                                     }}
                                     navigation
                                     >
-                                    { OurTeamsContent.map((list, index) => (
-                                        (list.title || list.imgUrl || list.content || list.position ) && 
+                                    { peoples.map((list, index) => (
+                                        (list.name || list.avatar || list.short_description || list.position ) && 
                                             <SwiperSlide key={index}>
                                                 <div className="item-inner">
-                                                    { (list.imgUrl) && 
+                                                    { (list.avatar) && 
                                                         <div className="item-image">
                                                             <div className="image-inner">
                                                                 <img
                                                                     loading="lazy"
-                                                                    srcSet={`${list.imgUrl}`} className="img"
-                                                                    alt={list.title}
+                                                                    srcSet={`${list.avatar.src}`} className="img"
+                                                                    alt={list.name}
                                                                 />
                                                             </div>
-                                                            { (list.content) && 
+                                                            { (list.short_description) && 
                                                                 <div className="item-info">
-                                                                    <div dangerouslySetInnerHTML={{__html: list.content}} />
+                                                                    <div dangerouslySetInnerHTML={{__html: list.short_description}} />
                                                                 </div>
                                                             }
                                                         </div>
                                                     }
-                                                    { (list.title || list.position ) && 
+                                                    { (list.name || list.position ) && 
                                                         <div className="item-content">
-                                                            <h6 className="item-name" dangerouslySetInnerHTML={{__html: list.title}} />
+                                                            <h6 className="item-name" dangerouslySetInnerHTML={{__html: list.name}} />
                                                             <div className="item-position" dangerouslySetInnerHTML={{__html: list.position}} />
                                                         </div>
                                                     }

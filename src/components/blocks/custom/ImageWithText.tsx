@@ -1,15 +1,6 @@
 import React from "react";
 import "./image-with-text.sass";
-import {IImage} from "../types";
-
-interface Props {
-  index: number;
-  title: string;
-  des: string;
-  image: IImage;
-  backgroundUrl: IImage;
-  isDarkBackground: boolean;
-}
+import {IImageWithTextProps} from "../types";
 
 export const ImageWithText = ({
   index,
@@ -18,7 +9,7 @@ export const ImageWithText = ({
   image,
   backgroundUrl,
   isDarkBackground,
-}: Props): JSX.Element => {
+}: IImageWithTextProps): JSX.Element => {
   return (
     <>
       { (title || des || image ) && 

@@ -6,7 +6,7 @@ const PhilosophyBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, ma
     return (
         <>
             {blocks.filter(block => {
-                console.log(block); return !!block.name}).map((block, index) => <PhilosophyBlock key={index} block={block} mapToBlock={mapToBlock} />)
+                return !!block.name}).map((block, index) => <PhilosophyBlock key={index} block={block} mapToBlock={mapToBlock} />)
             }
         </>
     )
@@ -18,8 +18,6 @@ export const PhilosophyBlock: React.FunctionComponent<IWPGBlockProps> = ({ block
     name,
     attributes
   } = block
-    
-    console.log('>>>>>>>>>>> render for : ', block)
 
   if (!name) return null
 
@@ -33,13 +31,14 @@ export const PhilosophyBlock: React.FunctionComponent<IWPGBlockProps> = ({ block
     case 'acf/banner-with-image-right':
         return (
             <div className="scroll-section pinning-1" data-speed="0.2">
-                <TheBlock blockName={name} attributes={attributes} />
+                <TheBlock blockName={name} attributes={attributes.data} />
             </div>
         )
     case 'acf/number-text-image-repeater':
+        const {data} = attributes
         return (
             <div className="scroll-section pinning-2 company" data-speed="0.3">
-                <TheBlock blockName={name} attributes={attributes} />
+                <TheBlock blockName={name} attributes={attributes.data} />
             </div>
         )
     default:

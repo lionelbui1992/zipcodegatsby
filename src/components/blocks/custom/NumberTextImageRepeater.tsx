@@ -1,24 +1,12 @@
 import React from "react";
 import ImageWithText from "./ImageWithText";
-import { IImage } from "../types";
+import { NumberTextImageRepeaterProps } from "../types";
 
-export interface NumberTextImageRepeaterProps {
-  attributes: {
-    data: {
-      title: string,
-      description: string,
-      image: IImage,
-      background: IImage,
-      isDarkBackground?: boolean,
-    }[]
-  }
-}
-
-export default function NumberTextImageRepeater(props: Readonly<NumberTextImageRepeaterProps>): JSX.Element {
-  const {attributes: {data}} = props;
+export default function NumberTextImageRepeater({ attributes }: {attributes: NumberTextImageRepeaterProps}): JSX.Element {
+  const {sections} = attributes;
   return (
     <div className="scroll-section pinning-2 company" data-speed="0.3">
-      {data.map((list, index) => (
+      {sections.map((list, index) => (
 
         <div className={`phi-${index+1} test `} key={index}>
           <ImageWithText 
