@@ -31,9 +31,9 @@ export const BannerPoup = ({
         <>
             { (ProjectBannerContent) &&
                 <div className="projects-popup-main">
-                    <div className="poup-overlay" onClick={() => popupOverlay()}></div>
                     { ProjectBannerContent.map((list, index) =>                    
                         <div className={`projects-popup projects-popup-${index}`} id={`projects-popup-${index}`}>
+                            <div className="poup-overlay" onClick={() => popupOverlay()}></div>
                             <div className="projects-popup-container" style={{backgroundImage: "url("+ProjectBannerBkgPopup+")"}}>
                                 <div className="container">
                                     <button className="projects-popup-close" onClick={() => popupOverlay(index)}>

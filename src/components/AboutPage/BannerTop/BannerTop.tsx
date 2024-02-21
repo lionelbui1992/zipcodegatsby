@@ -3,7 +3,7 @@ import "./styles.sass";
 
 export const BannerTop = (): JSX.Element => {
     useEffect(() => {
-        const ttContent: HTMLElement | null = document.querySelector("content-tooltip");
+        const ttContent: HTMLElement | null = document.querySelector(".content-tooltip");
         const ttImages: NodeListOf<Element> = document.querySelectorAll('.tt-image');
 
         ttImages.forEach((ttImage: Element) => {

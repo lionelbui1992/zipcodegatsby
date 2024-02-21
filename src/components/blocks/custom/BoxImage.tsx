@@ -3,12 +3,14 @@ import "./box-image.sass";
 import { Link } from "gatsby";
 import { IBoxImageProps } from "../types";
 
-export const BoxImage = ({attributes}: {attributes: IBoxImageProps}): JSX.Element => {
+export const BoxImage = ({order, attributes}: {order?:string, attributes: IBoxImageProps}): JSX.Element => {
+    const image_position = attributes.image_position ? attributes.image_position : 'left'
+    const image_positon_class = order ? `wp-block-position-${order}` : 'wp-block-position-normal'
     
     return (
         <>
             <div
-                className={`box-image ${attributes?.className? attributes.className : 'box-image-left'}`}
+                className={`box-image box-image-${image_position} ${image_positon_class}`}
             >
                 <div className="container">
                     <div className="column-box">
