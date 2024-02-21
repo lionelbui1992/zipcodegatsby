@@ -49,9 +49,11 @@ interface IMarquee {
 }
 
 interface IBoxImageProps {
+    order?: string,
     className: string,
     background_position: string,
     image: IImage,
+    image_position: string,
     title: string,
     description: string,
     description_mobile: string,

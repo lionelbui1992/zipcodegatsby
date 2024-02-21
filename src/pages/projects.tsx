@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Banner } from "../components/ProjectsPage/Banner";
-import { TextMarquee } from "../components/TextMarquee";
+import { MarqueeText } from "../components/blocks/custom/MarqueeText";
 import { BoxContent } from "../components/ProjectsPage/BoxContent";
 import { BannerPoup } from "../components/ProjectsPage/Banner/BannerPopup";
 import { graphql } from "gatsby"
@@ -111,7 +111,7 @@ const Projects: React.FC<IPageProps> = (props: IPageProps) => {
             ProjectBannerContent={ProjectBannerContent}
             ProjectBannerBkgPopup={ProjectBannerBkgPopup}
           />
-          <TextMarquee />
+          <MarqueeText />
           <BoxContent 
             BoxContentTitle={BoxContentTitle} 
             BoxContentContent={BoxContentContent} 
