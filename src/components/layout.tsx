@@ -10,6 +10,7 @@ import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ContactForm } from "./HomePage";
 import { handleAddPixelateAnimation } from '../animation'
+import Test from "./blocks/custom/Test";
 
 gsap.registerPlugin(useGSAP, ScrollSmoother, ScrollTrigger);
 interface LayoutProps {
@@ -142,6 +143,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                     </div>
                 </main>
                 <Slice alias="clipPath" />
+                <Test />
             </div>
         </SEOContext.Provider>
     )
