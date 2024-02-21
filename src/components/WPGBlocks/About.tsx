@@ -7,13 +7,13 @@ const AboutBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBl
         <div className="about-page">
             {blocks.filter(block => {
                 return !!block.name}).map((block, index) => 
-                  <AboutBlock key={index} block={block} mapToBlock={mapToBlock} />)
+                  <AboutBlock key={index} order={`${index}`} block={block} mapToBlock={mapToBlock} />)
             }
         </div>
     )
 }
 
-export const AboutBlock: React.FunctionComponent<IWPGBlockProps> = ({ block, mapToBlock }) => {
+export const AboutBlock: React.FunctionComponent<IWPGBlockProps> = ({order, block, mapToBlock }) => {
 
   const {
     name,
@@ -42,7 +42,7 @@ export const AboutBlock: React.FunctionComponent<IWPGBlockProps> = ({ block, map
         case 'acf/box-image':
             return (
               <section className="about-our-teams about-section">
-                <TheBlock blockName={name} attributes={attributes.data} />
+                <TheBlock order={order} blockName={name} attributes={attributes.data} />
               </section>
             )
         case 'acf/text-center-with-link':

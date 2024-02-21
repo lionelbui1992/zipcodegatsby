@@ -5,7 +5,7 @@ import { IBannerTextHasAnimationProps } from "../types";
 export const BannerTextHasAnimation = ({blockName, attributes} : {blockName: string, attributes: IBannerTextHasAnimationProps}): JSX.Element => {
     const { label, texts } = attributes;
     useEffect(() => {
-        const ttContent: HTMLElement | null = document.querySelector("content-tooltip");
+        const ttContent: HTMLElement | null = document.querySelector(".content-tooltip");
         const ttImages: NodeListOf<Element> = document.querySelectorAll('.tt-image');
 
         ttImages.forEach((ttImage: Element) => {
