@@ -7,17 +7,12 @@ export const Test = (): JSX.Element => {
     useEffect(() => {
         handleLoadingWidget();
     }, []);
-    // DOM elements
-    const loadSDKForm = document.querySelector('.js-load-sdk-form');
-    const projectIdInput = document.querySelector('.js-project-id-input');
-    const sdkLoaded = document.querySelector('.js-sdk-loaded');
-    const widgetCaptureButton = document.querySelector('.js-widget-capture-btn');
-    
-    // Our widget SDK will be loaded in this variable
-  
-    // Handle SDK loading
     const handleLoadingWidget = async (event?: any) => {
       event?.preventDefault();
+      const loadSDKForm = document.querySelector('.js-load-sdk-form');
+      const projectIdInput = document.querySelector('.js-project-id-input');
+      const sdkLoaded = document.querySelector('.js-sdk-loaded');
+      const widgetCaptureButton = document.querySelector('.js-widget-capture-btn');
       if (null === projectIdInput) return;
       widget = await markerSDK.loadWidget({
         project: (projectIdInput as HTMLInputElement).value,
