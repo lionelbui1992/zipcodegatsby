@@ -13,6 +13,50 @@ import Seo from "gatsby-plugin-wpgraphql-seo";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const data = {
+  TextMarquee: {
+    marqueeBkg: "/img/MarqueeText-bkg.png",
+    marqueeContent: [
+      {
+        content: "<span>Making Real Estate <i>Real Again</span>"
+      },
+      {
+        content: "<span>Making Real Estate <i>Real Again</span>"
+      },
+      {
+        content: "<span>Making Real Estate <i>Real Again</span>"
+      },
+      {
+        content: "<span>Making Real Estate <i>Real Again</span>"
+      },
+      {
+        content: "<span>Making Real Estate <i>Real Again</span>"
+      },
+      {
+        content: "<span>Making Real Estate <i>Real Again</span>"
+      },
+      {
+        content: "<span>Making Real Estate <i>Real Again</span>"
+      },
+      {
+        content: "<span>Making Real Estate <i>Real Again</span>"
+      },
+      {
+        content: "<span>Making Real Estate <i>Real Again</span>"
+      },
+      {
+        content: "<span>Making Real Estate <i>Real Again</span>"
+      },
+      {
+        content: "<span>Making Real Estate <i>Real Again</span>"
+      },
+      {
+        content: "<span>Making Real Estate <i>Real Again</span>"
+      }
+    ]
+  }
+}
+
 const IndexPage: React.FC<IPageProps> = ({ data: { wpPage: page } }: any) => {
 
   const container = useRef(null);
@@ -27,7 +71,7 @@ const IndexPage: React.FC<IPageProps> = ({ data: { wpPage: page } }: any) => {
       return acc + section.offsetHeight;
     }, 0);;
 
-    document.querySelector('.pinning-2').style.height = (totalHeight + 500) + 'px';
+    document.querySelector('.pinning-2').style.height = (totalHeight + 200) + 'px';
 
     ScrollTrigger.create({
       trigger: ".pinning-1",
@@ -91,7 +135,7 @@ const IndexPage: React.FC<IPageProps> = ({ data: { wpPage: page } }: any) => {
           <div className="scroll-section header-placeholder" ></div>
           <div className="scroll-section pinning-1" data-speed="0.2">
             <Banner />
-            <TextMarquee />
+            <TextMarquee marqueeBkg={data?.TextMarquee?.marqueeBkg} marqueeContent={data?.TextMarquee?.marqueeContent} />
           </div>
           <div className="scroll-section pinning-2 company" data-speed="0.3">
             <div className="relative-section item-1"><Introduce /></div>
