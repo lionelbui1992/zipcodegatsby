@@ -134,6 +134,10 @@ const HomeBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBlo
           <div className="relative-section item-2" style={{ opacity: 0 }}><Company /></div>
           <div className="relative-section item-3"><Explore /></div>
         </div>
+        {blocks.filter(block => {
+          return !!block.name}).map((block, index) => 
+            <HomeBlock key={index} order={`${index}`} block={block} mapToBlock={mapToBlock} />)
+        }
       </div>
     )
 }
