@@ -2,27 +2,14 @@ import React, { useState, useEffect } from "react";
 import "./life-zip-code.sass";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
+import { LifeZipCodeProps } from "../types";
 
-interface Props {
-    lifeTitle: string;
-    lifeBackground: string;
-    lifeImagePlaceholder1: string;
-    lifeImagePlaceholder2: string;
-    lifeIconRow: string;
-    lifeIconCol: string;
-    lifeGallery: any[];
-}
-
-export const LifeZipCode = ({
-    lifeTitle,
-    lifeBackground,
-    lifeIconRow,
-    lifeIconCol,
-    lifeImagePlaceholder1,
-    lifeImagePlaceholder2,
-    lifeGallery,
-}: Props): JSX.Element => {
+export const LifeZipCode = ({attributes: { background, title, gallery}}: {attributes: LifeZipCodeProps}): JSX.Element => {
     const [openPopUp, setOpenPopUp] = useState(false);
+    const lifeIconRow = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/gallery-box-icon-row.svg';
+    const lifeIconCol = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/gallery-box-icon-col.svg';
+    const lifeImagePlaceholder1 = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/life-zipcode-placeholder-1.png';
+    const lifeImagePlaceholder2 = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/life-zipcode-placeholder-2.png';
 
     useEffect(() => {
         if (openPopUp) {
@@ -64,15 +51,15 @@ export const LifeZipCode = ({
 
     return (
         <>
-            {(lifeTitle || lifeGallery) &&
-                <div className="careers-life careers-section" style={{ backgroundImage: "url(" + lifeBackground + ")" }}>
+            {(title || gallery) &&
+                <div className="careers-life careers-section" style={{ backgroundImage: "url(" + background.src + ")" }}>
                     <div className="container">
                         <div className="section-overlay" onClick={() => hidePopup()}></div>
                         <div className="section-title">
-                            <h2 className="h4" dangerouslySetInnerHTML={{ __html: lifeTitle }} />
+                            <h2 className="h4" dangerouslySetInnerHTML={{ __html: title }} />
                         </div>
 
-                        {lifeGallery &&
+                        {gallery &&
                             <div className={`section-content section-gallery-content ${openPopUp ? ' gallery-popup-active' : ''}`}>
                                 <div className="life-gallery-wrapper">
                                     {lifeIconRow &&
@@ -86,8 +73,8 @@ export const LifeZipCode = ({
                                         </div>
                                     }
                                     <div className="life-gallery">
-                                        {lifeGallery.map((list, index) => (
-                                            (list.imgUrl) &&
+                                        {gallery.map((list, index) => (
+                                            (list.src) &&
                                             <div onClick={() => openPopup()} className="item" data-index={index} key={index}>
                                                 <div className="item-image">
                                                     {((index + 1) % 6 == 2 || (index + 1) % 6 == 4) ? (
@@ -95,7 +82,7 @@ export const LifeZipCode = ({
                                                     ) : (
                                                         <img className="img-placeholder" loading="lazy" srcSet={lifeImagePlaceholder1} alt="" />
                                                     )}
-                                                    <img className="img-default" loading="lazy" srcSet={list.imgUrl} alt="" />
+                                                    <img className="img-default" loading="lazy" srcSet={list.src} alt="" />
                                                     <a href="{list.imgUrl}" data-lightbox="roadtrip"></a>
                                                 </div>
                                             </div>
@@ -117,12 +104,12 @@ export const LifeZipCode = ({
                                             clickable: true,
                                         }}
                                     >
-                                        {lifeGallery.map((list, index) => (
-                                            (list.imgUrl) &&
+                                        {gallery.map((list, index) => (
+                                            (list.src) &&
                                             <SwiperSlide key={index} data-index={index}>
                                                 <div className="item">
                                                     <div className="item-image">
-                                                        <img loading="lazy" srcSet={list.imgUrl} alt="" />
+                                                        <img loading="lazy" srcSet={list.src} alt="" />
                                                     </div>
                                                 </div>
                                             </SwiperSlide>

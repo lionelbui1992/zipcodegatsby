@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Banner } from "../components/ProjectsPage/Banner";
+import { Banner } from "../components/ProjectsPage/Banner/Banner";
 import { MarqueeText } from "../components/blocks/custom/MarqueeText";
 import { BoxContent } from "../components/ProjectsPage/BoxContent";
 import { BannerPoup } from "../components/ProjectsPage/Banner/BannerPopup";

@@ -7,7 +7,7 @@ const CareersBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapTo
         <>
             {blocks.filter(block => {
                 return !!block.name}).map((block, index) => 
-                  <CareersBlock key={index} block={block} mapToBlock={mapToBlock} />)
+                  <CareersBlock key={index} order={`${index}`} block={block} mapToBlock={mapToBlock} />)
             }
         </>
     )
@@ -19,8 +19,6 @@ export const CareersBlock: React.FunctionComponent<IWPGBlockProps> = ({ block, m
     name,
     attributes
   } = block
-
-  console.log('>>>>>>>>>>>> Initial for block: ', name);
 
   if (!name) return null
 
@@ -37,7 +35,7 @@ export const CareersBlock: React.FunctionComponent<IWPGBlockProps> = ({ block, m
         case 'acf/our-team':
         case 'acf/box-image':
             return (
-              <section className="about-our-teams about-section">
+              <section className="career-perks careers-section">
                 <TheBlock blockName={name} attributes={attributes.data} />
               </section>
             )

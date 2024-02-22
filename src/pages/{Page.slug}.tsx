@@ -9,6 +9,19 @@ import PhilosophyBlocks from "../components/WPGBlocks/Philosophy";
 
 export default function Page({ data: { wpPage, pageDetail } }: any) {
   const post = pageDetail.nodes[0];
+  const blocks = post.blocks;
+  if (!blocks || blocks.length === 0) {
+    return (
+      <>
+        <Seo post={wpPage} />
+        <Layout>
+          <div className="container">
+            <div className="page-content" dangerouslySetInnerHTML={post.content} />
+          </div>
+        </Layout>
+      </>
+    )
+  }
   switch (wpPage.slug) {
     case 'about':
       return (
@@ -42,7 +55,7 @@ export default function Page({ data: { wpPage, pageDetail } }: any) {
         <>
           <Seo post={wpPage} />
           <Layout>
-            <div class="container">
+            <div className="container">
               <WPGBlocks blocks={post.blocks} />
             </div>
           </Layout>

@@ -3,14 +3,14 @@ import { Banner } from "../components/Careers/Banner";
 import { Life } from "../components/Careers/Life/Life";
 import { OurCulture } from "../components/Careers/OurCulture";
 import { TextMarquee } from "../components/TextMarquee";
-import { OurValues } from "../components/Careers/OurValues";
+import { OurValues } from "../components/Careers/OurValues/OurValues";
 import { CareerPerks } from "../components/Careers/CareerPerks";
-import { AvailablePositions } from "../components/Careers/AvailablePositions";
+import { AvailablePositions } from "../components/Careers/AvailablePositions/AvailablePositions";
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEOHead from "../components/head"
 import { IPageProps } from "../shared/model/IPageProps";
-import { Profile } from "../components/Careers/Profile";
+import { Profile } from "../components/Careers/Profile/Profile";
 
 const Careers: React.FC<IPageProps> = (props: IPageProps) => {
   // const { page } = props.data

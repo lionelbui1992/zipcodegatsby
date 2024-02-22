@@ -1,4 +1,3 @@
-import { order } from './../ui.css';
 export interface IWPGBlock {
     name: string | null
     // blockName: string | null
@@ -16,7 +15,6 @@ export interface IWPGBlockProps {
 }
   
 export interface IWPGBlocksProps {
-    order: string | undefined | null
     blocks: IWPGBlock[]
     mapToBlock?(name: string): any | null
 }

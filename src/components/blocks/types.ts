@@ -80,6 +80,36 @@ interface IOurTeamsProps {
     }[];
 }
 
+interface LifeZipCodeProps {
+    background: IImage;
+    title: string;
+    gallery: IImage[];
+}
+
+interface IBannerThreeColumnsProps {
+    title: string,
+    description: string,
+    culture_image: IImage,
+}
+
+interface IContactInformationProps {
+    title: string;
+    form_shortcode: string;
+}
+
+interface BannerCtaProps {
+    background: IImage;
+    text: string;
+    button: IButton;
+}
+
+interface IListingThreeColumnsProps {
+    title: string;
+    list: {
+        content: string
+    }[]
+}
+
 export {
     IImage,
     IButton,
@@ -90,4 +120,9 @@ export {
     IBoxImageProps,
     IImageWithTextProps,
     IOurTeamsProps,
+    LifeZipCodeProps,
+    IBannerThreeColumnsProps,
+    IContactInformationProps,
+    BannerCtaProps,
+    IListingThreeColumnsProps,
 }
