@@ -8,18 +8,31 @@ export const BannerTextHasAnimation = ({blockName, attributes} : {blockName: str
         const ttContent: HTMLElement | null = document.querySelector(".content-tooltip");
         const ttImages: NodeListOf<Element> = document.querySelectorAll('.tt-image');
 
-        ttImages.forEach((ttImage: Element) => {
-            ttImage.addEventListener('mouseover', () => {
-                ttImage.classList.add('active');
-                ttContent?.classList.add('tooltip-active');
+        function ttImagesTooltip() {
+            ttImages.forEach((ttImage: Element) => {
                 const ttImageTop: number = ttImage.offsetTop;
                 ttImage?.style.setProperty('--offsetTop', `${ttImageTop}px`);
-            })            
-            ttImage.addEventListener('mouseleave', () => {
-                ttImage.classList.remove('active');
-                ttContent?.classList.remove('tooltip-active');
-            })
-        });
+                if (window.innerWidth > 768) {
+                    ttImage.addEventListener('mouseover', () => {
+                        ttImage.classList.add('active');
+                        ttContent?.classList.add('tooltip-active');
+                    }) 
+                }  else {
+                    ttImage.addEventListener('click', () => {
+                        ttImage.classList.toggle("active");
+                        ttContent?.classList.toggle('tooltip-active');
+                    }) 
+                }         
+                ttImage.addEventListener('mouseleave', () => {
+                    ttImage.classList.remove('active');
+                    ttContent?.classList.remove('tooltip-active');
+                })
+            });
+        }
+        ttImagesTooltip();
+        window.addEventListener('resize', function(event) {
+            ttImagesTooltip();
+        }, true);
     })
 
     return (
