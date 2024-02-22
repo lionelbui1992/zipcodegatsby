@@ -6,7 +6,7 @@ const PhilosophyBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, ma
     return (
         <>
             {blocks.filter(block => {
-                return !!block.name}).map((block, index) => <PhilosophyBlock key={index} block={block} mapToBlock={mapToBlock} />)
+                return !!block.name}).map((block, index) => <PhilosophyBlock key={index} order={`${index}`} block={block} mapToBlock={mapToBlock} />)
             }
         </>
     )
@@ -31,11 +31,12 @@ export const PhilosophyBlock: React.FunctionComponent<IWPGBlockProps> = ({ block
     case 'acf/banner-with-image-right':
         return (
             <div className="scroll-section pinning-1" data-speed="0.2">
-                <TheBlock blockName={name} attributes={attributes.data} />
+                <div className="phi-banner">
+                    <TheBlock blockName={name} attributes={attributes.data} />
+                </div>
             </div>
         )
     case 'acf/number-text-image-repeater':
-        const {data} = attributes
         return (
             <div className="scroll-section pinning-2 company" data-speed="0.3">
                 <TheBlock blockName={name} attributes={attributes.data} />

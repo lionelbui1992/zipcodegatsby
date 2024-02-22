@@ -1,13 +1,9 @@
 import React from "react";
 import "./banner-cta.sass";
 import { Link } from "gatsby";
-import { IButton, IImage } from "../types";
+import { BannerCtaProps } from "../types";
 
-interface BannerCtaProps {
-    background: IImage;
-    text: string;
-    button: IButton;
-}
+
 
 export const BannerCta = ({attributes}: {attributes: BannerCtaProps}): JSX.Element => {
     const { background, text, button } = attributes;

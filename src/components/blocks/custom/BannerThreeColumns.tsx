@@ -1,18 +1,6 @@
 import React from "react";
 import "./banner-three-columns.sass";
-import { IImage } from "../types";
-
-interface IBannerThreeColumnsProps {
-    title: string,
-    description: string,
-    culture_image: IImage,
-}
-
-interface Props {
-    title: string;
-    culture_image: string;
-    description: string;
-}
+import { IBannerThreeColumnsProps } from "../types";
 
 export const BannerThreeColumns = ({ attributes }: { attributes: IBannerThreeColumnsProps }): JSX.Element => {
     const { title, description, culture_image } = attributes;

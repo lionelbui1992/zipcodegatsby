@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.sass";
+import "./contact-information.sass";
 import uploadImg from "./images/upload-minimalistic_svgrepo.com.svg";
 
 interface Props {
