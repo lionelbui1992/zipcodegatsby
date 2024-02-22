@@ -16,8 +16,6 @@ interface IBannerThreeColumnsProps {
 export const GalleryTwoColumns = ({ attributes }: { attributes: IBannerThreeColumnsProps }): JSX.Element => {
     const { title, background, gallery } = attributes;
 
-    console.log('gallery', gallery)
-
     const OurValuesImagePlaceholder1 = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/our-values-image-placeholder-1.png';
     const OurValuesImagePlaceholder2 = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/our-values-image-placeholder-2.png';
     const openPopUpBackground = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/careers-life-bkg.jpg';
