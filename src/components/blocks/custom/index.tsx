@@ -1,25 +1,18 @@
 import loadable from '@loadable/component'
 
-const BannerImageRight = loadable(() => import('./BannerWithImageRight'))
-const NumberTextImageRepeater = loadable(() => import('./NumberTextImageRepeater'))
-const ImageWithText = loadable(() => import('./ImageWithText'))
-const BannerTextHasAnimation = loadable(() => import('./BannerTextHasAnimation'))
-const Marquee = loadable(() => import('./Marquee'))
-const BoxImage = loadable(() => import('./BoxImage'))
-const OurTeams = loadable(() => import('./OurTeams'))
-const BannerCta = loadable(() => import('./BannerCta'))
-const LifeZipCode = loadable(() => import('./LifeZipCode'))
-const BannerThreeColumns = loadable(() => import('./BannerThreeColumns'))
-
 export default {
-  ImageWithText,
-  BannerImageRight,
-  NumberTextImageRepeater,
-  BannerTextHasAnimation,
-  Marquee,
-  BoxImage,
-  OurTeams,
-  BannerCta,
-  LifeZipCode,
-  BannerThreeColumns,
+  ImageWithText: loadable(() => import('./ImageWithText')),
+  BannerImageRight: loadable(() => import('./BannerWithImageRight')),
+  NumberTextImageRepeater: loadable(() => import('./NumberTextImageRepeater')),
+  BannerTextHasAnimation: loadable(() => import('./BannerTextHasAnimation')),
+  Marquee: loadable(() => import('./Marquee')),
+  BoxImage: loadable(() => import('./BoxImage')),
+  OurTeams: loadable(() => import('./OurTeams')),
+  BannerCta: loadable(() => import('./BannerCta')),
+  LifeZipCode: loadable(() => import('./LifeZipCode')),
+  BannerThreeColumns: loadable(() => import('./BannerThreeColumns')),
+  GalleryTwoColumns: loadable(() => import('./GalleryTwoColumns')),
+  ListingThreeColumns: loadable(() => import('./ListingThreeColumns')),
+  ContactInformation: loadable(() => import('./ContactInformation')),
+  ProjectsBanner: loadable(() => import('./ProjectsBanner'))
 }

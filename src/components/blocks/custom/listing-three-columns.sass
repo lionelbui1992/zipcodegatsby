@@ -1,0 +1,47 @@
+.available-positions
+    &.careers-section
+        border-radius: 45px
+        margin-top: -59px
+        padding: 98px 0 114px
+        color: #ffffff
+
+    .section-title h2
+        font-family: 'Tiempos Headline'
+
+    .container
+        max-width: 1450px
+        @media (max-width: 1600px) 
+            max-width: 1085px
+
+    .available-items
+        display: flex
+        flex-wrap: wrap
+        --gap:71px
+        --columns:4
+        display: flex
+        width: 100%
+        flex-wrap: wrap
+        gap: 53px var(--gap)
+        margin-top: 98px    
+        @media (max-width: 1600px)  
+            --columns:3
+        
+        @media (max-width: 1024px)
+            --columns:2
+            --gap: 50px
+            gap: 50px var(--gap)
+
+        @media (max-width: 767px)
+            --columns:1
+
+        .item
+            width: calc((100% / var(--columns)) - var(--gap) + (var(--gap) / var(--columns)))
+            border-top: 1px solid #ffffff
+            padding-top: 17px
+            letter-spacing: 0.2px
+
+
+        .content
+            font-size: 24px
+            line-height: 35px
+            font-weight: 300
