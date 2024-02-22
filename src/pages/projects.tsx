@@ -17,7 +17,7 @@ const Projects: React.FC<IPageProps> = (props: IPageProps) => {
 
   const ProjectBannerHeading = 'Spaces & Places';
   const ProjectBannerButton = 'Read more';
-  const ProjectBannerBkgPopup = "https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/projects-popup-bkg.jpg";
+  const ProjectBannerBkgPopup = "https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/projects-popup-bkg-1-1.jpg";
   const ProjectBannerContent = [
     {
       title:         "Project <span class='image'></span> Koala", 
