@@ -2,57 +2,11 @@ import * as React from 'react'
 import { GetTheBlock } from '../blocks'
 import { IWPGBlocksProps, IWPGBlockProps } from './types'
 import { useRef, useEffect } from "react";
-import { Banner, Introduce, Company, Explore } from "../HomePage";
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "../../assets/sass/homepage.sass";
-import { TextMarquee } from "../TextMarquee";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const data = {
-  TextMarquee: {
-    marqueeBkg: "/img/MarqueeText-bkg.png",
-    marqueeContent: [
-      {
-        content: "<span>Making Real Estate <i>Real Again</span>"
-      },
-      {
-        content: "<span>Making Real Estate <i>Real Again</span>"
-      },
-      {
-        content: "<span>Making Real Estate <i>Real Again</span>"
-      },
-      {
-        content: "<span>Making Real Estate <i>Real Again</span>"
-      },
-      {
-        content: "<span>Making Real Estate <i>Real Again</span>"
-      },
-      {
-        content: "<span>Making Real Estate <i>Real Again</span>"
-      },
-      {
-        content: "<span>Making Real Estate <i>Real Again</span>"
-      },
-      {
-        content: "<span>Making Real Estate <i>Real Again</span>"
-      },
-      {
-        content: "<span>Making Real Estate <i>Real Again</span>"
-      },
-      {
-        content: "<span>Making Real Estate <i>Real Again</span>"
-      },
-      {
-        content: "<span>Making Real Estate <i>Real Again</span>"
-      },
-      {
-        content: "<span>Making Real Estate <i>Real Again</span>"
-      }
-    ]
-  }
-}
 
 const HomeBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBlock }) => {
 
