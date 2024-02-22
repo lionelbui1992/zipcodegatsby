@@ -10,9 +10,6 @@ const IndexPage: React.FC<IPageProps> = ({ data: { wpPage: page } }: any) => {
 
   const blocks = page.blocks;
 
-  console.log(page)
-
-
   return (
     <>
       <Seo post={page} />
