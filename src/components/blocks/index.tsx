@@ -36,9 +36,10 @@ export function GetTheBlock(name: string) {
     case 'acf/text-center-with-link': return CustomBlocks.BannerCta
     case 'acf/life-zip-code': return CustomBlocks.LifeZipCode
     case 'acf/banner-three-columns': return CustomBlocks.BannerThreeColumns
-    // case 'acf/gallery-two-columns': return CustomBlocks.LifeZipCode
-    // case 'acf/listing-three-columns': return CustomBlocks.LifeZipCode
-    // case 'acf/contact-information': return CustomBlocks.LifeZipCode
+    case 'acf/gallery-two-columns': return CustomBlocks.GalleryTwoColumns
+    case 'acf/listing-three-columns': return CustomBlocks.ListingThreeColumns
+    case 'acf/contact-information': return CustomBlocks.ContactInformation
+    case 'acf/projects-banner': return CustomBlocks.ProjectsBanner
     default: return DefaultHtmlBlock
   }
 }

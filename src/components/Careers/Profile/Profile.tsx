@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.sass";
+import "./contact-information.sass";
 import uploadImg from "./images/upload-minimalistic_svgrepo.com.svg";
 
 interface Props {
@@ -80,6 +80,17 @@ export const Profile = ({
                                                 <input name="salary" id="salary" title="Salary" type="text"
                                                     data-validate="{required:true}" aria-required="true" />
                                             </div>
+                                        </div>
+                                        <div className="field checkbox  full required">
+                                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
+                                            <label className="label" htmlFor="vehicle1">
+                                                <span>Grant permission for sharing information within the internal Zipcode’s company</span>
+                                            </label>
+                                        </div>
+
+                                        <div className="field checkbox  full required">
+                                            <input type="checkbox" id="vehicle2" name="vehicle2" value="Bike" />
+                                            <label className="label" htmlFor="vehicle2"><span>Receiving news or updates from Zipcode</span></label>
                                         </div>
                                         <div className="field submit col-12 text-right">
                                             <div className="control">

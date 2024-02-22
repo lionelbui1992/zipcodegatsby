@@ -1,0 +1,207 @@
+.our-values-box 
+    border-radius: 45px
+    background: var(--Color-neutrals-white)
+    position: relative
+    z-index: 1
+    padding: 92px 0 69px
+    margin-top: -60px
+    
+    .section-title
+        max-width: 300px
+    
+    .our-values-items
+        display: flex
+        flex-wrap: wrap
+        padding-left: 50px
+        align-items: flex-start
+        
+        &.our-values-popup-active
+            opacity: 0.5
+
+        @media (max-width: 1199px) 
+            padding-left: 0
+            margin: 0 -20px
+            gap: 50px 0
+
+        .items-col
+            width: 50%
+            display: flex
+            flex-wrap: wrap
+            margin-top: 144px
+            gap: 73px
+
+            &:last-child 
+                margin-top: -120px
+                gap: 80px
+
+            @media (max-width: 767px) 
+                width: 100%
+                gap: 50px
+                margin-top: 50px
+                
+                &:last-child 
+                    margin-top: 0
+                    gap: 50px
+
+        .item
+            width: 100%
+            margin-left: auto
+            margin-right: 0
+            padding: 0 30px 0 46px
+
+            @media (max-width: 1199px) 
+                padding: 0 20px
+
+            .item-inner
+                cursor: pointer
+
+            .column-image
+                display: flex
+                flex-wrap: wrap
+
+            .image-first
+                width: 42.665%
+
+            .image-second
+                width: 54.112%
+                margin-left: auto
+
+            .image-inner
+                position: relative
+
+                img
+                    width: 100%
+                    height: 100%
+                    vertical-align: top
+
+                    &.img-default
+                        position: absolute
+                        top: 0
+                        left: 0
+                        object-fit: cover
+
+            .column-title
+                margin-top: 26px
+.our-values-popup
+    position: absolute
+    top: calc(var(--offsetTop) - 118px)
+    left: 0
+    width: 100%
+    height: auto
+    background-position: center
+    background-repeat: no-repeat
+    background-size: cover
+    border-radius: 45px
+
+    .popup-content
+        padding: 118px 0 58px 49px
+        color: #ffffff
+
+        @media (max-width: 1199px) 
+            padding: 118px 0 58px 0
+
+        @media (max-width: 767px) 
+            padding: 50px 0
+
+    .popup-item 
+        display: none
+        .item-inner
+            display: flex
+            flex-wrap: wrap
+        &.open
+            display: flex
+
+    .item
+        width: 100%
+        margin-left: auto
+        margin-right: 0
+        padding: 0 30px 0 46px
+
+        @media (max-width: 1199px) 
+            padding: 0 20px
+            
+        @media (max-width: 767px) 
+            padding: 0
+
+        .item-inner
+            cursor: pointer
+
+        .column-image
+            display: flex
+            flex-wrap: wrap
+            width: 46.4%
+            @media (max-width: 767px) 
+                width: 100%
+            
+            .image-inner
+                display: flex
+                flex-wrap: wrap
+
+                img
+                    width: 100%
+                    height: 100%
+                    vertical-align: top
+
+                    &.img-default
+                        position: absolute
+                        top: 0
+                        left: 0
+                        object-fit: cover
+
+                .image-first
+                    width: 42.665%
+
+                .image-second
+                    width: 54.112%
+                    margin-left: auto
+
+        .column-content
+            width: 42.6%
+            margin-left: auto
+            display: flex
+            align-items: flex-end
+            font-size: 14px
+            font-weight: normal
+            line-height: 25.6px
+            letter-spacing: 0.02rem
+            margin-bottom: 64px
+
+            @media (max-width: 1199px) 
+                margin-bottom: 64px
+
+            @media (max-width: 767px) 
+                width: 100%
+                margin-bottom: 0
+
+        .column-title
+            margin-top: 26px
+
+
+@media (max-width: 1600px)
+    .our-values-box
+        .container
+            max-width: 1235px
+        
+        .content
+            max-width: 418px
+
+@media (max-width: 1199px)
+    .our-values-box
+        padding: 81px 0 50px
+
+        .column-box
+            gap: 66px
+
+@media (max-width: 767px)
+    .our-values-box
+        border-radius: 30px
+
+        .content 
+            max-width: 100%
+            margin-right: 0
+
+            .btn
+                width: 100%
+                padding: 12px 45px 10px 17px
+                height: auto
+

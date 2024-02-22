@@ -6,7 +6,7 @@ const WPGBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBloc
     return (
         <>
             {blocks && blocks.filter(block => {
-                return !!block.name}).map((block, index) => <WPGBlock key={index} block={block} mapToBlock={mapToBlock} />)
+                return !!block.name}).map((block, index) => <WPGBlock key={index} order={`${index}`} block={block} mapToBlock={mapToBlock} />)
             }
         </>
     )

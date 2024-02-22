@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./styles.sass";
+import "./projects-banner.sass";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 

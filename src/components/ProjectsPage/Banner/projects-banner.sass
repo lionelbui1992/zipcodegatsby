@@ -1,0 +1,441 @@
+.projects-banner
+    position: relative
+    padding-top: 207px
+
+    .container 
+        max-width: 1730px
+
+    .section-bkg
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        z-index: -1
+
+        img
+            width: 100%
+            aspect-ratio: 1.77776
+            object-fit: cover
+            height: 100%
+
+
+.projects-items
+    padding: 54px 0 98px 0
+
+    .item
+        display: flex
+        justify-content: center
+        align-items: center
+        margin: 13.5px 0
+
+        .item-inner
+            position: relative
+            min-width: 540px
+            cursor: pointer
+
+            img
+                display: inline-flex
+                width: 0
+                opacity: 0
+                transition: all 0.3s
+                height: auto
+                aspect-ratio: 1.779
+                object-fit: cover
+                object-position: center
+                vertical-align: top
+                margin-top: 12px
+
+            &:hover 
+                img
+                    width: 116px
+                    opacity: 1
+                    margin-left: 10px
+                    
+                .subheading
+                    margin-left: 19px
+
+        &:last-child 
+            .item-inner
+                .subheading
+                    margin-left: 27px
+
+        &.active-popup 
+            .item-inner
+                img
+                    display: inline-flex
+                .subheading
+                    margin-left: 19px
+            .projects-popup
+                opacity: 1
+                visibility: visible
+                transform: translateY(0)
+
+        .subheading
+            font-family: "Tiempos Headline"
+            font-size: 14px
+            font-style: normal
+            font-weight: 400
+            line-height: 15.936px
+            vertical-align: top
+            margin-top: 7px
+            position: absolute
+            left: 100%
+            bottom: 15px
+            max-width: 200px
+            width: 100%
+            text-align: left
+            margin-left: 7px
+
+        h3
+            margin-bottom: 0
+            line-height: 86.322px
+            letter-spacing: -1.5px
+
+html.active-overlay 
+    overflow: hidden
+
+.projects-popup
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    z-index: 101
+    opacity: 0
+    visibility: hidden
+    transition: all 0.5s
+    height: 100vh
+    display: flex
+    align-items: center
+    transform: translateY(100%)
+    
+    &.active-popup
+        opacity: 1
+        visibility: visible
+        transform: translateY(0)
+
+    .projects-popup-container 
+        position: relative
+        width: 100%
+        border-radius: 31.304px
+        overflow: hidden
+        padding: 88px 0 91px
+        color: #ffffff
+        max-height: 100%
+        overflow-y: auto
+        z-index: 3
+        background-position: center
+        background-repeat: no-repeat
+        background-size: cover
+
+    .section-bkg
+        border-radius: 31.304px
+
+    .container
+        position: relative
+        max-width: 1174px
+
+    button.projects-popup-close
+        background: transparent
+        border: none
+        outline: none
+        position: absolute
+        right: -37px
+        top: -53px
+        cursor: pointer
+
+    .popup-heading
+        display: flex
+        flex-wrap: wrap
+
+    h4
+        margin: 0
+
+    .heading
+        width: 26.7%
+        padding-right: 20px
+        padding-left: 5px
+
+    .popup-galleries
+        width: 73.3%
+        padding-top: 18px
+        padding-right: 43px
+
+    .heading .subheading
+        font-family: "Tiempos Headline"
+        font-size: 14px
+        font-style: normal
+        font-weight: 400
+        line-height: 17.075px
+        margin-top: 30px
+        position: static
+    
+    .popup-galleries 
+        overflow: visible
+        
+        .swiper
+            overflow: visible
+
+        .swiper-slide
+            width: auto
+
+        .item-gallery img
+            vertical-align: top
+            height: 332px
+
+    .popup-content
+        display: flex
+        --gap:88px
+        --columns:3
+        display: flex
+        width: 100%
+        flex-wrap: wrap
+        gap: var(--gap)
+        margin-top: 50px
+        padding-right: 25px
+
+        .column
+            width: calc((100% / var(--columns)) - var(--gap) + (var(--gap) / var(--columns)))
+            border-top: 1px solid #ffffff
+            padding-top: 18px
+
+            h6, .h6
+                font-weight: 600
+                line-height: 35.573px
+
+    .swiper
+        .swiper-button-prev, 
+        .swiper-button-next
+            background-image: url(images/icon-arrows.svg)
+            width: 29px
+            height: 29px
+            background-size: contain
+            margin-top: -14px
+            &:hover                
+                background-image: url(images/icon-arrows.svg)
+
+        .swiper-button-prev.swiper-button-disabled, 
+        .swiper-button-next.swiper-button-disabled
+            opacity: 0
+
+        .swiper-button-prev
+            left: -35px
+
+        .swiper-button-next
+            right: -35px
+
+.popup-content.visible-mobile,
+.btn.visible-tablet, 
+.btn.visible-mobile,
+.visible-tablet, 
+.visible-mobile
+    display: none 
+    
+    
+@media (max-width: 1600px)
+    .projects-banner
+        padding-top: 183px
+        .container
+            max-width: 1240px
+        
+    .projects-items
+        padding: 69px 0 102px 0
+
+        .item
+            margin: 0
+
+    .projects-popup 
+        .popup-content
+            padding-left: 32px
+            margin-top: 67px
+            --gap:52px
+            padding-right: 0
+        
+        button.projects-popup-close
+            right: -71px
+
+        .container
+            max-width: 1108px
+
+        .heading 
+            width: 31.4%
+            padding-left: 36px
+        
+        .popup-galleries 
+            width: 68.6%
+            padding-right: 0
+
+            .item-gallery img
+                height: 308px
+
+.active-overlay
+    .poup-overlay
+        z-index: 0
+        position: fixed
+        width: 100%
+        height: 100%
+        background-color: #000000
+        opacity: 0.5
+        top: 0
+        left: 0
+            
+@media (max-width: 1300px)
+    .projects-items
+        padding: 69px 46px 102px 0
+        .item:last-child .item-inner .subheading
+            max-width: 150px
+    
+    .projects-popup 
+        button.projects-popup-close
+            right: -30px
+            top: -53px
+    
+@media (max-width: 1199px)        
+    .btn.visible-tablet,
+    .visible-tablet
+        display: inline-flex
+        background-size: 17px
+        background-position: right 26px center
+
+    .projects-banner
+        padding-top: 175px
+
+    .projects-items
+        text-align: left
+        padding: 24px 0 42px 0
+        display: flex
+        flex-direction: column
+        gap: 67px
+
+        .item.active-popup .item-inner h3 img
+            display: none
+        
+        .item:last-child .item-inner .subheading
+            max-width: 100%
+
+        .item
+            justify-content: flex-start
+            text-align: left
+
+            .item-inner
+                min-width: 0
+                display: flex
+                flex-wrap: wrap
+                text-align: left
+
+                .subheading 
+                    position: static
+                    max-width: 100%
+                    margin: 30px 0 0
+                    font-size: 22px
+                    line-height: 24px
+                
+                button.btn
+                    padding-left: 0
+                    font-family: 'Inter', sans-serif
+                    margin-top: 45px
+                    min-width: 237px
+                    font-size: 20px
+                    line-height: 20px
+
+            &:last-child 
+                .item-inner 
+                    .subheading
+                        margin-left: 0
+
+            h3 
+                line-height: 80px
+
+    .projects-popup 
+        .popup-content
+            padding-left: 0
+            margin-top: 56px
+            border-top: 2px solid #ffffff
+            padding-bottom: 0
+            padding-top: 53px
+
+            &.visible-desktop
+                display: none
+
+            &.visible-mobile
+                display: block
+
+
+        .heading
+            padding-left: 0
+            width: 50%
+            .subheading
+                font-size: 22px
+                line-height: 24px
+
+        h4
+            line-height: 80px
+            letter-spacing: -1px
+
+        .popup-galleries
+            width: 50%
+
+            .item-gallery img
+                height: 387px
+
+        button.projects-popup-close
+            right: 51px
+            top: 1px
+            svg
+                width: 25px
+                height: 25px
+
+                line
+                    stroke-width: 4px
+
+        .popup-galleries
+            padding: 68px 0 0
+            overflow: hidden
+            
+            .swiper
+                overflow: visible
+
+            .swiper
+                .swiper-button-prev.swiper-button-disabled, 
+                .swiper-button-next.swiper-button-disabled
+                    opacity: 1
+                    
+                .swiper-button-prev
+                    left: 0
+                    top: 200px
+
+                .swiper-button-next
+                    right: 0
+                    top: 200px
+
+            .item-gallery 
+                padding: 0 39px
+                text-align: center
+
+                img
+                    height: 400px
+                    aspect-ratio: 0.7
+                    object-fit: cover
+
+@media (max-width: 767px)
+    .btn.visible-mobile,
+    .visible-mobile
+        display: inline-flex
+
+    .projects-popup 
+        .heading
+            width: 100%
+
+        .popup-galleries
+            width: 100%
+            overflow: visible
+            
+            .swiper
+                overflow: visible
+
+            .swiper
+                .swiper-button-prev
+                    left: -18px
+
+                .swiper-button-next
+                    right: -18px

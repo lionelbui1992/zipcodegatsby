@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.sass";
+import "./listing-three-columns.sass";
 
 interface Props {
     AvailableTitle: string;
