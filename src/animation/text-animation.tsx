@@ -19,7 +19,7 @@ export const handleTextAnimation = () => {
                             },
                                 {
                                     x: 0,
-                                    duration: .6,
+                                    duration: .5,
                                     opacity: 1,
                                     ease: "none",
                                     delay: 0.08 * index
