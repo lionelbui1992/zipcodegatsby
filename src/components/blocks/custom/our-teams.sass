@@ -2,6 +2,7 @@
     border-radius: 45px
     background: var(--Color-neutrals-white)
     position: relative
+    overflow: hidden
     z-index: 1
 
     .box-image 
@@ -16,7 +17,11 @@
         max-width: 1732px
 
 .our-teams-wrapper
+    padding-top: 37px
+    padding-bottom: 183px
     overflow: hidden
+    @media (max-width: 1600px)
+        padding-bottom: 137px
 
     .swiper
         overflow: visible
@@ -146,8 +151,10 @@
         overflow: hidden
         padding-bottom: 62px
 
-    .our-teams-wrapper 
+    .our-teams-wrapper
+        padding-top: 0 
         overflow: visible
+        padding-bottom: 62px
 
         .section-heading 
             h2

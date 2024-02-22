@@ -35,19 +35,23 @@
             cursor: pointer
 
             img
-                display: none
-                width: 116px
+                display: inline-flex
+                width: 0
+                opacity: 0
+                transition: all 0.3s
                 height: auto
                 aspect-ratio: 1.779
                 object-fit: cover
                 object-position: center
-                margin-left: 20px
                 vertical-align: top
                 margin-top: 12px
 
             &:hover 
                 img
-                    display: inline-flex
+                    width: 116px
+                    opacity: 1
+                    margin-left: 10px
+                    
                 .subheading
                     margin-left: 19px
 
