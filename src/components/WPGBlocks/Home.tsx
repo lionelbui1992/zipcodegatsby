@@ -55,7 +55,20 @@ const data = {
 }
 
 const HomeBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBlock }) => {
-  
+
+  // move first 2 blocks to first animation
+  let firstAnimatoinBlocks = [];
+  if (blocks && blocks.length > 1) {
+    firstAnimatoinBlocks.push(blocks[0]);
+    firstAnimatoinBlocks.push(blocks[1]);
+  } else if (blocks && blocks.length === 1) {
+    firstAnimatoinBlocks.push(blocks[0]);
+  }
+
+  const secondAnimatoinBlocks = blocks.filter((block, index) => {
+    return index > 1
+  });
+
   const container = useRef(null);
   useEffect(() => {
 
@@ -124,8 +137,9 @@ const HomeBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBlo
   }, []);
     return (
       <div className="scrollTrigger" ref={container}>
+      {/* <div className="scrollTrigger"> */}
         <div className="scroll-section header-placeholder" ></div>
-        <div className="scroll-section pinning-1" data-speed="0.2">
+        {/* <div className="scroll-section pinning-1" data-speed="0.2">
           <Banner />
           <TextMarquee marqueeBkg={data?.TextMarquee?.marqueeBkg} marqueeContent={data?.TextMarquee?.marqueeContent} />
         </div>
@@ -133,11 +147,23 @@ const HomeBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBlo
           <div className="relative-section item-1"><Introduce /></div>
           <div className="relative-section item-2" style={{ opacity: 0 }}><Company /></div>
           <div className="relative-section item-3"><Explore /></div>
+        </div> */}
+        <div className="scroll-section pinning-1" data-speed="0.2">
+          {firstAnimatoinBlocks.filter((block) => {
+            return !!block.name}).map((block, index) =>
+              <HomeBlock key={index} order={`${index}`} block={block} mapToBlock={mapToBlock} />
+            )
+          }
         </div>
-        {blocks.filter(block => {
-          return !!block.name}).map((block, index) => 
-            <HomeBlock key={index} order={`${index}`} block={block} mapToBlock={mapToBlock} />)
-        }
+        <div className="scroll-section pinning-2 company" data-speed="0.3">
+          {secondAnimatoinBlocks.filter((block, ind) => {
+            return !!block.name && ind > 1}).map((block, index) => 
+              <div className={`relative-section item-${index + 1}`}>
+                <HomeBlock key={index + firstAnimatoinBlocks.length} order={`${index + 1 + firstAnimatoinBlocks.length}`} block={block} mapToBlock={mapToBlock} />
+              </div>
+            )
+          }
+        </div>
       </div>
     )
 }
@@ -161,29 +187,14 @@ export const HomeBlock: React.FunctionComponent<IWPGBlockProps> = ({order, block
   if (name.includes('acf/')) {
     // custom blocks
     switch (name) {
-        case 'acf/banner-text-has-animation':
-            return (
-              <section className="about-banner-top about-section bg-black">
-                <TheBlock order={order} blockName={name} attributes={attributes.data} />
-              </section>
-            )
-        case 'acf/our-team':
-        case 'acf/box-image':
-            return (
-              <section className="about-our-teams about-section">
-                <TheBlock order={order} blockName={name} attributes={attributes.data} />
-              </section>
-            )
-        case 'acf/text-center-with-link':
-            return (
-              <section className="about-banner-cta about-section">
-                <TheBlock blockName={name} attributes={attributes.data} />
-              </section>
-            )
+        case 'acf/banner-text-center':
+          return (
+            <TheBlock order={order} blockName={name} attributes={attributes.data} />
+          )
         default:
-            return (
-              <TheBlock blockName={name} attributes={attributes.data} />
-            )
+          return (
+            <TheBlock blockName={name} attributes={attributes.data} />
+          )
       }
   }
   

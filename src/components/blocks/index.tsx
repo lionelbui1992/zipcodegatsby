@@ -41,6 +41,10 @@ export function GetTheBlock(name: string) {
     case 'acf/contact-information': return CustomBlocks.ContactInformation
     case 'acf/projects-banner': return CustomBlocks.ProjectsBanner
     case 'acf/box-content': return CustomBlocks.BoxContent
+    case 'acf/banner-text-center': return CustomBlocks.BannerTextCenter
+    case 'acf/introduce': return CustomBlocks.Introduce
+    case 'acf/company': return CustomBlocks.Company
+    case 'acf/explore': return CustomBlocks.Explore
 
     default: return DefaultHtmlBlock
   }
