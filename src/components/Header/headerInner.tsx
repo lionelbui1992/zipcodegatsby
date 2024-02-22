@@ -30,6 +30,16 @@ export const HeaderInner = ({
   const [isClickMenu, setIsClickMenu] = useState(true);
 
   useEffect(() => {
+    const currentUrl = window.location.pathname;
+    const menus = document.querySelectorAll('.header__nav--link a');
+    menus.forEach(menu => {
+      const menuUrl = menu.getAttribute('href');
+      if (currentUrl === menuUrl) {
+        menu.setAttribute('aria-current', 'page');
+        menu.classList.add('active');
+      }
+    });
+
     colorHeader(isHeaderBlack, mainLogoWhite, setMainLogo, setTextColorHeader);
 
     const sectionsBlack = document.querySelectorAll(".bg-black");
