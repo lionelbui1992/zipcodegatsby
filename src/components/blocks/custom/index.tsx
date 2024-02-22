@@ -16,4 +16,8 @@ export default {
   ContactInformation: loadable(() => import('./ContactInformation')),
   ProjectsBanner: loadable(() => import('./ProjectsBanner')),
   BoxContent: loadable(() => import('./BoxContent')),
+  BannerTextCenter: loadable(() => import('./BannerTextCenter')),
+  Introduce: loadable(() => import('./Introduce')),
+  Company: loadable(() => import('./Company')),
+  Explore: loadable(() => import('./Explore')),
 }

@@ -1,15 +1,9 @@
 import React from "react";
 import "./box-content.sass";
 import { Link } from "gatsby";
-import { IButton } from "../types";
+import { IBoxContentProps } from "../types";
 
-interface IBoxContentProps {
-    title: string;
-    description: string;
-    button: IButton;
-}
-
-export const BoxContent = ({ attributes }: { attributes: IBoxContentProps}): JSX.Element => {
+export default function BoxContent({ attributes }: { attributes: IBoxContentProps}): JSX.Element {
     const { title, description, button } = attributes;
 
     return (
@@ -26,5 +20,3 @@ export const BoxContent = ({ attributes }: { attributes: IBoxContentProps}): JSX
         </section>
     );
 }
-export default BoxContent;
-

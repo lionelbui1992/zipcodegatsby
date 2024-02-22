@@ -1,21 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./projects-banner.sass";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
-import { IImage } from "../types";
-interface IProjectsBannerProps {
-    background_image: IImage;
-    label: string;
-    content: {
-        small_text: string;
-        line: {
-            image?: IImage;
-            text: string;
-        }[];
-    }[];
-
-}
-
+import { IProjectsBannerProps } from "../types";
 
 export const ProjectsBanner = ({ attributes }: { attributes: IProjectsBannerProps}): JSX.Element => {
     const { background_image, label, content } = attributes;
