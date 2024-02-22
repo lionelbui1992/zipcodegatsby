@@ -14,5 +14,6 @@ export default {
   GalleryTwoColumns: loadable(() => import('./GalleryTwoColumns')),
   ListingThreeColumns: loadable(() => import('./ListingThreeColumns')),
   ContactInformation: loadable(() => import('./ContactInformation')),
-  ProjectsBanner: loadable(() => import('./ProjectsBanner'))
+  ProjectsBanner: loadable(() => import('./ProjectsBanner')),
+  BoxContent: loadable(() => import('./BoxContent')),
 }
