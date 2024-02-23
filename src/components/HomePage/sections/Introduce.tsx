@@ -8,7 +8,7 @@ export const Introduce = (): JSX.Element => {
                 <div className="image-with-text-component text-left">
                     <div className="d-flex">
                         <div className="col col-image col-right">
-                                {/* <img src="/img/mask-group-34.png" alt="image" /> */}
+                            {/* <img src="/img/mask-group-34.png" alt="image" /> */}
                             <ImageAnimation classes="animation-image image-2" src="/img/mask-group-34.png" amount={.3} alt="" duration=".6" from="end" axis="x" />
                         </div>
                         <div className="col text-animation col-text col-left" data-dir="rtl">
