@@ -1,22 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./gallery-two-columns.sass";
-import { IImage } from "../types";
+import { IGalleryTwoColumnsProps } from "../types";
 
-interface IBannerThreeColumnsProps {
-    title: string,
-    background: string,
-    gallery: {
-        item_title: string,
-        content: string,
-        image_1: IImage,
-        image_2: IImage
-    }[]
-}
-
-export const GalleryTwoColumns = ({ attributes }: { attributes: IBannerThreeColumnsProps }): JSX.Element => {
+export const GalleryTwoColumns = ({ attributes }: { attributes: IGalleryTwoColumnsProps }): JSX.Element => {
     const { title, background, gallery } = attributes;
-
-    console.log('gallery', gallery)
 
     const OurValuesImagePlaceholder1 = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/our-values-image-placeholder-1.png';
     const OurValuesImagePlaceholder2 = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/our-values-image-placeholder-2.png';

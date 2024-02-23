@@ -1,13 +1,12 @@
 import * as React from "react"
-import { graphql } from "gatsby"
-import Layout from "../components/layout"
 import SEOHead from "../components/head"
 import { IPageProps } from "../shared/model/IPageProps";
+import LayoutStatic from "../components/layout-static";
 
 const PrivacyPolicy: React.FC<IPageProps> = (props: IPageProps) => {
   // const { page } = props.data
   return (
-    <Layout>
+    <LayoutStatic>
       <div className="privacy-policy-page cms-page">
         <section className="section-banner">
           <div className="section-bkg">
@@ -181,7 +180,7 @@ const PrivacyPolicy: React.FC<IPageProps> = (props: IPageProps) => {
           }
         }
       `}</style>
-    </Layout>
+    </LayoutStatic>
   );
 }
 
@@ -191,18 +190,18 @@ export const Head = (props: IPageProps) => {
   const { page } = props.data
   return <SEOHead {...page} />
 }
-export const query = graphql`
-  query PageContent($id: String!) {
-    page(id: { eq: $id }) {
-      id
-      title
-      slug
-      description
-      image {
-        id
-        url
-      }
-      html
-    }
-  }
-`
+// export const query = graphql`
+//   query PageContent($id: String!) {
+//     page(id: { eq: $id }) {
+//       id
+//       title
+//       slug
+//       description
+//       image {
+//         id
+//         url
+//       }
+//       html
+//     }
+//   }
+// `

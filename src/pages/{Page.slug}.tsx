@@ -50,6 +50,15 @@ export default function Page({ data: { wpPage, pageDetail } }: any) {
           </Layout>
         </>
       )
+    case 'projects':
+      return (
+        <>
+          <Seo post={wpPage} />
+          <Layout>
+            <WPGBlocks blocks={post.blocks} />
+          </Layout>
+        </>
+      )
     default:
       return (
         <>
