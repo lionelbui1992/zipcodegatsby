@@ -1,16 +1,23 @@
 import * as React from 'react'
 import { GetTheBlock } from '../blocks'
 import { IWPGBlocksProps, IWPGBlockProps } from './types'
+import { useEffect } from 'react';
+import { handleCareerOverlayAnimation } from '../../animation';
 
 const CareersBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBlock }) => {
-    return (
-        <>
-            {blocks.filter(block => {
-                return !!block.name}).map((block, index) => 
-                  <CareersBlock key={index} order={`${index}`} block={block} mapToBlock={mapToBlock} />)
-            }
-        </>
-    )
+
+  useEffect(() => {
+    setTimeout(handleCareerOverlayAnimation, 1000)
+  }, [])
+  return (
+    <>
+      {blocks.filter(block => {
+        return !!block.name
+      }).map((block, index) =>
+        <CareersBlock key={index} order={`${index}`} block={block} mapToBlock={mapToBlock} />)
+      }
+    </>
+  )
 }
 
 export const CareersBlock: React.FunctionComponent<IWPGBlockProps> = ({ block, mapToBlock }) => {
@@ -32,26 +39,26 @@ export const CareersBlock: React.FunctionComponent<IWPGBlockProps> = ({ block, m
   if (name.includes('acf/')) {
     // custom blocks
     switch (name) {
-        case 'acf/our-team':
-        case 'acf/box-image':
-            return (
-              <section className="career-perks careers-section">
-                <TheBlock blockName={name} attributes={attributes.data} />
-              </section>
-            )
-        case 'acf/text-center-with-link':
-            return (
-              <section className="about-banner-cta about-section">
-                <TheBlock blockName={name} attributes={attributes.data} />
-              </section>
-            )
-        default:
-            return (
-              <TheBlock blockName={name} attributes={attributes.data} />
-            )
-      }
+      case 'acf/our-team':
+      case 'acf/box-image':
+        return (
+          <section className="career-perks careers-section">
+            <TheBlock blockName={name} attributes={attributes.data} />
+          </section>
+        )
+      case 'acf/text-center-with-link':
+        return (
+          <section className="about-banner-cta about-section">
+            <TheBlock blockName={name} attributes={attributes.data} />
+          </section>
+        )
+      default:
+        return (
+          <TheBlock blockName={name} attributes={attributes.data} />
+        )
+    }
   }
-  
+
   return (
     <TheBlock blockName={name} attributes={attributes} />
   )
