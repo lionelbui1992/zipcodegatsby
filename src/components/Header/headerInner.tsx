@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React, {useState, useEffect} from "react";
 import "./style.sass";
-import { Link } from "gatsby"
+import { Link, graphql, useStaticQuery } from "gatsby"
 import MenuBlack from "../../images/menu-black.svg"
 import MenuWhite from "../../images/menu-white.svg"
 import MenuClose from "../../images/menu-close-black.svg"
@@ -23,6 +23,25 @@ export const HeaderInner = ({
   mainLogoWhite
 }: Props): JSX.Element => {
 
+
+  const data = useStaticQuery(
+    graphql`
+      query siteHeader {
+        allWpMenu {
+          nodes {
+            menuItems {
+              nodes {
+                uri
+                label
+              }
+            }
+          }
+        }
+      }
+    `
+  )
+  const dataHeader = data.allWpMenu.nodes[0].menuItems.nodes;
+  // console.log(`test`, dataHeader);
   const [isHeaderBlack, setIsHeaderBlack] = useState(true);
   const [textColorHeader, setTextColorHeader] = useState('#1E1E1E');
   const [mainLogo, setMainLogo] = useState(mainLogoBlack);
@@ -120,36 +139,14 @@ export const HeaderInner = ({
       </Link>
   
       <div className="header__nav" style={{ color : textColorHeader }}>
-        <div className="header__nav--link">
-          <Link to="/about" activeClassName="active">
-            About
-          </Link>
-        </div>
-        <div className="header__nav--link">
-          <Link to="/projects" activeClassName="active">
-            Projects
-          </Link>
-        </div>
-        <div className="header__nav--link">
-          <Link to="/careers" activeClassName="active">
-            Careers
-          </Link>
-        </div>
-        <div className="header__nav--link">
-          <Link to="/philosophy" activeClassName="active">
-            Philosophy
-          </Link>
-        </div>
-        {/* <div className="header__nav--link">
-          <Link to="/news" activeClassName="active">
-            News
-          </Link>
-        </div>
-        <div className="header__nav--link">
-          <Link to="/rewards" activeClassName="active">
-            Rewards
-          </Link>
-        </div> */}
+        { dataHeader.map((menu:any) => (
+            <div className="header__nav--link">
+              <Link to={menu.uri} activeClassName="active">
+                {menu.label}
+              </Link>
+            </div>
+
+        ))}
       </div>
 
       <div className="header__toggle">
