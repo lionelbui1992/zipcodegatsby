@@ -46,7 +46,7 @@ export const Test = (): JSX.Element => {
                 <fieldset className="fieldset">
                     <div className="field name">
                         <div className="control">
-                            <input type="text" placeholder="Project ID" value="65d56a92da757a238de0c74b" className="js-project-id-input input-text" />
+                            <input type="text" placeholder="Project ID" defaultValue="65d56a92da757a238de0c74b" className="js-project-id-input input-text" />
                         </div>
                     </div>
                     <div className="field name">
