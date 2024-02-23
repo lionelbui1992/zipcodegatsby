@@ -1,52 +1,56 @@
 import * as React from 'react'
 import { GetTheBlock } from '../blocks'
 import { IWPGBlocksProps, IWPGBlockProps } from './types'
+import { handleGeneralOverlayAnimation } from '../../animation'
+import { useEffect } from 'react';
 
 const PhilosophyBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBlock }) => {
+    useEffect(() => {
+        setTimeout(handleGeneralOverlayAnimation, 1000)
+
+    }, [])
     return (
         <>
             {blocks.filter(block => {
-                return !!block.name}).map((block, index) => <PhilosophyBlock key={index} order={`${index}`} block={block} mapToBlock={mapToBlock} />)
-            }
+                return !!block.name
+            }).map((block, index) =>
+                <PhilosophyBlock key={index} order={`${index}`} block={block} mapToBlock={mapToBlock} />
+            )}
         </>
     )
 }
 
 export const PhilosophyBlock: React.FunctionComponent<IWPGBlockProps> = ({ block, mapToBlock }) => {
 
-  const {
-    name,
-    attributes
-  } = block
+    const {
+        name,
+        attributes
+    } = block
 
-  if (!name) return null
+    if (!name) return null
 
-  if (mapToBlock) (PhilosophyBlock as any).MapToBlock = mapToBlock
+    if (mapToBlock) (PhilosophyBlock as any).MapToBlock = mapToBlock
 
-  let TheBlock = (PhilosophyBlock as any).MapToBlock ? (PhilosophyBlock as any).MapToBlock(name) : null
-  if (!TheBlock) TheBlock = GetTheBlock(name)
+    let TheBlock = (PhilosophyBlock as any).MapToBlock ? (PhilosophyBlock as any).MapToBlock(name) : null
+    if (!TheBlock) TheBlock = GetTheBlock(name)
 
-  if (!TheBlock) return null
-  switch (name) {
-    case 'acf/banner-with-image-right':
-        return (
-            <div className="scroll-section pinning-1" data-speed="0.2">
-                <div className="phi-banner">
+    if (!TheBlock) return null
+    switch (name) {
+        case 'acf/banner-with-image-right':
+            return (
+                <div className="phi-banner overlay-animation">
                     <TheBlock blockName={name} attributes={attributes.data} />
                 </div>
-            </div>
-        )
-    case 'acf/number-text-image-repeater':
-        return (
-            <div className="scroll-section pinning-2 company" data-speed="0.3">
+            )
+        case 'acf/number-text-image-repeater':
+            return (
                 <TheBlock blockName={name} attributes={attributes.data} />
-            </div>
-        )
-    default:
-        return (
-          <TheBlock blockName={name} attributes={attributes} />
-        )
-  }
+            )
+        default:
+            return (
+                <TheBlock blockName={name} attributes={attributes} />
+            )
+    }
 }
 
 export default PhilosophyBlocks

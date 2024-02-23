@@ -65,11 +65,11 @@ export const handleOverlayAnimation = () => {
 
 
 export const handleGeneralOverlayAnimation = () => {
-    console.log(gsap.utils.toArray('.about-section'))
-    gsap.utils.toArray('.about-section').forEach((section) => {
+    console.log(gsap.utils.toArray('.overlay-animation'))
+    gsap.utils.toArray('.overlay-animation').forEach((section) => {
         ScrollTrigger.create({
             trigger: section,
-            start: "top top",
+            start: "top 100",
             end: "bottom top",
             pin: true,
             pinSpacing: false,
@@ -78,5 +78,4 @@ export const handleGeneralOverlayAnimation = () => {
 
         });
     })
-
 }
