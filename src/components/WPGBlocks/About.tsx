@@ -1,8 +1,17 @@
 import * as React from 'react'
 import { GetTheBlock } from '../blocks'
 import { IWPGBlocksProps, IWPGBlockProps } from './types'
+import { useEffect } from 'react';
+import { handleGeneralOverlayAnimation } from '../../animation';
 
 const AboutBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBlock }) => {
+
+  useEffect(() => {
+    setTimeout(handleGeneralOverlayAnimation, 1000)
+    // handleGeneralOverlayAnimation()
+
+
+  }, [])
   return (
     <div className="about-page">
       {blocks.filter(block => {

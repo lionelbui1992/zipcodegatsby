@@ -62,3 +62,21 @@ export const handleOverlayAnimation = () => {
     }, { y: -800, duration: 2 })
     tl.to(".item-2", { yPercent: -100, duration: 2 })
 }
+
+
+export const handleGeneralOverlayAnimation = () => {
+    console.log(gsap.utils.toArray('.about-section'))
+    gsap.utils.toArray('.about-section').forEach((section) => {
+        ScrollTrigger.create({
+            trigger: section,
+            start: "top top",
+            end: "bottom top",
+            pin: true,
+            pinSpacing: false,
+            markers: false,
+            scrub: 0.000001,
+
+        });
+    })
+
+}
