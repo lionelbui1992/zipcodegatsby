@@ -39,12 +39,12 @@ export const ProjectsBanner = ({ attributes }: { attributes: IProjectsBannerProp
                                                                 list.line.map((line, index) => (
                                                                     (line.image || line.text) && 
                                                                         <React.Fragment key={index}>
-                                                                            {line.text}
-                                                                            <span className="image">
-                                                                                { (line.image?.src) && 
+                                                                            {line.text} 
+                                                                            { (line.image?.src) && 
+                                                                                <span className="image">
                                                                                     <img loading="lazy" srcSet={line.image.src} alt={line.text} />
-                                                                                }
-                                                                            </span>
+                                                                                </span>
+                                                                            }
                                                                         </React.Fragment>
                                                                 ))
                                                             }
