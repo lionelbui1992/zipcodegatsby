@@ -358,3 +358,13 @@ exports.createPages = ({ actions }) => {
     component: require.resolve("./src/components/footer.tsx"),
   });
 }
+
+exports.onCreatePage = ({ page, actions }) => {
+  const { createPage } = actions
+
+  // If the page path does not start with /404, create a new page for the 404 component
+  if (page.path.match(/^\/404/)) {
+    page.matchPath = "/*"
+    createPage(page)
+  }
+}
