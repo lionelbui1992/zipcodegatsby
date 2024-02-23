@@ -49,48 +49,48 @@ export const ContactForm = (): JSX.Element => {
                             <div className="field name col-6 required">
                                 <label className="label" htmlFor="{'name}"><span>Full Name</span></label>
                                 <div className="control">
-                                    <input name="name" id="name" title="Name" value="" className="input-text" type="text"
+                                    <input name="name" id="name" title="Name" defaultValue="" className="input-text" type="text"
                                         data-validate="{required:true}" aria-required="true" />
                                 </div>
                             </div>
                             <div className="field email col-6 required">
                                 <label className="label" htmlFor="{'name'}"><span>Email</span></label>
                                 <div className="control">
-                                    <input name="name" id="name" title="Name" value="" className="input-text" type="text"
+                                    <input name="name" id="name" title="Name" defaultValue="" className="input-text" type="text"
                                         data-validate="{required:true}" aria-required="true" />
                                 </div>
                             </div>
                             <div className="field phone col-6 required">
                                 <label className="label" htmlFor="{'name'}"><span>Phone Number</span></label>
                                 <div className="control">
-                                    <input name="name" id="name" title="Name" value="" className="input-text" type="text"
+                                    <input name="name" id="name" title="Name" defaultValue="" className="input-text" type="text"
                                         data-validate="{required:true}" aria-required="true" />
                                 </div>
                             </div>
                             <div className="field subject col-6 required">
                                 <label className="label" htmlFor="{'name'}"><span>Subject</span></label>
                                 <div className="control">
-                                    <input name="name" id="name" title="Name" value="" className="input-text" type="text"
+                                    <input name="name" id="name" title="Name" defaultValue="" className="input-text" type="text"
                                         data-validate="{required:true}" aria-required="true" />
                                 </div>
                             </div>
                             <div className="field name full required">
                                 <label className="label" htmlFor="{'name'}"><span>Messages</span></label>
                                 <div className="control">
-                                    <textarea name="name" id="name" title="Name" value="" className="input-text" type="text"
+                                    <textarea name="name" id="name" title="Name" defaultValue="" className="input-text" type="text"
                                         data-validate="{required:true}" aria-required="true" />
                                 </div>
                             </div>
 
                             <div className="field checkbox  full required">
-                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
+                                <input type="checkbox" id="vehicle1" name="vehicle1" defaultValue="Bike" />
                                 <label className="label" htmlFor="{'#vehicle1'}">
                                     <span>Grant permission for sharing information within the internal Zipcode’s company</span>
                                 </label>
                             </div>
 
                             <div className="field checkbox  full required">
-                                <input type="checkbox" id="vehicle2" name="vehicle2" value="Bike" />
+                                <input type="checkbox" id="vehicle2" name="vehicle2" defaultValue="Bike" />
                                 <label className="label" htmlFor="{'#vehicle2'}"><span>Receiving news or updates from Zipcode</span></label>
                             </div>
                         </fieldset>
