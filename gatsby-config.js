@@ -53,11 +53,5 @@ module.exports = {
       },
     },
     "gatsby-plugin-apollo",
-    {
-      resolve: 'gatsby-plugin-apollo',
-      options: {
-        uri: process.env.WPGRAPHQL_URL
-      }
-    },
   ],
 }

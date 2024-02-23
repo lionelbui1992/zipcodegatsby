@@ -1,1 +1,6 @@
-export {wrapRootElement} from './wrapRootElement';
+import { ApolloProvider } from "@apollo/client"
+import { client } from "./src/apollo/client"
+
+export const wrapRootElement = ({ element }) => (
+  <ApolloProvider client={client}>{element}</ApolloProvider>
+)
