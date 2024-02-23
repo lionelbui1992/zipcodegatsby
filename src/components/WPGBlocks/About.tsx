@@ -8,8 +8,6 @@ const AboutBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBl
 
   useEffect(() => {
     setTimeout(handleGeneralOverlayAnimation, 1000)
-    // handleGeneralOverlayAnimation()
-
 
   }, [])
   return (
@@ -17,8 +15,10 @@ const AboutBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBl
       {blocks.filter(block => {
         return !!block.name
       }).map((block, index) =>
-        <AboutBlock key={index} order={`${index}`} block={block} mapToBlock={mapToBlock} />)
-      }
+        <div key={index} className={`${block.name.includes('marquee') ? "initial-height" : ""} ${index !== blocks.length - 1 ? "overlay-animation" : "end-overlay-animation"}`}>
+          <AboutBlock order={`${index}`} block={block} mapToBlock={mapToBlock} />
+        </div>
+      )}
     </div>
   )
 }
@@ -44,7 +44,7 @@ export const AboutBlock: React.FunctionComponent<IWPGBlockProps> = ({ order, blo
     switch (name) {
       case 'acf/banner-text-has-animation':
         return (
-          <section className="about-banner-top about-section bg-black">
+          <section className="about-banner-top about-section  bg-black">
             <TheBlock order={order} blockName={name} attributes={attributes.data} />
           </section>
         )
