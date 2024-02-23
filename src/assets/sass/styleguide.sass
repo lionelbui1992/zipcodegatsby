@@ -144,12 +144,12 @@
     font-display: swap
 
 @font-face
-  font-family: 'Tiempos Headline'
-  src: url('../fonts/TiemposHeadline-Light.eot')
-  src: url('../fonts/TiemposHeadline-Light.eot?#iefix') format("embedded-opentype"), url('../fonts/TiemposHeadline-Light.woff2') format("woff2"), url('../fonts/TiemposHeadline-Light.woff') format("woff"), url('../fonts/TiemposHeadline-Light.ttf') format("truetype"), url('../fonts/TiemposHeadline-Light.svg#TiemposHeadline-Light') format("svg")
-  font-weight: 300
-  font-style: normal
-  font-display: swap
+    font-family: 'Tiempos Headline'
+    src: url('../fonts/TiemposHeadline-Light.eot')
+    src: url('../fonts/TiemposHeadline-Light.eot?#iefix') format("embedded-opentype"), url('../fonts/TiemposHeadline-Light.woff2') format("woff2"), url('../fonts/TiemposHeadline-Light.woff') format("woff"), url('../fonts/TiemposHeadline-Light.ttf') format("truetype"), url('../fonts/TiemposHeadline-Light.svg#TiemposHeadline-Light') format("svg")
+    font-weight: 300
+    font-style: normal
+    font-display: swap
 
 @font-face
     font-family: 'Tiempos Headline'
@@ -208,13 +208,13 @@
     font-display: swap
 
 \:root
-    --Color-primary-blue:#0068FF
+    --Color-primary-blue: #0068FF
     --Color-neutrals-black: #1E1E1E
     --Color-neutrals-white: #FFFFFF
-    --collection-1-color-neutrals-black:rgba(30, 30, 30, 1)
-    --collection-1-color-neutrals-white:rgba(255, 255, 255, 1)
-    --collection-1-color-primary-blue:rgba(0, 104, 255, 1)
-    --rgb255-255-255:rgba(255, 255, 255, 1)
+    --collection-1-color-neutrals-black: rgba(30, 30, 30, 1)
+    --collection-1-color-neutrals-white: rgba(255, 255, 255, 1)
+    --collection-1-color-primary-blue: rgba(0, 104, 255, 1)
+    --rgb255-255-255: rgba(255, 255, 255, 1)
 
 *
     box-sizing: border-box
@@ -318,19 +318,19 @@ a
     line-height: 25px
     text-decoration: none
 
-p 
+p
     margin-top: 0
     margin-bottom: 24px
 
-    &:last-child 
+    &:last-child
         margin-bottom: 0
 
 ol,
 ul
-    padding-left: 21px    
+    padding-left: 21px
     margin-top: 0
 
-img 
+img
     max-width: 100%
 
 .btn, .button
@@ -375,12 +375,12 @@ img
         background-color: transparent
         border-color: transparent
         background-image: url(../images/icon-button-hover.svg)
-    
+
 .btn-secondary
     border-color: transparent
 
 .swiper
-    .swiper-button-prev, 
+    .swiper-button-prev,
     .swiper-button-next
         width: 40px
         height: 40px
@@ -416,7 +416,7 @@ img
         width: 100%
         padding: 0 13.5px
 
-    margin-bottom: 28px
+        margin-bottom: 28px
 
     label
         display: block
@@ -453,10 +453,10 @@ img
     textarea
         min-height: 178.627px
 
-    input    
+    input
         &::-webkit-input-placeholder
             opacity: 0.5
-            
+
         &::-moz-placeholder
             opacity: 0.5
 
@@ -472,7 +472,6 @@ img
 
         &:-ms-input-placeholder
             opacity: 0.5
-
 
     .btn
         width: auto
@@ -495,7 +494,6 @@ img
 .text-right
     text-align: right
 
-    
 @media (max-width: 1600px)
     .container
         max-width: 1245px
@@ -593,11 +591,10 @@ img
         min-width: 256.5px
         background-size: 17px
         background-position: right 26px center
-        
+
     .input-text
         &.col-6
             width: 100%
-
 
 @media (max-width: 399px)
     body
@@ -651,9 +648,12 @@ img
         background-size: 17px
         background-position: right 26px center
 
-
 // About Page
 .about-page .marquee
     padding: 36px 0 38px
+    z-index: 1
     @media (max-width: 1600px)
         padding: 47px 0 41px
+
+.about-banner-cta
+    z-index: 1
