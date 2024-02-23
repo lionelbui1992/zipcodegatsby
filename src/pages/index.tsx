@@ -6,9 +6,13 @@ import Seo from "gatsby-plugin-wpgraphql-seo";
 import HomeBlocks from "../components/WPGBlocks/Home";
 import "../assets/sass/homepage.sass";
 
-const IndexPage: React.FC<IPageProps> = ({ data: { wpPage: page } }: any) => {
+const IndexPage: React.FC<IPageProps> = ({ data: { wpPage: page, wp: form } }: any) => {
 
   const blocks = page.blocks;
+
+  // console.log(form.getForminatorFormById)
+  // console.log(JSON.parse(form.getForminatorFormById))
+
 
   return (
     <>
@@ -24,7 +28,9 @@ export default IndexPage;
 
 export const query = graphql`
   query {
-    
+    wp {
+      getForminatorFormById
+    }
     wpPage(isFrontPage: {eq: true}) {
       nodeType
       title
