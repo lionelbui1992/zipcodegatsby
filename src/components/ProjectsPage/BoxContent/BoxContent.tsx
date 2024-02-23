@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles.sass";
+import "./box-content.sass";
 import { Link } from "gatsby";
 
 interface Props {

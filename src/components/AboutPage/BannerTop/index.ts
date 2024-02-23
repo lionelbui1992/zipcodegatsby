@@ -1,1 +1,0 @@
-export { BannerTop } from "./BannerTop";

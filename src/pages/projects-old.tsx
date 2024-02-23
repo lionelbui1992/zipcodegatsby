@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Banner } from "../components/ProjectsPage/Banner/Banner";
 import { MarqueeText } from "../components/blocks/custom/MarqueeText";
-import { BoxContent } from "../components/ProjectsPage/BoxContent";
+import { BoxContent } from "../components/ProjectsPage/BoxContent/BoxContent";
 import { BannerPoup } from "../components/ProjectsPage/Banner/BannerPopup";
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
