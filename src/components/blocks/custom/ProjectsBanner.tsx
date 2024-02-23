@@ -11,26 +11,9 @@ export const ProjectsBanner = ({ attributes }: { attributes: IProjectsBannerProp
     const openPopup = (index: number) => {
         setOpenPopUp(!openPopUp);
         document.querySelector('html')!.classList.add('active-overlay');
-        // setTimeout(() => {
-            document.querySelector('.projects-popup-item-'+ index)?.classList.add('active-popup');
-            document.querySelector('.projects-popup-'+ index)?.classList.add('active-popup');
-        // }, 300);
+        document.querySelector('.projects-popup-item-'+ index)?.classList.add('active-popup');
+        document.querySelector('.projects-popup-'+ index)?.classList.add('active-popup');
     }   
-
-    useEffect(() => {
-        const modalBtns: HTMLElement[] = Array.from(document.querySelectorAll(".projects-popup-item"));
-
-        if (modalBtns.length > 0) {
-            modalBtns.forEach((btn: HTMLElement) => {
-                const modal: string | null = btn.getAttribute('data-popup');
-
-                const imageUrl: string | null = btn.getAttribute('data-image');
-                if (null !== imageUrl && null !== btn.querySelector('.image')) {
-                    btn.querySelector('.image').innerHTML = `<img src="${imageUrl}" />`;
-                }
-            });
-        }
-    }, [])
 
     return (
         <>
@@ -56,12 +39,12 @@ export const ProjectsBanner = ({ attributes }: { attributes: IProjectsBannerProp
                                                                 list.line.map((line, index) => (
                                                                     (line.image || line.text) && 
                                                                         <React.Fragment key={index}>
-                                                                            {line.text}
-                                                                            <span className="image">
-                                                                                { (line.image?.src) && 
+                                                                            {line.text} 
+                                                                            { (line.image?.src) && 
+                                                                                <span className="image">
                                                                                     <img loading="lazy" srcSet={line.image.src} alt={line.text} />
-                                                                                }
-                                                                            </span>
+                                                                                </span>
+                                                                            }
                                                                         </React.Fragment>
                                                                 ))
                                                             }

@@ -27,7 +27,10 @@ export const GalleryTwoColumns = ({ attributes }: { attributes: IGalleryTwoColum
 
     const openPopup = async (index: string) => {
         await setOpenPopUp(!openPopUp);
-
+        const popupItem: HTMLElement[] = Array.from(document.querySelectorAll(".popup-item"));        
+        popupItem.forEach((item: HTMLElement) => {
+            item?.classList.remove('open');
+        });
         const itemWrapper: Element | null = document.querySelector('.our-values-box');
         const itemPopUp: HTMLElement | null = document.querySelector('.popup-item[data-popup="' + index + '"]');
         const itemPosition: HTMLElement | null = document.querySelector('.our-values-item[data-item="' + index + '"]');
@@ -171,60 +174,58 @@ export const GalleryTwoColumns = ({ attributes }: { attributes: IGalleryTwoColum
                                         ))}
                                     </div>
                                 </div>
-                                {openPopUp && (
-                                    <div className="our-values-popup" style={{ backgroundImage: "url(" + openPopUpBackground + ")" }}>
-                                        <div className="container">
-                                            <div className="popup-content">
-                                                {gallery.map((list, index) => (
-                                                    <div className="popup-item" data-popup={index} key={index}>
-                                                        <div className="item">
-                                                            <div className="item-inner">
-                                                                {(list.image_1.src || list.image_2.src) &&
-                                                                    <div className="column-image">
-                                                                        <div className="image-inner">
-                                                                            {list.image_1.src &&
-                                                                                <div className="image-first">
-                                                                                    <div className="image-inner">
-                                                                                        <img
-                                                                                            loading="lazy"
-                                                                                            srcSet={`${list.image_1.src}`} className="img"
-                                                                                            alt={list.item_title}
-                                                                                        />
-                                                                                    </div>
+                                <div className="our-values-popup" style={{ backgroundImage: "url(" + openPopUpBackground + ")" }}>
+                                    <div className="container">
+                                        <div className="popup-content">
+                                            {gallery.map((list, index) => (
+                                                <div className="popup-item" data-popup={index} key={index}>
+                                                    <div className="item">
+                                                        <div className="item-inner">
+                                                            {(list.image_1.src || list.image_2.src) &&
+                                                                <div className="column-image">
+                                                                    <div className="image-inner">
+                                                                        {list.image_1.src &&
+                                                                            <div className="image-first">
+                                                                                <div className="image-inner">
+                                                                                    <img
+                                                                                        loading="lazy"
+                                                                                        srcSet={`${list.image_1.src}`} className="img"
+                                                                                        alt={list.item_title}
+                                                                                    />
                                                                                 </div>
-                                                                            }
-                                                                            {list.image_2.src &&
-                                                                                <div className="image-second">
-                                                                                    <div className="image-inner">
-                                                                                        <img
-                                                                                            loading="lazy"
-                                                                                            srcSet={`${list.image_2.src}`} className="img"
-                                                                                            alt={list.item_title}
-                                                                                        />
-                                                                                    </div>
+                                                                            </div>
+                                                                        }
+                                                                        {list.image_2.src &&
+                                                                            <div className="image-second">
+                                                                                <div className="image-inner">
+                                                                                    <img
+                                                                                        loading="lazy"
+                                                                                        srcSet={`${list.image_2.src}`} className="img"
+                                                                                        alt={list.item_title}
+                                                                                    />
                                                                                 </div>
-                                                                            }
-                                                                        </div>
-                                                                        {list.item_title &&
-                                                                            <div className="column-title">
-                                                                                <h5 dangerouslySetInnerHTML={{ __html: list.item_title }} />
                                                                             </div>
                                                                         }
                                                                     </div>
-                                                                }
-                                                                {list.content &&
-                                                                    <div className="column-content">
-                                                                        <div dangerouslySetInnerHTML={{ __html: list.content }} />
-                                                                    </div>
-                                                                }
-                                                            </div>
+                                                                    {list.item_title &&
+                                                                        <div className="column-title">
+                                                                            <h5 dangerouslySetInnerHTML={{ __html: list.item_title }} />
+                                                                        </div>
+                                                                    }
+                                                                </div>
+                                                            }
+                                                            {list.content &&
+                                                                <div className="column-content">
+                                                                    <div dangerouslySetInnerHTML={{ __html: list.content }} />
+                                                                </div>
+                                                            }
                                                         </div>
                                                     </div>
-                                                ))}
-                                            </div>
+                                                </div>
+                                            ))}
                                         </div>
                                     </div>
-                                )}
+                                </div>
                             </div>
                         }
                     </div>

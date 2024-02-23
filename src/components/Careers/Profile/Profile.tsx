@@ -59,7 +59,7 @@ export const Profile = ({
                                             <div className="control input-text">
                                                 <select name="position" id="position" title="Position"
                                                     data-validate="{required:true}" aria-required="true" >
-                                                    <option>Select You Interested Position</option>
+                                                    <option value="" disabled selected hidden>Select You Interested Position</option>
                                                     <option value="1">Position 1</option>
                                                     <option value="2">Position 2</option>
                                                     <option value="3">Position 3</option>

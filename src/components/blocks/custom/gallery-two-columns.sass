@@ -82,9 +82,16 @@
 
             .column-title
                 margin-top: 26px
+
+.our-values-items.our-values-popup-active + .our-values-popup
+    opacity: 1
+    visibility: visible
+    top: calc(var(--offsetTop) - 118px)
+    transform: translateY(0%)
+
 .our-values-popup
     position: absolute
-    top: calc(var(--offsetTop) - 118px)
+    top: 100%
     left: 0
     width: 100%
     height: auto
@@ -92,6 +99,10 @@
     background-repeat: no-repeat
     background-size: cover
     border-radius: 45px
+    opacity: 0
+    transition: 0.5s all
+    visibility: hidden
+    transform: translateY(100%)
 
     .popup-content
         padding: 118px 0 58px 49px
