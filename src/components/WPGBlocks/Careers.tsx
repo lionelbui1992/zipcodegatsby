@@ -2,19 +2,22 @@ import * as React from 'react'
 import { GetTheBlock } from '../blocks'
 import { IWPGBlocksProps, IWPGBlockProps } from './types'
 import { useEffect } from 'react';
-import { handleCareerOverlayAnimation } from '../../animation';
+import { handleGeneralOverlayAnimation } from '../../animation';
 
 const CareersBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBlock }) => {
 
   useEffect(() => {
-    setTimeout(handleCareerOverlayAnimation, 1000)
+    setTimeout(handleGeneralOverlayAnimation, 1000)
   }, [])
   return (
     <>
       {blocks.filter(block => {
         return !!block.name
       }).map((block, index) =>
-        <CareersBlock key={index} order={`${index}`} block={block} mapToBlock={mapToBlock} />)
+        <div key={index} className={`${block.name.includes('marquee') ? "initial-height" : ""} ${index !== blocks.length - 1 ? "overlay-animation" : "end-overlay-animation"}`}>
+          <CareersBlock key={index} order={`${index}`} block={block} mapToBlock={mapToBlock} />
+        </div>
+      )
       }
     </>
   )
@@ -42,7 +45,7 @@ export const CareersBlock: React.FunctionComponent<IWPGBlockProps> = ({ block, m
       case 'acf/our-team':
       case 'acf/box-image':
         return (
-          <section className="career-perks careers-section">
+          <section className="career-perks careers-section ">
             <TheBlock blockName={name} attributes={attributes.data} />
           </section>
         )

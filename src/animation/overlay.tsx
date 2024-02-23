@@ -65,8 +65,8 @@ export const handleOverlayAnimation = () => {
 
 
 export const handleGeneralOverlayAnimation = () => {
-    console.log(gsap.utils.toArray('.about-section'))
-    gsap.utils.toArray('.about-section').forEach((section) => {
+    console.log(gsap.utils.toArray('.overlay-animation'))
+    gsap.utils.toArray('.overlay-animation').forEach((section) => {
         ScrollTrigger.create({
             trigger: section,
             start: "top 100",
@@ -78,25 +78,4 @@ export const handleGeneralOverlayAnimation = () => {
 
         });
     })
-
 }
-
-export const handleCareerOverlayAnimation = () => {
-    console.log(gsap.utils.toArray('.careers-section'))
-    gsap.utils.toArray('.careers-section').forEach((section) => {
-        ScrollTrigger.create({
-            trigger: section,
-            start: "top 80",
-            end: "bottom top",
-            pin: true,
-            pinSpacing: false,
-            markers: false,
-            scrub: 0.000001,
-
-        });
-    })
-
-}
-
-
-
