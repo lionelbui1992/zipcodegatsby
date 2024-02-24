@@ -4,23 +4,41 @@ import { IProjectsBannerProps } from "../types";
 
 export const ProjectsBanner = ({ attributes }: { attributes: IProjectsBannerProps}): JSX.Element => {
     const { background_image, label, content } = attributes;
-    console.log('attributes', attributes);
 
     const [openPopUp, setOpenPopUp] = useState(false);
     
     const openPopup = (index: number) => {
         setOpenPopUp(!openPopUp);
         document.querySelector('html')!.classList.add('active-overlay');
-        document.querySelector('.projects-popup-item-'+ index)?.classList.add('active-popup');
-        document.querySelector('.projects-popup-'+ index)?.classList.add('active-popup');
+        // setTimeout(() => {
+            document.querySelector('.projects-popup-item-'+ index)?.classList.add('active-popup');
+            document.querySelector('.projects-popup-'+ index)?.classList.add('active-popup');
+        // }, 300);
     }   
+
+    useEffect(() => {
+        const modalBtns: HTMLElement[] = Array.from(document.querySelectorAll(".projects-popup-item"));
+
+        if (modalBtns.length > 0) {
+            modalBtns.forEach((btn: HTMLElement) => {
+                const modal: string | null = btn.getAttribute('data-popup');
+
+                const imageUrl: string | null = btn.getAttribute('data-image');
+                if (null !== imageUrl && null !== btn.querySelector('.image')) {
+                    btn.querySelector('.image').innerHTML = `<img src="${imageUrl}" />`;
+                }
+            });
+        }
+    }, [])
 
     return (
         <>
             { (label || content.length > 0 ) && 
                 <section className="projects-banner projects-section">
                     <div className="section-bkg">
-                        <img loading="lazy" srcSet={background_image.src} alt="background" />
+                        {background_image !== "" && background_image !== false && (
+                            <img loading="lazy" srcSet={background_image.src} alt="background" />
+                        )}
                     </div>
                     <div className="container">
                         <div className="section-content">
@@ -32,20 +50,25 @@ export const ProjectsBanner = ({ attributes }: { attributes: IProjectsBannerProp
                                     <div className="projects-items">
                                         { content.map((list, index) => (
                                             (list.line || list.small_text) && 
-                                                <div className={`item projects-popup-item projects-popup-item-${index}`} id={`projects-popup-item-${index}`} data-image={`${list.imgUrl}`} data-popup={`projects-popup-${index}`} key={index}>
+                                                <div
+                                                    className={`item projects-popup-item projects-popup-item-${index}`} 
+                                                    id={`projects-popup-item-${index}`} 
+                                                    // data-image={`${list.imgUrl}`} 
+                                                    data-popup={`projects-popup-${index}`} 
+                                                    key={index}>
                                                     <div className="item-inner text-center" onClick={() => openPopup(index)}>
                                                         <h3>
                                                             { (list.line.length > 0 ) && 
                                                                 list.line.map((line, index) => (
                                                                     (line.image || line.text) && 
-                                                                        <React.Fragment key={index}>
-                                                                            {line.text} 
-                                                                            { (line.image?.src) && 
-                                                                                <span className="image">
+                                                                        <>
+                                                                            {line.text}
+                                                                            <span className="image">
+                                                                                { (line.image != "" && line.image !== false) && 
                                                                                     <img loading="lazy" srcSet={line.image.src} alt={line.text} />
-                                                                                </span>
-                                                                            }
-                                                                        </React.Fragment>
+                                                                                }
+                                                                            </span>
+                                                                        </>
                                                                 ))
                                                             }
                                                         </h3>
