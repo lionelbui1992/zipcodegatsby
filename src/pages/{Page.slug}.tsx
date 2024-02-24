@@ -6,6 +6,7 @@ import WPGBlocks from "../components/WPGBlocks"
 import AboutBlocks from "../components/WPGBlocks/About";
 import CareersBlocks from "../components/WPGBlocks/Careers";
 import PhilosophyBlocks from "../components/WPGBlocks/Philosophy";
+import BannerPoup from "../components/BannerPoup";
 
 export default function Page({ data: { wpPage, pageDetail } }: any) {
   const post = pageDetail.nodes[0];
@@ -54,6 +55,15 @@ export default function Page({ data: { wpPage, pageDetail } }: any) {
       return (
         <>
           <Seo post={wpPage} />
+          {(blocks && blocks.length > 0) && blocks.filter((block: any) => block.name === 'acf/projects-banner').map((block: any, index: number) => {
+
+            return (
+              <BannerPoup
+                key={index}
+                background="https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/projects-popup-bkg-1-1.jpg"
+                content={block.attributes.data.content} />
+            )
+          })}
           <Layout>
             <WPGBlocks blocks={post.blocks} />
           </Layout>
