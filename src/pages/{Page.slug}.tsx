@@ -7,54 +7,113 @@ import AboutBlocks from "../components/WPGBlocks/About";
 import CareersBlocks from "../components/WPGBlocks/Careers";
 import PhilosophyBlocks from "../components/WPGBlocks/Philosophy";
 import BannerPoup from "../components/BannerPoup";
+import { gql, useQuery } from "@apollo/client";
+import { useEffect, useState } from "react";
 
-export default function Page({ data: { wpPage, pageDetail } }: any) {
-  const post = pageDetail.nodes[0];
-  const blocks = post.blocks;
+export default function Page({params}: {params: {slug: string}}) {
+  
+  const slug = params.slug;
+  const getPageInfo = gql`
+  query getPageInfo {
+    nodeByUri(uri: "${slug}") {
+      id
+      ... on Page {
+        title
+        slug
+        uri
+        blocks
+        seo {
+          title
+          metaDesc
+          focuskw
+          metaKeywords
+          metaRobotsNoindex
+          metaRobotsNofollow
+          opengraphTitle
+          opengraphDescription
+          opengraphImage {
+            altText
+            sourceUrl
+            srcSet
+          }
+          twitterTitle
+          twitterDescription
+          twitterImage {
+            altText
+            sourceUrl
+            srcSet
+          }
+          canonical
+          cornerstone
+          schema {
+            articleType
+            pageType
+            raw
+          }
+        }
+      }
+    }
+  }
+  `;
+  const { loading, error, data } = useQuery(getPageInfo);
+
+  //State
+  const [blocks, setBlocks] = useState([]);
+  const [post, setPost] = useState({});
+  const [content, setPostContent] = useState({});
+  //useEffect
+  useEffect(() => {
+    if (data) {
+      setBlocks(data.nodeByUri.blocks);
+      setPost(data.nodeByUri);
+      setPostContent(data.nodeByUri.content);
+    }
+  }, [data]);
+
   if (!blocks || blocks.length === 0) {
     return (
       <>
-        <Seo post={wpPage} />
+        <Seo post={post} />
         <Layout>
           <div className="container">
-            <div className="page-content" dangerouslySetInnerHTML={post.content} />
+            <div className="page-content" dangerouslySetInnerHTML={{__html:content}} />
           </div>
         </Layout>
       </>
     )
   }
-  switch (wpPage.slug) {
+  switch (slug) {
     case 'about':
       return (
         <>
-          <Seo post={wpPage} />
+          <Seo post={post} />
           <Layout>
-            <AboutBlocks blocks={post.blocks} />
+            <AboutBlocks blocks={blocks} />
           </Layout>
         </>
       )
     case 'careers':
       return (
         <>
-          <Seo post={wpPage} />
+          <Seo post={post} />
           <Layout>
-            <CareersBlocks blocks={post.blocks} />
+            <CareersBlocks blocks={blocks} />
           </Layout>
         </>
       )
     case 'philosophy':
       return (
         <>
-          <Seo post={wpPage} />
+          <Seo post={post} />
           <Layout>
-            <PhilosophyBlocks blocks={post.blocks} />
+            <PhilosophyBlocks blocks={blocks} />
           </Layout>
         </>
       )
     case 'projects':
       return (
         <>
-          <Seo post={wpPage} />
+          <Seo post={post} />
           {(blocks && blocks.length > 0) && blocks.filter((block: any) => block.name === 'acf/projects-banner').map((block: any, index: number) => {
 
             return (
@@ -65,17 +124,17 @@ export default function Page({ data: { wpPage, pageDetail } }: any) {
             )
           })}
           <Layout>
-            <WPGBlocks blocks={post.blocks} />
+            <WPGBlocks blocks={blocks} />
           </Layout>
         </>
       )
     default:
       return (
         <>
-          <Seo post={wpPage} />
+          <Seo post={post} />
           <Layout>
             <div className="container">
-              <WPGBlocks blocks={post.blocks} />
+              <WPGBlocks blocks={blocks} />
             </div>
           </Layout>
         </>
@@ -83,48 +142,48 @@ export default function Page({ data: { wpPage, pageDetail } }: any) {
   }
 }
 
-export const pageQuery = graphql`
-    query GET_PAGE($slug: String!) {
-        wpPage: wpPage(slug: { eq: $slug }) {
-            nodeType
-            title
-            slug
-            uri
-            seo {
-                title
-                metaDesc
-                focuskw
-                metaKeywords
-                metaRobotsNoindex
-                metaRobotsNofollow
-                opengraphTitle
-                opengraphDescription
-                opengraphImage {
-                    altText
-                    sourceUrl
-                    srcSet
-                }
-                twitterTitle
-                twitterDescription
-                twitterImage {
-                    altText
-                    sourceUrl
-                    srcSet
-                }
-                canonical
-                cornerstone
-                schema {
-                    articleType
-                    pageType
-                    raw
-                }
-            }
-        }
-        pageDetail: allWpPage(filter: {slug: {eq: $slug}}) {
-          nodes {
-            title
-            blocks
-          }
-        }
-    }
-`;
+// export const pageQuery = graphql`
+//     query GET_PAGE($slug: String!) {
+//         wpPage: wpPage(slug: { eq: $slug }) {
+//             nodeType
+//             title
+//             slug
+//             uri
+//             seo {
+//                 title
+//                 metaDesc
+//                 focuskw
+//                 metaKeywords
+//                 metaRobotsNoindex
+//                 metaRobotsNofollow
+//                 opengraphTitle
+//                 opengraphDescription
+//                 opengraphImage {
+//                     altText
+//                     sourceUrl
+//                     srcSet
+//                 }
+//                 twitterTitle
+//                 twitterDescription
+//                 twitterImage {
+//                     altText
+//                     sourceUrl
+//                     srcSet
+//                 }
+//                 canonical
+//                 cornerstone
+//                 schema {
+//                     articleType
+//                     pageType
+//                     raw
+//                 }
+//             }
+//         }
+//         pageDetail: allWpPage(filter: {slug: {eq: $slug}}) {
+//           nodes {
+//             title
+//             blocks
+//           }
+//         }
+//     }
+// `;
