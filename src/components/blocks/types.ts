@@ -133,12 +133,17 @@ interface IGalleryTwoColumnsProps {
 }
 
 interface IProjectsBannerProps {
-    background_image: IImage;
+    background_image: IImage | "" | false;
     label: string;
     content: {
         small_text: string;
         line: {
-            image?: IImage;
+            text: string;
+            image: IImage | "" | false;
+        }[];
+        popup_description: string;
+        popup_slider: {
+            image: IImage | "" | false;
             text: string;
         }[];
     }[];
