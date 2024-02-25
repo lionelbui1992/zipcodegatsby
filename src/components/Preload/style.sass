@@ -23,8 +23,11 @@
     height: 100vh
     z-index: 222
 
+    footer.site-footer 
+      opacity: 0
+
 body.preload-active
-  overflow-y: hidden
+  overflow: hidden
 
 .preload-elements
   position: absolute
@@ -196,7 +199,7 @@ body.preload-active
 .global-wrapper
   height: 100%
 
-.loading .global-wrapper
+.preload-active .global-wrapper
   height: 100%
   background-color: #fff
   clip-path: url(#clippp)
