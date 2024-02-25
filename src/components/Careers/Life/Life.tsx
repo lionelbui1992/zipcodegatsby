@@ -39,7 +39,7 @@ export const Life = ({
 
     const openPopup = (index: number) => {
         setOpenPopUp(!openPopUp);
-        console.log(index);
+        // console.log(index);
         setCurrentIndex(index)
     }
 

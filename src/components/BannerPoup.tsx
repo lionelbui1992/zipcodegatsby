@@ -24,6 +24,10 @@ export const BannerPoup = (attributes: IBannerPoupProps): JSX.Element => {
     
     console.log(content);
 
+    content.map((list, index) => {
+        console.log(list);
+    });
+
     const [openPopUp, setOpenPopUp] = useState(false);
 
     const popupOverlay = async () => {
@@ -44,7 +48,7 @@ export const BannerPoup = (attributes: IBannerPoupProps): JSX.Element => {
             { (content) &&
                 <div className="projects-popup-main">
                     {
-                        content.map((list, index) =>                    
+                        content.map((list, index) =>
                         <div className={`projects-popup projects-popup-${index}`} id={`projects-popup-${index}`}>
                             <div className="poup-overlay" onClick={() => popupOverlay()}></div>
                             <div className="projects-popup-container" style={{backgroundImage: "url("+background+")"}}>

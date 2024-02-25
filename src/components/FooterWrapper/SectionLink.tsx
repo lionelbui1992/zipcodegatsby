@@ -13,7 +13,7 @@ export const SectionLink  = ({
   codeOfConduct
 }: Props): JSX.Element => {
   // const cookies = cookiesPolicy;
-  console.log(cookiesPolicy);
+  // console.log(cookiesPolicy);
   return (
     <div className="section-bottom">
         <Link to={cookiesPolicy.url}>
