@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { GetTheBlock } from '../blocks'
 import { IWPGBlocksProps, IWPGBlockProps } from './types'
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import "../../assets/sass/homepage.sass";
 import { handleOverlayAnimation } from '../../animation';
 
@@ -24,13 +24,21 @@ const HomeBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBlo
   });
 
   const container = useRef(null);
+
+  // State
+  const [blocksState, setBlocksState] = useState(blocks);
+  
   useEffect(() => {
+    // Set the blocks state
+    setBlocksState(blocks);
+    if (container.current && blocks && blocks.length > 0) {
+      setTimeout(() => {
+        handleOverlayAnimation();
+      }, 1000);
+    }
+    // if (!container) return;
 
-    if (!container) return;
-
-    setTimeout(handleOverlayAnimation, 1000)
-
-  }, []);
+  }, [blocks]);
   return (
     <div className="scrollTrigger" ref={container}>
       <div className="scroll-section header-placeholder" ></div>

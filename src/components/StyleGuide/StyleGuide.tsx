@@ -64,8 +64,8 @@ export const StyleGuide = (): JSX.Element => {
                     spaceBetween={50}
                     slidesPerView={3}
                     navigation
-                    onSlideChange={() => console.log('slide change')}
-                    onSwiper={(swiper) => console.log(swiper)}
+                    // onSlideChange={() => console.log('slide change')}
+                    // onSwiper={(swiper) => console.log(swiper)}
                     >
                     <SwiperSlide>Slide 1</SwiperSlide>
                     <SwiperSlide>Slide 2</SwiperSlide>
