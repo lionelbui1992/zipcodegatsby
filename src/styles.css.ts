@@ -1,6 +1,10 @@
 import { globalStyle, globalKeyframes } from "@vanilla-extract/css"
 import { theme } from "./theme.css"
 
+// globalImport({
+//   url: 'url(https://fonts.googleapis.com/css2?family=Inter&display=swap)'
+// });
+
 globalStyle("body", {
   margin: 0,
   fontFamily: theme.fonts.text,
