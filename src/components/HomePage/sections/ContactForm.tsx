@@ -7,11 +7,11 @@ import * as Yup from 'yup';
 
 
 const formFields = [
-    { name: 'name', type: 'text', label: 'Full Name', required: true, classes: "col-6" },
-    { name: 'email', type: 'email', label: 'Email', required: true, classes: "col-6" },
-    { name: 'phoneNumber', type: 'text', label: 'Phone Number', required: true, classes: "col-6" },
-    { name: 'subject', type: 'text', label: 'Subject', required: false, classes: "col-6" },
-    { name: 'message', type: 'textarea', label: 'Message', required: true, classes: "full" },
+    { name: 'name-1', type: 'text', label: 'Full Name', required: true, classes: "col-6" },
+    { name: 'email-1', type: 'email', label: 'Email', required: true, classes: "col-6" },
+    { name: 'phone-1', type: 'text', label: 'Phone Number', required: true, classes: "col-6" },
+    { name: 'text-1', type: 'text', label: 'Subject', required: false, classes: "col-6" },
+    { name: 'textarea-1', type: 'textarea', label: 'Message', required: true, classes: "full" },
     { name: 'checkbox1', type: 'checkbox', label: 'Grant permission for sharing information within the internal Zipcode’s company', required: false, classes: "full" },
     { name: 'checkbox2', type: 'checkbox', label: 'Receiving news or updates from Zipcode', required: false, classes: "full" },
     // Thêm các trường khác theo yêu cầu
@@ -41,12 +41,27 @@ export const ContactForm = (): JSX.Element => {
         }, {}),
         validationSchema,
         onSubmit: (values, { resetForm }) => {
-
-            document.querySelector('.col-form form').style.display = "none";
-            document.querySelector('.success-message').style.display = "block";
-            console.log(values);
-            resetForm()
-            setTimeout(handleClosePopup, 3000)
+            let url = process.env.SITE_URL + 'wp-json/forminator/v1/save_form';
+            fetch(url, {
+                method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                body: JSON.stringify(values)
+                })
+                .then((res)=> res.json() )
+                .then((data)=>  {
+                    if (data.success === true) {
+                        document.querySelector('.col-form form').style.display = "none";
+                        document.querySelector('.success-message').style.display = "block";
+                        resetForm()
+                        setTimeout(handleClosePopup, 3000)
+                    } else {
+                        alert(data.data)
+                    }
+                    
+                })
+           
         },
     });
 
