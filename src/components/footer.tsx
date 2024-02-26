@@ -118,7 +118,7 @@ export default function Footer(): JSX.Element {
   // const { data } = useQuery(GET_DATA_FOOTER);
     
   // console.log(data);
-  console.log(data.allWp.edges[0].node.option.footer);
+  // console.log(data.allWp.edges[0].node.option.footer);
 
   const titleLeft = dataFooter.titleLeft;
   const textLeft = dataFooter.descriptionLeft;
