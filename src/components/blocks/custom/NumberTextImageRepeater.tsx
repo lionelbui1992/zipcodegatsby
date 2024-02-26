@@ -6,10 +6,10 @@ export default function NumberTextImageRepeater({ attributes }: { attributes: Nu
   const { sections } = attributes;
   if (!sections) return
   return (
-    <div className="scroll-section pinning-2 company" data-speed="0.3">
-      {sections.map((list, index) => (
 
-        <div className={`phi-${index + 1} test `} key={index}>
+    <>
+      {sections.map((list, index) => (
+        <div className={`phi-${index + 1} test  ${index !== sections.length - 1 ? "overlay-animation" : "end-overlay-animation"}`} key={index}>
           <ImageWithText
             index={index + 1}
             title={list.title}
@@ -20,6 +20,6 @@ export default function NumberTextImageRepeater({ attributes }: { attributes: Nu
           />
         </div>
       ))}
-    </div>
+    </>
   );
 };

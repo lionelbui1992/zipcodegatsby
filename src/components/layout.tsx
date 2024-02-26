@@ -132,7 +132,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <Slice alias="header" />
                 <ContactForm />
                 {/* <ZIcon /> */}
-                <main className="global-wrapper">
+                <main className="global-wrapper" >
                     <div id="smooth-wrapper" ref={smoother}>
                         <div id="smooth-content">
                             {children}

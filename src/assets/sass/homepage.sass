@@ -407,6 +407,17 @@ fieldset.fieldset
         width: 100%
         margin-bottom: 25px
 
+        .error-message
+            font-size: 11px
+            line-height: 11px
+            color: #ff0000
+            display: block
+            margin-top: 5px
+        &.required 
+            label
+                span:after
+                    content: "*"
+
         label.label
             margin-bottom: 5px
             display: block

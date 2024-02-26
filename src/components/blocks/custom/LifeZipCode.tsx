@@ -6,6 +6,7 @@ import { LifeZipCodeProps } from "../types";
 
 export const LifeZipCode = ({attributes: { background, title, gallery}}: {attributes: LifeZipCodeProps}): JSX.Element => {
     const [openPopUp, setOpenPopUp] = useState(false);
+    const [indexSlides, setIndexSlides] = useState(0);
     const lifeIconRow = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/gallery-box-icon-row.svg';
     const lifeIconCol = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/gallery-box-icon-col.svg';
     const lifeImagePlaceholder1 = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/life-zipcode-placeholder-1.png';
@@ -22,9 +23,9 @@ export const LifeZipCode = ({attributes: { background, title, gallery}}: {attrib
         }
     }, [openPopUp]);
 
-
-    const openPopup = () => {
+    const openPopup = (index: number) => {
         setOpenPopUp(!openPopUp);
+        setIndexSlides(index)
     }
 
     const hidePopup = () => {
@@ -75,7 +76,7 @@ export const LifeZipCode = ({attributes: { background, title, gallery}}: {attrib
                                     <div className="life-gallery">
                                         {gallery.map((list, index) => (
                                             (list.src) &&
-                                            <div onClick={() => openPopup()} className="item" data-index={index} key={index}>
+                                            <div onClick={() => openPopup(index)} className="item" data-index={index} key={index}>
                                                 <div className="item-image">
                                                     {((index + 1) % 6 == 2 || (index + 1) % 6 == 4) ? (
                                                         <img className="img-placeholder" loading="lazy" srcSet={lifeImagePlaceholder2} alt="" />
@@ -94,6 +95,7 @@ export const LifeZipCode = ({attributes: { background, title, gallery}}: {attrib
                                     <Swiper
                                         modules={[Navigation]}
                                         spaceBetween={20}
+                                        initialSlide={indexSlides}
                                         slidesPerView={1}
                                         navigation
                                         pagination={{

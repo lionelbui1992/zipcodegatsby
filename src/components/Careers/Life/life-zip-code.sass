@@ -12,6 +12,9 @@
         width: 100%
         height: 100%
 
+    .section-title 
+        position: relative
+
     h2
         color: #ffffff
 
@@ -22,8 +25,13 @@
     .section-content
         margin-top: 41px
         position: relative
-        overflow: hidden
         z-index: 1
+
+    .life-gallery-wrapper 
+        margin: -30px
+        padding: 30px
+        position: relative
+        overflow: hidden
 
     .life-gallery 
         display: flex
@@ -82,14 +90,14 @@
             vertical-align: top
 
         &.gallery-icon-row
-            right: -22px
-            top: -12px
-            width: 39.9%
+            right: 6px
+            top: 28px
+            width: 38%
 
         &.gallery-icon-col
-            bottom: -25px
-            left: -11px
-            width: 10.6%
+            bottom: 12px
+            left: 17px
+            width: 10.1%
 
     .gallery-popup-active 
         .life-gallery-wrapper
@@ -101,11 +109,11 @@
     .life-gallery-popup
         position: absolute
         top: 1.4%
-        left: 10%
-        right: 10%
+        left: calc(10% + 30px)
+        right: calc(10% + 30px)
         width: auto
         padding: 0
-        height: calc(100% - 2.7%)
+        height: calc(97.3% - 60px)
         overflow: visible
 
         @media screen and (max-width: 1600.98px)
@@ -125,18 +133,14 @@
             
             .swiper-button-next 
                 background-image: url(images/icon-arrows-white.svg)
-                right: -13%
+                right: calc(-13.9% - 30px)
 
             .swiper-button-prev
                 background-image: url(images/icon-arrows-white.svg)
-                left: -13%
+                left: calc(-13.9% - 30px)
 
         .swiper, .item, .item-image, .item img
             height: 100%
-
-        @media screen and (max-width: 767.98px)
-            .item img
-                height: auto
 
         .item-image
             text-align: center

@@ -4,7 +4,6 @@ import { IProjectsBannerProps } from "../types";
 
 export const ProjectsBanner = ({ attributes }: { attributes: IProjectsBannerProps}): JSX.Element => {
     const { background_image, label, content } = attributes;
-    console.log('attributes', attributes);
 
     const [openPopUp, setOpenPopUp] = useState(false);
     
@@ -37,7 +36,9 @@ export const ProjectsBanner = ({ attributes }: { attributes: IProjectsBannerProp
             { (label || content.length > 0 ) && 
                 <section className="projects-banner projects-section">
                     <div className="section-bkg">
-                        <img loading="lazy" srcSet={background_image.src} alt="background" />
+                        {background_image !== "" && background_image !== false && (
+                            <img loading="lazy" srcSet={background_image.src} alt="background" />
+                        )}
                     </div>
                     <div className="container">
                         <div className="section-content">
@@ -49,20 +50,25 @@ export const ProjectsBanner = ({ attributes }: { attributes: IProjectsBannerProp
                                     <div className="projects-items">
                                         { content.map((list, index) => (
                                             (list.line || list.small_text) && 
-                                                <div className={`item projects-popup-item projects-popup-item-${index}`} id={`projects-popup-item-${index}`} data-image={`${list.imgUrl}`} data-popup={`projects-popup-${index}`} key={index}>
+                                                <div
+                                                    className={`item projects-popup-item projects-popup-item-${index}`} 
+                                                    id={`projects-popup-item-${index}`} 
+                                                    // data-image={`${list.imgUrl}`} 
+                                                    data-popup={`projects-popup-${index}`} 
+                                                    key={index}>
                                                     <div className="item-inner text-center" onClick={() => openPopup(index)}>
                                                         <h3>
                                                             { (list.line.length > 0 ) && 
                                                                 list.line.map((line, index) => (
                                                                     (line.image || line.text) && 
-                                                                        <React.Fragment key={index}>
+                                                                        <>
                                                                             {line.text}
                                                                             <span className="image">
-                                                                                { (line.image?.src) && 
+                                                                                { (line.image != "" && line.image !== false) && 
                                                                                     <img loading="lazy" srcSet={line.image.src} alt={line.text} />
                                                                                 }
                                                                             </span>
-                                                                        </React.Fragment>
+                                                                        </>
                                                                 ))
                                                             }
                                                         </h3>
