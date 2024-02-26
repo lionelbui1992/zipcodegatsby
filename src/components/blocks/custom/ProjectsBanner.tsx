@@ -22,11 +22,6 @@ export const ProjectsBanner = ({ attributes }: { attributes: IProjectsBannerProp
         if (modalBtns.length > 0) {
             modalBtns.forEach((btn: HTMLElement) => {
                 const modal: string | null = btn.getAttribute('data-popup');
-
-                const imageUrl: string | null = btn.getAttribute('data-image');
-                if (null !== imageUrl && null !== btn.querySelector('.image')) {
-                    btn.querySelector('.image').innerHTML = `<img src="${imageUrl}" />`;
-                }
             });
         }
     }, [])
@@ -63,11 +58,11 @@ export const ProjectsBanner = ({ attributes }: { attributes: IProjectsBannerProp
                                                                     (line.image || line.text) && 
                                                                         <>
                                                                             {line.text}
-                                                                            <span className="image">
-                                                                                { (line.image != "" && line.image !== false) && 
+                                                                            { (line.image != "" && line.image !== false) && 
+                                                                                <span className="image">
                                                                                     <img loading="lazy" srcSet={line.image.src} alt={line.text} />
-                                                                                }
-                                                                            </span>
+                                                                                </span>
+                                                                            }
                                                                         </>
                                                                 ))
                                                             }
