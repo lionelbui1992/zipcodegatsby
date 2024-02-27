@@ -1,6 +1,6 @@
 import React from 'react';
 import { gsap } from 'gsap';
-import { handleAddPixelateAnimation, handleTextAnimation } from './index'
+import { handleAddPixelateAnimation, handleGeneralOverlayAnimation, handleTextAnimation } from './index'
 
 export const handlePreloadAnimation = () => {
     window.scrollTo(0, 0);
@@ -95,6 +95,7 @@ export const handlePreloadAnimation = () => {
             tl2.play()
             handleAddPixelateAnimation()
             handleTextAnimation()
+            handleGeneralOverlayAnimation()
         }
     });
 
@@ -107,7 +108,11 @@ export const handlePreloadAnimation = () => {
     // textZ.to(".textZ", { duration: 0.175, attr: { "xlink:href": "#textZg" } })
     textZ.to(".textZ", { duration: 0.25, attr: { "xlink:href": "#textZh" } })
     textZ.to(".textZ", { duration: 0.25, attr: { "xlink:href": "#textZi" } })
-    textZ.to(".textZ", { duration: 0.2, attr: { "xlink:href": "#textZk" } })
+    textZ.to(".textZ", {
+        duration: 0.2,
+        attr: { "xlink:href": "#textZk" },
+
+    })
     textZ.to(".textZ", { duration: 0.2, attr: { "xlink:href": "#textZl" } })
     textZ.to(".textZ", { duration: 0.2, attr: { "xlink:href": "#textZm" } })
     textZ.to(".textZ", { duration: 0.2, attr: { "xlink:href": "#textZn" } })
