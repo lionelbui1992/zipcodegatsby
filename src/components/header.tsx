@@ -18,15 +18,33 @@ export default function Header(): JSX.Element {
     allSettings {
       generalSettingsTitle
     }
+    menuItems {
+      nodes {
+        uri
+        label
+      }
+    }
   }
   `;
   const { loading, error, data } = useQuery(headerQuery);
 
   // State
   const [headerData, setHeaderData] = useState([]);
+  const [siteLogo, setSiteLogo] = useState("");
+  const [siteTitle, setSiteTitle] = useState("");
+  const [menuItems, setMenuItems] = useState([]);
   // useEffect
   useEffect(() => {
-    if (!loading && !error && data && data) {
+    if (!loading && !error && data) {
+      if (data.siteLogo) {
+        setSiteLogo(data.siteLogo.sourceUrl);
+      }
+      if (data.allSettings && data.allSettings.generalSettingsTitle) {
+        setSiteTitle(data.allSettings.generalSettingsTitle);
+      }
+      if (data.menuItems) {
+        setMenuItems(data.menuItems.nodes);
+      }
       console.log(data);
       setHeaderData(data);
     }
@@ -121,33 +139,34 @@ export default function Header(): JSX.Element {
     <header
       className={`header container ${isClickMenu ? 'header__hidden' : 'header__visible'}`}
     >
-      <Link
-        to="/"
-      >
-        <img
-          alt="Zipcode"
-          height={37}
-          style={{ margin: 0 }}
-          src={ mainLogo }
-        />
-      </Link>
+      {(siteLogo && siteLogo !== "") && (
+        <Link
+          to="/"
+        >
+          <img
+            alt={siteTitle}
+            height={37}
+            style={{ margin: 0 }}
+            src={siteLogo}
+          />
+        </Link>
+      
+      )}
   
       <div className="header__nav" style={{ color : textColorHeader }}>
-        { dataHeader.map((menu:any) => (
-            <div className="header__nav--link">
+        { dataHeader.map((menu:any, index: number) => (
+            <div className="header__nav--link" key={index}>
               <Link to={menu.uri} activeClassName="active">
                 {menu.label}
               </Link>
             </div>
-
         ))}
       </div>
 
-      <div className="header__toggle">
+      <div className="header__toggle" onClick={handleMenuMobileClick}>
         <img
           src={isClickMenu ? menuIcon : MenuClose}
           alt="Menu"
-          onClick={() =>{ handleMenuMobileClick() }}
         />
       </div>
   
