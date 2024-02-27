@@ -6,17 +6,13 @@ export const NotFound = (): JSX.Element => {
     return (
         <>
             <div className="pinning" data-speed="0.8">
-                <div className="section-bkg">
-                    <img
-                        loading="lazy"
-                        srcSet="/img/page-404-bkg.svg"
-                    />
-                </div>
-                <div className="container">
-                    <h1>404.</h1>
+                <div className="main-banner-top" style={{ backgroundImage: `url(https://maasi2404zip.merket.io/wp-content/uploads/2024/01/bg-banner-grid.png)` }}>
+                    <div className="container">
+                        <h1>404.</h1>
+                    </div>
                 </div>
             </div>
-            <div className="main-content" data-speed="0.8">
+            <div className="main-content" data-speed="0.8" style={{ backgroundImage: `url(https://maasi2404zip.merket.io/wp-content/uploads/2024/02/bkg-404-content.png)` }}>
                 <div className="container">
                     <h5>Page not Found.</h5>
                     <p>
