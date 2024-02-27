@@ -20,6 +20,10 @@ const formFields = [
 // Tạo schema validation với Yup
 const validationSchema = Yup.object(formFields.reduce((schema, field) => {
     let validator = Yup.string();
+
+    if (field.type === "checkbox") {
+        validator = Yup.mixed();
+    }
     if (field.required) {
         validator = validator.required(`${field.label} is required`);
     }
@@ -44,13 +48,13 @@ export const ContactForm = (): JSX.Element => {
             let url = process.env.SITE_URL + 'wp-json/forminator/v1/save_form';
             fetch(url, {
                 method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
+                headers: {
+                    'Content-Type': 'application/json',
+                },
                 body: JSON.stringify(values)
-                })
-                .then((res)=> res.json() )
-                .then((data)=>  {
+            })
+                .then((res) => res.json())
+                .then((data) => {
                     if (data.success === true) {
                         document.querySelector('.col-form form').style.display = "none";
                         document.querySelector('.success-message').style.display = "block";
@@ -59,9 +63,9 @@ export const ContactForm = (): JSX.Element => {
                     } else {
                         alert(data.data)
                     }
-                    
+
                 })
-           
+
         },
     });
 
@@ -144,7 +148,7 @@ export const ContactForm = (): JSX.Element => {
         }
     };
 
-    
+
     return (
         <div className={`section section-contact-popup popup ${isFormVisible ? 'show' : 'hidden'}`} style={{ display: "none" }} ref={ctform}>
             <div className="container">
@@ -167,13 +171,13 @@ export const ContactForm = (): JSX.Element => {
                                 </>
 
                             ))}
-                            
+
                         </fieldset>
                         <div className="action">
                             <button className="btn btn-primary">Submit</button>
                         </div>
                     </form>
-                    <div className="success-message" style={{display: "none"}}>
+                    <div className="success-message" style={{ display: "none" }}>
                         <p>Thank you for your response.</p>
                     </div>
                 </div>
