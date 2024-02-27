@@ -1,3 +1,5 @@
+$heightMenuOnMobile: var(--heightMenu)
+
 .header
     padding-top: 48px
     padding-bottom: 45px
@@ -29,11 +31,15 @@
         border-bottom: unset !important
 
       @media screen and (max-width: 767.98px)
-        display: none
+        // display: none
+        display: block !important
         position: absolute
         top: 97px
         left: 0
         width: 100vw
+        transition: all .3s
+        overflow: hidden
+        height: 0
       &--link
           font-family: Buenos Aires
           font-size: 20px
@@ -84,6 +90,7 @@
       border-bottom: 1.5px solid #707070
       background: #fff
       margin-top: -1px
+      height: #{$heightMenuOnMobile}
 
 .header__hidden
   .header__nav

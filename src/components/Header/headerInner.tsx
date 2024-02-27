@@ -108,8 +108,24 @@ export const HeaderInner = ({
     }
     handleScroll(sectionsBlack, sectionHeader, true);
     window.addEventListener("scroll", () => handleScroll(sectionsBlack, sectionHeader, false));
-    
-  }, [mainLogoBlack, mainLogoWhite]);
+
+    const listMenu = document.querySelectorAll('.header__nav--link');
+    const heightMenuOnMobile = listMenu.length * 74 + 74;
+
+    // add overflow to body and toggle menu on mobile
+    const handleBodyOverflow = () => {
+      const body = document.body;
+      if (! isClickMenu) {
+        body.style.overflow = 'hidden';
+        document.documentElement.style.setProperty('--heightMenu', `${heightMenuOnMobile}px`);
+      } else {
+        body.style.overflow = 'auto';
+        document.documentElement.style.setProperty('--heightMenu', '0px');
+      }
+    }
+    handleBodyOverflow();
+
+  }, [mainLogoBlack, mainLogoWhite, isClickMenu]);
 
   const handleMenuMobileClick = () => {
     setIsClickMenu(prevIsClickMenu => !prevIsClickMenu);
