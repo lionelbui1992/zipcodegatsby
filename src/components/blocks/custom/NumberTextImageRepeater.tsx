@@ -4,7 +4,6 @@ import { NumberTextImageRepeaterProps } from "../types";
 
 export default function NumberTextImageRepeater({ attributes }: { attributes: NumberTextImageRepeaterProps }): JSX.Element {
   const { sections } = attributes;
-  console.log(sections);
   if (!sections) return
   return (
 

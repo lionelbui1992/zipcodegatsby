@@ -205,7 +205,7 @@ export default function Footer(): JSX.Element {
                 <h5 className="title">{footerData.titleRight}</h5>
               )}
               {(footerData.address && footerData.address.title) && (
-                <a className="address content top" target={footerData.address.target} href={footerData.address.url} target="_blank">{footerData.address.title}</a>
+                <a className="address content top" target={footerData.address.target} href={footerData.address.url} >{footerData.address.title}</a>
               )}
               {(footerData.email && footerData.email !== "") && (
                 <a className="email content" href={`mailto:${footerData.email}`} target="_blank">{footerData.email}</a>
