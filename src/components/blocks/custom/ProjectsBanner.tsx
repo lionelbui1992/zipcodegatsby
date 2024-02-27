@@ -57,10 +57,10 @@ export const ProjectsBanner = ({ attributes }: { attributes: IProjectsBannerProp
                                                                 list.line.map((line, index) => (
                                                                     (line.image || line.text) && 
                                                                         <>
-                                                                            {line.text}
+                                                                            {line.text}&nbsp;
                                                                             { (line.image != "" && line.image !== false) && 
                                                                                 <span className="image">
-                                                                                    <img loading="lazy" srcSet={line.image.src} alt={line.text} />
+                                                                                    <img loading="lazy" srcSet={line.image.src} alt={line.text} />&nbsp;
                                                                                 </span>
                                                                             }
                                                                         </>
