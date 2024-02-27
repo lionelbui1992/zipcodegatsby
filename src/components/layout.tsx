@@ -25,7 +25,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         query SiteInfoQuery {
             wp {
                 getContactForm
-                getCareerForm
                 seo {
                     contentTypes {
                         post {

@@ -13,20 +13,7 @@ export const ContactForm = (props): JSX.Element => {
 
     let _data = JSON.parse(data);
     let fields = _data ? _data[0].fields : []
-    console.log(_data);
-    console.log(fields);
-    // const fields = [
-    //     { name: 'name-1', type: 'text', label: 'Full Name', required: true, classes: "col-6" },
-    //     { name: 'email-1', type: 'email', label: 'Email', required: true, classes: "col-6" },
-    //     { name: 'phone-1', type: 'text', label: 'Phone Number', required: true, classes: "col-6" },
-    //     { name: 'text-1', type: 'text', label: 'Subject', required: false, classes: "col-6" },
-    //     { name: 'textarea-1', type: 'textarea', label: 'Message', required: true, classes: "full" },
-    //     { name: 'checkbox1', type: 'checkbox', label: 'Grant permission for sharing information within the internal Zipcode’s company', required: false, classes: "full" },
-    //     { name: 'checkbox2', type: 'checkbox', label: 'Receiving news or updates from Zipcode', required: false, classes: "full" },
-    //     // Thêm các trường khác theo yêu cầu
-    // ];
 
-    // Tạo schema validation với Yup
     const validationSchema = Yup.object(fields.reduce((schema, field) => {
         let validator = Yup.string();
 

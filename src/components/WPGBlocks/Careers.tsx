@@ -2,14 +2,15 @@ import * as React from 'react'
 import { GetTheBlock } from '../blocks'
 import { IWPGBlocksProps, IWPGBlockProps } from './types'
 
-const CareersBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBlock }) => {
+const CareersBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, form, mapToBlock }) => {
+ 
   return (
     <>
       {blocks.filter(block => {
         return !!block.name
       }).map((block, index) =>
         <div key={index} className={`${block.name.includes('marquee') ? "initial-height" : ""} ${index !== blocks.length - 1 ? "overlay-animation" : "end-overlay-animation"}`}>
-          <CareersBlock key={index} order={`${index}`} block={block} mapToBlock={mapToBlock} />
+          <CareersBlock key={index} order={`${index}`} form={form} block={block} mapToBlock={mapToBlock} />
         </div>
       )
       }
@@ -17,7 +18,7 @@ const CareersBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapTo
   )
 }
 
-export const CareersBlock: React.FunctionComponent<IWPGBlockProps> = ({ block, mapToBlock }) => {
+export const CareersBlock: React.FunctionComponent<IWPGBlockProps> = ({ block, form,  mapToBlock }) => {
 
   const {
     name,
@@ -48,6 +49,10 @@ export const CareersBlock: React.FunctionComponent<IWPGBlockProps> = ({ block, m
           <section className="about-banner-cta about-section">
             <TheBlock blockName={name} attributes={attributes.data} />
           </section>
+        )
+      case 'acf/contact-information':
+        return (
+          <TheBlock blockName={name} form={form} attributes={attributes.data} />
         )
       default:
         return (
