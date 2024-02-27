@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Cookies from 'js-cookie';
-import { GET_FORMINATOR_FORM } from '../data'
-import { useQuery } from '@apollo/client';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
@@ -69,7 +67,6 @@ export const ContactForm = (props): JSX.Element => {
         Cookies.set('contact-form', 'true', { expires: 1 / 24 }); // Expires in 1 hour
     };
 
-    const test = useQuery(GET_FORMINATOR_FORM);
     useEffect(() => {
         const showForm = () => {
             if (!Cookies.get('contact-form')) {

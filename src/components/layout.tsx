@@ -132,7 +132,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <div className="preload loading scrollWraper ScrollSmoother-wrapper viewport">
                 <Slice alias="preload" />
                 <Slice alias="header" />
-                {getContactForm && <ContactForm data={getContactForm} />}
+                {(getContactForm && getContactForm !== "undefined") && <ContactForm data={getContactForm} />}
                 {/* <ZIcon /> */}
                 <main className="global-wrapper" >
                     <div id="smooth-wrapper" ref={smoother}>
