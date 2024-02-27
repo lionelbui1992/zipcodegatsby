@@ -54,7 +54,7 @@ export const BoxImage = ({ order, attributes }: { order?: string, attributes: IB
                                     <div className="description visible-mobile">{attributes.description_mobile}</div>
                                     {attributes.button && attributes.button.title &&
                                         (
-                                            <Link className="btn btn-primary" to={`${attributes.button.target}`}>{attributes.button.title}</Link>
+                                            <Link className="btn btn-primary" to={`${attributes.button.url}`}>{attributes.button.title}</Link>
                                         )}
                                 </div>
                             </div>
