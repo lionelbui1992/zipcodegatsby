@@ -29,7 +29,7 @@ interface NumberTextImageRepeaterProps {
         description: string,
         image: IImage,
         background: IImage,
-        isDarkBackground?: boolean,
+        is_dark_section?: string,
     }[]
 }
 
@@ -66,7 +66,7 @@ interface IImageWithTextProps {
     des: string;
     image: IImage;
     backgroundUrl: IImage;
-    isDarkBackground: boolean;
+    isDarkBackground?: string;
 }
 
 interface IOurTeamsProps {
@@ -178,6 +178,59 @@ interface IExploreProps {
     button: IButton;
 }
 
+interface IFooterData {
+    titleLeft: string | "";
+    logoFooter: {
+        node: {
+        altText: string;
+        link: string;
+        sourceUrl: string;
+        srcSet: string;
+        } | "";
+    };
+    descriptionLeft: string | "";
+    email: string | "";
+    titleRight: string | "";
+    phone: string | "";
+    address: IButton | "";
+    backgroundDesktop: {
+        node: {
+        altText: string;
+        link: string;
+        sourceUrl: string;
+        srcSet: string;
+        } | "";
+    };
+    buttonContact: IButton | "";
+    codeOfConduct: IButton | "";
+    cookiesPolicy: IButton | "";
+    privacyPolicy: IButton | "";
+    backgroundMobile: {
+        node: {
+        altText: string;
+        link: string;
+        sourceUrl: string;
+        srcSet: string;
+        } | "";
+    };
+    backgroundSection: {
+        node: {
+        altText: string;
+        link: string;
+        sourceUrl: string;
+        srcSet: string;
+        } | "";
+    };
+    backgroundSectionMobile: {
+        node: {
+        altText: string;
+        link: string;
+        sourceUrl: string;
+        srcSet: string;
+        } | "";
+    };
+}
+
 export {
     IImage,
     IButton,
@@ -200,4 +253,5 @@ export {
     IIntroduceProps,
     ICompanyProps,
     IExploreProps,
+    IFooterData,
 }

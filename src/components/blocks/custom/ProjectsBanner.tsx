@@ -57,10 +57,10 @@ export const ProjectsBanner = ({ attributes }: { attributes: IProjectsBannerProp
                                                                 list.line.map((line, index) => (
                                                                     (line.image || line.text) && 
                                                                         <>
-                                                                            {line.text}
+                                                                            {line.text}&nbsp;
                                                                             { (line.image != "" && line.image !== false) && 
                                                                                 <span className="image">
-                                                                                    <img loading="lazy" srcSet={line.image.src} alt={line.text} />
+                                                                                    <img loading="lazy" srcSet={line.image.src} alt={line.text} />&nbsp;
                                                                                 </span>
                                                                             }
                                                                         </>
@@ -68,7 +68,7 @@ export const ProjectsBanner = ({ attributes }: { attributes: IProjectsBannerProp
                                                             }
                                                         </h3>
                                                         { (list.small_text ) && 
-                                                            <div className="subheading">{list.small_text}</div>
+                                                            <div className="subheading" dangerouslySetInnerHTML={{__html: list.small_text}} />
                                                         }
                                                         <button className="btn btn-secondary visible-tablet visible-mobile">Read more</button>
                                                     </div>

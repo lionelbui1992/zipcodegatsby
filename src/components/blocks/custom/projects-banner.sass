@@ -33,9 +33,6 @@
             position: relative
             min-width: 540px
             cursor: pointer
-            
-            .image 
-                margin: 0 10px
 
             img
                 display: none
@@ -119,7 +116,7 @@ html.active-overlay
         overflow: hidden
         padding: 88px 0 91px
         color: #ffffff
-        max-height: 100%
+        max-height: 90%
         overflow-y: auto
         z-index: 3
         background-position: center
@@ -191,11 +188,14 @@ html.active-overlay
         gap: var(--gap)
         margin-top: 50px
         padding-right: 25px
+        font-weight: 300
 
         .column
             width: calc((100% / var(--columns)) - var(--gap) + (var(--gap) / var(--columns)))
             border-top: 1px solid #ffffff
             padding-top: 18px
+            strong
+                font-weight: 600
 
             h6, .h6
                 font-weight: 600
@@ -343,6 +343,8 @@ html.active-overlay
 
             h3 
                 line-height: 80px
+                display: flex
+                flex-wrap: wrap
 
     .projects-popup 
         .popup-content
@@ -393,11 +395,7 @@ html.active-overlay
             .swiper
                 overflow: visible
 
-            .swiper
-                .swiper-button-prev.swiper-button-disabled, 
-                .swiper-button-next.swiper-button-disabled
-                    opacity: 1
-                    
+            .swiper                    
                 .swiper-button-prev
                     left: 0
                     top: 200px
