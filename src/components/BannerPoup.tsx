@@ -21,12 +21,6 @@ interface IBannerPoupProps {
 
 export const BannerPoup = (attributes: IBannerPoupProps): JSX.Element => {
     const { background, content } = attributes;
-    
-    console.log(content);
-
-    content.map((list, index) => {
-        console.log(list);
-    });
 
     const [openPopUp, setOpenPopUp] = useState(false);
 
