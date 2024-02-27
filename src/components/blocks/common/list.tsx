@@ -4,6 +4,7 @@ import * as React from 'react'
 
 const WPGListBlock:React.FC<IWPGBlock> = (props) => {
   const {
+    attributes,
     innerBlocks,
   } = props
 
@@ -12,8 +13,10 @@ const WPGListBlock:React.FC<IWPGBlock> = (props) => {
     return null
   }
 
+  const classes = attributes?.className ? `wp-block-list ${attributes.className}` : 'wp-block-list'
+
   return (
-    <ul>
+    <ul className={classes}>
       {innerBlocks.map((col, ci) =>
         <li key={ci}>
           {col.attributes.content}

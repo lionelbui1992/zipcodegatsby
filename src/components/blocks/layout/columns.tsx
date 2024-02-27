@@ -4,6 +4,7 @@ import { WPGBlock } from '../../WPGBlocks'
 
 const WPGColumnsBlock:React.FC<IWPGBlock> = (props) => {
   const {
+    attributes,
     innerBlocks,
   } = props
 
@@ -13,13 +14,14 @@ const WPGColumnsBlock:React.FC<IWPGBlock> = (props) => {
   }
 
   const cols = innerBlocks.length
+  const classes = attributes?.className ? `wp-block-columns has-${cols}-columns ${attributes.className}` : `wp-block-columns has-${cols}-columns`
 
   const columns = innerBlocks.map((col, ci) => <div className={`wp-block-column ${ci+1}-column`} key={ci}>
     {col.innerBlocks.map((block, bi) => <WPGBlock key={bi} order={`${bi}`} block={block}/>)}
   </div>)
 
   return (
-    <div className={`wp-block-columns has-${cols}-columns`}>
+    <div className={classes}>
       {columns}
     </div>
   )
