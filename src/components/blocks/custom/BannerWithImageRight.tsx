@@ -13,7 +13,7 @@ export default function BannerImageRight({ attributes }: { attributes: IBannerIm
   } = attributes;
 
   return (
-    <div className="phi-banner-container careers-section" style={{ backgroundImage: `url(${background?.src})` }}>
+    <div className="phi-banner-container careers-section phi-page" style={{ backgroundImage: `url(${background?.src})` }}>
       <div className="container">
         <div className="content">
           <div className="text-container">
