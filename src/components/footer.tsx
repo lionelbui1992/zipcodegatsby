@@ -1,252 +1,241 @@
-import React, { useState, useEffect, useRef } from "react";
 import "./FooterWrapper/footer.sass";
-import { graphql, useStaticQuery } from "gatsby"
+import React, { useState, useEffect } from "react";
 import {SectionLink} from "./FooterWrapper";
-import { useQuery } from '@apollo/client';
-import gql from "graphql-tag";
+import { useQuery, gql } from '@apollo/client';
+import { IFooterData } from "./blocks/types";
 
 export default function Footer(): JSX.Element {
 
-  const data = useStaticQuery(
-    graphql`
-      query siteOption {
-        allWp {
-          edges {
-            node {
-              option {
-                footer {
-                  titleLeft
-                  logoFooter {
-                    node {
-                      alt
-                      link
-                      sourceUrl
-                      srcSet
-                      url
-                    }
-                  }
-                  descriptionLeft
-                  email
-                  titleRight
-                  phone
-                  address {
-                    title
-                    target
-                    url
-                  }
-                  backgroundDesktop {
-                    node {
-                      alt
-                      link
-                      sourceUrl
-                      srcSet
-                      url
-                    }
-                  }
-                  buttonContact {
-                    target
-                    title
-                    url
-                  }
-                  codeOfConduct {
-                    target
-                    title
-                    url
-                  }
-                  cookiesPolicy {
-                    target
-                    title
-                    url
-                  }
-                  privacyPolicy {
-                    target
-                    title
-                    url
-                  }
-                  backgroundMobile {
-                    node {
-                      alt
-                      link
-                      sourceUrl
-                      srcSet
-                      url
-                    }
-                  }
-                  backgroundSection {
-                    node {
-                      alt
-                      link
-                      sourceUrl
-                      srcSet
-                      url
-                    }
-                  }
-                  backgroundSectionMobile {
-                    node {
-                      alt
-                      link
-                      sourceUrl
-                      srcSet
-                      url
-                    }
-                  }
-                }
-              }
-            }
+  const footerQuery = gql`
+  query siteOption {
+    option {
+      footer {
+        titleLeft
+        logoFooter {
+          node {
+            altText
+            link
+            sourceUrl
+            srcSet
+          }
+        }
+        descriptionLeft
+        email
+        titleRight
+        phone
+        address {
+          title
+          target
+          url
+        }
+        backgroundDesktop {
+          node {
+            altText
+            link
+            sourceUrl
+            srcSet
+          }
+        }
+        buttonContact {
+          target
+          title
+          url
+        }
+        codeOfConduct {
+          target
+          title
+          url
+        }
+        cookiesPolicy {
+          target
+          title
+          url
+        }
+        privacyPolicy {
+          target
+          title
+          url
+        }
+        backgroundMobile {
+          node {
+            altText
+            link
+            sourceUrl
+            srcSet
+          }
+        }
+        backgroundSection {
+          node {
+            altText
+            link
+            sourceUrl
+            srcSet
+          }
+        }
+        backgroundSectionMobile {
+          node {
+            altText
+            link
+            sourceUrl
+            srcSet
           }
         }
       }
-    `
-  )
-  const dataFooter = data.allWp.edges[0].node.option.footer;
-  // const GET_DATA_FOOTER = gql`
-  //   query siteOption {
-  //     option {
-  //       footer {
-  //         titleLeft
-  //         logoFooter {
-  //           node {
-  //             sourceUrl
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-        
-  // `;
+    }
+  }
+  `;
 
-  // const { data } = useQuery(GET_DATA_FOOTER);
-    
-  // console.log(data);
-  // console.log(data.allWp.edges[0].node.option.footer);
+  const { loading, error, data } = useQuery(footerQuery);
 
-  const titleLeft = dataFooter.titleLeft;
-  const textLeft = dataFooter.descriptionLeft;
-  const buttonLeft = dataFooter.buttonContact.title;
-  const titleRight = dataFooter.titleRight;
-  const address = dataFooter.address.title;
-  const email = dataFooter.email;
-  const phone = dataFooter.phone;
-  const map = dataFooter.address.url;
-  const imageDesktop = dataFooter.backgroundDesktop.node.url;
-  const imageMobile = dataFooter.backgroundMobile.node.url;
-  const logoFooter = dataFooter.logoFooter.node.url;
-  const bgFooterDk = dataFooter.backgroundSection.node.url;
-  const bgFooterMb = dataFooter.backgroundSectionMobile.node.url;
-  const privacyPolicy = dataFooter.privacyPolicy;
-  const cookiesPolicy = dataFooter.cookiesPolicy;
-  const codeOfConduct = dataFooter.codeOfConduct;
-
-  const [backgroundFooter, setBackgroundFooter] = useState(bgFooterDk);
-  const [imageFooter, setImageFooter] = useState(imageDesktop);
-  const [hiddenBackToTop, setHiddenBackToTop] = useState(true);
-
-  const animationZ = useRef(null);
+  // State
+  const [footerData, setFooterData] = useState<IFooterData>({
+    titleLeft: "",
+    logoFooter: {
+      node: {
+        altText: "",
+        link: "",
+        sourceUrl: "",
+        srcSet: "",
+      },
+    },
+    descriptionLeft: "",
+    email: "",
+    titleRight: "",
+    phone: "",
+    address: {
+      title: "",
+      target: "",
+      url: "",
+    },
+    backgroundDesktop: {
+      node: {
+        altText: "",
+        link: "",
+        sourceUrl: "",
+        srcSet: "",
+      },
+    },
+    buttonContact: {
+      target: "",
+      title: "",
+      url: "",
+    },
+    codeOfConduct: {
+      target: "",
+      title: "",
+      url: "",
+    },
+    cookiesPolicy: {
+      target: "",
+      title: "",
+      url: "",
+    },
+    privacyPolicy: {
+      target: "",
+      title: "",
+      url: "",
+    },
+    backgroundMobile: {
+      node: {
+        altText: "",
+        link: "",
+        sourceUrl: "",
+        srcSet: "",
+      },
+    },
+    backgroundSection: {
+      node: {
+        altText: "",
+        link: "",
+        sourceUrl: "",
+        srcSet: "",
+      },
+    },
+    backgroundSectionMobile: {
+      node: {
+        altText: "",
+        link: "",
+        sourceUrl: "",
+        srcSet: "",
+      },
+    },
+  });
+  const [imageFooter, setImageFooter] = useState("");
+  const [backgroundFooter, setBackgroundFooter] = useState("");
+  // useEffect
   useEffect(() => {
-    // console.log(data);
-
+    if (!loading && !error && data && data.option.footer) {
+      setFooterData(data.option.footer);
+    }
     const handleResize = () => {
       const windowWidth = window.innerWidth;
-      if (windowWidth < 768) {
-        setBackgroundFooter(bgFooterMb);
-        setImageFooter(imageMobile);
-      } else {
-        setBackgroundFooter(bgFooterDk);
-        setImageFooter(imageDesktop);
+      if (!loading && !error && data && data.option.footer) {
+        if (windowWidth < 768) {
+          setBackgroundFooter(data.option.footer.backgroundSectionMobile.node.sourceUrl);
+          setImageFooter(data.option.footer.backgroundMobile.node.sourceUrl);
+        } else {
+          setBackgroundFooter(data.option.footer.backgroundSection.node.sourceUrl);
+          setImageFooter(data.option.footer.backgroundDesktop.node.sourceUrl);
+        }
       }
     };
 
-    // let textZ = animationZ.current;
-    // if (textZ) {
-
-    //   let tl = gsap.timeline({
-
-    //     repeat: -1,
-    //     yoyo: true,
-    //     ease: "none"
-    //   })
-
-    //   tl.to(textZ, { x: 200, y: -50, duration: 4 })
-    //     .to(textZ, { x: 400, y: -30, duration: 4 })
-    //     .to(textZ, { x: 600, y: -50, duration: 4 })
-    //     .to(textZ, { x: 700, y: -100, duration: 4 })
-    //     .to(textZ, { x: 800, y: 100, duration: 4 })
-    //     .to(textZ, { x: 600, y: 50, duration: 4 })
-    //     .to(textZ, { x: 400, y: 70, duration: 4 })
-    //     .to(textZ, { x: 200, y: 50, duration: 4 })
-    //     .to(textZ, { x: 100, y: 30, duration: 4 })
-    //     .to(textZ, { x: 0, y: 10, duration: 4 })
-    //     .to(textZ, { x: -200, y: 0, duration: 4 })
-    //     .to(textZ, { x: 200, y: -50, duration: 4 })
-    //     .to(textZ, { x: 400, y: -30, duration: 4 })
-    //     .to(textZ, { x: 600, y: -50, duration: 4 })
-    //     .to(textZ, { x: 700, y: -100, duration: 4 })
-    //     .to(textZ, { x: 800, y: 100, duration: 4 })
-
-
-    // }
-
-
     window.addEventListener("resize", handleResize);
     handleResize();
-
-
-    const handleScroll = () => {
-      if (window.scrollY > 2000) {
-        setHiddenBackToTop(false);
-      } else {
-        setHiddenBackToTop(true);
-      }
-    }
-    // window.addEventListener("scroll", () => handleScroll());
-  }, []);
-
-  // const handleBackToTopClick = () => {
-  //   window.scrollTo({ top: 0, behavior: "smooth" });
-  // };
+  }, [data]);
 
   return (
     <footer className="site-footer" style={{ backgroundImage: "url(" + backgroundFooter + ")" }}>
       <div className="container">
         <div className="section-top">
           <div className="left">
-            <h5 className="title">{titleLeft}</h5>
-            <div className="content top">{textLeft}</div>
-            <a><div className="button">{buttonLeft}</div></a>
+            {(footerData.titleLeft && footerData.titleLeft !== "") && (
+              <h5 className="title">{footerData.titleLeft}</h5>
+            )}
+            {(footerData.descriptionLeft && footerData.descriptionLeft !== "") && (
+              <div className="content top">{footerData.descriptionLeft}</div>
+            )}
+            {(footerData.buttonContact && footerData.buttonContact.title) && (
+              <a href={footerData.buttonContact.url} target={footerData.buttonContact.target}><div className="button">{footerData.buttonContact.title}</div></a>
+            )}
           </div>
           <div className="right">
             <div className="content-container">
-              <h5 className="title">{titleRight}</h5>
-              <a className="address content top" href={map} target="_blank">{address}</a>
-              <a className="email content" href={`mailto:${email}`} target="_blank">{email}</a>
-              <a className="phone content" href={`tel:${phone}`} target="_blank">{phone}</a>
+              {(footerData.titleRight && footerData.titleRight !== "") && (
+                <h5 className="title">{footerData.titleRight}</h5>
+              )}
+              {(footerData.address && footerData.address.title) && (
+                <a className="address content top" target={footerData.address.target} href={footerData.address.url} target="_blank">{footerData.address.title}</a>
+              )}
+              {(footerData.email && footerData.email !== "") && (
+                <a className="email content" href={`mailto:${footerData.email}`} target="_blank">{footerData.email}</a>
+              )}
+              {(footerData.phone && footerData.phone !== "") && (
+                <a className="phone content" href={`tel:${footerData.phone}`} target="_blank">{footerData.phone}</a>
+              )}
             </div>
             <div className="ft-mb">
               <SectionLink 
-                privacyPolicy={dataFooter.privacyPolicy} 
-                cookiesPolicy={dataFooter.cookiesPolicy} 
-                codeOfConduct={dataFooter.codeOfConduct} 
+                privacyPolicy={footerData.privacyPolicy} 
+                cookiesPolicy={footerData.cookiesPolicy} 
+                codeOfConduct={footerData.codeOfConduct} 
               />
             </div>
           </div>
         </div>
         <div className="section-middle">
-          <div className="img-footer" style={{ backgroundImage: "url(" + imageFooter + ")" }}></div>
+          {imageFooter && (
+            <div className="img-footer" style={{ backgroundImage: "url(" + imageFooter + ")" }}></div>
+          )}
         </div>
         <div className="ft-dk">
           <SectionLink 
-            privacyPolicy={dataFooter.privacyPolicy} 
-            cookiesPolicy={dataFooter.cookiesPolicy} 
-            codeOfConduct={dataFooter.codeOfConduct} 
+            privacyPolicy={footerData.privacyPolicy} 
+            cookiesPolicy={footerData.cookiesPolicy} 
+            codeOfConduct={footerData.codeOfConduct} 
           />
           </div>
       </div>
-      {/* <div className={`to-top ${hiddenBackToTop ? 'hidden' : ''}`}>
-        <svg onClick={() => { handleBackToTopClick() }} width="31" height="33" viewBox="0 0 31 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M30.1991 15.862L26.8782 19.1829L17.6445 9.70623L17.6446 32.6554L12.7847 32.6554L12.7847 9.70623L3.55106 19.1829L0.284179 15.862L15.2146 0.877548L30.1991 15.862Z" fill="#0068FF" />
-        </svg>
-        <span>Back to top</span>
-      </div> */}
     </footer>
   );
 };
