@@ -413,7 +413,7 @@ fieldset.fieldset
             color: #ff0000
             display: block
             margin-top: 5px
-        &.required 
+        &.required
             label
                 span:after
                     content: "*"
@@ -587,6 +587,11 @@ fieldset.fieldset
                 margin-bottom: 30px
 
 @media screen and (max-width: 767px)
+    .relative-section.item-3
+        position: relative
+        z-index: 2
+        background: #fff
+
     .section-banner
         .inner-section
             padding: 255px 0 260px
@@ -621,7 +626,7 @@ fieldset.fieldset
             margin-right: 0
 
     .section-explore
-        padding: 120px 0
+        padding: 120px 0 60px
 
         .heading-text
             margin-bottom: 38px
@@ -657,7 +662,7 @@ fieldset.fieldset
         display: none !important
 
     .scrollTrigger
-        margin-bottom: 200px
+        margin-bottom: 0
 
     fieldset.fieldset
         padding: 0
@@ -715,6 +720,5 @@ fieldset.fieldset
             max-height: 94vh
 
 @media screen and (max-height: 900px) and  (min-width: 1025px)
-    .section-banner .inner-section 
+    .section-banner .inner-section
         padding: 200px 0 150px
-
