@@ -19,31 +19,29 @@ export const ImageAnimation = (props): JSX.Element => {
         const mainImg = mainImage.current;
 
         if (!mainImg) return;
-        mainImg.onload = () => {
-            setTimeout(() => {
-            const colWidth = 100 / col;
-            const rowHeight = 100 / row;
+        setTimeout(() => {
+        const colWidth = 100 / col;
+        const rowHeight = 100 / row;
 
-            for (let i = 0; i < row; i++) {
-                for (let j = 0; j < col; j++) {
-                    const cell = document.createElement('div');
-                    cell.classList.add('cell');
-                    cell.style.width = colWidth + '%';
-                    cell.style.height = rowHeight + '%';
-                    const front = document.createElement('div');
-                    front.classList.add('front');
-                    front.style.backgroundImage = `url(${src})`;
-                    front.style.backgroundSize = `${mainImg.offsetWidth}px ${mainImg.offsetHeight}px`;
-                    front.style.backgroundPosition = (100 / (col - 1) * j) + '% ' + (100 / (row - 1) * i) + '%';
+        for (let i = 0; i < row; i++) {
+            for (let j = 0; j < col; j++) {
+                const cell = document.createElement('div');
+                cell.classList.add('cell');
+                cell.style.width = colWidth + '%';
+                cell.style.height = rowHeight + '%';
+                const front = document.createElement('div');
+                front.classList.add('front');
+                front.style.backgroundImage = `url(${src})`;
+                front.style.backgroundSize = `${mainImg.offsetWidth}px ${mainImg.offsetHeight}px`;
+                front.style.backgroundPosition = (100 / (col - 1) * j) + '% ' + (100 / (row - 1) * i) + '%';
 
-                   
-                        cell.appendChild(front);
-                        canvas.appendChild(cell);
-                    
-                }
+                
+                    cell.appendChild(front);
+                    canvas.appendChild(cell);
+                
             }
-            }, 100)
-        };
+        }
+        }, 500)
 
     }, [src])
 

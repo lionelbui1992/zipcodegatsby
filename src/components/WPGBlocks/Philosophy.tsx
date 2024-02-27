@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 
 const PhilosophyBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBlock }) => {
     useEffect(() => {
-        setTimeout(handleGeneralOverlayAnimation, 1000)
+        setTimeout(handleGeneralOverlayAnimation, 1500)
 
     }, [])
     return (
