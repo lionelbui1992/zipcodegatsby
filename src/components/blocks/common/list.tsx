@@ -1,15 +1,25 @@
+import { WPGBlock } from '../../WPGBlocks'
 import { IWPGBlock } from '../../WPGBlocks/types'
 import * as React from 'react'
 
 const WPGListBlock:React.FC<IWPGBlock> = (props) => {
   const {
-    // attrs,
-    // innerBlocks,
-    innerHTML
+    innerBlocks,
   } = props
 
+  if (!Array.isArray(innerBlocks)) {
+    console.warn('Columns should have innerBlocks')
+    return null
+  }
+
   return (
-    <div className="wpg-block wpg-b_list" dangerouslySetInnerHTML={{__html: innerHTML}}/>
+    <ul>
+      {innerBlocks.map((col, ci) =>
+        <li key={ci}>
+          {col.attributes.content}
+        </li>
+      )}
+    </ul>
   )
 }
 

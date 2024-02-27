@@ -10,6 +10,6 @@ export default function CoreParagraph(props: CoreParagraphProps): JSX.Element {
   const { attributes: { content } } = props;
   
   return (
-    <div dangerouslySetInnerHTML={{ __html: content }} />
+    <p dangerouslySetInnerHTML={{ __html: content }} />
   );
 };
