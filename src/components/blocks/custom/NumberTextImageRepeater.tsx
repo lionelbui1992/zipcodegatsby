@@ -16,7 +16,7 @@ export default function NumberTextImageRepeater({ attributes }: { attributes: Nu
             des={list.description}
             image={list.image}
             backgroundUrl={list.background}
-            isDarkBackground={list.isDarkBackground || false}
+            isDarkBackground={list.is_dark_section}
           />
         </div>
       ))}

@@ -5,7 +5,6 @@ import { Link, graphql, useStaticQuery } from "gatsby"
 import MenuBlack from "../../images/menu-black.svg"
 import MenuWhite from "../../images/menu-white.svg"
 import MenuClose from "../../images/menu-close-black.svg"
-import { NavLink } from 'react-router-dom';
 
 interface Props {
   mainLogoBlack: string;

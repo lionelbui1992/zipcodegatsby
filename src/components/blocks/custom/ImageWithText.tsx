@@ -10,10 +10,11 @@ export const ImageWithText = ({
   backgroundUrl,
   isDarkBackground,
 }: IImageWithTextProps): JSX.Element => {
+  console.log(isDarkBackground);
   return (
     <>
       { (title || des || image ) && 
-        <div className={`phi-content-container ${isDarkBackground ? 'bg-black' : ''}`} style={{ backgroundImage: backgroundUrl.src ? `url(${backgroundUrl.src})` : 'none', backgroundColor: backgroundUrl ? 'transparent' : '#fff' }}>
+        <div className={`phi-content-container ${isDarkBackground=='1' ? 'bg-black' : ''}`} style={{ backgroundImage: backgroundUrl.src ? `url(${backgroundUrl.src})` : 'none', backgroundColor: backgroundUrl ? 'transparent' : '#fff' }}>
           <div className={`container ${index % 2 === 0 ? "img-right" : "img-left"}`}>
             { image && 
               <div className="image-container img-dk">
