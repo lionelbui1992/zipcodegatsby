@@ -11,7 +11,6 @@ export const handleOverlayAnimation = () => {
     }, 0);
 
 
-
     document.querySelector('.pinning-2').style.height = (totalHeight) + 'px';
 
     ScrollTrigger.create({
@@ -63,14 +62,14 @@ export const handleOverlayAnimation = () => {
 
 export const handleGeneralOverlayAnimation = () => {
     gsap.utils.toArray('.overlay-animation').forEach((section) => {
-
-       
-        let check = section.offsetHeight > window.innerHeight + 100 ? true : false;
-        
+        console.log(section)
+        console.log(section.offsetHeight)
+        console.log("----------------")
+        let check = section.offsetHeight > window.innerHeight ? true : false;
         ScrollTrigger.create({
             trigger: section,
             start: check ? "bottom bottom" : "top 100",
-            end: check ? "+=100%" :"bottom top",
+            end: check ? "+=100%" : "bottom top",
             pin: true,
             pinSpacing: false,
             markers: false,
