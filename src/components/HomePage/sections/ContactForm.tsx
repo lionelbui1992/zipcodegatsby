@@ -45,7 +45,7 @@ export const ContactForm = (): JSX.Element => {
         }, {}),
         validationSchema,
         onSubmit: (values, { resetForm }) => {
-            let url = process.env.SITE_URL + 'wp-json/forminator/v1/save_form';
+            let url = process.env.BE_URL + 'wp-json/forminator/v1/save_form';
             fetch(url, {
                 method: 'POST',
                 headers: {
