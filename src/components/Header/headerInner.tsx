@@ -6,6 +6,7 @@ import MenuBlack from "../../images/menu-black.svg"
 import MenuWhite from "../../images/menu-white.svg"
 import MenuClose from "../../images/menu-close-black.svg"
 import { NavLink } from 'react-router-dom';
+import { gql, useQuery } from "@apollo/client";
 
 interface Props {
   mainLogoBlack: string;
@@ -23,8 +24,7 @@ export const HeaderInner = ({
   mainLogoWhite
 }: Props): JSX.Element => {
 
-
-  const data = useStaticQuery(
+  const data2 = useStaticQuery(
     graphql`
       query siteHeader {
         allWpMenu {
@@ -40,8 +40,7 @@ export const HeaderInner = ({
       }
     `
   )
-  const dataHeader = data.allWpMenu.nodes[0].menuItems.nodes;
-  // console.log(`test`, dataHeader);
+  const dataHeader = data2.allWpMenu.nodes[0].menuItems.nodes;
   const [isHeaderBlack, setIsHeaderBlack] = useState(true);
   const [textColorHeader, setTextColorHeader] = useState('#1E1E1E');
   const [mainLogo, setMainLogo] = useState(mainLogoBlack);
@@ -65,46 +64,16 @@ export const HeaderInner = ({
     const sectionHeader = document.querySelector(".header");
     const mainTag = document.querySelector("main");
 
-    // const isGsap = document.querySelector("#___gatsby") as HTMLElement;;
-
-    // if (isGsap) {
-    //   const transformStyle = isGsap.style.transform;
-    //   if (transformStyle && transformStyle.indexOf("matrix3d") !== -1) {
-    //     fix_scroll();
-    //   }
-    // }
-
     const handleScroll = (sectionsBlack:any, sectionHeader:any, resizeStatus:boolean) => {
       // add padding header section to main tag
       if (sectionHeader && mainTag && resizeStatus) {
         const handleResize = () => {
           const sectionHeaderHeight = sectionHeader.offsetHeight;
-          // mainTag.style.paddingTop = `${sectionHeaderHeight}px`;
           document.documentElement.style.setProperty('--paddingTop', `${sectionHeaderHeight}px`);
         };
         window.addEventListener("resize", handleResize);
         handleResize();
       }
-      // set color header
-      // if(sectionsBlack.length > 0) {
-      //     for (const sectionBlack of sectionsBlack) {
-      //     const rect = sectionBlack.getBoundingClientRect();
-
-      //     if (rect.top <= sectionHeader.offsetHeight/2 && rect.top + rect.height > sectionHeader.offsetHeight/2) {
-      //       setIsHeaderBlack(false);
-      //       setMainLogo(mainLogoWhite);
-      //       setMenuIcon(MenuWhite);
-      //       setTextColorHeader("#fff");
-      //       break;
-      //     } else {
-      //       setIsHeaderBlack(true);
-      //       setMainLogo(mainLogoBlack);
-      //       setMenuIcon(MenuBlack);
-      //       setTextColorHeader("#1E1E1E");
-      //     }
-      //   }
-    
-      // }
     }
     handleScroll(sectionsBlack, sectionHeader, true);
     window.addEventListener("scroll", () => handleScroll(sectionsBlack, sectionHeader, false));
@@ -130,14 +99,6 @@ export const HeaderInner = ({
   const handleMenuMobileClick = () => {
     setIsClickMenu(prevIsClickMenu => !prevIsClickMenu);
   }
-
-  // const fix_scroll = () => {
-  //   const s = window.scrollY;
-  //   console.log(s);
-  //   const fixedHeader = document.querySelector('.header');
-  //   fixedHeader.style.position = 'absolute';
-  //   fixedHeader.style.top = `${s}px`;
-  // };
 
   return (
     <header
