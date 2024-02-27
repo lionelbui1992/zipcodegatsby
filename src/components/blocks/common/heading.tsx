@@ -3,13 +3,17 @@ import * as React from 'react'
 
 const WPGHeadingBlock:React.FC<IWPGBlock> = (props) => {
   const {
-    // attrs,
-    // innerBlocks,
-    innerHTML
+    attributes: {
+      content,
+      level,
+    }
   } = props
 
+  const innerHTML = `<h${level}>${content}</h${level}>`
+  const className = `wpg-block wpg-b_heading wpg-b_heading-${level}`
+
   return (
-    <div className="wpg-block wpg-b_heading" dangerouslySetInnerHTML={{__html: innerHTML}}/>
+    <div className={className} dangerouslySetInnerHTML={{ __html: innerHTML }}/>
   )
 }
 

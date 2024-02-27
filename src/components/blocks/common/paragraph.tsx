@@ -7,7 +7,7 @@ const WPGParagraphBlock: React.FC<IWPGBlock> = (props) => {
   } = props;
 
   return (
-    <div className="wpg-block wpg-b_paragraph" dangerouslySetInnerHTML={{ __html: content }}></div> // Use the content property directly
+    <p className="wpg-block wpg-b_paragraph" dangerouslySetInnerHTML={{ __html: content }} /> // Use the content property directly
   );
 };
 
