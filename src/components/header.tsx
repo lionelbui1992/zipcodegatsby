@@ -29,7 +29,6 @@ export default function Header(): JSX.Element {
   const { loading, error, data } = useQuery(headerQuery);
 
   // State
-  const [headerData, setHeaderData] = useState([]);
   const [siteLogo, setSiteLogo] = useState("");
   const [siteTitle, setSiteTitle] = useState("");
   const [menuItems, setMenuItems] = useState([]);
@@ -45,8 +44,6 @@ export default function Header(): JSX.Element {
       if (data.menuItems) {
         setMenuItems(data.menuItems.nodes);
       }
-      console.log(data);
-      setHeaderData(data);
     }
   }, [data]);
   
@@ -154,7 +151,7 @@ export default function Header(): JSX.Element {
       )}
   
       <div className="header__nav" style={{ color : textColorHeader }}>
-        { dataHeader.map((menu:any, index: number) => (
+        { menuItems.map((menu:any, index: number) => (
             <div className="header__nav--link" key={index}>
               <Link to={menu.uri} activeClassName="active">
                 {menu.label}
