@@ -1,1 +1,0 @@
-export { HeaderInner } from "./headerInner";
