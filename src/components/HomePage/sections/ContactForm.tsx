@@ -6,41 +6,49 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
 
-const formFields = [
-    { name: 'name-1', type: 'text', label: 'Full Name', required: true, classes: "col-6" },
-    { name: 'email-1', type: 'email', label: 'Email', required: true, classes: "col-6" },
-    { name: 'phone-1', type: 'text', label: 'Phone Number', required: true, classes: "col-6" },
-    { name: 'text-1', type: 'text', label: 'Subject', required: false, classes: "col-6" },
-    { name: 'textarea-1', type: 'textarea', label: 'Message', required: true, classes: "full" },
-    { name: 'checkbox1', type: 'checkbox', label: 'Grant permission for sharing information within the internal Zipcode’s company', required: false, classes: "full" },
-    { name: 'checkbox2', type: 'checkbox', label: 'Receiving news or updates from Zipcode', required: false, classes: "full" },
-    // Thêm các trường khác theo yêu cầu
-];
 
-// Tạo schema validation với Yup
-const validationSchema = Yup.object(formFields.reduce((schema, field) => {
-    let validator = Yup.string();
+export const ContactForm = (props): JSX.Element => {
+    const { data } = props;
 
-    if (field.type === "checkbox") {
-        validator = Yup.mixed();
-    }
-    if (field.required) {
-        validator = validator.required(`${field.label} is required`);
-    }
-    if (field.type === 'email') {
-        validator = validator.email('Invalid email address');
-    }
-    schema[field.name] = validator;
-    return schema;
-}, {}));
 
-export const ContactForm = (): JSX.Element => {
+    let _data = JSON.parse(data);
+    let fields = _data ? _data[0].fields : []
+    console.log(_data);
+    console.log(fields);
+    // const fields = [
+    //     { name: 'name-1', type: 'text', label: 'Full Name', required: true, classes: "col-6" },
+    //     { name: 'email-1', type: 'email', label: 'Email', required: true, classes: "col-6" },
+    //     { name: 'phone-1', type: 'text', label: 'Phone Number', required: true, classes: "col-6" },
+    //     { name: 'text-1', type: 'text', label: 'Subject', required: false, classes: "col-6" },
+    //     { name: 'textarea-1', type: 'textarea', label: 'Message', required: true, classes: "full" },
+    //     { name: 'checkbox1', type: 'checkbox', label: 'Grant permission for sharing information within the internal Zipcode’s company', required: false, classes: "full" },
+    //     { name: 'checkbox2', type: 'checkbox', label: 'Receiving news or updates from Zipcode', required: false, classes: "full" },
+    //     // Thêm các trường khác theo yêu cầu
+    // ];
+
+    // Tạo schema validation với Yup
+    const validationSchema = Yup.object(fields.reduce((schema, field) => {
+        let validator = Yup.string();
+
+        if (field.type === "checkbox") {
+            validator = Yup.mixed();
+        }
+        if (field.required) {
+            validator = validator.required(`${field.field_label} is required`);
+        }
+        if (field.type === 'email') {
+            validator = validator.email('Invalid email address');
+        }
+        schema[field.id] = validator;
+        return schema;
+    }, {}));
+
     const [isFormVisible, setFormVisible] = useState(false)
     const ctform = useRef(null)
 
     const formik = useFormik({
-        initialValues: formFields.reduce((values, field) => {
-            values[field.name] = '';
+        initialValues: fields.reduce((values, field) => {
+            values[field.id] = '';
             return values;
         }, {}),
         validationSchema,
@@ -97,37 +105,39 @@ export const ContactForm = (): JSX.Element => {
     const renderField = (field) => {
         switch (field.type) {
             case 'text':
+            case 'name':
+            case 'phone':
             case 'email':
                 return (
-                    <div className={`field ${field.name} ${field.classes} ${field.required ? "required" : ""}`} >
-                        <label className="label" htmlFor={"#" + field.name}><span>{field.label}</span></label>
+                    <div className={`field ${field.id} ${field.cols === "6" ? 'col-6' : 'full'} ${field.required ? "required" : ""}`} >
+                        <label className="label" htmlFor={"#" + field.id}><span>{field.field_label}</span></label>
                         <div className="control">
                             <input
-                                id={field.name}
-                                name={field.name}
+                                id={field.id}
+                                name={field.id}
                                 type={field.type}
                                 onChange={formik.handleChange}
-                                value={formik.values[field.name]}
+                                value={formik.values[field.id]}
                             />
-                            {formik.touched[field.name] && formik.errors[field.name] && (
-                                <div className="error-message">{formik.errors[field.name]}</div>
+                            {formik.touched[field.id] && formik.errors[field.id] && (
+                                <div className="error-message">{formik.errors[field.id]}</div>
                             )}
                         </div>
                     </div>
                 );
             case 'textarea':
                 return (
-                    <div className={`field ${field.name} ${field.classes} ${field.required ? "required" : ""}`} >
-                        <label className="label" htmlFor={"#" + field.name}><span>{field.label}</span></label>
+                    <div className={`field ${field.id} ${field.cols === "6" ? 'col-6' : 'full'} ${field.required ? "required" : ""}`} >
+                        <label className="label" htmlFor={"#" + field.id}><span>{field.field_label}</span></label>
                         <div className="control">
                             <textarea
-                                id={field.name}
-                                name={field.name}
+                                id={field.id}
+                                name={field.id}
                                 onChange={formik.handleChange}
-                                value={formik.values[field.name]}
+                                value={formik.values[field.id]}
                             />
-                            {formik.touched[field.name] && formik.errors[field.name] && (
-                                <div className="error-message">{formik.errors[field.name]}</div>
+                            {formik.touched[field.id] && formik.errors[field.id] && (
+                                <div className="error-message">{formik.errors[field.id]}</div>
                             )}
                         </div>
                     </div>
@@ -135,11 +145,11 @@ export const ContactForm = (): JSX.Element => {
 
             case 'checkbox':
                 return (
-                    <div className={`field checkbox ${field.name} ${field.classes} ${field.required ? "required" : ""}`} >
-                        <input type="checkbox" id={field.name} name={field.name} defaultValue="1" onChange={formik.handleChange} />
-                        <label className="label" htmlFor={"#" + field.name}><span>{field.label}</span></label>
-                        {formik.touched[field.name] && formik.errors[field.name] && (
-                            <div className="error-message">{formik.errors[field.name]}</div>
+                    <div className={`field checkbox ${field.id} ${field.cols === "6" ? 'col-6' : 'full'} ${field.required ? "required" : ""}`} >
+                        <input type="checkbox" id={field.id} name={field.id} defaultValue="1" onChange={formik.handleChange} />
+                        <label className="label" htmlFor={"#" + field.id}><span>{field.field_label}</span></label>
+                        {formik.touched[field.id] && formik.errors[field.id] && (
+                            <div className="error-message">{formik.errors[field.id]}</div>
                         )}
                     </div>
                 );
@@ -165,7 +175,7 @@ export const ContactForm = (): JSX.Element => {
                     <form action="" onSubmit={formik.handleSubmit}>
                         <fieldset className="fieldset">
 
-                            {formFields.map(field => (
+                            {fields.map(field => (
                                 <>
                                     {renderField(field)}
                                 </>
