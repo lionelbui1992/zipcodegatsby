@@ -48,6 +48,13 @@ export const RenderForm = (field, formik) => {
             );
 
         case 'upload':
+            const handleFileChange = (event) => {
+                const file = event.currentTarget.files[0];
+                formik.setFieldValue(field.id, file);
+                // Assuming you want to store just the file name, not the file object
+                formik.setFieldValue(`${field.id}_name`, file ? file.name : '');
+                formik.setFieldValue(`${field.id}_name`, file ? file.name : '');
+            };
             return (
                 <div className={`field ${field.id} ${field.cols === "6" ? 'col-6' : 'full'} ${field.required ? "required" : ""}`} >
                     <label className="label" htmlFor={field.id}><span>{field.field_label}</span></label>
@@ -62,9 +69,8 @@ export const RenderForm = (field, formik) => {
                         <input type="file"
                             id={field.id}
                             name={field.id}
-                            onChange={formik.handleChange}
-                            value={formik.values[field.id]} />
-
+                            onChange={handleFileChange} />
+                        <span className="file-name">{formik.values[`${field.id}_name`] || 'No file chosen'}</span>
                         {formik.touched[field.id] && formik.errors[field.id] && (
                             <div className="error-message">{formik.errors[field.id]}</div>
                         )}
@@ -91,10 +97,16 @@ export const RenderForm = (field, formik) => {
             );
 
         case 'checkbox':
+            console.log(field)
             return (
                 <div className={`field checkbox ${field.id} ${field.cols === "6" ? 'col-6' : 'full'} ${field.required ? "required" : ""}`} >
-                    <input type="checkbox" id={field.id} name={field.id} defaultValue="1" onChange={formik.handleChange} />
-                    <label className="label" htmlFor={field.id}><span>{field.field_label}</span></label>
+                    {field.options.map((option) => (
+                        <>
+                            <input type="checkbox" id={field.id + option.key} name={field.name} defaultValue={option.value} onChange={formik.handleChange} />
+                            <label className="label" htmlFor={field.id + option.key} ><span>{option.label}</span></label>
+                        </>
+                    ))}
+
                     {formik.touched[field.id] && formik.errors[field.id] && (
                         <div className="error-message">{formik.errors[field.id]}</div>
                     )}
