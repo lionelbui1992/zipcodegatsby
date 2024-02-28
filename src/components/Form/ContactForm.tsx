@@ -2,32 +2,27 @@ import React, { useState, useEffect, useRef } from 'react';
 import Cookies from 'js-cookie';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { RenderForm, validationSchema } from './helper';
 
 
 
 export const ContactForm = (props): JSX.Element => {
     const { data } = props;
+    let _data = [],
+        fields = [];
 
-
-    let _data = JSON.parse(data);
-    let fields = _data ? _data[0].fields : []
-
-    const validationSchema = Yup.object(fields.reduce((schema, field) => {
-        let validator = Yup.string();
-
-        if (field.type === "checkbox") {
-            validator = Yup.mixed();
+    if (typeof data !== 'undefined' && data !== null) {
+        _data = JSON.parse(data);
+        if (Array.isArray(_data) && _data.length > 0) {
+            fields = _data[0].fields;
         }
-        if (field.required) {
-            validator = validator.required(`${field.field_label} is required`);
-        }
-        if (field.type === 'email') {
-            validator = validator.email('Invalid email address');
-        }
-        schema[field.id] = validator;
-        return schema;
-    }, {}));
+    }
 
+    if (!fields) return;
+
+
+    let _validationSchema = validationSchema(fields);
+    console.log(["_validationSchema", _validationSchema]);
     const [isFormVisible, setFormVisible] = useState(false)
     const ctform = useRef(null)
 
@@ -36,7 +31,7 @@ export const ContactForm = (props): JSX.Element => {
             values[field.id] = '';
             return values;
         }, {}),
-        validationSchema,
+        _validationSchema,
         onSubmit: (values, { resetForm }) => {
             let url = process.env.BE_URL + 'wp-json/forminator/v1/save_form';
             fetch(url, {
@@ -58,11 +53,12 @@ export const ContactForm = (props): JSX.Element => {
                     }
 
                 })
-
         },
     });
 
+
     const handleClosePopup = () => {
+        document.body.classList.remove("active-form");
         setFormVisible(false);
         Cookies.set('contact-form', 'true', { expires: 1 / 24 }); // Expires in 1 hour
     };
@@ -70,6 +66,7 @@ export const ContactForm = (props): JSX.Element => {
     useEffect(() => {
         const showForm = () => {
             if (!Cookies.get('contact-form')) {
+                document.body.classList.add("active-form");
                 setFormVisible(true);
             }
         };
@@ -84,63 +81,6 @@ export const ContactForm = (props): JSX.Element => {
         return () => clearTimeout(timer);
 
     }, [ctform]);
-
-
-    const renderField = (field) => {
-        switch (field.type) {
-            case 'text':
-            case 'name':
-            case 'phone':
-            case 'email':
-                return (
-                    <div className={`field ${field.id} ${field.cols === "6" ? 'col-6' : 'full'} ${field.required ? "required" : ""}`} >
-                        <label className="label" htmlFor={"#" + field.id}><span>{field.field_label}</span></label>
-                        <div className="control">
-                            <input
-                                id={field.id}
-                                name={field.id}
-                                type={field.type}
-                                onChange={formik.handleChange}
-                                value={formik.values[field.id]}
-                            />
-                            {formik.touched[field.id] && formik.errors[field.id] && (
-                                <div className="error-message">{formik.errors[field.id]}</div>
-                            )}
-                        </div>
-                    </div>
-                );
-            case 'textarea':
-                return (
-                    <div className={`field ${field.id} ${field.cols === "6" ? 'col-6' : 'full'} ${field.required ? "required" : ""}`} >
-                        <label className="label" htmlFor={"#" + field.id}><span>{field.field_label}</span></label>
-                        <div className="control">
-                            <textarea
-                                id={field.id}
-                                name={field.id}
-                                onChange={formik.handleChange}
-                                value={formik.values[field.id]}
-                            />
-                            {formik.touched[field.id] && formik.errors[field.id] && (
-                                <div className="error-message">{formik.errors[field.id]}</div>
-                            )}
-                        </div>
-                    </div>
-                );
-
-            case 'checkbox':
-                return (
-                    <div className={`field checkbox ${field.id} ${field.cols === "6" ? 'col-6' : 'full'} ${field.required ? "required" : ""}`} >
-                        <input type="checkbox" id={field.id} name={field.id} defaultValue="1" onChange={formik.handleChange} />
-                        <label className="label" htmlFor={"#" + field.id}><span>{field.field_label}</span></label>
-                        {formik.touched[field.id] && formik.errors[field.id] && (
-                            <div className="error-message">{formik.errors[field.id]}</div>
-                        )}
-                    </div>
-                );
-            default:
-                return null;
-        }
-    };
 
 
     return (
@@ -161,7 +101,7 @@ export const ContactForm = (props): JSX.Element => {
 
                             {fields.map(field => (
                                 <>
-                                    {renderField(field)}
+                                    {RenderForm(field, formik)}
                                 </>
 
                             ))}

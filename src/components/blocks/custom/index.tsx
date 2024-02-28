@@ -13,7 +13,7 @@ export default {
   BannerThreeColumns: loadable(() => import('./BannerThreeColumns')),
   GalleryTwoColumns: loadable(() => import('./GalleryTwoColumns')),
   ListingThreeColumns: loadable(() => import('./ListingThreeColumns')),
-  ContactInformation: loadable(() => import('./ContactInformation')),
+  ContactInformation: loadable(() => import('../../Form/CareerForm')),
   ProjectsBanner: loadable(() => import('./ProjectsBanner')),
   BoxContent: loadable(() => import('./BoxContent')),
   BannerTextCenter: loadable(() => import('./BannerTextCenter')),
