@@ -8,9 +8,8 @@ import { SEOContext } from 'gatsby-plugin-wpgraphql-seo';
 import { ScrollSmoother } from "scroll-smoother-dev";
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ContactForm } from "./HomePage";
-import Test from "./blocks/custom/Test";
 import { handleAddPixelateAnimation, handleTextAnimation } from '../animation'
+import { ContactForm } from "./Form/ContactForm";
 import { gql, useQuery } from "@apollo/client";
 
 gsap.registerPlugin(useGSAP, ScrollSmoother, ScrollTrigger);
@@ -41,11 +40,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
 
     const {
-        wp: { seo },
+        wp: { seo, getContactForm },
     } = useStaticQuery(graphql`
 
         query SiteInfoQuery {
             wp {
+                getContactForm
                 seo {
                     contentTypes {
                         post {
@@ -147,12 +147,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     const handleBackToTopClick = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     };
+
     return (
         <SEOContext.Provider value={{ global: seo }}>
             <div className="preload loading scrollWraper ScrollSmoother-wrapper viewport">
                 <Slice alias="preload" />
                 <Slice alias="header" />
-                <ContactForm />
+                {(getContactForm && getContactForm !== "undefined") && <ContactForm data={getContactForm} />}
                 {/* <ZIcon /> */}
                 <main className="global-wrapper" >
                     <div id="smooth-wrapper" ref={smoother}>
@@ -162,13 +163,14 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                         </div>
                     </div>
                     <div className={`to-top ${hiddenBackToTop ? 'hidden' : ''}`} onClick={() => { handleBackToTopClick() }}>
-                        <svg  width="31" height="33" viewBox="0 0 31 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg width="31" height="33" viewBox="0 0 31 33" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M30.1991 15.862L26.8782 19.1829L17.6445 9.70623L17.6446 32.6554L12.7847 32.6554L12.7847 9.70623L3.55106 19.1829L0.284179 15.862L15.2146 0.877548L30.1991 15.862Z" fill="#0068FF" />
                         </svg>
                         <span>Back to top</span>
                     </div>
                 </main>
                 <Slice alias="clipPath" />
+
                 {(testing) && (
                     <Test />
                 )}

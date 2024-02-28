@@ -7,9 +7,6 @@ import { gsap } from 'gsap';
 import { ScrollSmoother } from "scroll-smoother-dev";
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ContactForm } from "./HomePage";
-import { ZIcon } from "./HomePage/sections/ZIcon";
-import Test from "./blocks/custom/Test";
 
 gsap.registerPlugin(useGSAP, ScrollSmoother, ScrollTrigger);
 interface LayoutProps {
@@ -28,23 +25,20 @@ const LayoutStatic: React.FC<LayoutProps> = ({ children }) => {
 
             const handleScroll = () => {
                 if (window.scrollY > 2000) {
-                  setHiddenBackToTop(false);
+                    setHiddenBackToTop(false);
                 } else {
-                  setHiddenBackToTop(true);
+                    setHiddenBackToTop(true);
                 }
             }
             window.addEventListener("scroll", () => handleScroll());
         }, [smoother]);
-        const handleBackToTopClick = () => {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        };
+    const handleBackToTopClick = () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    };
     return (
         <div className="preload loading scrollWraper ScrollSmoother-wrapper viewport">
             <Slice alias="preload" />
             <Slice alias="header" />
-            {/* <Slice alias="contactform" /> */}
-            <ContactForm />
-            {/* <ZIcon /> */}
             <main className="global-wrapper">
                 <div id="smooth-wrapper" ref={smoother}>
                     <div id="smooth-content">
@@ -60,7 +54,6 @@ const LayoutStatic: React.FC<LayoutProps> = ({ children }) => {
                 </div>
             </main>
             <Slice alias="clipPath" />
-            <Test />
         </div>
     )
 }
