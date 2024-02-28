@@ -11,8 +11,8 @@ $paddingTop: var(--paddingTop)
     letter-spacing: 0.01em
     text-transform: uppercase
     color: #1E1E1E
-    @media screen and (max-width: 1440.98px)
-      margin-top: -40px
+    // @media screen and (max-width: 1440.98px)
+    //   margin-top: -40px
     @media screen and (max-width: 767.98px)
       font-size: 16px
       line-height: 24px
@@ -38,8 +38,8 @@ $paddingTop: var(--paddingTop)
     margin-top: 60px
     margin-bottom: 0
     max-width: 650px
-    @media screen and (max-width: 1440.98px)
-      margin-top: 36px
+    @media screen and (max-width: 1199.98px)
+      margin-top: 40px
 
     @media screen and (max-width: 767.98px)
       font-size: 50px
@@ -51,7 +51,7 @@ $paddingTop: var(--paddingTop)
     font-weight: 400
     line-height: 26px
     letter-spacing: 0.02em
-    margin-top: 85px
+    margin-top: 82px
     color: #000
     max-width: 495px
 
@@ -66,14 +66,18 @@ $paddingTop: var(--paddingTop)
     width: 50%
     display: flex
     flex-wrap: wrap
-    align-content: center
+    align-content: flex-start
     padding-top: 40px
+    flex-direction: column
+    justify-content: center
     @media screen and (max-width: 1440.98px)
       width: 55%
       padding-top: 0
       align-content: flex-start
+      margin-top: -40px
     @media screen and (max-width: 767.98px)
       width: 100%
+      margin-top: 0
 
   .image-container
     width: 40.55%

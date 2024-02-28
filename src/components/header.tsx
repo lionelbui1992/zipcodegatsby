@@ -5,6 +5,8 @@ import { Link } from "gatsby";
 import MenuBlack from "../images/menu-black.svg"
 import MenuWhite from "../images/menu-white.svg"
 import MenuClose from "../images/menu-close-black.svg"
+import mainLogoBlack from "../../static/img/main-logo-black.svg"
+import mainLogoWhite from "../../static/img/main-logo-white.svg"
 
 export default function Header(): JSX.Element {
 
@@ -28,8 +30,8 @@ export default function Header(): JSX.Element {
   `;
   const { loading, error, data } = useQuery(headerQuery);
   
-  const mainLogoBlack = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/01/main-logo-black.svg';
-  const mainLogoWhite = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/01/main-logo-white.svg';
+  // const mainLogoBlack = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/01/main-logo-black.svg';
+  // const mainLogoWhite = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/01/main-logo-white.svg';
 
   // State
   const [siteLogo, setSiteLogo] = useState("");
@@ -110,7 +112,7 @@ export default function Header(): JSX.Element {
     }
     handleBodyOverflow();
 
-  }, [mainLogoBlack, mainLogoWhite, isClickMenu]);
+  }, [mainLogoBlack, mainLogoWhite, isClickMenu, menuItems]);
 
   const handleMenuMobileClick = () => {
     setIsClickMenu(prevIsClickMenu => !prevIsClickMenu);
