@@ -228,6 +228,7 @@
     margin-right: auto
     padding-left: 36px
     padding-right: 36px
+    width: 100%
 
 body
     color: #000
@@ -238,14 +239,6 @@ body
     line-height: 25px
     margin: 0
     padding: 0
-
-.cms-page
-    color: #232323
-    font-size: 14px
-    font-style: normal
-    font-weight: 400
-    line-height: 25px
-    letter-spacing: 0.28px
 
 h1, .h1
     font-size: 124px
@@ -406,10 +399,15 @@ img
 .swiper-button-prev.swiper-button-disabled
     opacity: 0
 
+.wp-block-columns,
 .input-row
     display: flex
     margin: 0 -13.5px
     flex-wrap: wrap
+
+.wp-block-columns 
+    .wp-block-column
+        padding: 0 13.5px
 
 .input-text
     &.col-6
@@ -499,7 +497,75 @@ img
     text-align: right
 
 .to-top
-    z-index: 0
+    z-index: 10
+
+.cms-page
+    color: #232323
+    font-size: 14px
+    font-style: normal
+    font-weight: 400
+    line-height: 25px
+    letter-spacing: 0.28px
+
+    .section-banner
+        min-height: 395px
+        margin-top: var(--paddingTop)
+        margin-top: 131px
+        display: flex
+        align-items: center
+        flex-wrap: wrap
+        padding-top: 62px
+        background-position: center 42%
+        background-size: cover
+        background-repeat: no-repeat
+
+    
+    .section-content 
+        padding: 67px 0 104px
+        @media (max-width: 767px)
+            padding: 20px 0 70px
+
+        .wp-block-columns 
+            .wp-block-column
+                margin-top: 59.5px
+                .wpg-b_heading 
+                    max-width: 85%
+                    @media (max-width: 1199px)
+                        max-width: 100%
+            &.has-2-columns
+                .wpg-b_heading 
+                    max-width: 75%
+                    @media (max-width: 1199px)
+                        max-width: 100%
+                .wp-block-column
+                    &:last-child 
+                        padding-left: 5px
+                        @media (max-width: 1199px)
+                            padding-left: 13.5px
+
+                .wp-block-column:last-child                    
+                    > *
+                        padding-right: 10.5%
+                        @media (max-width: 1199px)
+                            padding-right: 0
+        ul
+            list-style: none
+            padding: 0
+
+            li
+                position: relative
+                padding-left: 18px
+
+                &:before
+                    content: ''
+                    position: absolute
+                    width: 3px
+                    height: 3px
+                    border-radius: 50%
+                    background-color: #232323
+                    left: 9px
+                    top: 11px
+
     
 @media (max-width: 1600px)
     .container
@@ -603,7 +669,7 @@ img
         &.col-6
             width: 100%
 
-@media (max-width: 399px)
+@media (max-width: 429px)
     body
         font-size: 14px
         line-height: 25px

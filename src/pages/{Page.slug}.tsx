@@ -77,15 +77,9 @@ export default function Page({params}: {params: {slug: string}}) {
         <Seo post={post} />
         <Layout>
           <div className={`${slug}-page cms-page`}>
-            <section className="section-banner">
-              <div className="section-bkg">
-                  <img
-                      loading="lazy"
-                      srcSet="/img/page-privacy-policy-bkg.png"
-                  />
-              </div>
+            <section className="section-banner" style={{ backgroundImage: "url(/img/page-privacy-policy-bkg.png)" }}>
               <div className="container">
-                <h1 className="h3">Privacy policy.</h1>
+                <h1 className="h3">{title}</h1>
               </div>
             </section>
             <section className="section-content">
@@ -148,13 +142,7 @@ export default function Page({params}: {params: {slug: string}}) {
           <Seo post={post} />
           <Layout>
             <div className={`${slug}-page cms-page`}>
-              <section className="section-banner">
-                <div className="section-bkg">
-                    <img
-                        loading="lazy"
-                        srcSet="/img/page-privacy-policy-bkg.png"
-                    />
-                </div>
+            <section className="section-banner" style={{ backgroundImage: "url(/img/page-privacy-policy-bkg.png)" }}>
                 <div className="container">
                   <h1 className="h3">{title}</h1>
                 </div>
