@@ -108,8 +108,6 @@ export const RenderForm = (field, formik) => {
 
 
 export const validationSchema = (fields) => {
-    console.log(fields)
-
     return Yup.object().shape(
         fields.reduce((schema, field) => {
             let validator = Yup.string();
@@ -118,7 +116,6 @@ export const validationSchema = (fields) => {
                 validator = Yup.mixed();
             }
             if (field.required) {
-                console.log(123123213)
                 validator = validator.required(`${field.field_label} is required`);
             }
             if (field.type === 'email') {

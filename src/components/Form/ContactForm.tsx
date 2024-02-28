@@ -22,7 +22,6 @@ export const ContactForm = (props): JSX.Element => {
 
 
     let _validationSchema = validationSchema(fields);
-    console.log(["_validationSchema", _validationSchema]);
     const [isFormVisible, setFormVisible] = useState(false)
     const ctform = useRef(null)
 

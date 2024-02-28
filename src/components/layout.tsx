@@ -11,6 +11,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { handleAddPixelateAnimation, handleTextAnimation } from '../animation'
 import { ContactForm } from "./Form/ContactForm";
 import { gql, useQuery } from "@apollo/client";
+import Test from "./blocks/custom/Test";
 
 gsap.registerPlugin(useGSAP, ScrollSmoother, ScrollTrigger);
 interface LayoutProps {
@@ -28,14 +29,14 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     }
     `;
     const { loading, error, data } = useQuery(getInfo);
-  
+
     //State
     const [testing, setTesting] = useState(false);
     //useEffect
     useEffect(() => {
-      if (data) {
-        setTesting(data.testing.testingFields.turnOnTesting);
-      }
+        if (data) {
+            setTesting(data.testing.testingFields.turnOnTesting);
+        }
     }, [data]);
 
 
