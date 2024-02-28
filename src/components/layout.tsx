@@ -10,6 +10,7 @@ import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { handleAddPixelateAnimation, handleTextAnimation } from '../animation'
 import { ContactForm } from "./Form/ContactForm";
+import { gql, useQuery } from "@apollo/client";
 
 gsap.registerPlugin(useGSAP, ScrollSmoother, ScrollTrigger);
 interface LayoutProps {
@@ -17,6 +18,27 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
+    const getInfo = gql`
+    query TestingQuery {
+      testing {
+        testingFields {
+          turnOnTesting
+        }
+      }
+    }
+    `;
+    const { loading, error, data } = useQuery(getInfo);
+  
+    //State
+    const [testing, setTesting] = useState(false);
+    //useEffect
+    useEffect(() => {
+      if (data) {
+        setTesting(data.testing.testingFields.turnOnTesting);
+      }
+    }, [data]);
+
+
     const {
         wp: { seo, getContactForm },
     } = useStaticQuery(graphql`
@@ -148,6 +170,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                     </div>
                 </main>
                 <Slice alias="clipPath" />
+
+                {(testing) && (
+                    <Test />
+                )}
             </div>
         </SEOContext.Provider>
     )

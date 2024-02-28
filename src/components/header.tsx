@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../assets/sass/header.sass";
 import { gql, useQuery } from "@apollo/client";
-import { Link, graphql, useStaticQuery } from "gatsby";
+import { Link } from "gatsby";
 import MenuBlack from "../images/menu-black.svg"
 import MenuWhite from "../images/menu-white.svg"
 import MenuClose from "../images/menu-close-black.svg"
@@ -27,6 +27,9 @@ export default function Header(): JSX.Element {
   }
   `;
   const { loading, error, data } = useQuery(headerQuery);
+  
+  const mainLogoBlack = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/01/main-logo-black.svg';
+  const mainLogoWhite = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/01/main-logo-white.svg';
 
   // State
   const [siteLogo, setSiteLogo] = useState("");
@@ -47,8 +50,6 @@ export default function Header(): JSX.Element {
     }
   }, [data]);
   
-  const mainLogoBlack = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/01/main-logo-black.svg';
-  const mainLogoWhite = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/01/main-logo-white.svg';
 
   const colorHeader = (isHeaderBlack:boolean, mainLogoWhite:string, setMainLogo:any, setTextColorHeader:any) => {
     if(isHeaderBlack) {return;};
@@ -56,23 +57,6 @@ export default function Header(): JSX.Element {
     setTextColorHeader('#fff');
   }
 
-  const data2 = useStaticQuery(
-    graphql`
-      query siteHeader {
-        allWpMenu {
-          nodes {
-            menuItems {
-              nodes {
-                uri
-                label
-              }
-            }
-          }
-        }
-      }
-    `
-  )
-  const dataHeader = data2.allWpMenu.nodes[0].menuItems.nodes;
   const [isHeaderBlack, setIsHeaderBlack] = useState(true);
   const [textColorHeader, setTextColorHeader] = useState('#1E1E1E');
   const [mainLogo, setMainLogo] = useState(mainLogoBlack);
