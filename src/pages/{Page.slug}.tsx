@@ -61,7 +61,7 @@ export default function Page({params}: {params: {slug: string}}) {
   const [blocks, setBlocks] = useState([]);
   const [post, setPost] = useState({});
   const [title, setTitle] = useState("");
-  const [content, setPostContent] = useState({});
+  const [content, setPostContent] = useState("");
   //useEffect
   useEffect(() => {
     if (data) {
