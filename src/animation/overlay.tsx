@@ -78,7 +78,7 @@ export const handleOverlayAnimation = () => {
                     ScrollTrigger.create({
                         trigger: section,
                         start: "top top",
-                        end: "+=11  0%",
+                        end: "+=110%",
                         pin: true,
                         pinSpacing: true,
                         markers: false,
