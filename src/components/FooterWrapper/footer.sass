@@ -15,39 +15,46 @@
   bottom: 130px
   right: 74px
   cursor: pointer
-  
+
   @media screen and (max-width: 767.98px)
-    bottom: calc(290px + 0.22 * (100vw - 72px))
+    bottom: calc(284px + 0.22 * (100vw - 72px))
     right: 36px
 
   svg
     width: 31px
     height: 30px
     cursor: pointer
+  span
+    margin-top: 6px
 
 .site-footer
   z-index: 2
   padding: 63px 0 48px
   position: relative
+  background-size: cover
   @media screen and (max-width: 767.98px)
     padding: 51px 0 30px
 
   h5
     font-size: 35px
     line-height: 45px
+    margin-bottom: 0px
     @media screen and (max-width: 767.98px)
       font-size: 22px
       line-height: 24px
+      font-weight: 600
+      margin-bottom: 10px
   .content
     font-size: 11px
     line-height: 22px
     letter-spacing: 0.01em
     display: block
   .content.top
-    margin-bottom: 33px
+    margin-bottom: 24px
 
     @media screen and (max-width: 767.98px)
       line-height: 16px
+      margin-bottom: 8px
 
   .section-top
     display: flex
@@ -55,7 +62,7 @@
     justify-content: space-between
     @media screen and (max-width: 767.98px)
       flex-wrap: wrap
-      gap: 23px
+      gap: 20px
 
     .left
       @media screen and (max-width: 399.98px)
@@ -74,7 +81,7 @@
         max-width: 288px
         @media screen and (max-width: 767.98px)
           max-width: 173px
-          margin-bottom: 13px
+          margin-bottom: 8px
     .right
       text-align: right
       @media screen and (max-width: 767.98px)
@@ -85,6 +92,9 @@
       .content-container
         @media screen and (max-width: 767.98px)
           max-width: 200px
+      .address
+        @media screen and (max-width: 767.98px)
+          margin-bottom: 20px
   .ft-dk
     @media screen and (max-width: 767.98px)
       display: none
@@ -97,9 +107,10 @@
   .section-middle
     padding-bottom: 10.7389%
     position: relative
-    margin-top: 29px
+    margin-top: 24px
     @media screen and (max-width: 767.98px)
       padding-bottom: 22%
+      margin-top: 16px
 
     .img-footer
       height: 100%
@@ -132,6 +143,8 @@
     margin-top: 6.2px
     @media screen and (max-width: 767.98px)
       flex-wrap: wrap
+      margin-top: 0
+      gap: 5px
     a
       font-size: 10px
       font-weight: 600

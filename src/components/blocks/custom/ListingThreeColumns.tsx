@@ -4,7 +4,7 @@ import { IListingThreeColumnsProps } from "../types";
 
 export const ListingThreeColumns = ({ attributes }: { attributes: IListingThreeColumnsProps}): JSX.Element => {
     const { title, list } = attributes;
-    const AvailableBackground = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/careers-life-bkg.jpg';
+    const AvailableBackground = '/img/careers-life-bkg.jpg';
     return (
         <>
             { (title || list) && 

@@ -18,8 +18,8 @@
 
 .our-teams-wrapper
     padding-top: 37px
-    padding-bottom: 183px
-    padding-bottom: 280px
+    padding-bottom: 140px
+    // padding-bottom: 280px
     overflow: hidden
     @media (max-width: 1600px)
         // padding-bottom: 137px
@@ -118,8 +118,43 @@
             line-height: 46px
             margin-bottom: 46px
 
-.career-perks .our-teams-wrapper .item-inner .item-image:before
-    background-color: #0068FF
+.career-perks 
+    background-color: #1E1E1E
+    color: #ffffff
+    margin-top: -50px
+    overflow: hidden
+    .our-teams-wrapper 
+        padding-top: 95px
+        .section-heading 
+            h2
+                font-weight: 600
+                font-size: 64.0312px
+                line-height: 68px
+            .content
+                font-family: Tiempos Headline
+                font-size: 16px
+                font-weight: 400
+                line-height: 17px
+                letter-spacing: 0em
+                text-align: left
+                margin-top: -10px
+
+        .item-inner 
+            .item-image:before
+                background-color: #0068FF
+            .item-info
+                padding: 24px 64px 24px 30px
+                line-height: 25px
+                letter-spacing: 0em
+                @media (max-width: 767px)
+                    padding: 24px 30px
+
+        @media (max-width: 1600px)
+            .item-content
+                margin-top: 26px
+
+    .section-content
+        margin-top: 89px
 
 @media (max-width: 1600px)
     .about-page > div:last-child section.about-our-teams
@@ -170,12 +205,12 @@
                 padding-right: 10px
 
         .swiper
-            padding-bottom: 67px
+            padding-bottom: 87px
 
             .swiper-button-prev, .swiper-button-next
                 top: auto
                 margin-top: 0
-                bottom: 0
+                bottom: 20px
                 width: 27px
                 height: 25px
                 background-size: contain

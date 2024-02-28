@@ -518,7 +518,11 @@ img
         background-position: center 42%
         background-size: cover
         background-repeat: no-repeat
+        @media (max-width: 1199px)
+            padding-top: 0
 
+        @media (max-width: 767px)
+            margin-top: 98px
     
     .section-content 
         padding: 67px 0 104px
@@ -710,16 +714,18 @@ img
         line-height: 35px
 
     .btn, .button
-        font-size: 20px
+        font-size: 14px
         font-style: normal
         font-weight: 400
         line-height: 20px
         letter-spacing: 0.4px
-        height: 46px
+        height: auto
         padding: 13px 45px 11px 17px
-        min-width: 256.5px
+        min-width: 126px
         background-size: 17px
         background-position: right 26px center
+        padding: 10px 30px 8px 17px
+        background-position: right 10px center
 
 // About Page
 .about-page .marquee

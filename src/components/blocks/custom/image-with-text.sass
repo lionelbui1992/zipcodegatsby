@@ -1,5 +1,21 @@
 .phi-content-container.bg-black
   color: #fff
+.pin-spacer
+  &:nth-child(n+3)
+    .phi-content-container
+      margin-top: -50px
+  .phi-content-container
+    padding-bottom: 50px
+.end-overlay-animation
+  margin-top: -50px
+  z-index: 2
+  position: relative
+.end-overlay-animation + footer
+  margin-top: -50px
+  z-index: 1
+.end-overlay-animation + footer .container
+  padding-top: 50px
+
 .phi-content-container
   color: #000
   border-radius: 45px
