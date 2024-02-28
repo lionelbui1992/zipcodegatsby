@@ -1,6 +1,6 @@
 import React from "react";
 import "./image-with-text.sass";
-import {IImageWithTextProps} from "../types";
+import { IImageWithTextProps } from "../types";
 
 export const ImageWithText = ({
   index,
@@ -10,28 +10,27 @@ export const ImageWithText = ({
   backgroundUrl,
   isDarkBackground,
 }: IImageWithTextProps): JSX.Element => {
-  console.log(isDarkBackground);
   return (
     <>
-      { (title || des || image ) && 
-        <div className={`phi-content-container ${isDarkBackground=='1' ? 'bg-black' : ''}`} style={{ backgroundImage: backgroundUrl.src ? `url(${backgroundUrl.src})` : 'none', backgroundColor: backgroundUrl ? 'transparent' : '#fff' }}>
+      {(title || des || image) &&
+        <div className={`phi-content-container ${isDarkBackground == '1' ? 'bg-black' : ''}`} style={{ backgroundImage: backgroundUrl.src ? `url(${backgroundUrl.src})` : 'none', backgroundColor: backgroundUrl ? 'transparent' : '#fff' }}>
           <div className={`container ${index % 2 === 0 ? "img-right" : "img-left"}`}>
-            { image && 
+            {image &&
               <div className="image-container img-dk">
-                <div className="image" style={{backgroundImage: "url("+image.src+")"}}></div>
+                <div className="image" style={{ backgroundImage: "url(" + image.src + ")" }}></div>
               </div>
             }
-            { ( image || des ) && 
+            {(image || des) &&
               <div className="content">
-                <div className="label">{index < 10 ? '0'+index : index}</div>
+                <div className="label">{index < 10 ? '0' + index : index}</div>
                 <div className="text-container">
-                  { title && <div className="title">{title}</div> }
-                  { image && 
+                  {title && <div className="title">{title}</div>}
+                  {image &&
                     <div className="image-container img-mb">
-                      <div className="image" style={{backgroundImage: "url("+image.src+")"}}></div>
+                      <div className="image" style={{ backgroundImage: "url(" + image.src + ")" }}></div>
                     </div>
                   }
-                  { des && <div className="des">{des}</div> }
+                  {des && <div className="des">{des}</div>}
                 </div>
               </div>
             }
