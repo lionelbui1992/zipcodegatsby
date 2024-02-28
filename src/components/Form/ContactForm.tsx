@@ -67,15 +67,15 @@ export const ContactForm = (props): JSX.Element => {
             if (!Cookies.get('contact-form')) {
                 document.body.classList.add("active-form");
                 setFormVisible(true);
+                setTimeout(() => {
+                    if (ctform.current) {
+                        ctform.current.classList.add('active')
+                    }
+                }, 100)
             }
         };
 
         const timer = setTimeout(showForm, 6000); // Show after 10 seconds
-        setTimeout(() => {
-            if (ctform.current) {
-                ctform.current.classList.add('active')
-            }
-        }, 6100)
 
         return () => clearTimeout(timer);
 
