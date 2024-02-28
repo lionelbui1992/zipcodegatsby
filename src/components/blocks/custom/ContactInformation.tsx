@@ -60,7 +60,6 @@ export const ContactInformation = ({ attributes, form }) => {
 
 
     const renderField = (field) => {
-        console.log([field, 'field'])
         switch (field.type) {
             case 'text':
             case 'name':
@@ -94,7 +93,7 @@ export const ContactInformation = ({ attributes, form }) => {
                                 type={field.type}
                                 onChange={formik.handleChange}
                                 value={formik.values[field.id]}
-                                >
+                            >
                                 {field.options.map((option) => (
                                     <option value={option.value}>{option.label}</option>
                                 ))}
@@ -166,12 +165,12 @@ export const ContactInformation = ({ attributes, form }) => {
 
     return (
         <>
-            { (title) && 
+            {(title) &&
                 <div className="careers-profile careers-section">
                     <div className="container">
-                        { (title) && 
+                        {(title) &&
                             <div className="section-title">
-                                <h2 dangerouslySetInnerHTML={{__html: title}} />
+                                <h2 dangerouslySetInnerHTML={{ __html: title }} />
                             </div>
                         }
                         <div className="section-content">

@@ -67,7 +67,6 @@ export const handleOverlayAnimation = () => {
         let sections = gsap.utils.toArray('.relative-section');
         sections.forEach((section, index) => {
             if (index !== sections.length - 1) {
-                console.log()
                 let check = section.offsetHeight > window.innerHeight ? true : false;
 
                 if (section.classList.contains('item-2')) {
@@ -78,7 +77,7 @@ export const handleOverlayAnimation = () => {
                     ScrollTrigger.create({
                         trigger: section,
                         start: "top top",
-                        end: "+=11  0%",
+                        end: "+=110%",
                         pin: true,
                         pinSpacing: true,
                         markers: false,

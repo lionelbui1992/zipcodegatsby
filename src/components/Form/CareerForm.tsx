@@ -27,8 +27,9 @@ export const CareerForm = ({ attributes, form }) => {
             return values;
         }, {}),
         validationSchema: _validationSchema,
-        onSubmit: (values, { resetForm }) => {
+        onSubmit: (values, { resetForm, setSubmitting }) => {
             let url = process.env.BE_URL + 'wp-json/forminator/v1/save_career_form';
+
             fetch(url, {
                 method: 'POST',
                 headers: {
@@ -39,13 +40,18 @@ export const CareerForm = ({ attributes, form }) => {
                 .then((res) => res.json())
                 .then((data) => {
                     if (data.success === true) {
-                        document.querySelector('.success-message').style.display = "block";
+                        document.querySelector('.career-msg-success').style.display = "block";
+                        console.log(document.querySelector('.career-msg-success'));
                         resetForm()
                     } else {
                         alert(data.data)
                     }
-
+                    setSubmitting(false);
                 })
+                .catch((error) => {
+                    console.error('Error during form submission:', error);
+                    setSubmitting(false);
+                });
         },
     });
 
@@ -75,10 +81,10 @@ export const CareerForm = ({ attributes, form }) => {
 
                                     </fieldset>
                                     <div className="action">
-                                        <button className="btn btn-primary">Submit</button>
+                                        <button className="btn btn-primary">{formik.isSubmitting ? 'Submitting...' : 'Submit'}</button>
                                     </div>
                                 </form>
-                                <div className="success-message" style={{ display: "none" }}>
+                                <div className="success-message career-msg-success" style={{ display: "none" }}>
                                     <p>Thank you for your response.</p>
                                 </div>
                             </div>
