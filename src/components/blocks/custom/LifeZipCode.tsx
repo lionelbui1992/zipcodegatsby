@@ -7,10 +7,10 @@ import { LifeZipCodeProps } from "../types";
 export const LifeZipCode = ({attributes: { background, title, gallery}}: {attributes: LifeZipCodeProps}): JSX.Element => {
     const [openPopUp, setOpenPopUp] = useState(false);
     const [indexSlides, setIndexSlides] = useState(0);
-    const lifeIconRow = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/gallery-box-icon-row.svg';
-    const lifeIconCol = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/gallery-box-icon-col.svg';
-    const lifeImagePlaceholder1 = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/life-zipcode-placeholder-1.png';
-    const lifeImagePlaceholder2 = 'https://maasi2404zip.merket.io/wp-content/uploads/2024/02/life-zipcode-placeholder-2.png';
+    const lifeIconRow = '/img/gallery-box-icon-row.svg';
+    const lifeIconCol = '/img/gallery-box-icon-col.svg';
+    const lifeImagePlaceholder1 = '/img/life-zipcode-placeholder-1.png';
+    const lifeImagePlaceholder2 = '/img/life-zipcode-placeholder-2.png';
 
     useEffect(() => {
         if (openPopUp) {
