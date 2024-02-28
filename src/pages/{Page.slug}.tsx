@@ -1,5 +1,4 @@
 import * as React from "react"
-import { graphql } from "gatsby"
 import Seo from 'gatsby-plugin-wpgraphql-seo';
 import Layout from "../components/layout"
 import WPGBlocks from "../components/WPGBlocks"
@@ -60,12 +59,14 @@ export default function Page({params}: {params: {slug: string}}) {
   //State
   const [blocks, setBlocks] = useState([]);
   const [post, setPost] = useState({});
+  const [title, setTitle] = useState("");
   const [content, setPostContent] = useState({});
   //useEffect
   useEffect(() => {
     if (data) {
       setBlocks(data.nodeByUri.blocks);
       setPost(data.nodeByUri);
+      setTitle(data.nodeByUri.title);
       setPostContent(data.nodeByUri.content);
     }
   }, [data]);
@@ -75,8 +76,21 @@ export default function Page({params}: {params: {slug: string}}) {
       <>
         <Seo post={post} />
         <Layout>
-          <div className="container">
-            <div className="page-content" dangerouslySetInnerHTML={{__html:content}} />
+          <div className={`${slug}-page cms-page`}>
+            <section className="section-banner">
+              <div className="section-bkg">
+                  <img
+                      loading="lazy"
+                      srcSet="/img/page-privacy-policy-bkg.png"
+                  />
+              </div>
+              <div className="container">
+                <h1 className="h3">Privacy policy.</h1>
+              </div>
+            </section>
+            <section className="section-content">
+              <div className="container" dangerouslySetInnerHTML={{__html:content}} />
+            </section>
           </div>
         </Layout>
       </>
@@ -133,57 +147,26 @@ export default function Page({params}: {params: {slug: string}}) {
         <>
           <Seo post={post} />
           <Layout>
-            <div className="container">
-              <WPGBlocks blocks={blocks} />
+            <div className={`${slug}-page cms-page`}>
+              <section className="section-banner">
+                <div className="section-bkg">
+                    <img
+                        loading="lazy"
+                        srcSet="/img/page-privacy-policy-bkg.png"
+                    />
+                </div>
+                <div className="container">
+                  <h1 className="h3">{title}</h1>
+                </div>
+              </section>
+              <section className="section-content">
+                <div className="container">
+                  <WPGBlocks blocks={blocks} />
+                </div>
+              </section>
             </div>
           </Layout>
         </>
       )
   }
 }
-
-// export const pageQuery = graphql`
-//     query GET_PAGE($slug: String!) {
-//         wpPage: wpPage(slug: { eq: $slug }) {
-//             nodeType
-//             title
-//             slug
-//             uri
-//             seo {
-//                 title
-//                 metaDesc
-//                 focuskw
-//                 metaKeywords
-//                 metaRobotsNoindex
-//                 metaRobotsNofollow
-//                 opengraphTitle
-//                 opengraphDescription
-//                 opengraphImage {
-//                     altText
-//                     sourceUrl
-//                     srcSet
-//                 }
-//                 twitterTitle
-//                 twitterDescription
-//                 twitterImage {
-//                     altText
-//                     sourceUrl
-//                     srcSet
-//                 }
-//                 canonical
-//                 cornerstone
-//                 schema {
-//                     articleType
-//                     pageType
-//                     raw
-//                 }
-//             }
-//         }
-//         pageDetail: allWpPage(filter: {slug: {eq: $slug}}) {
-//           nodes {
-//             title
-//             blocks
-//           }
-//         }
-//     }
-// `;
