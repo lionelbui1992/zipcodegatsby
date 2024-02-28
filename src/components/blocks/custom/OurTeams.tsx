@@ -10,20 +10,20 @@ import 'swiper/css/scrollbar';
 import { IOurTeamsProps } from "../types";
 
 export const OurTeams = ({ attributes }: { attributes: IOurTeamsProps }): JSX.Element => {
-    const { title, content, peoples } = attributes;
+    const { title, description, peoples } = attributes;
 
     return (
         <>
             { (title || peoples ) && 
                 <div className="container">
                     <div className="our-teams-wrapper">
-                        { (title || content) && 
+                        { (title || description) && 
                             <div className="section-heading">
                                 { (title) && 
                                     <h2 className="h5" dangerouslySetInnerHTML={{__html: title}} />
                                 }
-                                { (content) && 
-                                    <div className="content" dangerouslySetInnerHTML={{__html: content}} />
+                                { (description) && 
+                                    <div className="content" dangerouslySetInnerHTML={{__html: description}} />
                                 }
                             </div>
                         }
