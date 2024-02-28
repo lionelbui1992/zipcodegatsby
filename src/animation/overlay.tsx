@@ -67,7 +67,6 @@ export const handleOverlayAnimation = () => {
         let sections = gsap.utils.toArray('.relative-section');
         sections.forEach((section, index) => {
             if (index !== sections.length - 1) {
-                console.log()
                 let check = section.offsetHeight > window.innerHeight ? true : false;
 
                 if (section.classList.contains('item-2')) {

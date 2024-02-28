@@ -97,7 +97,6 @@ export const RenderForm = (field, formik) => {
             );
 
         case 'checkbox':
-            console.log(field)
             return (
                 <div className={`field checkbox ${field.id} ${field.cols === "6" ? 'col-6' : 'full'} ${field.required ? "required" : ""}`} >
                     {field.options.map((option) => (
