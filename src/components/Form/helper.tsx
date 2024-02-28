@@ -97,12 +97,11 @@ export const RenderForm = (field, formik) => {
             );
 
         case 'checkbox':
-            console.log(field)
             return (
                 <div className={`field checkbox ${field.id} ${field.cols === "6" ? 'col-6' : 'full'} ${field.required ? "required" : ""}`} >
                     {field.options.map((option) => (
                         <>
-                            <input type="checkbox" id={field.id + option.key} name={field.name} defaultValue={option.value} onChange={formik.handleChange} />
+                            <input type="checkbox" id={field.id + option.key} name={field.id + '[]'} defaultValue={option.value} onChange={formik.handleChange} />
                             <label className="label" htmlFor={field.id + option.key} ><span>{option.label}</span></label>
                         </>
                     ))}
