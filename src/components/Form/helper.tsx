@@ -2,7 +2,6 @@ import React from 'react';
 import * as Yup from 'yup';
 
 export const RenderForm = (field, formik) => {
-    console.log([field, 'field'])
     switch (field.type) {
         case 'text':
         case 'name':

@@ -29,7 +29,10 @@ export const handleOverlayAnimation = () => {
             return acc + section.offsetHeight;
         }, 0);
 
-        document.querySelector('.pinning-2').style.height = (totalHeight) + 'px';
+        let pinning2 = document.querySelector('.pinning-2');
+        if (pinning2) {
+            pinning2.style.height = (totalHeight) + 'px';
+        }
 
         const tl = gsap.timeline({
             scrollTrigger: {
@@ -64,16 +67,36 @@ export const handleOverlayAnimation = () => {
         let sections = gsap.utils.toArray('.relative-section');
         sections.forEach((section, index) => {
             if (index !== sections.length - 1) {
+                console.log()
                 let check = section.offsetHeight > window.innerHeight ? true : false;
-                ScrollTrigger.create({
-                    trigger: section,
-                    start: check ? "bottom bottom" : "top 100",
-                    end: check ? "+=100%" : "bottom top",
-                    pin: true,
-                    pinSpacing: false,
-                    markers: false,
-                    scrub: 0.000001,
-                });
+
+                if (section.classList.contains('item-2')) {
+                    let tl = gsap.fromTo(".c-image", {
+                        y: 500
+                    }, { y: -800, duration: 1 })
+
+                    ScrollTrigger.create({
+                        trigger: section,
+                        start: "top top",
+                        end: "+=11  0%",
+                        pin: true,
+                        pinSpacing: true,
+                        markers: false,
+                        scrub: 0.000001,
+                        animation: tl
+                    });
+                } else {
+                    ScrollTrigger.create({
+                        trigger: section,
+                        start: check ? "bottom bottom" : "top 100",
+                        end: check ? "+=100%" : "bottom top",
+                        pin: true,
+                        pinSpacing: false,
+                        markers: false,
+                        scrub: 0.000001,
+                    });
+                }
+
             }
 
         })
