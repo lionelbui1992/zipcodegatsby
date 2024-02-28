@@ -30,8 +30,8 @@ export const ContactForm = (props): JSX.Element => {
             values[field.id] = '';
             return values;
         }, {}),
-        _validationSchema,
-        onSubmit: (values, { resetForm }) => {
+        validationSchema: _validationSchema,
+        onSubmit: (values, { resetForm, setSubmitting }) => {
             let url = process.env.BE_URL + 'wp-json/forminator/v1/save_form';
             fetch(url, {
                 method: 'POST',
@@ -50,8 +50,12 @@ export const ContactForm = (props): JSX.Element => {
                     } else {
                         alert(data.data)
                     }
-
+                    setSubmitting(false);
                 })
+                .catch((error) => {
+                    console.error('Error during form submission:', error);
+                    setSubmitting(false);
+                });
         },
     });
 
@@ -107,7 +111,7 @@ export const ContactForm = (props): JSX.Element => {
 
                         </fieldset>
                         <div className="action">
-                            <button className="btn btn-primary">Submit</button>
+                            <button className="btn btn-primary">{formik.isSubmitting ? 'Submitting...' : 'Submit'}</button>
                         </div>
                     </form>
                     <div className="success-message" style={{ display: "none" }}>
