@@ -2,7 +2,7 @@
     &.careers-section
         position: relative
         border-radius: 45px 45px 0 0
-        padding: 73px 0 119px
+        padding: 73px 0 150px
         margin-top: -42px
 
     .section-overlay
@@ -32,6 +32,9 @@
         padding: 30px
         position: relative
         overflow: hidden
+        @media screen and (max-width: 767.98px)
+            margin: -20px
+            padding: 21px
 
     .life-gallery 
         display: flex
@@ -93,11 +96,19 @@
             right: 6px
             top: 28px
             width: 38%
+            @media screen and (max-width: 767.98px)
+                width: 100%
+                right: 0
+                top: 10px
 
         &.gallery-icon-col
             bottom: 12px
             left: 17px
             width: 10.1%
+            @media screen and (max-width: 767.98px)
+                width: 28%
+                left: 10px
+                bottom: 0px
 
     .gallery-popup-active 
         .life-gallery-wrapper
