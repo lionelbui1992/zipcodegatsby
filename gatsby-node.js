@@ -47,10 +47,6 @@ exports.onCreateNode = ({
   if (!node.internal.type.includes("Wp")) return
 
   if (node.internal.type === "WpPage") {
-    // if(node.isFrontPage) {
-      
-    // }
-    // console.log(`Template name: ${node.template.templateName}`)
     actions.createNode({
       ...node.page,
       id: createNodeId(`${node.id} >>> Page ${node.slug}`),
