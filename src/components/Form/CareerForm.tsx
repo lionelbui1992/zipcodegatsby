@@ -41,7 +41,6 @@ export const CareerForm = ({ attributes, form }) => {
                 .then((data) => {
                     if (data.success === true) {
                         document.querySelector('.career-msg-success').style.display = "block";
-                        console.log(document.querySelector('.career-msg-success'));
                         resetForm()
                     } else {
                         alert(data.data)
