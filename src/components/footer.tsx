@@ -1,8 +1,8 @@
-import "./FooterWrapper/footer.sass";
+import "../assets/sass/footer.sass";
 import React, { useState, useEffect } from "react";
-import {SectionLink} from "./FooterWrapper";
 import { useQuery, gql } from '@apollo/client';
 import { IFooterData } from "./blocks/types";
+import SectionLink from "./SectionLink";
 
 export default function Footer(): JSX.Element {
 
