@@ -2,6 +2,7 @@ import React from 'react';
 import * as Yup from 'yup';
 
 export const RenderForm = (field, formik) => {
+    console.log(field)
     switch (field.type) {
         case 'text':
         case 'name':
@@ -17,6 +18,7 @@ export const RenderForm = (field, formik) => {
                             type={field.type}
                             onChange={formik.handleChange}
                             value={formik.values[field.id]}
+                            placeholder={field.placeholder}
                         />
                         {formik.touched[field.id] && formik.errors[field.id] && (
                             <div className="error-message">{formik.errors[field.id]}</div>
@@ -88,6 +90,7 @@ export const RenderForm = (field, formik) => {
                             name={field.id}
                             onChange={formik.handleChange}
                             value={formik.values[field.id]}
+                            placeholder={field.placeholder}
                         />
                         {formik.touched[field.id] && formik.errors[field.id] && (
                             <div className="error-message">{formik.errors[field.id]}</div>
@@ -99,13 +102,14 @@ export const RenderForm = (field, formik) => {
         case 'checkbox':
             return (
                 <div className={`field checkbox ${field.id} ${field.cols === "6" ? 'col-6' : 'full'} ${field.required ? "required" : ""}`} >
-                    {field.options.map((option) => (
-                        <>
-                            <input type="checkbox" id={field.id + option.key} name={field.id + '[]'} defaultValue={option.value} onChange={formik.handleChange} />
-                            <label className="label" htmlFor={field.id + option.key} ><span>{option.label}</span></label>
-                        </>
-                    ))}
-
+                    <div className="options">
+                        {field.options.map((option, index) => (
+                            <div key={index} className='option'>
+                                <input type="checkbox" id={field.id + option.key} name={field.id + '[]'} defaultValue={option.value} onChange={formik.handleChange} />
+                                <label className="label" htmlFor={field.id + option.key} ><span>{option.label}</span></label>
+                            </div>
+                        ))}
+                    </div>
                     {formik.touched[field.id] && formik.errors[field.id] && (
                         <div className="error-message">{formik.errors[field.id]}</div>
                     )}
