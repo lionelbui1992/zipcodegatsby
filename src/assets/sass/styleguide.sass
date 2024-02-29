@@ -444,6 +444,7 @@ img
         box-shadow: none
         opacity: 1
         font-family: "Buenos Aires"
+        outline: none
 
     select
         -webkit-appearance: none
@@ -487,6 +488,17 @@ img
         line-height: 24px
         margin-top: 11px
 
+input, textarea, select
+    outline: none
+    font-family: Buenos Aires
+
+.file-name 
+    width: 100%
+    margin-top: 5px
+    letter-spacing: 0.02em
+    font-size: 14px
+    line-height: 25.6px
+
 .text-center
     text-align: center
 
@@ -515,6 +527,7 @@ img
         align-items: center
         flex-wrap: wrap
         padding-top: 62px
+        padding-bottom: 50px
         background-position: center 42%
         background-size: cover
         background-repeat: no-repeat
@@ -526,12 +539,17 @@ img
     
     .section-content 
         padding: 67px 0 104px
+        border-radius: 32px 32px 0 0
+        background-color: #ffffff
+        margin-top: -50px
         @media (max-width: 767px)
             padding: 20px 0 70px
 
         .wp-block-columns 
             .wp-block-column
                 margin-top: 59.5px
+                @media (max-width: 1199px)
+                    margin-top: 30px
                 .wpg-b_heading 
                     max-width: 85%
                     @media (max-width: 1199px)
