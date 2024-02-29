@@ -122,6 +122,8 @@ html.active-overlay
         background-position: center
         background-repeat: no-repeat
         background-size: cover
+        @media (max-width: 1199px)        
+            padding: 54px 0 39px
 
     .section-bkg
         border-radius: 31.304px
@@ -345,6 +347,10 @@ html.active-overlay
                 line-height: 80px
                 display: flex
                 flex-wrap: wrap
+                .image 
+                    display: none
+                @media (max-width: 429px)
+                    line-height: 50px                    
 
     .projects-popup 
         .popup-content
@@ -371,6 +377,8 @@ html.active-overlay
         h4
             line-height: 80px
             letter-spacing: -1px
+            @media (max-width: 429px)
+                line-height: 45px   
 
         .popup-galleries
             width: 50%
@@ -379,7 +387,7 @@ html.active-overlay
                 height: 387px
 
         button.projects-popup-close
-            right: 51px
+            right: 50px
             top: 1px
             svg
                 width: 25px
