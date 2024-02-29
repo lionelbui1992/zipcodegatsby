@@ -9,7 +9,7 @@ const CareersBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, form,
       {blocks.filter(block => {
         return !!block.name
       }).map((block, index) =>
-        <div key={index} className={`${block.name.includes('marquee') ? "initial-height" : ""} ${index !== blocks.length - 1 ? "overlay-animation" : "end-overlay-animation"}`}>
+        <div key={index} className={`${block.name && block.name.includes('marquee') ? "initial-height" : ""} ${index !== blocks.length - 1 ? "overlay-animation" : "end-overlay-animation"}`}>
           <CareersBlock key={index} order={`${index}`} form={form} block={block} mapToBlock={mapToBlock} />
         </div>
       )

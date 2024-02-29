@@ -11,11 +11,13 @@ export interface IWPGBlock {
 export interface IWPGBlockProps {
     order: string | undefined | null
     block: IWPGBlock
+    form?: any
     mapToBlock?(name: string): any | null
 }
   
 export interface IWPGBlocksProps {
     blocks: IWPGBlock[]
+    form?: any
     mapToBlock?(name: string): any | null
 }
   
