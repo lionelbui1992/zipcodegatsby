@@ -58,5 +58,34 @@ module.exports = {
         uri: process.env.WPGRAPHQL_URL
       }
     },
+    {
+      resolve: 'gatsby-plugin-html-attributes',
+      options: {
+        lang: 'en'
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-preload',
+      options: {
+        preloaders: [
+          {
+            href: "/img/svg-shape-back.svg",
+            as: "image",
+          },
+          {
+            href: "/img/pexels-helena-lopes-1015568-scaled_1.webp",
+            as: "image",
+          },
+          {
+            href: "/img/image-2.webp",
+            as: "image",
+          },
+          {
+            href: "/img/svg-khung-luoi.svg",
+            as: "image",
+          },
+        ]
+      }
+    },
   ],
 }
