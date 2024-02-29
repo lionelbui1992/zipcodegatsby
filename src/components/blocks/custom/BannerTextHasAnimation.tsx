@@ -6,10 +6,10 @@ export const BannerTextHasAnimation = ({blockName, attributes} : {blockName: str
     const { label, texts } = attributes;
     useEffect(() => {
         const ttContent: HTMLElement | null = document.querySelector(".content-tooltip");
-        const ttImages: NodeListOf<Element> = document.querySelectorAll('.tt-image');
+        const ttImages: NodeListOf<HTMLElement> = document.querySelectorAll('.tt-image');
 
         function ttImagesTooltip() {
-            ttImages.forEach((ttImage: Element) => {
+            ttImages.forEach((ttImage: HTMLElement) => {
                 const ttImageTop: number = ttImage.offsetTop;
                 ttImage?.style.setProperty('--offsetTop', `${ttImageTop}px`);
                 if (window.innerWidth > 768) {

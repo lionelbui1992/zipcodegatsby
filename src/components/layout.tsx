@@ -155,7 +155,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <Slice alias="preload" />
                 <Slice alias="header" />
                 {(getContactForm && getContactForm !== "undefined") && <ContactForm data={getContactForm} />}
-                {/* <ZIcon /> */}
                 <main className="global-wrapper" >
                     <div id="smooth-wrapper" ref={smoother}>
                         <div id="smooth-content">
