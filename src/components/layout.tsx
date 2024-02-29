@@ -1,7 +1,7 @@
 import * as React from "react"
 import "../styles.css"
 import "../assets/sass/styleguide.sass"
-import { Slice, graphql, useStaticQuery } from "gatsby"
+import { Slice } from "gatsby"
 import { useRef, useEffect, useState } from "react";
 import { gsap } from 'gsap';
 import { SEOContext } from 'gatsby-plugin-wpgraphql-seo';
@@ -21,107 +21,96 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
     const getInfo = gql`
     query TestingQuery {
-      testing {
-        testingFields {
-          turnOnTesting
+        testing {
+            testingFields {
+                turnOnTesting
+            }
         }
-      }
+        getContactForm
+        seo {
+            contentTypes {
+                post {
+                    title
+                    schemaType
+                    metaRobotsNoindex
+                    metaDesc
+                }
+                page {
+                    metaDesc
+                    metaRobotsNoindex
+                    schemaType
+                    title
+                }
+            }
+            webmaster {
+                googleVerify
+                yandexVerify
+                msVerify
+                baiduVerify
+            }
+            schema {
+                companyName
+                personName
+                companyOrPerson
+                wordpressSiteName
+                siteUrl
+                siteName
+                inLanguage
+                logo {
+                    sourceUrl
+                    mediaItemUrl
+                    altText
+                }
+            }
+            social {
+                facebook {
+                    url
+                    defaultImage {
+                        sourceUrl
+                        mediaItemUrl
+                    }
+                }
+                instagram {
+                    url
+                }
+                linkedIn {
+                    url
+                }
+                mySpace {
+                    url
+                }
+                pinterest {
+                    url
+                    metaTag
+                }
+                twitter {
+                    username
+                    cardType
+                }
+                wikipedia {
+                    url
+                }
+                youTube {
+                    url
+                }
+            }
+        }
     }
     `;
     const { loading, error, data } = useQuery(getInfo);
 
     //State
     const [testing, setTesting] = useState(false);
+    const [seo, setSeo] = useState(undefined);
+    const [getContactForm, setGetContactForm] = useState(null);
+    const [hiddenBackToTop, setHiddenBackToTop] = useState(true);
+    const smoother = useRef();
     //useEffect
     useEffect(() => {
         if (data) {
             setTesting(data.testing.testingFields.turnOnTesting);
-        }
-    }, [data]);
-
-
-    const {
-        wp: { seo, getContactForm },
-    } = useStaticQuery(graphql`
-
-        query SiteInfoQuery {
-            wp {
-                getContactForm
-                seo {
-                    contentTypes {
-                        post {
-                            title
-                            schemaType
-                            metaRobotsNoindex
-                            metaDesc
-                        }
-                        page {
-                            metaDesc
-                            metaRobotsNoindex
-                            schemaType
-                            title
-                        }
-                    }
-                    webmaster {
-                        googleVerify
-                        yandexVerify
-                        msVerify
-                        baiduVerify
-                    }
-                    schema {
-                        companyName
-                        personName
-                        companyOrPerson
-                        wordpressSiteName
-                        siteUrl
-                        siteName
-                        inLanguage
-                        logo {
-                            sourceUrl
-                            mediaItemUrl
-                            altText
-                        }
-                    }
-                    social {
-                        facebook {
-                            url
-                            defaultImage {
-                                sourceUrl
-                                mediaItemUrl
-                            }
-                        }
-                        instagram {
-                            url
-                        }
-                        linkedIn {
-                            url
-                        }
-                        mySpace {
-                            url
-                        }
-                        pinterest {
-                            url
-                            metaTag
-                        }
-                        twitter {
-                            username
-                            cardType
-                        }
-                        wikipedia {
-                            url
-                        }
-                        youTube {
-                            url
-                        }
-                    }
-                }
-            }
-        }
-    `);
-    const smoother = useRef();
-    const [hiddenBackToTop, setHiddenBackToTop] = useState(true);
-    useEffect(
-        () => {
+            setGetContactForm(data.getContactForm);
+            setSeo(data.seo);
             if (screen.width > 767) {
                 smoother.current = ScrollSmoother.create({
                     smooth: .5, // seconds it takes to "catch up" to native scroll position
@@ -129,8 +118,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                     smoothTouch: 0.1,
                 });
             }
-
-
             const handleScroll = () => {
                 if (window.scrollY > 2000) {
                     setHiddenBackToTop(false);
@@ -138,23 +125,24 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                     setHiddenBackToTop(true);
                 }
             }
-
-
-
             window.addEventListener("scroll", () => handleScroll());
             window.addEventListener("scroll", () => handleAddPixelateAnimation());
             window.addEventListener("scroll", () => handleTextAnimation());
-        }, [smoother]);
+        }
+    }, [data, smoother]);
+
     const handleBackToTopClick = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     };
+
+    if (loading || error) return <></>
 
     return (
         <SEOContext.Provider value={{ global: seo }}>
             <div className="preload loading scrollWraper ScrollSmoother-wrapper viewport">
                 <Slice alias="preload" />
                 <Slice alias="header" />
-                {(getContactForm && getContactForm !== "undefined") && <ContactForm data={getContactForm} />}
+                {getContactForm && <ContactForm data={getContactForm} />}
                 <main className="global-wrapper" >
                     <div id="smooth-wrapper" ref={smoother}>
                         <div id="smooth-content">

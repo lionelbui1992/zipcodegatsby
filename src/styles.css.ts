@@ -18,6 +18,75 @@ globalStyle("*", {
   boxSizing: "border-box",
 })
 
+globalStyle(".color-header", {
+    gap: "20px",
+    display: "flex",
+    flexWrap: "wrap",
+})
+
+globalStyle(".color-column", {
+  display: "flex",
+  flexDirection: "column",
+  lineHeight: "normal",
+  marginLeft: "0px",
+})
+
+globalStyle(".color-box", {
+  display: "flex",
+  flexGrow: 1,
+  flexDirection: "column",
+})
+
+globalStyle(".color", {
+  color: "#000",
+  font: "400 18px Buenos Aires, -apple-system, Roboto, Helvetica, sans-serif",
+})
+
+globalStyle(".color-0068FF", {
+  backgroundColor: "#0068ff",
+  display: "flex",
+  marginTop: "18px",
+  height: "113px",
+  width: "113px",
+  flexDirection: "column",
+})
+
+globalStyle(".color-1E1E1E", {
+  backgroundColor: "#1E1E1E",
+  display: "flex",
+  marginTop: "18px",
+  height: "113px",
+  width: "113px",
+  flexDirection: "column",
+})
+
+globalStyle(".color-E2E2E2", {
+  backgroundColor: "#E2E2E2",
+  display: "flex",
+  marginTop: "18px",
+  width: "113px",
+  height: "113px",
+  flexDirection: "column",
+})
+
+globalStyle(".color-CCB4FB", {
+  backgroundColor: "#CCB4FB",
+  display: "flex",
+  marginTop: "18px",
+  height: "113px",
+  width: "113px",
+  flexDirection: "column",
+})
+
+globalStyle(".color-C4F000", {
+  backgroundColor: "#C4F000",
+  display: "flex",
+  marginTop: "18px",
+  height: "113px",
+  width: "113px",
+  flexDirection: "column",
+})
+
 globalStyle(".wp-block-columns", {
   alignItems: "normal!important",
   boxSizing: "border-box",

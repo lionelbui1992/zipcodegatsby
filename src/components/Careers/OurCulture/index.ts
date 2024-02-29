@@ -1,1 +1,0 @@
-export { OurCulture } from "./OurCulture";

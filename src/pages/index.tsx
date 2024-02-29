@@ -1,6 +1,5 @@
 import * as React from "react";
 import Layout from "../components/layout"
-import { IPageProps } from "../shared/model/IPageProps";
 import Seo from "gatsby-plugin-wpgraphql-seo";
 import HomeBlocks from "../components/WPGBlocks/Home";
 import "../assets/sass/homepage.sass";
@@ -9,7 +8,7 @@ import "../assets/sass/homepage.sass";
 import { gql, useQuery } from '@apollo/client';
 import { useEffect, useRef, useState } from "react";
 
-const IndexPage: React.FC<IPageProps> = () => {
+const IndexPage: React.FC = () => {
 
   const getPageInfo = gql`
   query getPageInfo {
