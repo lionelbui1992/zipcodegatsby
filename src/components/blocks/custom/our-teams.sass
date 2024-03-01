@@ -37,12 +37,20 @@
             margin-right: 67px
 
     .item-image 
+        .image-inner 
+            padding-bottom: 100%
+            position: relative
         img
             aspect-ratio: 1
             object-fit: contain
             object-position: center
             width: 100%
             vertical-align: top
+            position: absolute
+            top: 0
+            left: 0
+            height: 100%
+            z-index: -1
 
     .item-inner 
         .item-info
