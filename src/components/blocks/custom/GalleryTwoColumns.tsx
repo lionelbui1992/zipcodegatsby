@@ -5,10 +5,6 @@ import { IGalleryTwoColumnsProps } from "../types";
 export const GalleryTwoColumns = ({ attributes }: { attributes: IGalleryTwoColumnsProps }): JSX.Element => {
     const { title, background, gallery } = attributes;
 
-    const OurValuesImagePlaceholder1 = '/img/our-values-image-placeholder-1.png';
-    const OurValuesImagePlaceholder2 = '/img/our-values-image-placeholder-2.png';
-    const openPopUpBackground = '/img/careers-life-bkg.jpg';
-
     const numRows = gallery.length
     const numCol = numRows / 2
 
@@ -68,10 +64,6 @@ export const GalleryTwoColumns = ({ attributes }: { attributes: IGalleryTwoColum
                                                             {list.image_1.src &&
                                                                 <div className="image-first">
                                                                     <div className="image-inner">
-                                                                        <img className="img-placeholder"
-                                                                            loading="lazy"
-                                                                            srcSet={OurValuesImagePlaceholder1} alt=""
-                                                                        />
                                                                         <img
                                                                             loading="lazy"
                                                                             srcSet={`${list.image_1.src}`} className="img img-default"
@@ -83,10 +75,6 @@ export const GalleryTwoColumns = ({ attributes }: { attributes: IGalleryTwoColum
                                                             {list.image_2.src &&
                                                                 <div className="image-second">
                                                                     <div className="image-inner">
-                                                                        <img className="img-placeholder"
-                                                                            loading="lazy"
-                                                                            srcSet={OurValuesImagePlaceholder2} alt=""
-                                                                        />
                                                                         <img
                                                                             loading="lazy"
                                                                             srcSet={`${list.image_2.src}`} className="img img-default"
