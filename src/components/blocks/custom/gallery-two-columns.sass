@@ -90,23 +90,43 @@
     transform: translateY(0%)
 
 .our-values-popup
-    position: absolute
-    top: 100%
+    position: fixed
+    top: 0
     left: 0
     width: 100%
-    height: auto
-    background-position: center
-    background-repeat: no-repeat
-    background-size: cover
-    border-radius: 45px
+    height: 100%
     opacity: 0
     transition: 0.5s all
     visibility: hidden
     transform: translateY(100%)
+    z-index: 999
+    display: flex
+    align-items: center
+    &.active 
+        opacity: 1
+        visibility: visible
+        transform: none
 
+    .poup-overlay 
+        z-index: 0
+        position: fixed
+        width: 100%
+        height: 100%
+        background-color: #000000
+        opacity: 0.5
+        top: 0
+        left: 0
+        
     .popup-content
         padding: 118px 0 58px 49px
         color: #ffffff
+        width: 100%
+        border-radius: 45px
+        background-position: center
+        background-repeat: no-repeat
+        background-size: cover
+        position: relative
+        z-index: 1
 
         @media (max-width: 1199px) 
             padding: 118px 0 58px 0
