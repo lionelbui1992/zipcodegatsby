@@ -33,12 +33,23 @@ export const ContactForm = (props): JSX.Element => {
         validationSchema: _validationSchema,
         onSubmit: (values, { resetForm, setSubmitting }) => {
             let url = process.env.BE_URL + 'wp-json/forminator/v1/save_form';
+
+            let formData = new FormData();
+            Object.keys(values).forEach(key => {
+                console.log(['values[key]', values[key]]);
+                if (values[key] instanceof File) {
+                    formData.append(key, values[key]);
+                } else {
+                    formData.append(key, values[key] ?? "");
+                }
+            });
+
             fetch(url, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(values)
+                body: formData
             })
                 .then((res) => res.json())
                 .then((data) => {

@@ -54,7 +54,7 @@ export const handleOverlayAnimation = () => {
         });
 
 
-        let imgFrom = screen.width > 500 ? 800 : 400
+        let imgFrom = screen.width > 500 ? 200 : 400
 
 
         // tl.to(".item-1", { yPercent: 0, duration: 1 })
