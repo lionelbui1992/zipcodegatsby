@@ -8,10 +8,9 @@ import PhilosophyBlocks from "../components/WPGBlocks/Philosophy";
 import BannerPoup from "../components/BannerPoup";
 import { gql, useQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
-import GalleryTwoColumnsPopup from "../components/GalleryTwoColumnsPopup";
 
-export default function Page({params}: {params: {slug: string}}) {
-  
+export default function Page({ params }: { params: { slug: string } }) {
+
   const slug = params.slug;
   const getPageInfo = gql`
   query getPageInfo {
@@ -85,7 +84,7 @@ export default function Page({params}: {params: {slug: string}}) {
               </div>
             </section>
             <section className="section-content">
-              <div className="container" dangerouslySetInnerHTML={{__html:content}} />
+              <div className="container" dangerouslySetInnerHTML={{ __html: content }} />
             </section>
           </div>
         </Layout>
@@ -94,7 +93,7 @@ export default function Page({params}: {params: {slug: string}}) {
   }
   switch (slug) {
     case 'about':
-      
+
       return (
         <>
           <Seo post={post} />
@@ -107,13 +106,6 @@ export default function Page({params}: {params: {slug: string}}) {
       return (
         <>
           <Seo post={post} />
-          {(blocks && blocks.length > 0) && blocks.filter((block: any) => block.name === 'acf/gallery-two-columns').map((block: any, index: number) => {
-            return (
-              <GalleryTwoColumnsPopup
-                key={index}
-                gallery={block.attributes.data.gallery} />
-            )
-          })}
           <Layout>
             <CareersBlocks blocks={blocks} form={data.getCareerForm} />
           </Layout>
@@ -133,11 +125,12 @@ export default function Page({params}: {params: {slug: string}}) {
         <>
           <Seo post={post} />
           {(blocks && blocks.length > 0) && blocks.filter((block: any) => block.name === 'acf/projects-banner').map((block: any, index: number) => {
-
+            var currentdate = new Date();
+            console.log(['timeeeeeeeeeeeeeeeee', currentdate.getSeconds()])
             return (
               <BannerPoup
                 key={index}
-                background="/img/projects-popup-bkg-1-1.jpg"
+                background="https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/projects-popup-bkg-1-1.jpg"
                 content={block.attributes.data.content} />
             )
           })}
@@ -152,7 +145,7 @@ export default function Page({params}: {params: {slug: string}}) {
           <Seo post={post} />
           <Layout>
             <div className={`${slug}-page cms-page`}>
-            <section className="section-banner" style={{ backgroundImage: "url(/img/page-privacy-policy-bkg.png)" }}>
+              <section className="section-banner" style={{ backgroundImage: "url(/img/page-privacy-policy-bkg.png)" }}>
                 <div className="container">
                   <h1 className="h3">{title}</h1>
                 </div>
