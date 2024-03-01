@@ -14,17 +14,7 @@ export const ProjectsBanner = ({ attributes }: { attributes: IProjectsBannerProp
             document.querySelector('.projects-popup-item-'+ index)?.classList.add('active-popup');
             document.querySelector('.projects-popup-'+ index)?.classList.add('active-popup');
         // }, 300);
-    }   
-
-    useEffect(() => {
-        const modalBtns: HTMLElement[] = Array.from(document.querySelectorAll(".projects-popup-item"));
-
-        if (modalBtns.length > 0) {
-            modalBtns.forEach((btn: HTMLElement) => {
-                const modal: string | null = btn.getAttribute('data-popup');
-            });
-        }
-    }, [])
+    } 
 
     return (
         <>

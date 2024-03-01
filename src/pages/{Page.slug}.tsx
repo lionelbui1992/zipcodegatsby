@@ -8,6 +8,7 @@ import PhilosophyBlocks from "../components/WPGBlocks/Philosophy";
 import BannerPoup from "../components/BannerPoup";
 import { gql, useQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
+import GalleryTwoColumnsPopup from "../components/GalleryTwoColumnsPopup";
 
 export default function Page({params}: {params: {slug: string}}) {
   
@@ -106,6 +107,13 @@ export default function Page({params}: {params: {slug: string}}) {
       return (
         <>
           <Seo post={post} />
+          {(blocks && blocks.length > 0) && blocks.filter((block: any) => block.name === 'acf/gallery-two-columns').map((block: any, index: number) => {
+            return (
+              <GalleryTwoColumnsPopup
+                key={index}
+                gallery={block.attributes.data.gallery} />
+            )
+          })}
           <Layout>
             <CareersBlocks blocks={blocks} form={data.getCareerForm} />
           </Layout>
@@ -129,7 +137,7 @@ export default function Page({params}: {params: {slug: string}}) {
             return (
               <BannerPoup
                 key={index}
-                background="https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/projects-popup-bkg-1-1.jpg"
+                background="/img/projects-popup-bkg-1-1.jpg"
                 content={block.attributes.data.content} />
             )
           })}

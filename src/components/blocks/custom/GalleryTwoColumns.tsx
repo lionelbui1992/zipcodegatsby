@@ -15,14 +15,14 @@ export const GalleryTwoColumns = ({ attributes }: { attributes: IGalleryTwoColum
     const [openPopUp, setOpenPopUp] = useState(false);
 
     useEffect(() => {
-        if (openPopUp) {
-            document.addEventListener('click', handleClickOutside, true);
-            return () => {
-                document.removeEventListener('click', handleClickOutside, true);
-            };
-        } else {
-            document.body.style.overflow = 'auto';
-        }
+        // if (openPopUp) {
+        //     document.addEventListener('click', handleClickOutside, true);
+        //     return () => {
+        //         document.removeEventListener('click', handleClickOutside, true);
+        //     };
+        // } else {
+        //     document.body.style.overflow = 'auto';
+        // }
     }, [openPopUp]);
 
     const openPopup = async (index: string) => {
@@ -31,6 +31,7 @@ export const GalleryTwoColumns = ({ attributes }: { attributes: IGalleryTwoColum
         popupItem.forEach((item: HTMLElement) => {
             item?.classList.remove('open');
         });
+        document.querySelector('html')?.classList.add('active-overlay');
         const itemWrapper: Element | null = document.querySelector('.our-values-box');
         const itemPopUp: HTMLElement | null = document.querySelector('.popup-item[data-popup="' + index + '"]');
         const itemPosition: HTMLElement | null = document.querySelector('.our-values-item[data-item="' + index + '"]');
@@ -38,37 +39,10 @@ export const GalleryTwoColumns = ({ attributes }: { attributes: IGalleryTwoColum
         itemWrapper?.style.setProperty('--offsetTop', `${itemPositionTop}px`);
 
         itemPopUp?.classList.add('open');
-
-    }
-
-    const handleClickOutside = (event: any) => {
-
-        const itemsCol = document.querySelectorAll('.our-values-items .items-col img');
-        const popupContent = document.querySelectorAll('.our-values-popup .popup-content');
-        const listItems = document.querySelectorAll('.our-values-popup li');
-        const columnContents = document.querySelectorAll('.our-values-popup .column-content');
-        const containers = document.querySelectorAll('.our-values-popup .container');
-        const images = document.querySelectorAll('.our-values-popup .img');
-        const columnImages = document.querySelectorAll('.our-values-popup .column-image');
-        const columnTitles = document.querySelectorAll('.our-values-popup .column-title');
-        const headings = document.querySelectorAll('.our-values-popup h5');
-        const itemInners = document.querySelectorAll('.our-values-popup .item-inner');
-
-        if (
-            !(
-                Array.from(popupContent).some(element => element === event.target) ||
-                Array.from(listItems).some(element => element === event.target) ||
-                Array.from(columnContents).some(element => element === event.target) ||
-                Array.from(containers).some(element => element === event.target) ||
-                Array.from(images).some(element => element === event.target) ||
-                Array.from(columnImages).some(element => element === event.target) ||
-                Array.from(columnTitles).some(element => element === event.target) ||
-                Array.from(headings).some(element => element === event.target) ||
-                Array.from(itemInners).some(element => element === event.target)
-            ) && !Array.from(itemsCol).some(element => element === event.target)
-        ) {
-            setOpenPopUp(false);
-        }
+        const ourValuesPopup: HTMLElement | null = document.querySelector('.our-values-popup');
+        ourValuesPopup?.classList.add('active');
+        const ourValuesItems: HTMLElement | null = document.querySelector('.our-values-items');
+        ourValuesItems?.classList.add('our-values-popup-active');
     }
 
 
@@ -82,7 +56,7 @@ export const GalleryTwoColumns = ({ attributes }: { attributes: IGalleryTwoColum
                         </div>
                         {(gallery) &&
                             <div className="section-content">
-                                <div className={`our-values-items ${openPopUp ? ' our-values-popup-active' : ''}`}>
+                                <div className={`our-values-items`}>
                                     <div className="items-col">
                                         {gallery.map((list, index) => (
                                             ((index + 1) <= numCol) &&
@@ -172,58 +146,6 @@ export const GalleryTwoColumns = ({ attributes }: { attributes: IGalleryTwoColum
                                                 </div>
                                             </div>
                                         ))}
-                                    </div>
-                                </div>
-                                <div className="our-values-popup" style={{ backgroundImage: "url(" + openPopUpBackground + ")" }}>
-                                    <div className="container">
-                                        <div className="popup-content">
-                                            {gallery.map((list, index) => (
-                                                <div className="popup-item" data-popup={index} key={index}>
-                                                    <div className="item">
-                                                        <div className="item-inner">
-                                                            {(list.image_1.src || list.image_2.src) &&
-                                                                <div className="column-image">
-                                                                    <div className="image-inner">
-                                                                        {list.image_1.src &&
-                                                                            <div className="image-first">
-                                                                                <div className="image-inner">
-                                                                                    <img
-                                                                                        loading="lazy"
-                                                                                        srcSet={`${list.image_1.src}`} className="img"
-                                                                                        alt={list.item_title}
-                                                                                    />
-                                                                                </div>
-                                                                            </div>
-                                                                        }
-                                                                        {list.image_2.src &&
-                                                                            <div className="image-second">
-                                                                                <div className="image-inner">
-                                                                                    <img
-                                                                                        loading="lazy"
-                                                                                        srcSet={`${list.image_2.src}`} className="img"
-                                                                                        alt={list.item_title}
-                                                                                    />
-                                                                                </div>
-                                                                            </div>
-                                                                        }
-                                                                    </div>
-                                                                    {list.item_title &&
-                                                                        <div className="column-title">
-                                                                            <h5 dangerouslySetInnerHTML={{ __html: list.item_title }} />
-                                                                        </div>
-                                                                    }
-                                                                </div>
-                                                            }
-                                                            {list.content &&
-                                                                <div className="column-content">
-                                                                    <div dangerouslySetInnerHTML={{ __html: list.content }} />
-                                                                </div>
-                                                            }
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            ))}
-                                        </div>
                                     </div>
                                 </div>
                             </div>
