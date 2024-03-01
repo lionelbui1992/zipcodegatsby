@@ -42,5 +42,6 @@ export const handleAddPixelateAnimation = () => {
             }
         })
     }
+    return false;
 }
 
