@@ -61,7 +61,7 @@ export const handleOverlayAnimation = () => {
         tl.fromTo(".item-1", { yPercent: 0 }, { yPercent: -100, duration: 4 })
         tl.fromTo(".c-image", {
             y: imgFrom
-        }, { y: -800, duration: 2 })
+        }, { y: -900, duration: 2 })
         tl.to(".item-2", { yPercent: -100, duration: 2 })
     } else {
         let sections = gsap.utils.toArray('.relative-section');
