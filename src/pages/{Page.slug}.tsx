@@ -121,19 +121,10 @@ export default function Page({ params }: { params: { slug: string } }) {
         </>
       )
     case 'projects':
+
       return (
         <>
           <Seo post={post} />
-          {(blocks && blocks.length > 0) && blocks.filter((block: any) => block.name === 'acf/projects-banner').map((block: any, index: number) => {
-            var currentdate = new Date();
-            console.log(['timeeeeeeeeeeeeeeeee', currentdate.getSeconds()])
-            return (
-              <BannerPoup
-                key={index}
-                background="https://wordpress-897316-4088707.cloudwaysapps.com/headless/wp-content/uploads/2024/02/projects-popup-bkg-1-1.jpg"
-                content={block.attributes.data.content} />
-            )
-          })}
           <Layout>
             <WPGBlocks blocks={blocks} />
           </Layout>
