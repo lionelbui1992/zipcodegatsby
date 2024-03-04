@@ -1,67 +1,38 @@
 import React, { useState, useEffect } from "react";
 import "./life-zip-code.sass";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
 import { LifeZipCodeProps } from "../types";
+import $ from 'jquery';
+import lightbox from 'lightbox2';
+import 'lightbox2/dist/css/lightbox.min.css';
 
-export const LifeZipCode = ({attributes: { background, title, gallery}}: {attributes: LifeZipCodeProps}): JSX.Element => {
-    const [openPopUp, setOpenPopUp] = useState(false);
-    const [indexSlides, setIndexSlides] = useState(0);
+export const LifeZipCode = ({ attributes: { background, title, gallery } }: { attributes: LifeZipCodeProps }): JSX.Element => {
     const lifeIconRow = '/img/gallery-box-icon-row.svg';
     const lifeIconCol = '/img/gallery-box-icon-col.svg';
-    const lifeImagePlaceholder1 = '/img/life-zipcode-placeholder-1.png';
-    const lifeImagePlaceholder2 = '/img/life-zipcode-placeholder-2.png';
 
     useEffect(() => {
-        if (openPopUp) {
-            document.addEventListener('click', handleClickOutside, true);
-            return () => {
-                document.removeEventListener('click', handleClickOutside, true);
-            };
-        } else {
-            document.body.style.overflow = 'auto';
-        }
-    }, [openPopUp]);
+        $(document).ready(function () {
+            lightbox.option({
+                'resizeDuration': 200,
+                'wrapAround': true,
+                'disableScrolling': true,
+                'showImageNumberLabel': false,
 
-    const openPopup = (index: number) => {
-        setOpenPopUp(!openPopUp);
-        setIndexSlides(index)
-    }
+            })
+        });
 
-    const hidePopup = () => {
-        // setOpenPopUp(!openPopUp);
-    }
-
-    const handleClickOutside = (event: any) => {
-        const images = document.querySelectorAll('.life-gallery-popup img');
-        const btnNext = document.querySelectorAll('.life-gallery-popup .swiper-button-next');
-        const btnPrev = document.querySelectorAll('.life-gallery-popup .swiper-button-prev');
-        const itemImage = document.querySelectorAll('.life-gallery-popup .item-image');
-
-        if (
-            !(
-                Array.from(images).some(element => element === event.target) ||
-                Array.from(btnNext).some(element => element === event.target) ||
-                Array.from(btnPrev).some(element => element === event.target) ||
-                Array.from(itemImage).some(element => element === event.target)
-            )
-        ) {
-            setOpenPopUp(false);
-        }
-    }
+    }, []);
 
     return (
         <>
             {(title || gallery) &&
                 <div className="careers-life careers-section" style={{ backgroundImage: "url(" + background.src + ")" }}>
                     <div className="container">
-                        <div className="section-overlay" onClick={() => hidePopup()}></div>
                         <div className="section-title">
                             <h2 className="h4" dangerouslySetInnerHTML={{ __html: title }} />
                         </div>
 
                         {gallery &&
-                            <div className={`section-content section-gallery-content ${openPopUp ? ' gallery-popup-active' : ''}`}>
+                            <div className={`section-content section-gallery-content`}>
                                 <div className="life-gallery-wrapper">
                                     {lifeIconRow &&
                                         <div className="gallery-icon gallery-icon-row">
@@ -76,48 +47,16 @@ export const LifeZipCode = ({attributes: { background, title, gallery}}: {attrib
                                     <div className="life-gallery">
                                         {gallery.map((list, index) => (
                                             (list.src) &&
-                                            <div onClick={() => openPopup(index)} className="item" data-index={index} key={index}>
-                                                <div className="item-image">
-                                                    {((index + 1) % 6 == 2 || (index + 1) % 6 == 4) ? (
-                                                        <img className="img-placeholder" loading="lazy" srcSet={lifeImagePlaceholder2} alt="" />
-                                                    ) : (
-                                                        <img className="img-placeholder" loading="lazy" srcSet={lifeImagePlaceholder1} alt="" />
-                                                    )}
-                                                    <img className="img-default" loading="lazy" srcSet={list.src} alt="" />
-                                                    <a href="{list.imgUrl}" data-lightbox="roadtrip"></a>
-                                                </div>
+                                            <div className="item" data-index={index} key={index}>
+                                                <a href={list.src} data-lightbox="roadtrip" className="item-image">
+                                                    <img className="img-default" src={list.src} alt="" />
+                                                </a>
                                             </div>
                                         ))}
                                     </div>
                                 </div>
 
-                                {openPopUp && (<div className="life-gallery-popup" id="life-gallery-popup">
-                                    <Swiper
-                                        modules={[Navigation]}
-                                        spaceBetween={20}
-                                        initialSlide={indexSlides}
-                                        slidesPerView={1}
-                                        navigation
-                                        pagination={{
-                                            el: "#containerForBullets",
-                                            type: "bullets",
-                                            bulletClass: "swiper-custom-bullet",
-                                            bulletActiveClass: "swiper-custom-bullet-active",
-                                            clickable: true,
-                                        }}
-                                    >
-                                        {gallery.map((list, index) => (
-                                            (list.src) &&
-                                            <SwiperSlide key={index} data-index={index}>
-                                                <div className="item">
-                                                    <div className="item-image">
-                                                        <img loading="lazy" srcSet={list.src} alt="" />
-                                                    </div>
-                                                </div>
-                                            </SwiperSlide>
-                                        ))}
-                                    </Swiper>
-                                </div>)}
+
                             </div>
                         }
                     </div>

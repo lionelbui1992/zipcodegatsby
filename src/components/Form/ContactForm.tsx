@@ -36,7 +36,6 @@ export const ContactForm = (props): JSX.Element => {
 
             let formData = new FormData();
             Object.keys(values).forEach(key => {
-                console.log(['values[key]', values[key]]);
                 if (values[key] instanceof File) {
                     formData.append(key, values[key]);
                 } else {
@@ -46,9 +45,6 @@ export const ContactForm = (props): JSX.Element => {
 
             fetch(url, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
                 body: formData
             })
                 .then((res) => res.json())

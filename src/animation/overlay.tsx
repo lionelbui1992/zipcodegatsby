@@ -111,11 +111,11 @@ export const handleGeneralOverlayAnimation = () => {
         ScrollTrigger.create({
             trigger: section,
             start: check ? "bottom bottom" : "top 100",
-            end: check ? "+=100%" : "bottom top",
+            end: check ? "+=150%" : "bottom top",
             pin: true,
             pinSpacing: false,
             markers: false,
-            scrub: 0.000001,
+            scrub: 0.000000001,
 
         });
     })

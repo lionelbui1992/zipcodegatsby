@@ -12,13 +12,14 @@ import { handleAddPixelateAnimation, handleTextAnimation } from '../animation'
 import { ContactForm } from "./Form/ContactForm";
 import { gql, useQuery } from "@apollo/client";
 import Test from "./blocks/custom/Test";
+import { BannerPoup } from './BannerPoup';
 
 gsap.registerPlugin(useGSAP, ScrollSmoother, ScrollTrigger);
 interface LayoutProps {
     children?: React.ReactNode
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Layout: React.FC<LayoutProps> = ({ children, banner }) => {
     const getInfo = gql`
     query TestingQuery {
         testing {
@@ -135,6 +136,17 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
+    let projectBanner = children?.props?.blocks;
+
+    let popUp = (projectBanner && projectBanner.length > 0) && projectBanner.filter((block: any) => block.name === 'acf/projects-banner').map((block: any, index: number) => {
+        return (
+            <BannerPoup
+                key={index}
+                background="/img/projects-popup-bkg-1-1.jpg"
+                content={block.attributes.data.content} />
+        )
+    })
+
     if (loading || error) return <></>
 
     return (
@@ -142,6 +154,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <div className="preload loading scrollWraper ScrollSmoother-wrapper viewport">
                 <Slice alias="preload" />
                 <Slice alias="header" />
+                {popUp && popUp}
                 {getContactForm && <ContactForm data={getContactForm} />}
                 <main className="global-wrapper" >
                     <div id="smooth-wrapper" ref={smoother}>

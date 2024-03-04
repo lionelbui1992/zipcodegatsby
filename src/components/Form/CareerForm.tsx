@@ -35,7 +35,6 @@ export const CareerForm = ({ attributes, form }) => {
 
             let formData = new FormData();
             Object.keys(values).forEach(key => {
-                console.log(['values[key]', values[key]]);
                 if (values[key] instanceof File) {
                     formData.append(key, values[key]);
                 } else {
