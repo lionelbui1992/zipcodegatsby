@@ -12,7 +12,7 @@
         width: 100%
         height: 100%
 
-    .section-title 
+    .section-title
         position: relative
 
     h2
@@ -27,7 +27,7 @@
         position: relative
         z-index: 1
 
-    .life-gallery-wrapper 
+    .life-gallery-wrapper
         margin: -30px
         padding: 30px
         position: relative
@@ -36,24 +36,24 @@
             margin: -20px
             padding: 21px
 
-    .life-gallery 
+    .life-gallery
         display: flex
         flex-wrap: wrap
         gap: 0
         position: relative
         margin: 0 -0.48%
 
-        .item 
+        .item
             position: relative
             padding: 0.7% 0.48%
 
-            &:nth-child(6n + 1), 
-            &:nth-child(6n + 3), 
-            &:nth-child(6n + 5), 
+            &:nth-child(6n + 1),
+            &:nth-child(6n + 3),
+            &:nth-child(6n + 5),
             &:nth-child(3n)
                 width: 39.79%
 
-            &:nth-child(6n + 2), 
+            &:nth-child(6n + 2),
             &:nth-child(6n + 4)
                 width: 20.42%
 
@@ -67,10 +67,14 @@
                 &:nth-child(6n+1), &:nth-child(6n+5)
                     width: 66.3%
 
-                padding: 0.48%
+                    padding: 0.48%
 
-            .item-image 
+            .item-image
                 position: relative
+                height: 0
+                padding-bottom: 525px
+                width: 100%
+                display: flex
 
                 img
                     vertical-align: top
@@ -83,7 +87,7 @@
                         left: 0
                         width: 100%
                         height: 100%
-
+                        object-fit: cover
 
     .gallery-icon
         position: absolute
@@ -110,7 +114,7 @@
                 left: 10px
                 bottom: 0px
 
-    .gallery-popup-active 
+    .gallery-popup-active
         .life-gallery-wrapper
             opacity: 0.5
 
@@ -133,18 +137,18 @@
             // height: auto
             top: 50%
             transform: translateY(-50%)
-            
+
             .swiper-wrapper
                 display: flex
                 align-items: center
         @media screen and (max-width: 767.98px)
             height: auto
-        
+
         .swiper
             overflow: visible
             position: static
-            
-            .swiper-button-next 
+
+            .swiper-button-next
                 background-image: url(images/icon-arrows-white.svg)
                 right: calc(-13.9% - 30px)
 
@@ -169,4 +173,3 @@
 
             &.swiper-slide-active
                 opacity: 1
-
