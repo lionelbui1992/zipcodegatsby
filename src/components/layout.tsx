@@ -13,6 +13,7 @@ import { ContactForm } from "./Form/ContactForm";
 import { gql, useQuery } from "@apollo/client";
 import Test from "./blocks/custom/Test";
 import { BannerPoup } from './BannerPoup';
+import GalleryTwoColumnsPopup from "./GalleryTwoColumnsPopup";
 
 gsap.registerPlugin(useGSAP, ScrollSmoother, ScrollTrigger);
 interface LayoutProps {
@@ -138,6 +139,7 @@ const Layout: React.FC<LayoutProps> = ({ children, banner }) => {
 
     let projectBanner = children?.props?.blocks;
 
+
     let popUp = (projectBanner && projectBanner.length > 0) && projectBanner.filter((block: any) => block.name === 'acf/projects-banner').map((block: any, index: number) => {
         return (
             <BannerPoup
@@ -147,6 +149,15 @@ const Layout: React.FC<LayoutProps> = ({ children, banner }) => {
         )
     })
 
+    let galleryPopup = (projectBanner && projectBanner.length > 0) && projectBanner.filter((block: any) => block.name === 'acf/gallery-two-columns').map((block: any, index: number) => {
+        return (
+            <GalleryTwoColumnsPopup
+                key={index}
+                gallery={block.attributes.data.gallery} />
+        )
+    })
+
+
     if (loading || error) return <></>
 
     return (
@@ -155,6 +166,7 @@ const Layout: React.FC<LayoutProps> = ({ children, banner }) => {
                 <Slice alias="preload" />
                 <Slice alias="header" />
                 {popUp && popUp}
+                {galleryPopup && galleryPopup}
                 {getContactForm && <ContactForm data={getContactForm} />}
                 <main className="global-wrapper" >
                     <div id="smooth-wrapper" ref={smoother}>
