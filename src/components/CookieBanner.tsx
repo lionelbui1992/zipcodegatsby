@@ -122,7 +122,14 @@ const CookieBanner = () => {
                                     <div className="cookie-banner-accordion-header-wrapper">
                                         <div className="cookie-banner-accordion-header">
                                             <button className="cookie-banner-accordion-btn" dangerouslySetInnerHTML={{ __html: cookieItem.title }}></button>
-                                            <span className="cookie-banner-always-active">{cookieItem.isEditable ? '' : 'Always Active'}</span>
+                                            {cookieItem.isEditable &&
+                                                <span className="cookie-banner-always-active">Always Active</span>
+                                            }
+                                            {!cookieItem.isEditable &&
+                                                <div className="cookie-banner-switch">
+                                                    <input type="checkbox" />
+                                                </div>
+                                            }
                                         </div>
                                         <div className="cookie-banner-accordion-header-des" dangerouslySetInnerHTML={{ __html: cookieItem.text }} />
                                     </div>
