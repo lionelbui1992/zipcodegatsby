@@ -78,7 +78,14 @@ const CookieBanner = () => {
 
     // Check if the cookie banner should be displayed
     const shouldDisplayBanner = !hasAcceptedEssentialCookies && modalIsOpen === false;
-
+    const handleTooglePopupcontent = (event: any) => {
+        const checked = event.target.checked;
+        if (checked) {
+            event.target.closest('.cookie-banner-accordion').classList.add('active');
+        } else {
+            event.target.closest('.cookie-banner-accordion').classList.remove('active');
+        }
+    }
     return (
     <div>
         {shouldDisplayBanner && (
@@ -127,7 +134,7 @@ const CookieBanner = () => {
                                             }
                                             {!cookieItem.isEditable &&
                                                 <div className="cookie-banner-switch">
-                                                    <input type="checkbox" />
+                                                    <input type="checkbox" onChange={(event) =>{handleTooglePopupcontent(event)}}/>
                                                 </div>
                                             }
                                         </div>
