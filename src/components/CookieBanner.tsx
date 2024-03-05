@@ -9,6 +9,11 @@ export interface ICookieItem {
     isEditable: boolean
     title: string
     text: string
+    cookieDetail: {
+        cookie: string
+        duration: string
+        description: string
+    }[]
 }
 
 const CookieBanner = () => {
@@ -25,6 +30,11 @@ const CookieBanner = () => {
                     name
                     text
                     title
+                    cookieDetail {
+                        cookie
+                        description
+                        duration
+                    }
                 }
             }
         }
@@ -119,20 +129,27 @@ const CookieBanner = () => {
                                 </div>
                                 <div className="cookie-banner-accordion-body">
                                     <div className="cookie-banner-audit-table">
-                                        <ul className="cookie-banner-cookie-des-table">
-                                            <li>
-                                                <div>Cookie</div>
-                                                <div>cookieyes-consent</div>
-                                            </li>
-                                            <li>
-                                                <div>Duration</div>
-                                                <div>1 year</div>
-                                            </li>
-                                            <li>
-                                                <div>Description</div>
-                                                <div>CookieYes sets this cookie to remember users' consent preferences so that their preferences are respected on subsequent visits to this site. It does not collect or store any personal information about the site visitors.</div>
-                                            </li>
-                                        </ul>
+                                        {cookieItem.cookieDetail && cookieItem.cookieDetail.length > 0 && cookieItem.cookieDetail.map(function(cookieDetail, index) {
+                                            return (
+                                                <ul className="cookie-banner-cookie-des-table" key={cookieDetail.cookie}>
+                                                    <li>
+                                                        <div>Cookie</div>
+                                                        <div>{cookieDetail.cookie}</div>
+                                                    </li>
+                                                    <li>
+                                                        <div>Duration</div>
+                                                        <div>{cookieDetail.duration}</div>
+                                                    </li>
+                                                    <li>
+                                                        <div>Description</div>
+                                                        <div dangerouslySetInnerHTML={{ __html: cookieDetail.description }} />
+                                                    </li>
+                                                </ul>
+                                            )
+                                        })}
+                                        {(!cookieItem.cookieDetail || cookieItem.cookieDetail.length < 1) && (
+                                            <p className="cookie-banner-empty-cookies-text">No cookies to display.</p>
+                                        )}
                                     </div>
                                 </div>
                             </div>
