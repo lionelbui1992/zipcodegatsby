@@ -1,7 +1,5 @@
 .success-message
     color: green
-body.active-form
-    overflow: hidden !important
 .scrollTrigger
     margin-bottom: 0px
 
@@ -149,6 +147,11 @@ body.active-form
     z-index: 2
     .image-with-text-component
         margin-bottom: 120px
+        &:last-child
+            margin-bottom: 0px
+        &.text-right
+            .animation-image
+                max-width: 680px
 
         .image-box
             padding-bottom: 619px
@@ -182,7 +185,7 @@ body.active-form
 
 .section-company
     background: url('/img/img-4.jpg')
-    padding: 170px 0
+    padding: 170px 0 160px
     background-repeat: no-repeat
     background-position: center
     background-size: cover
@@ -191,6 +194,8 @@ body.active-form
 
     .company--image--text
         margin-top: 104px
+        .btn
+            padding: 14px 50px 14px 22.24px
 
     .company-box
         position: relative
@@ -210,7 +215,7 @@ body.active-form
         margin: auto
 
     .image-box
-        padding-bottom: 370px
+        padding-bottom: 302px
         position: relative
 
     .text
@@ -238,13 +243,13 @@ body.active-form
             bottom: 0
 
     .c-image
-        max-width: 300px
+        max-width: 299px
         margin: auto
         position: absolute
         bottom: 0
         z-index: 2
         width: 100%
-        left: calc(50% - 150px)
+        left: calc(50% - (150px / 2))
 
     .c-text
         color: #fff
@@ -259,6 +264,9 @@ body.active-form
         margin-left: auto
 .section-explore
     padding: 250px 0 0
+
+    .btn
+        padding: 14px 50px 14px 22.24px
 
     .col-left
         width: 39.5%
@@ -375,10 +383,9 @@ body.active-form
 
     &.show
         display: flex !important
-        &.active
-            opacity: 1
-            visibility: visible
-            pointer-events: auto
+        opacity: 1
+        visibility: visible
+        pointer-events: auto
 
     .btn-close
         position: absolute
@@ -549,6 +556,11 @@ fieldset.fieldset
 @media screen and (max-width: 1399px)
     .scrollTrigger
         margin-bottom: 60px
+    .section-introduce
+        .image-with-text-component
+            &.text-right
+                .animation-image
+                    max-width: 484px
 
 @media screen and (max-width: 1199px)
 
@@ -581,8 +593,19 @@ fieldset.fieldset
                 margin-bottom: 50px
 
 @media screen and (max-width: 991px)
-
+    .overlay-bottom-center
+        .animation-image:before
+            width: calc(100% + 60px)
+            bottom: -20px
+            left: -28px
     .section-introduce
+        .image-with-text-component
+            .overlay-top-right
+                .animation-image:before
+                    width: 130px
+                    height: 260px
+                    top: -15px
+                    right: -15px
         .d-flex
             column-gap: 50px
         .col-right
@@ -621,6 +644,7 @@ fieldset.fieldset
 
     .section-introduce
         overflow-x: hidden
+
         .text-left .d-flex, .d-flex
             flex-direction: column
             row-gap: 82px
@@ -643,10 +667,21 @@ fieldset.fieldset
 
         .c-image
             max-width: 177px
+            left: calc(50% - (177px / 2))
 
         .c-text
             margin-left: 0
             margin-right: 0
+
+        .company--image--text
+            .btn
+                font-size: 14px
+                font-weight: 400
+                line-height: 14px
+                letter-spacing: 0.02em
+                background-position: right 15px center
+                padding: 11px 50px 11px 22.24px
+                height: auto
 
     .section-explore
         padding: 120px 0 60px
@@ -666,6 +701,15 @@ fieldset.fieldset
         .col-right
             padding-left: 0
             width: 100%
+            .btn
+                font-size: 14px
+                font-weight: 400
+                line-height: 14px
+                letter-spacing: 0.02em
+                background-position: right 15px center
+                padding: 11px 50px 11px 22.24px
+                height: auto
+
             .col-text
                 display: flex
                 flex-wrap: wrap
