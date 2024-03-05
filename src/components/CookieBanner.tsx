@@ -2,6 +2,7 @@ import { gql, useQuery } from '@apollo/client';
 import React, { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import Modal from 'react-modal';
+import "../assets/sass/cookie-banner.sass";
 
 export interface ICookieItem {
     name: string

@@ -10,18 +10,6 @@
     color: #212121
 .site-cookie-notice-des
     color: #212121
-.site-cookie-btn.site-cookie-btn-customize
-    color: #1863dc
-    border-color: #1863dc
-    background-color: transparent
-.site-cookie-btn.site-cookie-btn-reject
-    color: #1863dc
-    border-color: #1863dc
-    background-color: transparent
-.site-cookie-btn.site-cookie-btn-accept
-    color: #ffffff
-    border-color: #1863dc
-    background-color: #1863dc
 .cookie-banner-preference-title
     color: #212121
 .cookie-banner-preference-content-wrapper
@@ -36,15 +24,89 @@
     background-color: #f4f4f4
 .cookie-banner-footer-shadow
     background: linear-gradient(180deg,rgba(255, 255, 255, 0) 0%,#ffffff 100%)
-.cookie-banner-btn.cookie-banner-btn-reject
+
+.cookie-banner
+    position: fixed
+    width: 440px
+    max-width: 100%
+    box-sizing: border-box
+    z-index: 9999999
+    border-radius: 6px
+    background: #fff
+    border: 1px solid
+    padding: 20px 26px
+    box-shadow: 0 -1px 10px 0 #acabab4d
+    border-radius: 6px
+    border-color: #f4f4f4
+    background-color: #FFFFFF
+    bottom: 40px
+    left: 40px
+
+.site-cookie-title
+    color: #212121
+    font-weight: 700
+    font-size: 18px
+    line-height: 24px
+    margin: 0 0 12px 0
+    word-break: break-word
+
+.site-cookie-notice-des
+    color: #212121
+    font-size: 14px
+    line-height: 24px
+    font-weight: 400
+
+.site-cookie-notice-btn-wrapper
+    display: flex
+    justify-content: flex-start
+    align-items: center
+    flex-wrap: wrap
+    gap: 8px
+    margin-top: 16px
+
+    .site-cookie-btn
+        flex: auto
+        max-width: 100%
+        font-size: 14px
+        font-family: inherit
+        line-height: 24px
+        padding: 8px
+        font-weight: 500
+        border-radius: 2px
+        cursor: pointer
+        text-align: center
+        text-transform: none
+        min-height: 0
+        color: #1863dc
+        background: transparent
+        border: 2px solid #1863dc
+        -webkit-transition: all .5s ease
+        transition: all .5s ease
+        &:hover 
+            opacity: .8
+
+.site-cookie-btn.site-cookie-btn-customize
     color: #1863dc
     border-color: #1863dc
     background-color: transparent
-.cookie-banner-btn.cookie-banner-btn-preferences
+.site-cookie-btn.site-cookie-btn-reject
     color: #1863dc
     border-color: #1863dc
     background-color: transparent
-.cookie-banner-btn.cookie-banner-btn-accept
+.site-cookie-btn.site-cookie-btn-accept
     color: #ffffff
     border-color: #1863dc
     background-color: #1863dc
+
+@media (max-width: 576px)
+    .cookie-banner
+        bottom: 0
+        left: 0
+        padding: 20px 24px
+
+@media (max-width: 440px)
+    .site-cookie-notice-btn-wrapper
+        gap: 10px
+        flex-direction: column
+        .site-cookie-btn
+            width: 100%
