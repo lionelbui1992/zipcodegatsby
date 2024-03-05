@@ -14,6 +14,7 @@ import { gql, useQuery } from "@apollo/client";
 import Test from "./blocks/custom/Test";
 import { BannerPoup } from './BannerPoup';
 import GalleryTwoColumnsPopup from "./GalleryTwoColumnsPopup";
+import CookieBanner from './CookieBanner';
 
 gsap.registerPlugin(useGSAP, ScrollSmoother, ScrollTrigger);
 interface LayoutProps {
@@ -188,6 +189,7 @@ const Layout: React.FC<LayoutProps> = ({ children, banner }) => {
                     <Test />
                 )}
             </div>
+            <CookieBanner />
         </SEOContext.Provider>
     )
 }
