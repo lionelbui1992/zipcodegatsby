@@ -3,7 +3,7 @@
 body.active-form
     overflow: hidden !important
 .scrollTrigger
-    margin-bottom: 100px
+    margin-bottom: 0px
 
 .small-container
     max-width: 1452px
@@ -189,6 +189,9 @@ body.active-form
     border-radius: 0 0 32px 32px
     min-height: 100vh
 
+    .company--image--text
+        margin-top: 104px
+
     .company-box
         position: relative
         max-width: 1404px
@@ -237,8 +240,11 @@ body.active-form
     .c-image
         max-width: 300px
         margin: auto
-        position: relative
+        position: absolute
+        bottom: 0
         z-index: 2
+        width: 100%
+        left: calc(50% - 150px)
 
     .c-text
         color: #fff
@@ -539,6 +545,10 @@ fieldset.fieldset
 
     .small-container
         max-width: 1246px
+
+@media screen and (max-width: 1399px)
+    .scrollTrigger
+        margin-bottom: 60px
 
 @media screen and (max-width: 1199px)
 
