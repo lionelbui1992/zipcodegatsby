@@ -9,11 +9,12 @@ export interface ICookieItem {
     isEditable: boolean
     title: string
     text: string
+    status: boolean
     cookieDetail: {
         cookie: string
         duration: string
         description: string
-    }[]
+    }[] | null
 }
 
 const CookieBanner = () => {
@@ -47,7 +48,7 @@ const CookieBanner = () => {
     const [cookieBannerTitle, setCookieBannerTitle] = useState("");
     const [popupTitle, setPopupTitle] = useState("");
     const [popupText, setPopupText] = useState("");
-    const [cookieContent, setCookieContent] = useState([]);
+    const [cookieContent, setCookieContent] = useState<ICookieItem[]>([]);
 
     //useEffect
     useEffect(() => {
@@ -56,20 +57,37 @@ const CookieBanner = () => {
             setCookieBannerTitle(data.cookieNotice.cookieNoticeFields.cookieBannerTitle)
             setPopupTitle(data.cookieNotice.cookieNoticeFields.popupTitle)
             setPopupText(data.cookieNotice.cookieNoticeFields.popupText)
-            setCookieContent(data.cookieNotice.cookieNoticeFields.cookieContent)
+            let cookieData: ICookieItem[] = [];
+            data.cookieNotice.cookieNoticeFields.cookieContent.map(function(item: ICookieItem, index: number) {
+                cookieData.push({
+                    ...item,
+                    status: !item.isEditable
+                });
+            });
+            setCookieContent(cookieData)
         }
+        Modal.setAppElement(document.body);
+        
     }, [data]);
 
     const [cookies, setCookie] = useCookies(['cookiePreferences']);
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
     const handleAcceptCookies = () => {
-        setCookie('cookiePreferences', { essential: true, statistics: true, marketing: false });
+        const cookieValue = cookieContent.map(({name, status}) => ({[name]: true}));
+        setCookie('cookiePreferences', cookieValue);
+        setModalIsOpen(false);
+    };
+
+    const handleSaveCookies = () => {
+        const cookieValue = cookieContent.map(({name, status}) => ({[name]: status}));
+        setCookie('cookiePreferences', cookieValue);
         setModalIsOpen(false);
     };
 
     const handleRejectAllCookies = () => {
-        setCookie('cookiePreferences', { essential: false, statistics: false, marketing: false });
+        const cookieValue = cookieContent.map(({name, status}) => ({[name]: false}));
+        setCookie('cookiePreferences', cookieValue);
         setModalIsOpen(false);
     };
 
@@ -77,16 +95,22 @@ const CookieBanner = () => {
     const hasAcceptedEssentialCookies = cookies.cookiePreferences;
 
     // Check if the cookie banner should be displayed
-    const shouldDisplayBanner = !hasAcceptedEssentialCookies && modalIsOpen === false;
+    const shouldDisplayBanner = !loading && !error && !hasAcceptedEssentialCookies && modalIsOpen === false;
     const handleTooglePopupcontent = (event: any) => {
+        const status = event.target.closest('.cookie-banner-accordion').classList.contains('active');
         document.querySelectorAll('.cookie-banner-accordion').forEach((buttonTT) => {
             buttonTT.classList.remove('active');
         })
-        if (!event.target.closest('.cookie-banner-accordion').classList.contains('active')) {
-            event.target.closest('.cookie-banner-accordion').classList.add('active');
-        } else {
+        if (status) {
             event.target.closest('.cookie-banner-accordion').classList.remove('active');
+        } else {
+            event.target.closest('.cookie-banner-accordion').classList.add('active');
         }
+    }
+    const handleCookieChange = (event: any, index: number) => {
+        const newCookieContent = [...cookieContent];
+        newCookieContent[index].status = event.target.checked;
+        setCookieContent(newCookieContent);
     }
     return (
     <div>
@@ -131,12 +155,12 @@ const CookieBanner = () => {
                                     <div className="cookie-banner-accordion-header-wrapper">
                                         <div className="cookie-banner-accordion-header">
                                             <button className="cookie-banner-accordion-btn" dangerouslySetInnerHTML={{ __html: cookieItem.title }} onClick={(event) =>{handleTooglePopupcontent(event)}}></button>
-                                            {cookieItem.isEditable &&
+                                            {!cookieItem.isEditable &&
                                                 <span className="cookie-banner-always-active">Always Active</span>
                                             }
-                                            {!cookieItem.isEditable &&
+                                            {cookieItem.isEditable &&
                                                 <div className="cookie-banner-switch">
-                                                    <input type="checkbox"/>
+                                                    <input type="checkbox" checked={cookieItem.status} onChange={(event) => {handleCookieChange(event, index)}} />
                                                 </div>
                                             }
                                         </div>
@@ -179,7 +203,7 @@ const CookieBanner = () => {
                 <span className="cookie-banner-footer-shadow"></span>
                 <div className="cookie-banner-prefrence-btn-wrapper">
                     <button className="cookie-banner-btn cookie-banner-btn-reject" onClick={() => {handleRejectAllCookies(); setModalIsOpen(false)}}>Reject All </button>
-                    <button className="cookie-banner-btn cookie-banner-btn-preferences" onClick={handleAcceptCookies}>Save My Preferences </button>
+                    <button className="cookie-banner-btn cookie-banner-btn-preferences" onClick={handleSaveCookies}>Save My Preferences </button>
                     <button className="cookie-banner-btn cookie-banner-btn-accept" onClick={handleAcceptCookies}> Accept All </button>
                 </div>
             </div>
