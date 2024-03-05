@@ -79,8 +79,10 @@ const CookieBanner = () => {
     // Check if the cookie banner should be displayed
     const shouldDisplayBanner = !hasAcceptedEssentialCookies && modalIsOpen === false;
     const handleTooglePopupcontent = (event: any) => {
-        const checked = event.target.checked;
-        if (checked) {
+        document.querySelectorAll('.cookie-banner-accordion').forEach((buttonTT) => {
+            buttonTT.classList.remove('active');
+        })
+        if (!event.target.closest('.cookie-banner-accordion').classList.contains('active')) {
             event.target.closest('.cookie-banner-accordion').classList.add('active');
         } else {
             event.target.closest('.cookie-banner-accordion').classList.remove('active');
@@ -128,13 +130,13 @@ const CookieBanner = () => {
                                     </div>
                                     <div className="cookie-banner-accordion-header-wrapper">
                                         <div className="cookie-banner-accordion-header">
-                                            <button className="cookie-banner-accordion-btn" dangerouslySetInnerHTML={{ __html: cookieItem.title }}></button>
+                                            <button className="cookie-banner-accordion-btn" dangerouslySetInnerHTML={{ __html: cookieItem.title }} onClick={(event) =>{handleTooglePopupcontent(event)}}></button>
                                             {cookieItem.isEditable &&
                                                 <span className="cookie-banner-always-active">Always Active</span>
                                             }
                                             {!cookieItem.isEditable &&
                                                 <div className="cookie-banner-switch">
-                                                    <input type="checkbox" onChange={(event) =>{handleTooglePopupcontent(event)}}/>
+                                                    <input type="checkbox"/>
                                                 </div>
                                             }
                                         </div>
