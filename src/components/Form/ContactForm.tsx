@@ -22,7 +22,6 @@ export const ContactForm = (props): JSX.Element => {
 
 
     let _validationSchema = validationSchema(fields);
-    const [isFormVisible, setFormVisible] = useState(false)
     const ctform = useRef(null)
 
     const formik = useFormik({
@@ -69,32 +68,13 @@ export const ContactForm = (props): JSX.Element => {
 
     const handleClosePopup = () => {
         document.body.classList.remove("active-form");
-        setFormVisible(false);
-        Cookies.set('contact-form', 'true', { expires: 1 / 24 }); // Expires in 1 hour
+        document.querySelector('.section-contact-popup')?.classList.remove('show');
     };
 
-    useEffect(() => {
-        const showForm = () => {
-            if (!Cookies.get('contact-form')) {
-                document.body.classList.add("active-form");
-                setFormVisible(true);
-                setTimeout(() => {
-                    if (ctform.current) {
-                        ctform.current.classList.add('active')
-                    }
-                }, 100)
-            }
-        };
-
-        const timer = setTimeout(showForm, 6000); // Show after 10 seconds
-
-        return () => clearTimeout(timer);
-
-    }, [ctform]);
 
 
     return (
-        <div className={`section section-contact-popup popup ${isFormVisible ? 'show' : 'hidden'}`} style={{ display: "none" }} ref={ctform}>
+        <div className={`section section-contact-popup popup hidden`} style={{ display: "none" }} ref={ctform}>
             <div className="container">
                 <div className="btn-close" onClick={handleClosePopup}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 32 29" fill="none">

@@ -162,6 +162,12 @@ export default function Footer(): JSX.Element {
   });
   const [imageFooter, setImageFooter] = useState("");
   const [backgroundFooter, setBackgroundFooter] = useState("");
+
+  const handleOpenContactPopup = (e) => {
+    e.preventDefault();
+    document.body.classList.add("active-form");
+    document.querySelector('.section-contact-popup')?.classList.add('show');
+  }
   // useEffect
   useEffect(() => {
     if (!loading && !error && data && data.option.footer) {
@@ -196,7 +202,7 @@ export default function Footer(): JSX.Element {
               <div className="content top">{footerData.descriptionLeft}</div>
             )}
             {(footerData.buttonContact && footerData.buttonContact.title) && (
-              <a href={footerData.buttonContact.url} target={footerData.buttonContact.target}><div className="button">{footerData.buttonContact.title}</div></a>
+              <a onClick={handleOpenContactPopup} href={footerData.buttonContact.url} target={footerData.buttonContact.target}><div className="button">{footerData.buttonContact.title}</div></a>
             )}
           </div>
           <div className="right">
@@ -215,10 +221,10 @@ export default function Footer(): JSX.Element {
               )}
             </div>
             <div className="ft-mb">
-              <SectionLink 
-                privacyPolicy={footerData.privacyPolicy} 
-                cookiesPolicy={footerData.cookiesPolicy} 
-                codeOfConduct={footerData.codeOfConduct} 
+              <SectionLink
+                privacyPolicy={footerData.privacyPolicy}
+                cookiesPolicy={footerData.cookiesPolicy}
+                codeOfConduct={footerData.codeOfConduct}
               />
             </div>
           </div>
@@ -229,12 +235,12 @@ export default function Footer(): JSX.Element {
           )}
         </div>
         <div className="ft-dk">
-          <SectionLink 
-            privacyPolicy={footerData.privacyPolicy} 
-            cookiesPolicy={footerData.cookiesPolicy} 
-            codeOfConduct={footerData.codeOfConduct} 
+          <SectionLink
+            privacyPolicy={footerData.privacyPolicy}
+            cookiesPolicy={footerData.cookiesPolicy}
+            codeOfConduct={footerData.codeOfConduct}
           />
-          </div>
+        </div>
       </div>
     </footer>
   );
