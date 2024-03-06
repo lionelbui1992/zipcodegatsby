@@ -151,12 +151,13 @@
       line-height: 14px
       letter-spacing: 0.02em
       text-transform: uppercase
-      min-width: 120px
-      text-align: center
-      &:first-child
-        text-align: left
-      &:last-child
-        text-align: right
+      @media screen and (min-width: 768px)
+        min-width: 120px
+        text-align: center
+        &:first-child
+          text-align: left
+        &:last-child
+          text-align: right
       @media screen and (max-width: 767.98px)
         width: 100%
 
