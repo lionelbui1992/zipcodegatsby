@@ -150,6 +150,10 @@
     flex-direction: column
     border-radius: 6px
     margin: auto
+    transform: translateY(120%)
+    &.ReactModal__Content--after-open
+        transition: all 1s ease
+        transform: translateY(0%)
 
 .cookie-banner-preference-body-wrapper
     padding: 0 24px 10px
@@ -361,6 +365,7 @@ button.cookie-banner-btn-close
 
     .ReactModal__Content
         width: 100%
+        max-height: 100vh
 
     .cookie-banner-prefrence-btn-wrapper
         .cookie-banner-btn, .site-cookie-btn
@@ -369,7 +374,8 @@ button.cookie-banner-btn-close
     .site-cookie-notice-btn-wrapper
         .cookie-banner-btn, .site-cookie-btn
             width: 100%
-
+            
+    .site-cookie-notice-btn-wrapper .site-cookie-btn.site-cookie-btn-accept,
     .cookie-banner-prefrence-btn-wrapper .cookie-banner-btn.cookie-banner-btn-accept
         order: -1
 
