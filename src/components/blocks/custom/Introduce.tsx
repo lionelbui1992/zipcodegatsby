@@ -8,7 +8,10 @@ export default function Introduce({ attributes: { introduces } }: { attributes: 
         <div className="section section-introduce">
             <div className="container">
                 {introduces.map((introduce, index) => {
-                    const overlayClass =  index % 2 ? "overlay-bottom-center" : "overlay-top-right";
+                    let overlayClass = index % 2 ? "overlay-bottom-center" : "overlay-top-right";
+                    if (index === 0) overlayClass = "overlay-top-right"
+                    if (index === 1) overlayClass = ""
+                    if (index === 2) overlayClass = "overlay-bottom-center"
                     return (
                         <div key={index} className={`image-with-text-component text-${index % 2 ? 'right' : 'left'}`}>
                             <div className="d-flex">
