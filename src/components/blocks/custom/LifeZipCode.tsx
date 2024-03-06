@@ -16,7 +16,6 @@ export const LifeZipCode = ({ attributes: { background, title, gallery } }: { at
                 'wrapAround': true,
                 'disableScrolling': true,
                 'showImageNumberLabel': false,
-
             })
         });
 

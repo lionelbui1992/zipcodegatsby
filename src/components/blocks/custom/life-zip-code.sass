@@ -189,6 +189,9 @@ body .lightbox
     position: fixed
     top: 50% !important
     transform: translateY(-50%)
+    padding-right: 7px
+    @media screen and (max-width: 1199px)
+        padding-right: 0
 
     .lb-data .lb-close
         display: none
@@ -198,6 +201,11 @@ body .lightbox
 
     .lb-outerContainer
         background: transparent
+        width: 1160px !important
+        max-width: calc(100% - 55px)
+        text-align: center
+        display: flex
+        justify-content: center
 
     .lb-image
         border-color: transparent
@@ -209,11 +217,15 @@ body .lightbox
             background-repeat: no-repeat
             background-size: 32px
             background-position: center
-            width: 50px
+            width: 50%
 
         &.lb-prev
             background-image: url(images/icon-arrows-white.svg)
             transform: rotate(180deg)
+            left: -7px
+            background-position: right center
 
         &.lb-next
             background-image: url(images/icon-arrows-white.svg)
+            right: -7px
+            background-position: right center
