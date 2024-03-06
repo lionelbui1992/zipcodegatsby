@@ -8,11 +8,15 @@
     margin: auto
     padding: 0 36px
 
+.pinning-1 section.marquee-section
+    padding-bottom: 0
+    margin-bottom: 0
+
 .loading header.header.container.header__hidden
     opacity: 0
 
 ::-webkit-scrollbar
-    width: 7px
+    width: 5px
 
 ::-webkit-scrollbar-thumb
     background: #a5a5a5
@@ -192,6 +196,9 @@
     border-radius: 0 0 32px 32px
     min-height: 100vh
 
+    @media screen and (min-height: 1100px)
+        padding: 30% 0 160px
+
     .company--image--text
         margin-top: 104px
         .btn
@@ -249,7 +256,7 @@
         bottom: 0
         z-index: 2
         width: 100%
-        left: calc(50% - (150px / 2))
+        left: calc(50% - (299px / 2))
 
     .c-text
         color: #fff
