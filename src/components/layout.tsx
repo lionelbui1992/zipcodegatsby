@@ -169,7 +169,7 @@ const Layout: React.FC<LayoutProps> = ({ children, banner }) => {
                 {popUp && popUp}
                 {galleryPopup && galleryPopup}
                 {getContactForm && <ContactForm data={getContactForm} />}
-                <CookieBanner />
+                {/* <CookieBanner /> */}
                 <main className="global-wrapper" >
                     <div id="smooth-wrapper" ref={smoother}>
                         <div id="smooth-content">
