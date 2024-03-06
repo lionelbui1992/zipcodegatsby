@@ -14,6 +14,7 @@ import { gql, useQuery } from "@apollo/client";
 import Test from "./blocks/custom/Test";
 import { BannerPoup } from './BannerPoup';
 import GalleryTwoColumnsPopup from "./GalleryTwoColumnsPopup";
+import CookieBanner from './CookieBanner';
 
 gsap.registerPlugin(useGSAP, ScrollSmoother, ScrollTrigger);
 interface LayoutProps {
@@ -168,6 +169,7 @@ const Layout: React.FC<LayoutProps> = ({ children, banner }) => {
                 {popUp && popUp}
                 {galleryPopup && galleryPopup}
                 {getContactForm && <ContactForm data={getContactForm} />}
+                <CookieBanner />
                 <main className="global-wrapper" >
                     <div id="smooth-wrapper" ref={smoother}>
                         <div id="smooth-content">

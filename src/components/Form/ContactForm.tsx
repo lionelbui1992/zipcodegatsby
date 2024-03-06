@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Cookies from 'js-cookie';
 import { useFormik } from 'formik';
-import * as Yup from 'yup';
 import { RenderForm, validationSchema } from './helper';
 
 
