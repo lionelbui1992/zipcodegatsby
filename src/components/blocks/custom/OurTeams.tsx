@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./our-teams.sass";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
@@ -11,6 +11,17 @@ import { IOurTeamsProps } from "../types";
 
 export const OurTeams = ({ attributes }: { attributes: IOurTeamsProps }): JSX.Element => {
     const { title, description, peoples } = attributes;
+    useEffect(() => {
+        const itemsInner: NodeListOf<HTMLElement> = document.querySelectorAll('.our-teams-item-inner');
+        itemsInner.forEach((item: HTMLElement) => {        
+            item?.addEventListener('click', () => {
+                item?.classList.toggle("active");
+            })      
+            item?.addEventListener('mouseleave', () => {
+                item?.classList.remove('active');
+            })
+        });
+    })
 
     return (
         <>
@@ -68,7 +79,7 @@ export const OurTeams = ({ attributes }: { attributes: IOurTeamsProps }): JSX.El
                                     { peoples.map((list, index) => (
                                         (list.name || list.avatar || list.short_description || list.position ) && 
                                             <SwiperSlide key={index}>
-                                                <div className="item-inner">
+                                                <div className="item-inner our-teams-item-inner">
                                                     { (list.avatar) && 
                                                         <div className="item-image">
                                                             <div className="image-inner">
