@@ -225,6 +225,10 @@
         padding-bottom: 302px
         position: relative
 
+    .c-image
+        .image-box
+            padding-bottom: 100%
+
     .text
         position: absolute
         top: -15px
@@ -250,13 +254,15 @@
             bottom: 0
 
     .c-image
-        max-width: 299px
+        max-width: 260px
         margin: auto
         position: absolute
         bottom: 0
         z-index: 2
         width: 100%
-        left: calc(50% - (299px / 2))
+        left: calc(50% - (260px / 2))
+        @media screen and (max-height: 1000px)
+            bottom: -20%
 
     .c-text
         color: #fff
@@ -300,7 +306,7 @@
                 background: url(/img/image-7-tinified.png)
                 transform: translate(-50%,-50%)
                 background-repeat: no-repeat
-                background-size: cover
+                background-size: 100% 100%
 
         .col-text
             width: 50%
@@ -536,6 +542,8 @@ fieldset.fieldset
                 width: 210px
                 height: 419px
 
+    .scrollTrigger
+        margin-bottom: 50px
     .section-explore
         padding: 200px 0
         .heading-text
@@ -663,6 +671,9 @@ fieldset.fieldset
             order: -1
 
     .section-company
+        .title
+            h2
+                font-size: 72px
         .text
             font-size: 22px
             line-height: 24px
