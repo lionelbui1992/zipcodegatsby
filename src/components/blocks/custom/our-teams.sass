@@ -73,10 +73,16 @@
                 &:last-child
                     margin-bottom: 0
         
-        &:hover
-            cursor: pointer
-            .item-info
-                opacity: 1
+        @media (min-width: 1200px)
+            &:hover
+                cursor: pointer
+                .item-info
+                    opacity: 1
+        @media (max-width: 1199px)
+            &.active
+                cursor: pointer
+                .item-info
+                    opacity: 1
 
     .item-content
         margin-top: 32px
@@ -108,9 +114,15 @@
             transition: all 0.35s
             opacity: 0
 
-        &:hover 
-            .item-image:before
-                opacity: 1
+        @media (min-width: 1200px)
+            &:hover 
+                .item-image:before
+                    opacity: 1
+
+        @media (max-width: 1199px)
+            &.active 
+                .item-image:before
+                    opacity: 1
 
 
     .item-image
@@ -134,10 +146,11 @@
     .our-teams-wrapper 
         padding-top: 95px
         .section-heading 
-            h2
-                font-weight: 600
-                font-size: 64.0312px
-                line-height: 68px
+            @media (min-width: 371px)
+                h2
+                    font-weight: 600
+                    font-size: 64.0312px
+                    line-height: 68px
             .content
                 font-family: Tiempos Headline
                 font-size: 16px
@@ -213,7 +226,6 @@
             h2
                 margin-top: 23px
                 margin-bottom: 39px
-                padding-right: 10px
 
         .swiper
             padding-bottom: 87px
