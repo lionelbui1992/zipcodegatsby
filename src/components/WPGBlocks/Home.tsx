@@ -10,24 +10,19 @@ import { handleOverlayAnimation } from '../../animation';
 const HomeBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBlock }) => {
 
 
-  // move first 2 blocks to first animation
-  let firstAnimatoinBlocks = [];
-  if (blocks && blocks.length > 1) {
-    firstAnimatoinBlocks.push(blocks[0]);
-    firstAnimatoinBlocks.push(blocks[1]);
-  } else if (blocks && blocks.length === 1) {
-    firstAnimatoinBlocks.push(blocks[0]);
-  }
+  const firstAnimatoinBlocks = blocks.filter((block, index) => {
+    return block.name === "acf/banner-text-center" || block.name === "acf/marquee"
+  });
 
   const secondAnimatoinBlocks = blocks.filter((block, index) => {
-    return index > 1
+    return block.name !== "acf/banner-text-center" && block.name !== "acf/marquee"
   });
 
   const container = useRef(null);
 
   // State
   const [blocksState, setBlocksState] = useState(blocks);
-  
+
   useEffect(() => {
     // Set the blocks state
     setBlocksState(blocks);
