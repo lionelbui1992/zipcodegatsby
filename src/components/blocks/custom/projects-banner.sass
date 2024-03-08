@@ -116,7 +116,7 @@ html.active-overlay
 
     .projects-popup-container 
         position: relative
-        width: 100%
+        width: 90%
         border-radius: 31.304px
         overflow: hidden
         padding: 88px 0 91px
@@ -127,6 +127,8 @@ html.active-overlay
         background-position: center
         background-repeat: no-repeat
         background-size: cover
+        max-width: 1440px
+        margin: 0 auto
         @media (max-width: 1199px)        
             padding: 54px 0 39px
 
@@ -142,8 +144,9 @@ html.active-overlay
         border: none
         outline: none
         position: absolute
-        right: -37px
-        top: -53px
+        right: 0
+        top: 1px
+        top: -25px
         cursor: pointer
 
     .popup-heading
@@ -237,6 +240,16 @@ html.active-overlay
     display: none 
     
     
+@media (min-width: 1600px)
+    .projects-items .item
+        h3
+            font-size: 100px
+            line-height: 120%
+
+        .item-inner img
+            width: 200px
+            margin-top: 5px
+
 @media (max-width: 1600px)
     .projects-banner
         padding-top: 183px
@@ -255,9 +268,6 @@ html.active-overlay
             margin-top: 67px
             --gap:52px
             padding-right: 0
-        
-        button.projects-popup-close
-            right: -71px
 
         .container
             max-width: 1108px
@@ -289,11 +299,6 @@ html.active-overlay
         padding: 69px 46px 102px 0
         .item:last-child .item-inner .subheading
             max-width: 150px
-    
-    .projects-popup 
-        button.projects-popup-close
-            right: -30px
-            top: -53px
     
 @media (max-width: 1199px)        
     .btn.visible-tablet,
@@ -390,6 +395,7 @@ html.active-overlay
         button.projects-popup-close
             right: 50px
             top: 1px
+            top: -25px
             svg
                 width: 25px
                 height: 25px
