@@ -14,7 +14,6 @@ interface LayoutProps {
 }
 
 const LayoutStatic: React.FC<LayoutProps> = ({ children }) => {
-    const smoother = useRef();
     const [hiddenBackToTop, setHiddenBackToTop] = useState(true);
 
     const lenis = useLenis(({ scroll }) => {
@@ -32,7 +31,7 @@ const LayoutStatic: React.FC<LayoutProps> = ({ children }) => {
                 }
             }
             window.addEventListener("scroll", () => handleScroll());
-        }, [smoother]);
+        }, []);
     const handleBackToTopClick = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     };
@@ -42,7 +41,7 @@ const LayoutStatic: React.FC<LayoutProps> = ({ children }) => {
                 <Slice alias="preload" />
                 <Slice alias="header" />
                 <main className="global-wrapper">
-                    <div id="smooth-wrapper" ref={smoother}>
+                    <div id="smooth-wrapper">
                         <div id="smooth-content">
                             {children}
                             <Slice alias="footer" />

@@ -107,7 +107,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     const [seo, setSeo] = useState(undefined);
     const [getContactForm, setGetContactForm] = useState(null);
     const [hiddenBackToTop, setHiddenBackToTop] = useState(true);
-    const smoother = useRef();
     //useEffect
     const lenis = useLenis(({ scroll }) => {
         // called every scroll
@@ -129,7 +128,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             window.addEventListener("scroll", () => handleAddPixelateAnimation());
             window.addEventListener("scroll", () => handleTextAnimation());
         }
-    }, [data, smoother]);
+    }, [data]);
 
     const handleBackToTopClick = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
@@ -169,7 +168,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                     {getContactForm && <ContactForm data={getContactForm} />}
                     {/* <CookieBanner /> */}
                     <main className="global-wrapper" >
-                        <div id="smooth-wrapper" ref={smoother}>
+                        <div id="smooth-wrapper">
                             <div id="smooth-content">
                                 {children}
                                 <Slice alias="footer" />
