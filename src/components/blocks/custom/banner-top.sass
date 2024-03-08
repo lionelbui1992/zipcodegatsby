@@ -1,7 +1,6 @@
 .about-banner-top
     background: var(--Color-neutrals-black, #1E1E1E)
-    padding: 224px 0 224px
-    padding: 224px 0 300px
+    padding: 125px 0 224px
 
     h1
         color: var(--Color-neutrals-white)
@@ -42,6 +41,10 @@
                     opacity: 1
                     visibility: visible
 
+            &.position-top img
+                bottom: 100%
+                top: auto
+
             img
                 position: absolute
                 top: 100%
@@ -59,8 +62,7 @@
     
 @media (max-width: 1600px)
     .about-banner-top
-        padding: 199px 0 199px
-        padding: 199px 0 300px
+        padding: 99px 0 207px
 
         .container
             max-width: 1240px
@@ -113,6 +115,10 @@
                     left: 0
                     width: 100%
                     transform: none
+
+                &.position-top img
+                    top: auto
+                    bottom: calc(var(--offsetBottom) + 48px)
 
     
     #tooltip
