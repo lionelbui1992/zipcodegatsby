@@ -5,7 +5,6 @@ import { Slice } from "gatsby"
 import { useRef, useEffect, useState } from "react";
 import { gsap } from 'gsap';
 import { SEOContext } from 'gatsby-plugin-wpgraphql-seo';
-import { ScrollSmoother } from "scroll-smoother-dev";
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { handleAddPixelateAnimation, handleTextAnimation } from '../animation'
@@ -14,14 +13,15 @@ import { gql, useQuery } from "@apollo/client";
 import Test from "./blocks/custom/Test";
 import { BannerPoup } from './BannerPoup';
 import GalleryTwoColumnsPopup from "./GalleryTwoColumnsPopup";
-import CookieBanner from './CookieBanner';
+import { ReactLenis, useLenis } from '@studio-freight/react-lenis'
 
-gsap.registerPlugin(useGSAP, ScrollSmoother, ScrollTrigger);
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 interface LayoutProps {
     children?: React.ReactNode
 }
 
-const Layout: React.FC<LayoutProps> = ({ children, banner }) => {
+const Layout: React.FC<LayoutProps> = ({ children }) => {
     const getInfo = gql`
     query TestingQuery {
         testing {
@@ -109,18 +109,15 @@ const Layout: React.FC<LayoutProps> = ({ children, banner }) => {
     const [hiddenBackToTop, setHiddenBackToTop] = useState(true);
     const smoother = useRef();
     //useEffect
+    const lenis = useLenis(({ scroll }) => {
+        // called every scroll
+    })
+
     useEffect(() => {
         if (data) {
             setTesting(data.testing.testingFields.turnOnTesting);
             setGetContactForm(data.getContactForm);
             setSeo(data.seo);
-            if (screen.width > 767) {
-                smoother.current = ScrollSmoother.create({
-                    smooth: .5, // seconds it takes to "catch up" to native scroll position
-                    effects: false, // look for data-speed and data-lag attributes on elements and animate accordingly
-                    smoothTouch: 0.1,
-                });
-            }
             const handleScroll = () => {
                 if (window.scrollY > 2000) {
                     setHiddenBackToTop(false);
@@ -163,33 +160,35 @@ const Layout: React.FC<LayoutProps> = ({ children, banner }) => {
 
     return (
         <SEOContext.Provider value={{ global: seo }}>
-            <div className="preload loading scrollWraper ScrollSmoother-wrapper viewport">
-                <Slice alias="preload" />
-                <Slice alias="header" />
-                {popUp && popUp}
-                {galleryPopup && galleryPopup}
-                {getContactForm && <ContactForm data={getContactForm} />}
-                {/* <CookieBanner /> */}
-                <main className="global-wrapper" >
-                    <div id="smooth-wrapper" ref={smoother}>
-                        <div id="smooth-content">
-                            {children}
-                            <Slice alias="footer" />
+            <ReactLenis root>
+                <div className="preload loading scrollWraper ScrollSmoother-wrapper viewport">
+                    <Slice alias="preload" />
+                    <Slice alias="header" />
+                    {popUp && popUp}
+                    {galleryPopup && galleryPopup}
+                    {getContactForm && <ContactForm data={getContactForm} />}
+                    {/* <CookieBanner /> */}
+                    <main className="global-wrapper" >
+                        <div id="smooth-wrapper" ref={smoother}>
+                            <div id="smooth-content">
+                                {children}
+                                <Slice alias="footer" />
+                            </div>
                         </div>
-                    </div>
-                    <div className={`to-top ${hiddenBackToTop ? 'hidden' : ''}`} onClick={() => { handleBackToTopClick() }}>
-                        <svg width="31" height="33" viewBox="0 0 31 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M30.1991 15.862L26.8782 19.1829L17.6445 9.70623L17.6446 32.6554L12.7847 32.6554L12.7847 9.70623L3.55106 19.1829L0.284179 15.862L15.2146 0.877548L30.1991 15.862Z" fill="#0068FF" />
-                        </svg>
-                        <span>Back to top</span>
-                    </div>
-                </main>
-                <Slice alias="clipPath" />
+                        <div className={`to-top ${hiddenBackToTop ? 'hidden' : ''}`} onClick={() => { handleBackToTopClick() }}>
+                            <svg width="31" height="33" viewBox="0 0 31 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M30.1991 15.862L26.8782 19.1829L17.6445 9.70623L17.6446 32.6554L12.7847 32.6554L12.7847 9.70623L3.55106 19.1829L0.284179 15.862L15.2146 0.877548L30.1991 15.862Z" fill="#0068FF" />
+                            </svg>
+                            <span>Back to top</span>
+                        </div>
+                    </main>
+                    <Slice alias="clipPath" />
 
-                {(testing) && (
-                    <Test />
-                )}
-            </div>
+                    {(testing) && (
+                        <Test />
+                    )}
+                </div>
+            </ReactLenis>
         </SEOContext.Provider>
     )
 }
