@@ -77,9 +77,18 @@ export default function Header(): JSX.Element {
 
     const handleScroll = (sectionsBlack:any, sectionHeader:any, resizeStatus:boolean) => {
       // add padding header section to main tag
+      const sectionHeaderHeight = sectionHeader.offsetHeight;
+      const scrollPosition = window.scrollY;
+
+      if (scrollPosition > 0) {
+        sectionHeader.classList.add('on-scroll');
+      } else {
+        sectionHeader.classList.remove('on-scroll');
+      }
+
       if (sectionHeader && mainTag && resizeStatus) {
         const handleResize = () => {
-          const sectionHeaderHeight = sectionHeader.offsetHeight;
+          
           document.documentElement.style.setProperty('--paddingTop', `${sectionHeaderHeight}px`);
         };
         window.addEventListener("resize", handleResize);
