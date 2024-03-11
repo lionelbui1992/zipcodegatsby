@@ -99,8 +99,10 @@ export default function Header(): JSX.Element {
     window.addEventListener("scroll", () => handleScroll(sectionsBlack, sectionHeader, false));
 
     const listMenu = document.querySelectorAll('.header__nav--link');
-    const heightMenuOnMobile = listMenu.length * 74 + 74;
-
+    console.log(listMenu.length);
+    const heightMenuOnMobile = listMenu.length * 85 + 85;
+    console.log(heightMenuOnMobile);
+    console.log(heightMenuOnMobile);
     // add overflow to body and toggle menu on mobile
     const handleBodyOverflow = () => {
       const body = document.body;
