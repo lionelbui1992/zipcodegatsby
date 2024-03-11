@@ -38,7 +38,7 @@ export const handleOverlayAnimation = () => {
             end: totalHeight,
             pin: true,
             pinSpacing: false,
-            scrub: 0.1,
+            scrub: 0.0000011,
             markers: false,
             onUpdate: (self) => {
                 if (document.querySelector('.item-2')) {
