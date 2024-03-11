@@ -131,6 +131,8 @@ html.active-overlay
         margin: 0 auto
         @media (max-width: 1199px)        
             padding: 54px 0 39px
+            width: 100%
+            max-height: 95%
 
     .section-bkg
         border-radius: 31.304px
@@ -437,12 +439,21 @@ html.active-overlay
         .heading
             width: 100%
 
+        .popup-content
+            margin-top: 35px
+            padding-top: 35px
+
         .popup-galleries
             width: 100%
             overflow: visible
+            padding: 35px 0 0
             
             .swiper
                 overflow: visible
+
+                .item-gallery 
+                    img
+                        height: auto
 
             .swiper
                 .swiper-button-prev
