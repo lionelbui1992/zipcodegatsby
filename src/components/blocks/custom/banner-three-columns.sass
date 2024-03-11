@@ -1,10 +1,11 @@
 .our-culture-box 
     border-radius: 45px 45px 0 0
-    background: #E1E1E1
     position: relative
     z-index: 1
     padding: 96px 0 188px
     margin-top: -60px
+    background-size: cover
+    background-repeat: no-repeat
 
     .column-box
         display: flex
@@ -15,14 +16,15 @@
             padding-right: 20px
 
         .column-image
-            width: 18.3%
-            margin-top: 46px
+            width: 30%
+            h2
+                margin-bottom: 46px
 
         .column-content
             margin-left: auto
             margin-right: -8px
             width: 41.35%
-            margin-top: 155px
+            margin-top: auto
     
     .content
         max-width: 469px
@@ -44,7 +46,7 @@
         font-weight: 400
         line-height: 25px
         letter-spacing: 0.28px
-        margin-bottom: 40px
+        margin-bottom: 0
 
 @media (max-width: 1600px)
     .our-culture-box
@@ -61,14 +63,14 @@
             width: 50%
 
         .column-image
-            width: 40%
-            max-width: 212px
-            margin-left: auto
+            width: 50%
+            max-width: 46%
+            margin-left: 0
             margin-top: 0
 
         .column-content
-            width: 100%
-            margin-top: 50px
+            width: 46%
+            margin-top: auto
             margin-right: 0
 
 @media (max-width: 767px)
@@ -76,8 +78,13 @@
         border-radius: 30px
 
         .column-box
+            .column-content
+                width: 100%
+                margin-top: 50px
+                
             .column-image
                 width: 100%
+                max-width: 100%
                 margin: 30px 0 0
 
             .column-title
