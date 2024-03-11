@@ -125,8 +125,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 }
             }
             window.addEventListener("scroll", () => handleScroll());
-            window.addEventListener("scroll", () => handleAddPixelateAnimation());
-            window.addEventListener("scroll", () => handleTextAnimation());
+            // window.addEventListener("scroll", () => handleAddPixelateAnimation());
+            // window.addEventListener("scroll", () => handleTextAnimation());
         }
     }, [data]);
 
@@ -159,7 +159,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
     return (
         <SEOContext.Provider value={{ global: seo }}>
-            <ReactLenis root>
+            <ReactLenis root
+                options={{ lerp: 0.255, duration: 0.22 }}
+            >
                 <div className="preload loading scrollWraper ScrollSmoother-wrapper viewport">
                     <Slice alias="preload" />
                     <Slice alias="header" />
@@ -184,7 +186,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                     )}
                 </div>
             </ReactLenis>
-        </SEOContext.Provider>
+        </SEOContext.Provider >
     )
 }
 
