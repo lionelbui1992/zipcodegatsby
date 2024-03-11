@@ -50,10 +50,11 @@ $heightMenuOnMobile: var(--heightMenu)
 
 .header-8
   height: 1.42px !important
-
+.header.on-scroll
+  background-color: #fff
 .header
-    padding-top: 48px
-    padding-bottom: 45px
+    padding-top: 35px
+    padding-bottom: 35px
     display: flex
     justify-content: space-between
     border-bottom: 1.5px solid #707070
@@ -63,7 +64,7 @@ $heightMenuOnMobile: var(--heightMenu)
     z-index: 99
     align-items: center
     max-width: unset !important
-    background-color: #fff
+
 
     @media screen and (max-width: 767.98px)
       padding-top: 25px
@@ -102,20 +103,26 @@ $heightMenuOnMobile: var(--heightMenu)
           text-decoration: unset
           text-align: center
           @media screen and (max-width: 767.98px)
-            margin-top: 6.65vh
+            margin-top: 60px
             &:last-child
               margin-bottom: 10vh
           
           a
-            padding: 6px 27px
             color: inherit
+            padding: 6px 25px
+            border-radius: 71px
+            margin: 0 2px
+            border: 0.7px solid transparent
+            &:hover
+              color: var(--Color-primary-blue)
+              border: 0.7px solid var(--Color-primary-blue)
 
             @media screen and (max-width: 1199px)
-              padding: 6px 18px
+              padding: 6px 16px
             @media screen and (max-width: 1099px)
-              padding: 6px 14px
+              padding: 6px 12px
             @media screen and (max-width: 991px)
-              padding: 6px 7px
+              padding: 6px 5px
             @media screen and (max-width: 767.98px)
               text-align: center
               padding: 6px 23px

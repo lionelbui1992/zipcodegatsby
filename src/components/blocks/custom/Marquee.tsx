@@ -23,7 +23,7 @@ export const Marquee = ({ blockName, attributes}: {blockName: string, attributes
                         {lists.map((list, index) => {
                             return (
                                 <div className="item" key={index}>
-                                    <span><i dangerouslySetInnerHTML={{__html: list.name}} /></span>
+                                    <span dangerouslySetInnerHTML={{__html: list.name}} />
                                 </div>
                             )
                         })}

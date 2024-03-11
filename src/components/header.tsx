@@ -77,9 +77,18 @@ export default function Header(): JSX.Element {
 
     const handleScroll = (sectionsBlack:any, sectionHeader:any, resizeStatus:boolean) => {
       // add padding header section to main tag
+      const sectionHeaderHeight = sectionHeader.offsetHeight;
+      const scrollPosition = window.scrollY;
+
+      if (scrollPosition > 0) {
+        sectionHeader.classList.add('on-scroll');
+      } else {
+        sectionHeader.classList.remove('on-scroll');
+      }
+
       if (sectionHeader && mainTag && resizeStatus) {
         const handleResize = () => {
-          const sectionHeaderHeight = sectionHeader.offsetHeight;
+          
           document.documentElement.style.setProperty('--paddingTop', `${sectionHeaderHeight}px`);
         };
         window.addEventListener("resize", handleResize);
@@ -90,8 +99,10 @@ export default function Header(): JSX.Element {
     window.addEventListener("scroll", () => handleScroll(sectionsBlack, sectionHeader, false));
 
     const listMenu = document.querySelectorAll('.header__nav--link');
-    const heightMenuOnMobile = listMenu.length * 74 + 74;
-
+    console.log(listMenu.length);
+    const heightMenuOnMobile = listMenu.length * 85 + 85;
+    console.log(heightMenuOnMobile);
+    console.log(heightMenuOnMobile);
     // add overflow to body and toggle menu on mobile
     const handleBodyOverflow = () => {
       const body = document.body;
