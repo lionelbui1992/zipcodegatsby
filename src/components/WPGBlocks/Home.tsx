@@ -36,8 +36,6 @@ const HomeBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBlo
   }, [blocks]);
   return (
     <div className="scrollTrigger" ref={container}>
-      <div className="scroll-section header-placeholder" ></div>
-
       <div className="scroll-section pinning-1" data-speed="0.2">
         {firstAnimatoinBlocks.filter((block) => {
           return !!block.name
@@ -46,15 +44,41 @@ const HomeBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBlo
         )
         }
       </div>
-      <div className="scroll-section pinning-2 company" data-speed="0.3">
-        {secondAnimatoinBlocks.filter((block, ind) => {
-          return !!block.name
-        }).map((block, index) =>
-          <div key={index + firstAnimatoinBlocks.length} className={`relative-section item-${index + 1}`}>
-            <HomeBlock order={`${index + 1 + firstAnimatoinBlocks.length}`} block={block} mapToBlock={mapToBlock} />
-          </div>
-        )}
-      </div>
+      {secondAnimatoinBlocks.filter((block, ind) => {
+        return !!block.name
+      }).map((block, index) => {
+        let classes = "",
+          cImage = "";
+        switch (block.name) {
+          case "acf/introduce":
+            classes = "section--pinning-introduce"
+            break
+          case "acf/company":
+            classes = "section--pinning-company"
+            console.log(block)
+            cImage = block?.attributes?.data?.owner_image
+            break
+          case "acf/explore":
+            classes = "section--pinning-explore"
+            break
+        }
+        return (
+          <>
+            {cImage &&
+              <div className="c-image c-wrapper">
+                <div className="image-box">
+                  <img src={cImage.src} alt={cImage.alt} />
+                </div>
+              </div>
+            }
+            <div key={index + firstAnimatoinBlocks.length} className={`item-${index + 1} ${classes}`}>
+              <HomeBlock order={`${index + 1 + firstAnimatoinBlocks.length}`} block={block} mapToBlock={mapToBlock} />
+            </div>
+          </>
+        )
+      }
+
+      )}
     </div>
   )
 }
