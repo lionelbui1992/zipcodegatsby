@@ -90,6 +90,7 @@ interface IBannerThreeColumnsProps {
     title: string,
     description: string,
     culture_image: IImage,
+    background: IImage,
 }
 
 interface IContactInformationProps {
