@@ -4,10 +4,14 @@
     position: relative
     overflow: hidden
     z-index: 1
-    margin-top: -50px
-
 .about-page > div:last-child section.about-our-teams
     border-radius: 45px 45px 0 0
+
+.pinning-2
+    .about-our-teams
+        border-radius: 45px 45px 0 0
+        & + .about-our-teams
+            border-radius: 0 0 45px 45px
 
 .our-teams
     padding-top: 7px
@@ -36,8 +40,8 @@
         .swiper-button-prev
             margin-right: 67px
 
-    .item-image 
-        .image-inner 
+    .item-image
+        .image-inner
             padding-bottom: 100%
             position: relative
         img
@@ -52,7 +56,7 @@
             height: 100%
             z-index: -1
 
-    .item-inner 
+    .item-inner
         .item-info
             position: absolute
             bottom: 0
@@ -72,7 +76,7 @@
 
                 &:last-child
                     margin-bottom: 0
-        
+
         @media (min-width: 1200px)
             &:hover
                 cursor: pointer
@@ -102,7 +106,7 @@
             font-weight: 400
             line-height: 16.771px
 
-    .item-inner 
+    .item-inner
         .item-image:before
             content: ''
             background: var(--Color-neutrals-black, #1E1E1E)
@@ -115,15 +119,14 @@
             opacity: 0
 
         @media (min-width: 1200px)
-            &:hover 
+            &:hover
                 .item-image:before
                     opacity: 1
 
         @media (max-width: 1199px)
-            &.active 
+            &.active
                 .item-image:before
                     opacity: 1
-
 
     .item-image
         position: relative
@@ -138,7 +141,7 @@
             line-height: 46px
             margin-bottom: 46px
 
-.career-perks 
+.career-perks
     background-color: #1E1E1E
     color: #ffffff
     margin-top: -50px
@@ -146,9 +149,9 @@
     border-radius: 45px 45px 0 0
     @media (max-width: 767px)
         border-radius: 30px 30px 0 0
-    .our-teams-wrapper 
+    .our-teams-wrapper
         padding-top: 95px
-        .section-heading 
+        .section-heading
             @media (min-width: 371px)
                 h2
                     font-weight: 600
@@ -163,7 +166,7 @@
                 text-align: left
                 margin-top: -10px
 
-        .item-inner 
+        .item-inner
             .item-image:before
                 background-color: #0068FF
             .item-info
@@ -189,7 +192,7 @@
     .about-our-teams
         border-radius: 30px
 
-    .our-teams 
+    .our-teams
         padding-top: 0px
         padding-bottom: 137px
 
@@ -202,15 +205,15 @@
             margin-bottom: 31px
 
         .swiper
-            .swiper-button-prev, 
+            .swiper-button-prev,
             .swiper-button-next
                 margin-top: -93px
 
         .item-content
             margin-top: 19px
 
-        .our-teams-wrapper 
-            .item-inner 
+        .our-teams-wrapper
+            .item-inner
                 .item-info
                     line-height: 25.157px
                     padding: 38px 40px 38px 32px
@@ -221,14 +224,14 @@
         padding-bottom: 62px
 
     .our-teams-wrapper
-        padding-top: 0 
+        padding-top: 0
         overflow: visible
         padding-bottom: 62px
 
-        .section-heading 
+        .section-heading
             padding-right: 65px
             max-width: 100%
-            
+
             h2
                 margin-top: 23px
                 margin-bottom: 39px
@@ -257,7 +260,7 @@
                 font-weight: 400
                 line-height: 24px
 
-    .career-perks 
+    .career-perks
         .our-teams-wrapper
             .swiper
                 .swiper-button-prev, .swiper-button-next
