@@ -96,6 +96,7 @@ interface IBannerThreeColumnsProps {
 interface IContactInformationProps {
     title: string;
     form_shortcode: string;
+    background: IImage,
 }
 
 interface BannerCtaProps {
