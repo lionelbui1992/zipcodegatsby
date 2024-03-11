@@ -56,12 +56,16 @@ export const BannerPoup = (attributes: IBannerPoupProps): JSX.Element => {
                                         <div className="popup-heading">
                                             {(list.small_text || list.popup_description) &&
                                                 <div className="heading">
-                                                    <h4 dangerouslySetInnerHTML={{
-                                                        __html: list.line.reduce((p, c) => {
-                                                            return p + c.text + " ";
-                                                        }, '')
-                                                    }} />
-                                                    <div className="subheading">{list.popup_description}</div>
+                                                    {(list.small_text) &&
+                                                        <h4 dangerouslySetInnerHTML={{
+                                                            __html: list.line.reduce((p, c) => {
+                                                                return p + c.text + " ";
+                                                            }, '')
+                                                        }} />
+                                                    }
+                                                    {(list.popup_description) &&
+                                                        <div className="subheading">{list.popup_description}</div>
+                                                    }
                                                 </div>
                                             }
                                             <div className="popup-galleries">

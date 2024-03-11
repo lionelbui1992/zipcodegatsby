@@ -125,8 +125,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 }
             }
             window.addEventListener("scroll", () => handleScroll());
-            // window.addEventListener("scroll", () => handleAddPixelateAnimation());
-            // window.addEventListener("scroll", () => handleTextAnimation());
+            window.addEventListener("scroll", () => handleAddPixelateAnimation());
+            window.addEventListener("scroll", () => handleTextAnimation());
         }
     }, [data]);
 

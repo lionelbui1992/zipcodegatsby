@@ -3,13 +3,62 @@ import { GetTheBlock } from '../blocks'
 import { IWPGBlocksProps, IWPGBlockProps } from './types'
 
 const AboutBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBlock }) => {
+  console.log(blocks)
+  const firstAnimatoinBlocks = blocks.filter((block, index) => {
+    return block.name === "acf/banner-text-has-animation" || block.name === "acf/marquee"
+  });
+
+  let i = 0,
+    j = 0;
+  const acceptedBlocks = [];
+  const rejectedBlocks = [];
+
+  blocks.filter((block, index) => {
+    return block.name !== "acf/banner-text-has-animation" && block.name !== "acf/marquee"
+  }).forEach(block => {
+
+    if ((block.name === "acf/box-image" || block.name === "acf/our-team") && (i < 1 || j < 1)) {
+
+      if (block.name === "acf/box-image") {
+        acceptedBlocks.push(block);
+        i++;
+      }
+
+      if (block.name === "acf/our-team") {
+        acceptedBlocks.push(block);
+        j++;
+      }
+    } else {
+      rejectedBlocks.push(block);
+    }
+  });
+
+  console.log(acceptedBlocks)
+  console.log(rejectedBlocks)
 
   return (
     <div className="about-page">
-      {blocks.filter(block => {
+
+      <div className="pinning-1 overlay-animation" style={{ position: "relative", zIndex: 2 }}>
+        {firstAnimatoinBlocks.filter(block => {
+          return !!block.name
+        }).map((block, index) =>
+          <AboutBlock key={index} order={`${index}`} block={block} mapToBlock={mapToBlock} />
+        )}
+      </div>
+
+      <div className="pinning-2 overlay-animation" style={{ position: "relative", zIndex: 3 }}>
+        {acceptedBlocks.filter(block => {
+          return !!block.name
+        }).map((block, index) =>
+          <AboutBlock key={index} order={`${index}`} block={block} mapToBlock={mapToBlock} />
+        )}
+      </div>
+
+      {rejectedBlocks.filter(block => {
         return !!block.name
       }).map((block, index) =>
-        <div key={index} className={`${block.name.includes('marquee') ? "initial-height" : ""} ${index !== blocks.length - 1 ? "overlay-animation" : "end-overlay-animation"}`}>
+        <div key={index} className={`${index !== rejectedBlocks.length - 1 ? "overlay-animation" : "end-overlay-animation"}`} style={{ position: "relative", zIndex: 3 }}>
           <AboutBlock order={`${index}`} block={block} mapToBlock={mapToBlock} />
         </div>
       )}
