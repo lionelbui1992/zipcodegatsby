@@ -90,11 +90,13 @@ interface IBannerThreeColumnsProps {
     title: string,
     description: string,
     culture_image: IImage,
+    background: IImage,
 }
 
 interface IContactInformationProps {
     title: string;
     form_shortcode: string;
+    background: IImage,
 }
 
 interface BannerCtaProps {
