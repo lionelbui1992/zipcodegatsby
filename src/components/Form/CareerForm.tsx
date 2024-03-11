@@ -5,7 +5,7 @@ import { RenderForm, validationSchema } from "./helper";
 
 
 export const CareerForm = ({ attributes, form }) => {
-    const { title } = attributes;
+    const { title, background } = attributes;
     let _data = [],
         fields = [];
 
@@ -75,7 +75,7 @@ export const CareerForm = ({ attributes, form }) => {
                                 <h2 dangerouslySetInnerHTML={{ __html: title }} />
                             </div>
                         }
-                        <div className="section-content">
+                        <div className="section-content" style={{ backgroundImage: `url(${background?.src})` }}>
                             <div className="available-items" >
                                 <form action="" onSubmit={formik.handleSubmit}>
                                     <fieldset className="fieldset">
