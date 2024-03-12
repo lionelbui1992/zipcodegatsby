@@ -60,7 +60,7 @@ export const ProjectsBanner = ({ attributes }: { attributes: IProjectsBannerProp
                                                     {(list.small_text) &&
                                                         <div className="subheading" dangerouslySetInnerHTML={{ __html: list.small_text }} />
                                                     }
-                                                    <button className="btn btn-secondary visible-tablet visible-mobile">Read more</button>
+                                                    <button className="btn visible-tablet visible-mobile">Read more</button>
                                                 </div>
                                             </div>
                                         ))}

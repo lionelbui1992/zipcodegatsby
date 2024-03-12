@@ -128,9 +128,15 @@
         position: absolute
         right: 45px
         top: 45px
+        @media (max-width: 1199px)
+            svg 
+                height: 25px
+                width: 25px
+                line
+                    stroke-width: 4px
         @media (max-width: 767px)
-            right: 15px
-            top: 15px
+            right: 20px
+            top: 20px
 
     .popup-content
         padding: 118px 0 58px 49px
@@ -153,6 +159,10 @@
 
         @media (max-width: 767px) 
             padding: 50px 0
+            max-height: 95%
+            padding: 54px 0 39px
+            width: 100%
+            border-radius: 31.304px
 
     .popup-item 
         display: none
