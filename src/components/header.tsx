@@ -6,8 +6,8 @@ import { Link } from "gatsby";
 export default function Header(): JSX.Element {
   const mainLogoBlack = "/img/main-logo-black.svg"
   const mainLogoWhite = "/img/main-logo-white.svg"
-  const menuLogoBlack = "/img/menu-black.svg"
-  const menuLogoWhite = "/img/menu-white.svg"
+  const menuLogoBlack = "/img/menu-z-black.svg"
+  const menuLogoWhite = "/img/menu-z-white.svg"
   const [mainLogo, setMainLogo] = useState(mainLogoBlack);
   const [menuLogo, setMenuLogo] = useState(menuLogoBlack);
   const [textColorHeader, setTextColorHeader] = useState('#1E1E1E');
@@ -185,7 +185,7 @@ export default function Header(): JSX.Element {
 
       <div className="header__toggle" onClick={handleMenuMobileClick}>
         <img
-          src={isClickMenu ? '/img/menu-close-black.svg' : menuLogo}
+          src={isClickMenu ? '/img/menu-x-close-black.svg' : menuLogo}
           alt="Menu"
         />
       </div>

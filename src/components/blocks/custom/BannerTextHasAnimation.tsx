@@ -38,22 +38,13 @@ export const BannerTextHasAnimation = ({blockName, attributes} : {blockName: str
         function ttImagesPosition() {
             const wrapper = document.querySelector('.content-tooltip');
             if (null !== wrapper) {
-                const result = [];
+                const computedStyle = window.getComputedStyle(wrapper);
+                const lineHeight = parseFloat(computedStyle.lineHeight);
+                const totalLine =  wrapper.getBoundingClientRect().height / lineHeight
                 wrapper.querySelectorAll('.tt-image').forEach(function(spanElement) {
-                    const computedStyle = window.getComputedStyle(wrapper);   
-                    const lineHeight = parseFloat(computedStyle.lineHeight);   
                     const rect = spanElement.getBoundingClientRect();   
                     const lineNumber = Math.ceil((rect.top - wrapper.getBoundingClientRect().top) / lineHeight);
-                    result.push(lineNumber);
-                });
-                const resultLength = result.length / 2;
-                wrapper.querySelectorAll('.tt-image').forEach(function(spanElement) {
-                    const computedStyle = window.getComputedStyle(wrapper);   
-                    const lineHeight = parseFloat(computedStyle.lineHeight);   
-                    const rect = spanElement.getBoundingClientRect();   
-                    const lineNumber = Math.ceil((rect.top - wrapper.getBoundingClientRect().top) / lineHeight);
-                    // line from 2 and larger
-                    if (lineNumber > resultLength) {
+                    if (lineNumber > Math.ceil(totalLine / 2)) {
                         spanElement.classList.add('position-top');
                     } else {
                         spanElement.classList.remove('position-top');
