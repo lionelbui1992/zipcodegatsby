@@ -4,13 +4,13 @@ import { IWPGBlocksProps, IWPGBlockProps } from './types'
 
 const PhilosophyBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBlock }) => {
     return (
-        <>
+        <div className='page-content'>
             {blocks.filter(block => {
                 return !!block.name
             }).map((block, index) =>
                 <PhilosophyBlock key={index} order={`${index}`} block={block} mapToBlock={mapToBlock} />
             )}
-        </>
+        </div>
     )
 }
 

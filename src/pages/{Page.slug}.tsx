@@ -5,6 +5,7 @@ import WPGBlocks from "../components/WPGBlocks"
 import AboutBlocks from "../components/WPGBlocks/About";
 import CareersBlocks from "../components/WPGBlocks/Careers";
 import PhilosophyBlocks from "../components/WPGBlocks/Philosophy";
+import ProjectsBlocks from "../components/WPGBlocks/Projects";
 import BannerPoup from "../components/BannerPoup";
 import { gql, useQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
@@ -126,7 +127,7 @@ export default function Page({ params }: { params: { slug: string } }) {
         <>
           <Seo post={post} />
           <Layout>
-            <WPGBlocks blocks={blocks} />
+            <ProjectsBlocks blocks={blocks} />
           </Layout>
         </>
       )

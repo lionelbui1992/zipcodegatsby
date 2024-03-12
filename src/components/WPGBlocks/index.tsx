@@ -3,13 +3,14 @@ import { GetTheBlock } from '../blocks'
 import { IWPGBlocksProps, IWPGBlockProps } from './types'
 
 const WPGBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBlock }) => {
-    return (
-        <>
-            {blocks && blocks.filter(block => {
-                return !!block.name}).map((block, index) => <WPGBlock key={index} order={`${index}`} block={block} mapToBlock={mapToBlock} />)
-            }
-        </>
-    )
+  return (
+    <div className='page-content'>
+      {blocks && blocks.filter(block => {
+        return !!block.name
+      }).map((block, index) => <WPGBlock key={index} order={`${index}`} block={block} mapToBlock={mapToBlock} />)
+      }
+    </div>
+  )
 }
 
 export const WPGBlock: React.FunctionComponent<IWPGBlockProps> = ({ block, mapToBlock }) => {
@@ -30,7 +31,7 @@ export const WPGBlock: React.FunctionComponent<IWPGBlockProps> = ({ block, mapTo
   if (!TheBlock) return null
 
   if (name.includes('acf/')) {
-    const {data} = attributes
+    const { data } = attributes
     return <TheBlock blockName={name} attributes={data} />
   }
 
