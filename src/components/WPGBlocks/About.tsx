@@ -3,15 +3,14 @@ import { GetTheBlock } from '../blocks'
 import { IWPGBlocksProps, IWPGBlockProps } from './types'
 
 const AboutBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBlock }) => {
-  console.log(blocks)
   const firstAnimatoinBlocks = blocks.filter((block, index) => {
     return block.name === "acf/banner-text-has-animation" || block.name === "acf/marquee"
   });
 
   let i = 0,
     j = 0;
-  const acceptedBlocks = [];
-  const rejectedBlocks = [];
+  let acceptedBlocks = [];
+  let rejectedBlocks = [];
 
   blocks.filter((block, index) => {
     return block.name !== "acf/banner-text-has-animation" && block.name !== "acf/marquee"
@@ -32,12 +31,8 @@ const AboutBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBl
       rejectedBlocks.push(block);
     }
   });
-
-  console.log(acceptedBlocks)
-  console.log(rejectedBlocks)
-
   return (
-    <div className="about-page">
+    <div className="about-page page-content">
 
       <div className="pinning-1 overlay-animation" style={{ position: "relative", zIndex: 2 }}>
         {firstAnimatoinBlocks.filter(block => {

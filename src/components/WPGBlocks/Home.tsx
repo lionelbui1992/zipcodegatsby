@@ -35,7 +35,7 @@ const HomeBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBlo
 
   }, [blocks]);
   return (
-    <div className="scrollTrigger" ref={container}>
+    <div className="scrollTrigger page-content" ref={container}>
       <div className="scroll-section pinning-1" data-speed="0.2">
         {firstAnimatoinBlocks.filter((block) => {
           return !!block.name

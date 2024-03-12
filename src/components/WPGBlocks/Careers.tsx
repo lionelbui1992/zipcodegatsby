@@ -3,22 +3,35 @@ import { GetTheBlock } from '../blocks'
 import { IWPGBlocksProps, IWPGBlockProps } from './types'
 
 const CareersBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, form, mapToBlock }) => {
- 
+
+  const lastAnimatoinBlocks = blocks.filter((block, index) => {
+    return block.name === "acf/listing-three-columns" || block.name === "acf/contact-information"
+  });
+
   return (
-    <>
+    <div className='page-content'>
       {blocks.filter(block => {
-        return !!block.name
+        return !!block.name && (block.name !== "acf/listing-three-columns" && block.name !== "acf/contact-information")
       }).map((block, index) =>
-        <div key={index} className={`${block.name && block.name.includes('marquee') ? "initial-height" : ""} ${index !== blocks.length - 1 ? "overlay-animation" : "end-overlay-animation"}`}>
+        <div key={index} className="overlay-animation">
           <CareersBlock key={index} order={`${index}`} form={form} block={block} mapToBlock={mapToBlock} />
         </div>
       )
       }
-    </>
+
+      {lastAnimatoinBlocks.filter(block => {
+        return !!block.name
+      }).map((block, index) =>
+        <div key={index} className={"end-overlay-animation"}>
+          <CareersBlock key={index} order={`${index}`} form={form} block={block} mapToBlock={mapToBlock} />
+        </div>
+      )
+      }
+    </div>
   )
 }
 
-export const CareersBlock: React.FunctionComponent<IWPGBlockProps> = ({ block, form,  mapToBlock }) => {
+export const CareersBlock: React.FunctionComponent<IWPGBlockProps> = ({ block, form, mapToBlock }) => {
 
   const {
     name,
