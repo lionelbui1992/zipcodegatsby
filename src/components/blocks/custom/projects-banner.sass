@@ -343,12 +343,8 @@ html.active-overlay
                     line-height: 24px
                 
                 button.btn
-                    padding-left: 0
-                    font-family: 'Inter', sans-serif
                     margin-top: 45px
                     min-width: 237px
-                    font-size: 20px
-                    line-height: 20px
 
             &:last-child 
                 .item-inner 
@@ -384,10 +380,6 @@ html.active-overlay
                 font-size: 22px
                 line-height: 24px
 
-        h4
-            line-height: 80px
-            letter-spacing: -1px
-
         .popup-galleries
             width: 50%
 
@@ -416,10 +408,14 @@ html.active-overlay
                 .swiper-button-prev
                     left: 0
                     top: 200px
+                    @media (max-width: 767px)
+                        top: 135px
 
                 .swiper-button-next
                     right: 0
                     top: 200px
+                    @media (max-width: 767px)
+                        top: 135px
 
             .item-gallery 
                 padding: 0 39px
@@ -436,6 +432,18 @@ html.active-overlay
         display: inline-flex
 
     .projects-popup 
+        .projects-popup-container
+            padding: 30px 0 30px
+            
+        button.projects-popup-close
+            right: 20px
+            top: -10px
+            
+        h4 
+            margin: 0
+            font-size: 45px
+            line-height: 1.2
+
         .heading
             width: 100%
 
@@ -454,6 +462,8 @@ html.active-overlay
                 .item-gallery 
                     img
                         height: auto
+                        max-width: 200px
+                        margin: 0 auto
 
             .swiper
                 .swiper-button-prev
