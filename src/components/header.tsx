@@ -6,6 +6,22 @@ import { Link } from "gatsby";
 export default function Header(): JSX.Element {
   const mainLogoBlack = "/img/main-logo-black.svg"
   const mainLogoWhite = "/img/main-logo-white.svg"
+  const menuLogoBlack = "/img/menu-black.svg"
+  const menuLogoWhite = "/img/menu-white.svg"
+  const [mainLogo, setMainLogo] = useState(mainLogoBlack);
+  const [menuLogo, setMenuLogo] = useState(menuLogoBlack);
+  const [textColorHeader, setTextColorHeader] = useState('#1E1E1E');
+
+  // State data
+  const [siteLogo, setSiteLogo] = useState("");
+  const [siteTitle, setSiteTitle] = useState("");
+  const [menuItems, setMenuItems] = useState([]);
+
+  // State - Header color
+  const [isHeaderBlack, setIsHeaderBlack] = useState(true);
+  const [isBannerBlack, setIsBannerBlack] = useState(false);
+  const [isClickMenu, setIsClickMenu] = useState(false);
+  const [isScroll, setIsScroll] = useState(false);
 
   const headerQuery = gql`
   query headerData {
@@ -27,11 +43,6 @@ export default function Header(): JSX.Element {
   `;
   const { loading, error, data } = useQuery(headerQuery);
 
-  // State
-  const [siteLogo, setSiteLogo] = useState("");
-  const [siteTitle, setSiteTitle] = useState("");
-  const [menuItems, setMenuItems] = useState([]);
-  // useEffect
   useEffect(() => {
     if (!loading && !error && data) {
       if (data.siteLogo) {
@@ -46,19 +57,60 @@ export default function Header(): JSX.Element {
     }
   }, [data]);
   
-
-  const colorHeader = (isHeaderBlack:boolean, mainLogoWhite:string, setMainLogo:any, setTextColorHeader:any) => {
-    if(isHeaderBlack) {return;};
-    setMainLogo(mainLogoWhite);
-    setTextColorHeader('#fff');
-  }
-
-  const [isHeaderBlack, setIsHeaderBlack] = useState(true);
-  const [textColorHeader, setTextColorHeader] = useState('#1E1E1E');
-  const [mainLogo, setMainLogo] = useState(mainLogoBlack);
-  const [isClickMenu, setIsClickMenu] = useState(true);
+  // Set header color
+  useEffect(() => {
+    if(isHeaderBlack) {
+      setMainLogo(mainLogoBlack);
+      setMenuLogo(menuLogoBlack);
+      setTextColorHeader('#1E1E1E');
+    } else {
+      setMainLogo(mainLogoWhite);
+      setMenuLogo(menuLogoWhite);
+      setTextColorHeader('#fff');
+    };
+  }, [isHeaderBlack]);
 
   useEffect(() => {
+    if (isClickMenu == false && isScroll == false && isBannerBlack == true ){
+      setIsHeaderBlack(false);
+    } else {
+      setIsHeaderBlack(true);
+    }
+  }, [isClickMenu, isScroll, isBannerBlack]);
+
+  useEffect(() => { 
+    const listMenu = document.querySelectorAll('.header__nav--link');
+    const heightMenuOnMobile = listMenu.length * 85 + 85;
+    // add overflow to body and toggle menu on mobile
+    const handleBodyOverflow = () => {
+      const body = document.body;
+      if (isClickMenu) {
+        body.style.overflow = 'hidden';
+        document.documentElement.style.setProperty('--heightMenu', `${heightMenuOnMobile}px`);
+      } else {
+        body.style.overflow = 'auto';
+        document.documentElement.style.setProperty('--heightMenu', '0px');
+      }
+    }
+    handleBodyOverflow();
+  }, [isClickMenu]);
+
+  const checkBannerBlack = (bannerBlack:any) => {
+    bannerBlack = document.querySelectorAll("section.bg-black");
+    if(bannerBlack.length > 0) {
+      
+      setIsBannerBlack(true);
+      clearInterval(setTimeCheckBannerBlack);
+    }
+  }
+  const stopCheckBannerBlack = () => {
+    clearInterval(setTimeCheckBannerBlack);
+  }
+  const setTimeCheckBannerBlack = setInterval(checkBannerBlack, 250);
+  const setTimeStopCheckBannerBlack = setTimeout(stopCheckBannerBlack, 2000);
+
+  useEffect(() => {
+    // add active menu when F5 reload page, <Link> tag not working
     const currentUrl = window.location.pathname;
     const menus = document.querySelectorAll('.header__nav--link a');
     menus.forEach(menu => {
@@ -68,65 +120,46 @@ export default function Header(): JSX.Element {
         menu.classList.add('active');
       }
     });
-
-    colorHeader(isHeaderBlack, mainLogoWhite, setMainLogo, setTextColorHeader);
-
-    const sectionsBlack = document.querySelectorAll(".bg-black");
+    
     const sectionHeader = document.querySelector(".header");
     const mainTag = document.querySelector("main");
 
-    const handleScroll = (sectionsBlack:any, sectionHeader:any, resizeStatus:boolean) => {
+    const handleScroll = (sectionHeader:any) => {
       // add padding header section to main tag
-      const sectionHeaderHeight = sectionHeader.offsetHeight;
       const scrollPosition = window.scrollY;
 
       if (scrollPosition > 0) {
         sectionHeader.classList.add('on-scroll');
+        setIsScroll(true);
       } else {
         sectionHeader.classList.remove('on-scroll');
-      }
-
-      if (sectionHeader && mainTag && resizeStatus) {
-        const handleResize = () => {
-          
-          document.documentElement.style.setProperty('--paddingTop', `${sectionHeaderHeight}px`);
-        };
-        window.addEventListener("resize", handleResize);
-        handleResize();
+        setIsScroll(false);
       }
     }
-    handleScroll(sectionsBlack, sectionHeader, true);
-    window.addEventListener("scroll", () => handleScroll(sectionsBlack, sectionHeader, false));
 
-    const listMenu = document.querySelectorAll('.header__nav--link');
-    console.log(listMenu.length);
-    const heightMenuOnMobile = listMenu.length * 85 + 85;
-    console.log(heightMenuOnMobile);
-    console.log(heightMenuOnMobile);
-    // add overflow to body and toggle menu on mobile
-    const handleBodyOverflow = () => {
-      const body = document.body;
-      if (! isClickMenu) {
-        body.style.overflow = 'hidden';
-        document.documentElement.style.setProperty('--heightMenu', `${heightMenuOnMobile}px`);
-      } else {
-        body.style.overflow = 'auto';
-        document.documentElement.style.setProperty('--heightMenu', '0px');
-      }
+    // handleScroll(sectionHeader);
+    window.addEventListener("scroll", () => handleScroll(sectionHeader));
+
+    const handleResize = (sectionHeader:any) => {
+      const sectionHeaderHeight = sectionHeader.offsetHeight;
+      document.documentElement.style.setProperty('--paddingTop', `${sectionHeaderHeight}px`);
+    };
+
+    if (sectionHeader && mainTag) {
+      window.addEventListener("resize", () => handleResize(sectionHeader));
     }
-    handleBodyOverflow();
 
-  }, [mainLogoBlack, mainLogoWhite, isClickMenu, menuItems]);
+  }, []);
 
   const handleMenuMobileClick = () => {
     setIsClickMenu(prevIsClickMenu => !prevIsClickMenu);
   }
-  
+
   return (
     <header
-      className={`header container ${isClickMenu ? 'header__hidden' : 'header__visible'}`}
+      className={`header container ${isClickMenu ?'header__visible'  :  'header__hidden'}`}
     >
-      {(siteLogo && siteLogo !== "") && (
+
         <Link
           to="/"
         >
@@ -134,11 +167,11 @@ export default function Header(): JSX.Element {
             alt={siteTitle}
             height={37}
             style={{ margin: 0 }}
-            src={siteLogo}
+            src={mainLogo}
           />
         </Link>
       
-      )}
+
   
       <div className="header__nav" style={{ color : textColorHeader }}>
         { menuItems.map((menu:any, index: number) => (
@@ -152,7 +185,7 @@ export default function Header(): JSX.Element {
 
       <div className="header__toggle" onClick={handleMenuMobileClick}>
         <img
-          src={isClickMenu ? '/img/menu-black.svg' : '/img/menu-close-black.svg'}
+          src={isClickMenu ? '/img/menu-close-black.svg' : menuLogo}
           alt="Menu"
         />
       </div>
