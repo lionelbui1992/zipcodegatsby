@@ -80,14 +80,12 @@ export const OurTeams = ({ attributes }: { attributes: IOurTeamsProps }): JSX.El
                                         (list.name || list.avatar || list.short_description || list.position ) && 
                                             <SwiperSlide key={index}>
                                                 <div className="item-inner our-teams-item-inner">
-                                                    { (list.avatar) && 
                                                         <div className="item-image">
                                                             <div className="image-inner">
-                                                                <img
-                                                                    loading="lazy"
-                                                                    srcSet={`${list.avatar.src}`} className="img"
-                                                                    alt={list.name}
-                                                                />
+                                                                { list.avatar 
+                                                                    ? <img loading="lazy" srcSet={`${list.avatar.src}`} className="img" alt={list.name} /> 
+                                                                    : <img loading="lazy" srcSet='/img/our-team-placeholder.png' className="img" alt={list.name} />
+                                                                }
                                                             </div>
                                                             { (list.short_description) && 
                                                                 <div className="item-info">
@@ -95,7 +93,6 @@ export const OurTeams = ({ attributes }: { attributes: IOurTeamsProps }): JSX.El
                                                                 </div>
                                                             }
                                                         </div>
-                                                    }
                                                     { (list.name || list.position ) && 
                                                         <div className="item-content">
                                                             { (list.name) && 
