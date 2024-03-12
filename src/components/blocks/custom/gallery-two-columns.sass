@@ -119,7 +119,19 @@
         opacity: 0.5
         top: 0
         left: 0
-        
+    
+    button.projects-popup-close
+        background: transparent
+        border: none
+        cursor: pointer
+        outline: none
+        position: absolute
+        right: 45px
+        top: 45px
+        @media (max-width: 767px)
+            right: 15px
+            top: 15px
+
     .popup-content
         padding: 118px 0 58px 49px
         color: #ffffff
@@ -131,6 +143,9 @@
         position: relative
         z-index: 1
         max-height: 90%
+        max-width: 1440px
+        width: 90%
+        margin: 0 auto
         overflow-y: auto
 
         @media (max-width: 1199px) 

@@ -32,6 +32,12 @@ export const GalleryTwoColumnsPopup = ({gallery}:{gallery: any[]}): JSX.Element 
                     <div className="poup-overlay" onClick={() => popupOverlay()}></div>
                     <div className="popup-content" style={{ backgroundImage: "url(" + openPopUpBackground + ")" }}>
                         <div className="container">
+                            <button className="projects-popup-close" onClick={() => popupOverlay()}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 32 29" fill="none">
+                                    <line y1="-1.06719" x2="39.2529" y2="-1.06719" transform="matrix(0.724999 0.688749 -0.724999 0.688749 1.54163 1.86035)" stroke="#C4F000" strokeWidth="2.13437" />
+                                    <line y1="-1.06719" x2="39.2529" y2="-1.06719" transform="matrix(0.724999 -0.688749 0.724999 0.688749 1.54163 28.8958)" stroke="#C4F000" strokeWidth="2.13437" />
+                                </svg>
+                            </button>
                             {gallery.map((list, index) => (
                                 <div className="popup-item" data-popup={index} key={index}>
                                     <div className="item">
