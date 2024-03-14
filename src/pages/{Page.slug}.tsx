@@ -9,6 +9,7 @@ import ProjectsBlocks from "../components/WPGBlocks/Projects";
 import BannerPoup from "../components/BannerPoup";
 import { gql, useQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
+import "../assets/sass/header.sass";
 
 export default function Page({ params }: { params: { slug: string } }) {
 
