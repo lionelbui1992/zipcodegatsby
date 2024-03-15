@@ -231,6 +231,14 @@ interface IFooterData {
         srcSet: string;
         } | "";
     };
+    social: {
+        link:  IButton | "";
+        icon: {
+          node: {
+            sourceUrl: string;
+          }
+        }
+    }[]
 }
 
 export {
