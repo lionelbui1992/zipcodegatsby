@@ -80,6 +80,18 @@ export default function Footer(): JSX.Element {
             srcSet
           }
         }
+        social {
+          link {
+            url
+            title
+            target
+          }
+          icon {
+            node {
+              sourceUrl
+            }
+          }
+        }
       }
     }
   }
@@ -159,10 +171,11 @@ export default function Footer(): JSX.Element {
         srcSet: "",
       },
     },
+    social: []
   });
   const [imageFooter, setImageFooter] = useState("");
   const [backgroundFooter, setBackgroundFooter] = useState("");
-
+  // const [dataSocial, setDataSocial] = useState("");
   const handleOpenContactPopup = (e) => {
     e.preventDefault();
     document.body.classList.add("active-form");
@@ -172,6 +185,7 @@ export default function Footer(): JSX.Element {
   useEffect(() => {
     if (!loading && !error && data && data.option.footer) {
       setFooterData(data.option.footer);
+      
     }
     const handleResize = () => {
       const windowWidth = window.innerWidth;
@@ -188,7 +202,15 @@ export default function Footer(): JSX.Element {
 
     window.addEventListener("resize", handleResize);
     handleResize();
+    // console.log(footerData.social);
+    const dataSocial = Object.values(footerData.social);
+    // setDataSocial(Object.values(footerData.social));
+    console.log(dataSocial);
   }, [data]);
+
+  // useEffect(() => {
+  //   setDataSocial(Object.values(footerData.social));
+  // }, [footerData]);
 
   return (
     <footer className="site-footer" style={{ backgroundImage: "url(" + backgroundFooter + ")" }}>
@@ -204,23 +226,42 @@ export default function Footer(): JSX.Element {
             {(footerData.buttonContact && footerData.buttonContact.title) && (
               <a onClick={handleOpenContactPopup} href={footerData.buttonContact.url} target={footerData.buttonContact.target}><div className="button">{footerData.buttonContact.title}</div></a>
             )}
+          </div>              
+          <div className="social-container mb">
+            {(footerData.social) && (
+              footerData.social.map((item:any, index:any) => (
+                <a className="social-item" target={item.link.target} href={item.link.url} >
+                  <div className="icon" style={{ backgroundImage: "url(" + item.icon.node.sourceUrl + ")" }}></div>
+                </a>
+              ))
+            )}
           </div>
           <div className="right">
-            <div className="content-container">
-              {(footerData.titleRight && footerData.titleRight !== "") && (
-                <h5 className="title">{footerData.titleRight}</h5>
-              )}
-              {(footerData.address && footerData.address.title) && (
-                <a className="address content top" target={footerData.address.target} href={footerData.address.url} >{footerData.address.title}</a>
-              )}
+
+            <div className="content-container content-left">
               {(footerData.email && footerData.email !== "") && (
                 <a className="email content" href={`mailto:${footerData.email}`} target="_blank">{footerData.email}</a>
               )}
               {(footerData.phone && footerData.phone !== "") && (
                 <a className="phone content" href={`tel:${footerData.phone}`} target="_blank">{footerData.phone}</a>
               )}
+              {(footerData.titleRight && footerData.titleRight !== "") && (
+                <h5 className="title right">{footerData.titleRight}</h5>
+              )}
+              {(footerData.address && footerData.address.title) && (
+                <a className="address content top" target={footerData.address.target} href={footerData.address.url} >{footerData.address.title}</a>
+              )}
             </div>
-            <div className="ft-mb">
+            <div className="ft-mb content-right">
+              <div className="social-container dk">
+                {(footerData.social) && (
+                  footerData.social.map((item:any, index:any) => (
+                    <a className="social-item" target={item.link.target} href={item.link.url} >
+                      <div className="icon" style={{ backgroundImage: "url(" + item.icon.node.sourceUrl + ")" }}></div>
+                    </a>
+                  ))
+                )}
+              </div>
               <SectionLink
                 privacyPolicy={footerData.privacyPolicy}
                 cookiesPolicy={footerData.cookiesPolicy}
@@ -234,13 +275,7 @@ export default function Footer(): JSX.Element {
             <div className="img-footer" style={{ backgroundImage: "url(" + imageFooter + ")" }}></div>
           )}
         </div>
-        <div className="ft-dk">
-          <SectionLink
-            privacyPolicy={footerData.privacyPolicy}
-            cookiesPolicy={footerData.cookiesPolicy}
-            codeOfConduct={footerData.codeOfConduct}
-          />
-        </div>
+
       </div>
     </footer>
   );

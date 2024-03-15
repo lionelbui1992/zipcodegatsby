@@ -42,6 +42,16 @@
   @media screen and (max-width: 767.98px)
     padding: 51px 0 30px
 
+  h5.right
+    font-family: Buenos Aires
+    font-size: 11px
+    font-weight: 700
+    line-height: 20px
+    letter-spacing: 0.01em
+    margin-top: 27px !important
+    @media screen and (max-width: 767.98px)
+      margin-top: 20px !important
+      margin-bottom: 3px
   h5
     font-size: 35px
     line-height: 45px
@@ -52,13 +62,22 @@
       font-weight: 600
       margin-bottom: 10px
   .content
+    font-family: Buenos Aires
     font-size: 11px
-    line-height: 22px
+    font-weight: 400
+    line-height: 20px
     letter-spacing: 0.01em
+    text-align: left
     display: block
+  .content.email
+    text-transform: uppercase
+  .content-left
+    .content
+      font-weight: 700
+
   .content.top
     margin-bottom: 24px
-
+    font-weight: 400
     @media screen and (max-width: 767.98px)
       line-height: 16px
       margin-bottom: 8px
@@ -86,29 +105,81 @@
 
       .content
         max-width: 288px
+        margin-top: 12px
         @media screen and (max-width: 767.98px)
-          max-width: 173px
-          margin-bottom: 8px
+          max-width: 266px
+          margin-bottom: 3px
+          margin-top: 15px
     .right
-      text-align: right
+      // text-align: right
+      display: flex
+      flex-wrap: nowrap
+      gap: 30px
+      justify-content: space-between
+      margin-top: 12px
+      max-width: 475px
+      .content-right
+        width: 181px
+        @media screen and (max-width: 767.98px)
+          width: 101px
+      .content-left
+        @media screen and (max-width: 1024.98px)
+          max-width: 200px
+        @media screen and (max-width: 1024.98px)
+          max-width: 100%
       @media screen and (max-width: 767.98px)
         width: 100%
         text-align: left
         display: flex
         justify-content: space-between
+        margin-top: 0
+
+
       .content-container
-        @media screen and (max-width: 767.98px)
+        @media screen and (max-width: 1024.98px)
           max-width: 200px
+        @media screen and (max-width: 768.98px)
+          max-width: 400px
       .address
         @media screen and (max-width: 767.98px)
           margin-bottom: 20px
+          max-width: 125px
+
+    .social-container
+      display: flex
+      gap: 15px
+      margin-bottom: 37px
+
+      .social-item
+        .icon
+          width: 34px
+          height: 34px
+          background-repeat: no-repeat
+          background-size: contain
+          background-position: center
+
+          @media screen and (max-width: 767.98px)
+            width: 36px
+            height: 36px
+    @media screen and (max-width: 767.98px)
+      .social-container.dk
+        display: none
+      .social-container.mb
+        width: 100%
+        margin-bottom: 0
+        margin-top: 7px
+    @media screen and (min-width: 768px)
+      .social-container.mb
+        display: none
+
+
   .ft-dk
     @media screen and (max-width: 767.98px)
       display: none
   .ft-mb
-    text-align: right
-    @media screen and (min-width: 768px)
-      display: none
+    // text-align: right
+    // @media screen and (min-width: 768px)
+    //   display: none
 
   .section-middle
     padding-bottom: 10.7389%
@@ -147,9 +218,12 @@
     display: flex
     justify-content: space-between
     margin-top: 6.2px
+    flex-wrap: wrap
+    row-gap: 6px
+
     @media screen and (max-width: 767.98px)
       flex-wrap: wrap
-      margin-top: 0
+      margin-top: 65px
       gap: 5px
     a
       font-size: 10px
@@ -157,12 +231,14 @@
       line-height: 14px
       letter-spacing: 0.02em
       text-transform: uppercase
+      width: 100%
       @media screen and (min-width: 768px)
-        min-width: 120px
-        text-align: center
+        // min-width: 120px
+        // text-align: center
         &:first-child
-          text-align: left
+          // text-align: left
         &:last-child
-          text-align: right
+          // text-align: right
       @media screen and (max-width: 767.98px)
-        width: 100%
+        width: 101px
+
