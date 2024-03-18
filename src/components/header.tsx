@@ -156,7 +156,7 @@ export default function Header(): JSX.Element {
 
   return (
     <header
-      className={`header container ${isClickMenu ? 'header__visible' : 'header__hidden'}`}
+      className={`header container ${isClickMenu ? 'header__visible' : 'header__hidden'} ${isScroll ? 'on-scroll' : ''}`}
     >
 
       <Link
