@@ -106,3 +106,30 @@ export const handlePreloadAnimation = () => {
     // textZ.to(".textZ", { duration: 0.2, attr: { "xlink:href": "#textZq" } })
     // textZ.to(".textZ", { duration: 0.175, attr: { "xlink:href": "#textZr" } })
 }
+
+
+
+export const setCookie = (name, value) => {
+    document.cookie = `${name}=${value};path=/`;
+};
+
+export const getCookie = (name) => {
+    const nameEQ = `${name}=`;
+    const ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === ' ') c = c.substring(1);
+        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+};
+
+export const checkPreloadCookie = () => {
+    const showPreload = getCookie("showPreload");
+    if (!showPreload) {
+        setCookie("showPreload", "true", 30);
+        return false
+    } else {
+        return true
+    }
+}

@@ -22,7 +22,7 @@ export const handleOverlayAnimation = () => {
     ScrollTrigger.create({
         trigger: ".item-2.section--pinning-company",
         start: "top top",
-        end: "+=200%",
+        end: "+=180%",
         pin: true,
         pinSpacing: false,
         markers: false,
@@ -34,7 +34,7 @@ export const handleOverlayAnimation = () => {
     ScrollTrigger.create({
         trigger: ".item-3.section--pinning-explore",
         start: "top top",
-        end: "+=170%",
+        end: "+=200%",
         pin: true,
         pinSpacing: false,
         markers: false,
@@ -42,16 +42,28 @@ export const handleOverlayAnimation = () => {
         scrub: 0.000001,
         onUpdate: (t) => {
             let progress = t.progress
-            let pixelateImage = document.querySelector('.section-explore .animation-image.stop .pixelate-container');
-            if (pixelateImage && pixelateImage.animation) {
+            let pixelateImageLeft = document.querySelector('.section-explore .col-left  .pixelate-container');
+            let pixelateImageRight = document.querySelector('.section-explore .col-right .pixelate-container');
+            if (pixelateImageLeft && pixelateImageLeft.animation) {
                 if (progress < 0.5) {
-                    pixelateImage.animation.seek(0);
-                    pixelateImage.animation.pause();
-                    pixelateImage.nextElementSibling.classList.remove('active')
+                    pixelateImageLeft.animation.seek(0);
+                    pixelateImageLeft.animation.pause();
+                    pixelateImageLeft.nextElementSibling.classList.remove('active')
                 }
 
                 if (progress > 0.7) {
-                    pixelateImage.animation.play()
+                    pixelateImageLeft.animation.play()
+                }
+            }
+            if (pixelateImageRight && pixelateImageRight.animation) {
+                if (progress < 0.5) {
+                    pixelateImageRight.animation.seek(0);
+                    pixelateImageRight.animation.pause();
+                    pixelateImageRight.nextElementSibling.classList.remove('active')
+                }
+
+                if (progress > 0.7) {
+                    pixelateImageRight.animation.play()
                 }
             }
         }
