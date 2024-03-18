@@ -7,7 +7,7 @@ import { gsap } from 'gsap';
 import { SEOContext } from 'gatsby-plugin-wpgraphql-seo';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { checkPreloadCookie, handleAddPixelateAnimation, handleTextAnimation } from '../animation'
+import { checkPreloadCookie, handleAddPixelateAnimation, handleGeneralOverlayAnimation, handleTextAnimation } from '../animation'
 import { ContactForm } from "./Form/ContactForm";
 import { gql, useQuery } from "@apollo/client";
 import Test from "./blocks/custom/Test";
@@ -129,6 +129,16 @@ const Layout: React.FC<LayoutProps> = ({ children, slug }) => {
             window.addEventListener("scroll", () => handleScroll());
             window.addEventListener("scroll", () => handleAddPixelateAnimation());
             window.addEventListener("scroll", () => handleTextAnimation());
+
+            console.log(['preloadCheck', preloadCheck])
+            if (preloadCheck) {
+                setTimeout(()=> {
+                    handleAddPixelateAnimation()
+                    handleTextAnimation()
+                    handleGeneralOverlayAnimation()
+                }, 1000)
+            }
+            
         }
     }, [data]);
 

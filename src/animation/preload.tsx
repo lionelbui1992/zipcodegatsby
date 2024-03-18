@@ -75,7 +75,6 @@ export const handlePreloadAnimation = () => {
         onComplete: () => {
             document.body.classList.remove('preload-active')
             preloadElement?.classList.remove('loading')
-            document.querySelector('.icon-z')?.classList.add('active')
             handleAddPixelateAnimation()
             handleTextAnimation()
             handleGeneralOverlayAnimation()
