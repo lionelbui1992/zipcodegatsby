@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "gatsby";
 import "./image-with-text.sass";
 import { IImageWithTextProps } from "../types";
 
@@ -9,6 +10,7 @@ export const ImageWithText = ({
   image,
   backgroundUrl,
   isDarkBackground,
+  button
 }: IImageWithTextProps): JSX.Element => {
   return (
     <>
@@ -30,7 +32,12 @@ export const ImageWithText = ({
                       <div className="image" style={{ backgroundImage: "url(" + image.src + ")" }}></div>
                     </div>
                   }
-                  {des && <div className="des">{des}</div>}
+                  <div>
+                    {des && <div className="des">{des}</div>}
+                    {button && button.title && (
+                      <Link className={`btn btn-primary ${isDarkBackground == '1' ? 'btn-white' : ''}`} to={`${button.url}`}>{button.title}</Link>
+                    )}
+                  </div>
                 </div>
               </div>
             }
