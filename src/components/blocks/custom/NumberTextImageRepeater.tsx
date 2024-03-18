@@ -17,6 +17,7 @@ export default function NumberTextImageRepeater({ attributes }: { attributes: Nu
             image={list.image}
             backgroundUrl={list.background}
             isDarkBackground={list.is_dark_section}
+            button={list.button}
           />
         </div>
       ))}

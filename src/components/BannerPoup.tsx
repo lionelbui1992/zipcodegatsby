@@ -64,7 +64,7 @@ export const BannerPoup = (attributes: IBannerPoupProps): JSX.Element => {
                                                         }} />
                                                     }
                                                     {(list.popup_description) &&
-                                                        <div className="subheading">{list.popup_description}</div>
+                                                        <div className="subheading" dangerouslySetInnerHTML={{ __html: list.popup_description }} />
                                                     }
                                                 </div>
                                             }

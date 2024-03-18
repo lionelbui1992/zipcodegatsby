@@ -63,6 +63,15 @@ export const CareersBlock: React.FunctionComponent<IWPGBlockProps> = ({ block, f
             <TheBlock blockName={name} attributes={attributes.data} />
           </section>
         )
+      case 'acf/life-zip-code':
+        console.log(attributes.data.hidden && attributes.data.hidden !== '1');
+        if (attributes.data.hidden && attributes.data.hidden !== '1') {
+          return (
+            <TheBlock blockName={name} attributes={attributes.data} />
+          )
+        } else {
+          return <></>
+        }
       case 'acf/contact-information':
         return (
           <TheBlock blockName={name} form={form} attributes={attributes.data} />
