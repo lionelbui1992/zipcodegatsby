@@ -10,7 +10,7 @@ export default function Explore({ attributes }: { attributes: IExploreProps }): 
             <div className="small-container">
                 <div className="d-flex">
                     <div className="col-left">
-                        <ImageAnimation classes="animation-image image-2" alt="image" alt={left_image.alt} src={left_image.src} amount={.3} duration=".6" from="start" axis="x" />
+                        <ImageAnimation classes="animation-image stop image-2" alt="image" alt={left_image.alt} src={left_image.src} amount={.3} duration=".6" from="start" axis="x" />
                     </div>
                     <div className="col-right">
                         <div className="heading-text"><h4 dangerouslySetInnerHTML={{ __html: heading }} /></div>
