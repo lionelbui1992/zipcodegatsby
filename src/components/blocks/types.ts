@@ -30,6 +30,7 @@ interface NumberTextImageRepeaterProps {
         image: IImage,
         background: IImage,
         is_dark_section?: string,
+        button: IButton,
     }[]
 }
 
@@ -67,6 +68,7 @@ interface IImageWithTextProps {
     image: IImage;
     backgroundUrl: IImage;
     isDarkBackground?: string;
+    button?: IButton;
 }
 
 interface IOurTeamsProps {
