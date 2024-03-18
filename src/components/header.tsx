@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "../assets/sass/header.sass";
 import { gql, useQuery } from "@apollo/client";
 import { Link } from "gatsby";
 
@@ -56,10 +55,10 @@ export default function Header(): JSX.Element {
       }
     }
   }, [data]);
-  
+
   // Set header color
   useEffect(() => {
-    if(isHeaderBlack) {
+    if (isHeaderBlack) {
       setMainLogo(mainLogoBlack);
       setMenuLogo(menuLogoBlack);
       setTextColorHeader('#1E1E1E');
@@ -71,14 +70,14 @@ export default function Header(): JSX.Element {
   }, [isHeaderBlack]);
 
   useEffect(() => {
-    if (isClickMenu == false && isScroll == false && isBannerBlack == true ){
+    if (isClickMenu == false && isScroll == false && isBannerBlack == true) {
       setIsHeaderBlack(false);
     } else {
       setIsHeaderBlack(true);
     }
   }, [isClickMenu, isScroll, isBannerBlack]);
 
-  useEffect(() => { 
+  useEffect(() => {
     const listMenu = document.querySelectorAll('.header__nav--link');
     const heightMenuOnMobile = listMenu.length * 85 + 85;
     // add overflow to body and toggle menu on mobile
@@ -95,10 +94,10 @@ export default function Header(): JSX.Element {
     handleBodyOverflow();
   }, [isClickMenu]);
 
-  const checkBannerBlack = (bannerBlack:any) => {
+  const checkBannerBlack = (bannerBlack: any) => {
     bannerBlack = document.querySelectorAll("section.bg-black");
-    if(bannerBlack.length > 0) {
-      
+    if (bannerBlack.length > 0) {
+
       setIsBannerBlack(true);
       clearInterval(setTimeCheckBannerBlack);
     }
@@ -120,11 +119,11 @@ export default function Header(): JSX.Element {
         menu.classList.add('active');
       }
     });
-    
+
     const sectionHeader = document.querySelector(".header");
     const mainTag = document.querySelector("main");
 
-    const handleScroll = (sectionHeader:any) => {
+    const handleScroll = (sectionHeader: any) => {
       // add padding header section to main tag
       const scrollPosition = window.scrollY;
 
@@ -140,7 +139,7 @@ export default function Header(): JSX.Element {
     // handleScroll(sectionHeader);
     window.addEventListener("scroll", () => handleScroll(sectionHeader));
 
-    const handleResize = (sectionHeader:any) => {
+    const handleResize = (sectionHeader: any) => {
       const sectionHeaderHeight = sectionHeader.offsetHeight;
       document.documentElement.style.setProperty('--paddingTop', `${sectionHeaderHeight}px`);
     };
@@ -157,29 +156,29 @@ export default function Header(): JSX.Element {
 
   return (
     <header
-      className={`header container ${isClickMenu ?'header__visible'  :  'header__hidden'}`}
+      className={`header container ${isClickMenu ? 'header__visible' : 'header__hidden'}`}
     >
 
-        <Link
-          to="/"
-        >
-          <img
-            alt={siteTitle}
-            height={37}
-            style={{ margin: 0 }}
-            src={mainLogo}
-          />
-        </Link>
-      
+      <Link
+        to="/"
+      >
+        <img
+          alt={siteTitle}
+          height={37}
+          style={{ margin: 0 }}
+          src={mainLogo}
+        />
+      </Link>
 
-  
-      <div className="header__nav" style={{ color : textColorHeader }}>
-        { menuItems.map((menu:any, index: number) => (
-            <div className="header__nav--link" key={index}>
-              <Link to={menu.uri} activeClassName="active">
-                {menu.label}
-              </Link>
-            </div>
+
+
+      <div className="header__nav" style={{ color: textColorHeader }}>
+        {menuItems.map((menu: any, index: number) => (
+          <div className="header__nav--link" key={index}>
+            <Link to={menu.uri} activeClassName="active">
+              {menu.label}
+            </Link>
+          </div>
         ))}
       </div>
 
@@ -189,7 +188,7 @@ export default function Header(): JSX.Element {
           alt="Menu"
         />
       </div>
-  
+
     </header>
   );
 };
