@@ -205,7 +205,6 @@ export default function Footer(): JSX.Element {
     // console.log(footerData.social);
     const dataSocial = Object.values(footerData.social);
     // setDataSocial(Object.values(footerData.social));
-    console.log(dataSocial);
   }, [data]);
 
   // useEffect(() => {

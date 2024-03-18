@@ -3,9 +3,7 @@ import { gsap } from 'gsap';
 import { handleAddPixelateAnimation, handleGeneralOverlayAnimation, handleTextAnimation } from './index'
 
 export const handlePreloadAnimation = () => {
-    window.scrollTo(0, 0);
 
-    window.history.scrollRestoration = "manual";
 
     let preloadElement = document.querySelector('.preload');
 
@@ -81,6 +79,7 @@ export const handlePreloadAnimation = () => {
             handleAddPixelateAnimation()
             handleTextAnimation()
             handleGeneralOverlayAnimation()
+            setCookie("showPreload", "true", 30)
         }
     });
 
@@ -127,7 +126,7 @@ export const getCookie = (name) => {
 export const checkPreloadCookie = () => {
     const showPreload = getCookie("showPreload");
     if (!showPreload) {
-        setCookie("showPreload", "true", 30);
+        // setCookie("showPreload", "true", 30);
         return false
     } else {
         return true
