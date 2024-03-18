@@ -44,7 +44,6 @@ const LayoutStatic: React.FC<LayoutProps> = ({ children }) => {
                     <div id="smooth-wrapper">
                         <div id="smooth-content">
                             {children}
-                            <Slice alias="footer" />
                         </div>
                     </div>
                     <div className={`to-top ${hiddenBackToTop ? 'hidden' : ''}`}>
@@ -55,6 +54,7 @@ const LayoutStatic: React.FC<LayoutProps> = ({ children }) => {
                     </div>
                 </main>
                 <Slice alias="clipPath" />
+                <Slice alias="footer" />
             </div>
         </ReactLenis>
     )
