@@ -185,7 +185,7 @@ export default function Footer(): JSX.Element {
   useEffect(() => {
     if (!loading && !error && data && data.option.footer) {
       setFooterData(data.option.footer);
-      
+
     }
     const handleResize = () => {
       const windowWidth = window.innerWidth;
@@ -226,10 +226,10 @@ export default function Footer(): JSX.Element {
             {(footerData.buttonContact && footerData.buttonContact.title) && (
               <a onClick={handleOpenContactPopup} href={footerData.buttonContact.url} target={footerData.buttonContact.target}><div className="button">{footerData.buttonContact.title}</div></a>
             )}
-          </div>              
+          </div>
           <div className="social-container mb">
             {(footerData.social) && (
-              footerData.social.map((item:any, index:any) => (
+              footerData.social.map((item: any, index: any) => (
                 <a className="social-item" target={item.link.target} href={item.link.url} >
                   <div className="icon" style={{ backgroundImage: "url(" + item.icon.node.sourceUrl + ")" }}></div>
                 </a>
@@ -255,7 +255,7 @@ export default function Footer(): JSX.Element {
             <div className="ft-mb content-right">
               <div className="social-container dk">
                 {(footerData.social) && (
-                  footerData.social.map((item:any, index:any) => (
+                  footerData.social.map((item: any, index: any) => (
                     <a className="social-item" target={item.link.target} href={item.link.url} >
                       <div className="icon" style={{ backgroundImage: "url(" + item.icon.node.sourceUrl + ")" }}></div>
                     </a>
@@ -271,6 +271,9 @@ export default function Footer(): JSX.Element {
           </div>
         </div>
         <div className="section-middle">
+          <svg className="icon-ft" xmlns="http://www.w3.org/2000/svg" width="117" height="135" viewBox="0 0 117 135" fill="none">
+            <path d="M0 0V13.4922H81.6952L0 60.6585V134.924H116.849V121.375H35.1536L116.849 74.2081V0H0Z" fill="#0068FF" />
+          </svg>
           {imageFooter && (
             <div className="img-footer" style={{ backgroundImage: "url(" + imageFooter + ")" }}></div>
           )}
