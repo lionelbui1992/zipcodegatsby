@@ -79,7 +79,6 @@ const HomeBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBlo
       }
 
       )}
-      <div className="placeholder-section"></div>
     </div>
   )
 }
