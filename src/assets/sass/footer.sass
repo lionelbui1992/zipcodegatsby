@@ -86,6 +86,7 @@
     display: flex
     flex-wrap: nowrap
     justify-content: space-between
+    gap: 50px
     @media screen and (max-width: 767.98px)
       flex-wrap: wrap
       gap: 20px
@@ -110,6 +111,9 @@
           max-width: 266px
           margin-bottom: 3px
           margin-top: 15px
+
+    >.right
+      width: 55%
     .right
       // text-align: right
       display: flex
@@ -143,6 +147,7 @@
         @media screen and (max-width: 768.98px)
           max-width: 400px
       .address
+        max-width: 180px
         @media screen and (max-width: 767.98px)
           margin-bottom: 20px
           max-width: 125px
