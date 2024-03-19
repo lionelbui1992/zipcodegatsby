@@ -108,10 +108,15 @@ export const handlePreloadAnimation = () => {
 
 
 export const setCookie = (name, value) => {
-    document.cookie = `${name}=${value};path=/`;
+    if (typeof document !== "undefined") {
+        document.cookie = `${name}=${value};path=/`;
+    }
 };
 
 export const getCookie = (name) => {
+    if (typeof document === "undefined") {
+        return null; // or a sensible fallback for your context
+    }
     const nameEQ = `${name}=`;
     const ca = document.cookie.split(';');
     for (let i = 0; i < ca.length; i++) {
@@ -123,6 +128,10 @@ export const getCookie = (name) => {
 };
 
 export const checkPreloadCookie = () => {
+    if (typeof document === "undefined") {
+        return false; // or a sensible fallback for your context
+    }
+
     const showPreload = getCookie("showPreload");
     if (!showPreload) {
         // setCookie("showPreload", "true", 30);
