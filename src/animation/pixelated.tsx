@@ -8,7 +8,7 @@ export const handleAddPixelateAnimation = () => {
 
             let offset = item.getBoundingClientRect().y
             if (offset < innerHeight - 100) {
-                item.animation.play()
+                item?.animation?.play()
 
             }
         })

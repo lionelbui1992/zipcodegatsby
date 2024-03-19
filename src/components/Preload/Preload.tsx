@@ -2,17 +2,19 @@ import React, { useRef, useEffect } from "react";
 import gsap from 'gsap';
 import { TextPlugin } from 'gsap/TextPlugin';
 import "./style.sass";
-import { handlePreloadAnimation } from "../../animation";
+import { handlePreloadAnimation, checkPreloadCookie } from "../../animation";
 
 gsap.registerPlugin(TextPlugin);
 
 export default function Preload(): JSX.Element {
 
-  const zicon = useRef(null)
-
+  let checkPreload = checkPreloadCookie();
+  if (checkPreload) return
+  
   useEffect(() => {
 
-    handlePreloadAnimation()
+    handlePreloadAnimation();
+    
 
   }, []);
 

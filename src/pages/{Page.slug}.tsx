@@ -78,7 +78,7 @@ export default function Page({ params }: { params: { slug: string } }) {
     return (
       <>
         <Seo post={post} />
-        <Layout>
+        <Layout slug={slug}>
           <div className={`${slug}-page cms-page`}>
             <section className="section-banner" style={{ backgroundImage: "url(/img/page-privacy-policy-bkg.png)" }}>
               <div className="container">
@@ -99,7 +99,7 @@ export default function Page({ params }: { params: { slug: string } }) {
       return (
         <>
           <Seo post={post} />
-          <Layout>
+          <Layout slug={slug}>
             <AboutBlocks blocks={blocks} />
           </Layout>
         </>
@@ -108,7 +108,7 @@ export default function Page({ params }: { params: { slug: string } }) {
       return (
         <>
           <Seo post={post} />
-          <Layout>
+          <Layout slug={slug}>
             <CareersBlocks blocks={blocks} form={data.getCareerForm} />
           </Layout>
         </>
@@ -117,7 +117,7 @@ export default function Page({ params }: { params: { slug: string } }) {
       return (
         <>
           <Seo post={post} />
-          <Layout>
+          <Layout slug={slug}>
             <PhilosophyBlocks blocks={blocks} />
           </Layout>
         </>
@@ -127,7 +127,7 @@ export default function Page({ params }: { params: { slug: string } }) {
       return (
         <>
           <Seo post={post} />
-          <Layout>
+          <Layout slug={slug}>
             <ProjectsBlocks blocks={blocks} />
           </Layout>
         </>
@@ -136,7 +136,7 @@ export default function Page({ params }: { params: { slug: string } }) {
       return (
         <>
           <Seo post={post} />
-          <Layout>
+          <Layout slug={slug}>
             <div className={`${slug}-page cms-page`}>
               <section className="section-banner" style={{ backgroundImage: "url(/img/page-privacy-policy-bkg.png)" }}>
                 <div className="container">

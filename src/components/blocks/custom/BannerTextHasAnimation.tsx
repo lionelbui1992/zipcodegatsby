@@ -54,9 +54,7 @@ export const BannerTextHasAnimation = ({blockName, attributes} : {blockName: str
                 const lineNumber = Math.ceil((rect.top - wrapper.getBoundingClientRect().top) / lineHeight);
                 if (lineNumber > Math.ceil(totalLine / 2)) {
                     spanElement.classList.add('position-top');
-                    console.log('top');
                 } else {
-                    console.log('bottom');
                     spanElement.classList.remove('position-top');
                 }
             });
