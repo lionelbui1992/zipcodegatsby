@@ -19,7 +19,7 @@ export default function Preload(): JSX.Element {
   }, []);
 
   return (
-    <div className="preload-elements" style={{ opacity: 0 }} >
+    <div className="preload-elements">
       <div className="preload-images">
         <img id="preload-image-1" className="preload-image animated animatedFadeInUp fadeInUp-1" src="/img/svg-shape-back.svg" />
         <img id="preload-image-2" className="preload-image animated animatedFadeInUp fadeInUp-2" src="/img/pexels-helena-lopes-1015568-scaled_1.webp" />
