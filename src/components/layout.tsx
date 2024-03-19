@@ -130,13 +130,13 @@ const Layout: React.FC<LayoutProps> = ({ children, slug }) => {
             window.addEventListener("scroll", () => handleAddPixelateAnimation());
             window.addEventListener("scroll", () => handleTextAnimation());
 
-            console.log(['preloadCheck', preloadCheck])
+            
             if (preloadCheck) {
                 setTimeout(()=> {
                     handleAddPixelateAnimation()
                     handleTextAnimation()
                     handleGeneralOverlayAnimation()
-                }, 1000)
+                }, 2000)
             }
             
         }
