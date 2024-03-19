@@ -3,9 +3,7 @@ import { gsap } from 'gsap';
 import { handleAddPixelateAnimation, handleGeneralOverlayAnimation, handleTextAnimation } from './index'
 
 export const handlePreloadAnimation = () => {
-    window.scrollTo(0, 0);
 
-    window.history.scrollRestoration = "manual";
 
     let preloadElement = document.querySelector('.preload');
 
@@ -77,10 +75,10 @@ export const handlePreloadAnimation = () => {
         onComplete: () => {
             document.body.classList.remove('preload-active')
             preloadElement?.classList.remove('loading')
-            document.querySelector('.icon-z')?.classList.add('active')
             handleAddPixelateAnimation()
             handleTextAnimation()
             handleGeneralOverlayAnimation()
+            setCookie("showPreload", "true", 30)
         }
     });
 
@@ -110,10 +108,15 @@ export const handlePreloadAnimation = () => {
 
 
 export const setCookie = (name, value) => {
-    document.cookie = `${name}=${value};path=/`;
+    if (typeof document !== "undefined") {
+        document.cookie = `${name}=${value};path=/`;
+    }
 };
 
 export const getCookie = (name) => {
+    if (typeof document === "undefined") {
+        return null; // or a sensible fallback for your context
+    }
     const nameEQ = `${name}=`;
     const ca = document.cookie.split(';');
     for (let i = 0; i < ca.length; i++) {
@@ -125,9 +128,13 @@ export const getCookie = (name) => {
 };
 
 export const checkPreloadCookie = () => {
+    if (typeof document === "undefined") {
+        return false; // or a sensible fallback for your context
+    }
+
     const showPreload = getCookie("showPreload");
     if (!showPreload) {
-        setCookie("showPreload", "true", 30);
+        // setCookie("showPreload", "true", 30);
         return false
     } else {
         return true

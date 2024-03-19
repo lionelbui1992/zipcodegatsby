@@ -55,7 +55,6 @@ const HomeBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBlo
             break
           case "acf/company":
             classes = "section--pinning-company"
-            console.log(block)
             cImage = block?.attributes?.data?.owner_image
             break
           case "acf/explore":
@@ -79,6 +78,7 @@ const HomeBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBlo
       }
 
       )}
+      <div className="placeholder-section"></div>
     </div>
   )
 }

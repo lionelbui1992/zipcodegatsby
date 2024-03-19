@@ -7,7 +7,7 @@ import { gsap } from 'gsap';
 import { SEOContext } from 'gatsby-plugin-wpgraphql-seo';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { handleAddPixelateAnimation, handleTextAnimation } from '../animation'
+import { checkPreloadCookie, handleAddPixelateAnimation, handleGeneralOverlayAnimation, handleTextAnimation } from '../animation'
 import { ContactForm } from "./Form/ContactForm";
 import { gql, useQuery } from "@apollo/client";
 import Test from "./blocks/custom/Test";
@@ -21,7 +21,9 @@ interface LayoutProps {
     children?: React.ReactNode
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Layout: React.FC<LayoutProps> = ({ children, slug }) => {
+    let preloadCheck = checkPreloadCookie()
+
     const getInfo = gql`
     query TestingQuery {
         testing {
@@ -127,6 +129,16 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             window.addEventListener("scroll", () => handleScroll());
             window.addEventListener("scroll", () => handleAddPixelateAnimation());
             window.addEventListener("scroll", () => handleTextAnimation());
+
+            console.log(['preloadCheck', preloadCheck])
+            if (preloadCheck) {
+                setTimeout(()=> {
+                    handleAddPixelateAnimation()
+                    handleTextAnimation()
+                    handleGeneralOverlayAnimation()
+                }, 1000)
+            }
+            
         }
     }, [data]);
 
@@ -135,7 +147,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     };
 
     let projectBanner = children?.props?.blocks;
-
 
     let popUp = (projectBanner && projectBanner.length > 0) && projectBanner.filter((block: any) => block.name === 'acf/projects-banner').map((block: any, index: number) => {
         return (
@@ -156,14 +167,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
 
     if (loading || error) return <></>
-
     return (
         <SEOContext.Provider value={{ global: seo }}>
             <ReactLenis root
                 options={{ lerp: 0.255, duration: 0.22 }}
             >
-                <div className="preload loading scrollWraper ScrollSmoother-wrapper viewport">
-                    <Slice alias="preload" />
+                <div className={`${preloadCheck ? "" : "preload loading"}  scrollWraper ScrollSmoother-wrapper viewport page-${slug ? slug : 'index'} `}>
+                    {!preloadCheck && <Slice alias="preload" />}
                     <Slice alias="header" />
                     {popUp && popUp}
                     {galleryPopup && galleryPopup}
