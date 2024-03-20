@@ -110,9 +110,9 @@ const Layout: React.FC<LayoutProps> = ({ children, slug }) => {
     const [getContactForm, setGetContactForm] = useState(null);
     const [hiddenBackToTop, setHiddenBackToTop] = useState(true);
     //useEffect
-    const lenis = useLenis(({ scroll }) => {
-        // called every scroll
-    })
+    // const lenis = useLenis(({ scroll }) => {
+    //     // called every scroll
+    // })
 
     useEffect(() => {
         if (data) {
@@ -130,15 +130,15 @@ const Layout: React.FC<LayoutProps> = ({ children, slug }) => {
             window.addEventListener("scroll", () => handleAddPixelateAnimation());
             window.addEventListener("scroll", () => handleTextAnimation());
 
-            
+
             if (preloadCheck) {
-                setTimeout(()=> {
+                setTimeout(() => {
                     handleAddPixelateAnimation()
                     handleTextAnimation()
                     handleGeneralOverlayAnimation()
                 }, 2000)
             }
-            
+
         }
     }, [data]);
 
