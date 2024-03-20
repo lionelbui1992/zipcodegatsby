@@ -72,7 +72,6 @@ export const BannerPoup = (attributes: IBannerPoupProps): JSX.Element => {
                                                 <Swiper
                                                     modules={[Navigation]}
                                                     spaceBetween={20}
-                                                    slidesPerView="auto"
                                                     breakpoints={{
                                                         0: {
                                                             slidesPerView: 1,
@@ -83,7 +82,7 @@ export const BannerPoup = (attributes: IBannerPoupProps): JSX.Element => {
                                                             spaceBetween: 100,
                                                         },
                                                         1200: {
-                                                            slidesPerView: "auto",
+                                                            slidesPerView: 3,
                                                             spaceBetween: 18,
                                                         }
                                                     }}
