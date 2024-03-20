@@ -13,10 +13,10 @@ export const OurTeams = ({ attributes }: { attributes: IOurTeamsProps }): JSX.El
     const { title, description, peoples } = attributes;
     useEffect(() => {
         const itemsInner: NodeListOf<HTMLElement> = document.querySelectorAll('.our-teams-item-inner');
-        itemsInner.forEach((item: HTMLElement) => {        
+        itemsInner.forEach((item: HTMLElement) => {
             item?.addEventListener('click', () => {
                 item?.classList.toggle("active");
-            })      
+            })
             item?.addEventListener('mouseleave', () => {
                 item?.classList.remove('active');
             })
@@ -25,20 +25,20 @@ export const OurTeams = ({ attributes }: { attributes: IOurTeamsProps }): JSX.El
 
     return (
         <>
-            { (title || peoples ) && 
+            {(title || peoples) &&
                 <div className="container">
                     <div className="our-teams-wrapper">
-                        { (title || description) && 
+                        {(title || description) &&
                             <div className="section-heading">
-                                { (title) && 
-                                    <h2 className="h5" dangerouslySetInnerHTML={{__html: title}} />
+                                {(title) &&
+                                    <h2 className="h5" dangerouslySetInnerHTML={{ __html: title }} />
                                 }
-                                { (description) && 
-                                    <div className="content" dangerouslySetInnerHTML={{__html: description}} />
+                                {(description) &&
+                                    <div className="content" dangerouslySetInnerHTML={{ __html: description }} />
                                 }
                             </div>
                         }
-                        { (peoples) && 
+                        {(peoples) &&
                             <div className="section-content">
                                 <Swiper
                                     modules={[Navigation]}
@@ -49,7 +49,7 @@ export const OurTeams = ({ attributes }: { attributes: IOurTeamsProps }): JSX.El
                                             slidesPerView: 1,
                                             spaceBetween: 13,
                                         },
-                                        767:{
+                                        767: {
                                             slidesPerView: 1,
                                             spaceBetween: 13,
                                         },
@@ -75,36 +75,36 @@ export const OurTeams = ({ attributes }: { attributes: IOurTeamsProps }): JSX.El
                                         },
                                     }}
                                     navigation
-                                    >
-                                    { peoples.map((list, index) => (
-                                        (list.name || list.avatar || list.short_description || list.position ) && 
-                                            <SwiperSlide key={index}>
-                                                <div className="item-inner our-teams-item-inner">
-                                                        <div className="item-image">
-                                                            <div className="image-inner">
-                                                                { list.avatar 
-                                                                    ? <img loading="lazy" srcSet={`${list.avatar.src}`} className="img" alt={list.name} /> 
-                                                                    : <img loading="lazy" srcSet='/img/our-team-placeholder.png' className="img" alt={list.name} />
-                                                                }
-                                                            </div>
-                                                            { (list.short_description) && 
-                                                                <div className="item-info">
-                                                                    <div dangerouslySetInnerHTML={{__html: list.short_description}} />
-                                                                </div>
-                                                            }
-                                                        </div>
-                                                    { (list.name || list.position ) && 
-                                                        <div className="item-content">
-                                                            { (list.name) && 
-                                                                <h6 className="item-name" dangerouslySetInnerHTML={{__html: list.name}} />
-                                                            }
-                                                            { (list.position) && 
-                                                                <div className="item-position" dangerouslySetInnerHTML={{__html: list.position}} />
-                                                            }
+                                >
+                                    {peoples.map((list, index) => (
+                                        (list.name || list.avatar || list.short_description || list.position) &&
+                                        <SwiperSlide key={index}>
+                                            <div className="item-inner our-teams-item-inner">
+                                                <div className="item-image">
+                                                    <div className="image-inner">
+                                                        {list.avatar
+                                                            ? <img loading="lazy" srcSet={`${list.avatar.src}`} className="img" alt={list.name} />
+                                                            : <img loading="lazy" srcSet='/img/our-team-placeholder.png' className="img" alt={list.name} />
+                                                        }
+                                                    </div>
+                                                    {(list.short_description) &&
+                                                        <div className="item-info" data-lenis-prevent>
+                                                            <div dangerouslySetInnerHTML={{ __html: list.short_description }} />
                                                         </div>
                                                     }
                                                 </div>
-                                            </SwiperSlide>
+                                                {(list.name || list.position) &&
+                                                    <div className="item-content">
+                                                        {(list.name) &&
+                                                            <h6 className="item-name" dangerouslySetInnerHTML={{ __html: list.name }} />
+                                                        }
+                                                        {(list.position) &&
+                                                            <div className="item-position" dangerouslySetInnerHTML={{ __html: list.position }} />
+                                                        }
+                                                    </div>
+                                                }
+                                            </div>
+                                        </SwiperSlide>
                                     ))}
                                 </Swiper>
                             </div>
