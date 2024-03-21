@@ -4,14 +4,30 @@ import { IWPGBlocksProps, IWPGBlockProps } from './types'
 
 const CareersBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, form, mapToBlock }) => {
 
+  const firstAnimatoinBlocks = blocks.filter((block, index) => {
+    return block.name === "acf/banner-with-image-right" || block.name === "acf/banner-three-columns"
+  });
+
   const lastAnimatoinBlocks = blocks.filter((block, index) => {
     return block.name === "acf/listing-three-columns" || block.name === "acf/contact-information"
   });
 
+  console.log(blocks);
+  console.log('firstAnimatoinBlocks ', firstAnimatoinBlocks);
+
   return (
     <div className='page-content'>
+      <div className={"overlay-animation"}>
+      {firstAnimatoinBlocks.filter(block => {
+        return !!block.name
+      }).map((block, index) =>
+          <CareersBlock key={index} order={`${index}`} form={form} block={block} mapToBlock={mapToBlock} />
+          )
+        }
+        </div>
+
       {blocks.filter(block => {
-        return !!block.name && (block.name !== "acf/listing-three-columns" && block.name !== "acf/contact-information")
+        return !!block.name && (block.name !== "acf/banner-with-image-right" && block.name !== "acf/banner-three-columns" && block.name !== "acf/listing-three-columns" && block.name !== "acf/contact-information")
       }).map((block, index) =>
         <div key={index} className="overlay-animation">
           <CareersBlock key={index} order={`${index}`} form={form} block={block} mapToBlock={mapToBlock} />
