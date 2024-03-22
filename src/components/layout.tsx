@@ -139,6 +139,13 @@ const Layout: React.FC<LayoutProps> = ({ children, slug }) => {
                     if (document.querySelector('.cky-preference-center')) {
                         document.querySelector('.cky-preference-center')?.setAttribute('data-lenis-prevent', '');
                     }
+
+                    setTimeout(() => {
+                        if (document.querySelector('.cky-preference-center')) {
+                            document.querySelector('.cky-preference-center')?.setAttribute('data-lenis-prevent', '');
+                        }
+                    }, 2000)
+
                 }, 2000)
             }
 
