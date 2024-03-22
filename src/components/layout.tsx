@@ -136,8 +136,8 @@ const Layout: React.FC<LayoutProps> = ({ children, slug }) => {
                     handleAddPixelateAnimation()
                     handleTextAnimation()
                     handleGeneralOverlayAnimation()
-                    if (document.querySelector('.cky-preference-center').length > 0) {
-                        document.querySelector('.cky-preference-center').setAttribute('data-lenis-prevent', '');
+                    if (document.querySelector('.cky-preference-center')) {
+                        document.querySelector('.cky-preference-center')?.setAttribute('data-lenis-prevent', '');
                     }
                 }, 2000)
             }
