@@ -11,4 +11,5 @@ export default {
   Paragraph: loadable(() => import('./paragraph')),
   Quote: loadable(() => import('./quote')),
   Video: loadable(() => import('./video')),
+  Table: loadable(() => import('./table')),
 }

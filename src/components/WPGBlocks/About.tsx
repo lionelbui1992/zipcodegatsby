@@ -42,7 +42,7 @@ const AboutBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBl
         )}
       </div>
 
-      <div className="pinning-2 overlay-animation" style={{ position: "relative", zIndex: 3 }}>
+      <div className="pinning-2" style={{ position: "relative", zIndex: 4 }}>
         {acceptedBlocks.filter(block => {
           return !!block.name
         }).map((block, index) =>
@@ -53,7 +53,7 @@ const AboutBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBl
       {rejectedBlocks.filter(block => {
         return !!block.name
       }).map((block, index) =>
-        <div key={index} className={`${index !== rejectedBlocks.length - 1 ? "overlay-animation" : "end-overlay-animation"}`} style={{ position: "relative", zIndex: 3 }}>
+        <div key={index} className={`${block.name.replace("acf/", "")}`} style={{ position: "relative", zIndex: 3 }}>
           <AboutBlock order={`${index}`} block={block} mapToBlock={mapToBlock} />
         </div>
       )}

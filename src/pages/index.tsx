@@ -17,8 +17,7 @@ const IndexPage: React.FC = () => {
       ... on Page {
         title
         uri
-        blocks
-        content
+        blocks(htmlContent: true, dynamicContent: true)
         seo {
           title
           metaDesc

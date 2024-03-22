@@ -86,6 +86,19 @@ export const handleGeneralOverlayAnimation = () => {
 
         })
     })
+
+    gsap.utils.toArray('.about-page .text-center-with-link').forEach((section) => {
+        ScrollTrigger.create({
+            trigger: section,
+            start: "top top",
+            end: "+=200%",
+            pin: true,
+            pinSpacing: false,
+            markers: false,
+            scrub: 0.000000001,
+
+        })
+    })
 }
 
 

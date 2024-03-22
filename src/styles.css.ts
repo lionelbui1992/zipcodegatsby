@@ -18,6 +18,23 @@ globalStyle("*", {
   boxSizing: "border-box",
 })
 
+globalStyle(".wpg-b_table table", {
+  borderCollapse: "collapse",
+  borderSpacing: 0,
+  padding: 0,
+  margin: 0,
+})
+
+globalStyle(".wpg-b_table th, .wpg-b_table td", {
+  border: "1px solid #000",
+  padding: "10px"
+})
+
+globalStyle(".wp-block-table", {
+  marginLeft: "auto",
+  marginRight: "auto",
+})
+
 globalStyle(".color-header", {
     gap: "20px",
     display: "flex",

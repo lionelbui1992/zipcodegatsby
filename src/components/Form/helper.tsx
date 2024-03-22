@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as Yup from 'yup';
 
 export const RenderForm = (field, formik) => {
@@ -8,7 +8,7 @@ export const RenderForm = (field, formik) => {
         case 'phone':
         case 'email':
             return (
-                <div className={`field ${field.id} ${field.cols === "6" ? 'col-6' : 'full'} ${field.required ? "required" : ""}`} >
+                <div className={`field ${field.id} ${field.cols === "6" ? "col-6" : "full"} ${field.required ? "required" : ""}`} >
                     <label className="label" htmlFor={field.id}><span>{field.field_label}</span></label>
                     <div className="control">
                         <input
@@ -27,9 +27,24 @@ export const RenderForm = (field, formik) => {
             );
 
         case 'select':
+            const [selectedOption, setSelectedOption] = useState({});
+
+            const handleListingChange = (optionValue, optionLabel) => {
+                if (optionValue && optionValue !== "empty") {
+                    document.querySelector('label.select-label').classList.remove('select-label-first');
+                } else {
+                    document.querySelector('label.select-label').classList.add('select-label-first');
+                }
+                setSelectedOption({
+                    optionValue,
+                    optionLabel
+                });
+            };
+
             const handleSelectChange = (event) => {
                 const { value } = event.target;
                 formik.handleChange(event);
+                const valueLi = event.target.getAttribute('value');
 
                 // Check if the select value is empty and add/remove the 'empty-value' class accordingly
                 const selectElement = document.getElementById(field.id);
@@ -40,15 +55,31 @@ export const RenderForm = (field, formik) => {
                 }
             };
             return (
-                <div className={`field ${field.id} ${field.cols === "6" ? 'col-6' : 'full'} ${field.required ? "required" : ""}`} >
+                <div className={`field select ${field.id} ${field.cols === "6" ? "col-6" : "full"} ${field.required ? "required" : ""}`} >
                     <label className="label" htmlFor={field.id}><span>{field.field_label}</span></label>
                     <div className="control">
+                        <input type="checkbox" name={`select-label-${field.id}`} id={`select-label-${field.id}`} />
+                        {/* Render the list */}
+                        { Object.keys(selectedOption).length > 0
+                            ? <label htmlFor={`select-label-${field.id}`} className="select-label">{selectedOption.optionLabel}</label> 
+                            : <label htmlFor={`select-label-${field.id}`} className="select-label select-label-first">{field.options[0].label}</label>
+                        }
+                        {/* List to display options */}
+                        <ul className="select-dropdown">
+                            {/* Map over options and render list items */}
+                            {field.options.map((option) => (
+                                <li value={option.value ? option.value : ""} key={option.value} onClick={() => handleListingChange(option.value, option.label)}>
+                                    <label htmlFor={`select-label-${field.id}`}>{option.label}</label>
+                                </li>
+                            ))}
+                        </ul>
                         <select id={field.id}
                             name={field.id}
                             type={field.type}
                             onChange={handleSelectChange}
-                            className="empty-value"
-                            value={formik.values[field.id]}
+                            className="hidden empty-value"
+                            // value={formik.values[field.id]}
+                            value={selectedOption.optionValue}
                         >
                             {field.options.map((option) => (
                                 <option value={option.value ? option.value : ""}>{option.label}</option>
@@ -70,7 +101,7 @@ export const RenderForm = (field, formik) => {
                 formik.setFieldValue(`${field.id}_name`, file ? file.name : '');
             };
             return (
-                <div className={`field ${field.id} ${field.cols === "6" ? 'col-6' : 'full'} ${field.required ? "required" : ""}`} >
+                <div className={`field ${field.id} ${field.cols === "6" ? "col-6" : "full"} ${field.required ? "required" : ""}`} >
                     <label className="label" htmlFor={field.id}><span>{field.field_label}</span></label>
                     <div className="control file-upload">
                         <div className="upload-icon">
@@ -94,7 +125,7 @@ export const RenderForm = (field, formik) => {
 
         case 'textarea':
             return (
-                <div className={`field ${field.id} ${field.cols === "6" ? 'col-6' : 'full'} ${field.required ? "required" : ""}`} >
+                <div className={`field ${field.id} ${field.cols === "6" ? "col-6" : "full"} ${field.required ? "required" : ""}`} >
                     <label className="label" htmlFor={field.id}><span>{field.field_label}</span></label>
                     <div className="control">
                         <textarea
@@ -113,7 +144,7 @@ export const RenderForm = (field, formik) => {
 
         case 'checkbox':
             return (
-                <div className={`field checkbox ${field.id} ${field.cols === "6" ? 'col-6' : 'full'} ${field.required ? "required" : ""}`} >
+                <div className={`field checkbox ${field.id} ${field.cols === "6" ? "col-6" : "full"} ${field.required ? "required" : ""}`} >
                     <div className="options">
                         {field.options.map((option, index) => (
                             <div key={index} className='option'>

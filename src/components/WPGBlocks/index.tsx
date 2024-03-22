@@ -19,7 +19,10 @@ export const WPGBlock: React.FunctionComponent<IWPGBlockProps> = ({ block, mapTo
     name,
     attributes,
     innerBlocks,
-    innerHTML } = block
+    innerHTML,
+    htmlContent,
+    dynamicContent
+  } = block
 
   if (!name) return null
 
@@ -36,7 +39,7 @@ export const WPGBlock: React.FunctionComponent<IWPGBlockProps> = ({ block, mapTo
   }
 
   return (
-    <TheBlock blockName={name} attributes={attributes} innerBlocks={innerBlocks} innerHTML={innerHTML} />
+    <TheBlock blockName={name} attributes={attributes} innerBlocks={innerBlocks} innerHTML={innerHTML} htmlContent={htmlContent} dynamicContent={dynamicContent} />
   )
 }
 
