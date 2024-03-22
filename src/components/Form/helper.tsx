@@ -27,6 +27,18 @@ export const RenderForm = (field, formik) => {
             );
 
         case 'select':
+            const handleSelectChange = (event) => {
+                const { value } = event.target;
+                formik.handleChange(event);
+
+                // Check if the select value is empty and add/remove the 'empty-value' class accordingly
+                const selectElement = document.getElementById(field.id);
+                if (value && value !== "empty") {
+                    selectElement.classList.remove('empty-value');
+                } else {
+                    selectElement.classList.add('empty-value');
+                }
+            };
             return (
                 <div className={`field ${field.id} ${field.cols === "6" ? 'col-6' : 'full'} ${field.required ? "required" : ""}`} >
                     <label className="label" htmlFor={field.id}><span>{field.field_label}</span></label>
@@ -34,11 +46,12 @@ export const RenderForm = (field, formik) => {
                         <select id={field.id}
                             name={field.id}
                             type={field.type}
-                            onChange={formik.handleChange}
+                            onChange={handleSelectChange}
+                            className="empty-value"
                             value={formik.values[field.id]}
                         >
                             {field.options.map((option) => (
-                                <option value={option.value}>{option.label}</option>
+                                <option value={option.value ? option.value : ""}>{option.label}</option>
                             ))}
                         </select>
                         {formik.touched[field.id] && formik.errors[field.id] && (

@@ -6,7 +6,6 @@ import AboutBlocks from "../components/WPGBlocks/About";
 import CareersBlocks from "../components/WPGBlocks/Careers";
 import PhilosophyBlocks from "../components/WPGBlocks/Philosophy";
 import ProjectsBlocks from "../components/WPGBlocks/Projects";
-import BannerPoup from "../components/BannerPoup";
 import { gql, useQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
 import "../assets/sass/header.sass";
@@ -145,7 +144,7 @@ export default function Page({ params }: { params: { slug: string } }) {
               </section>
               <section className="section-content">
                 <div className="container">
-                  <WPGBlocks blocks={blocks} />
+                  <div className='page-content'><WPGBlocks blocks={blocks} /></div>
                 </div>
               </section>
             </div>
