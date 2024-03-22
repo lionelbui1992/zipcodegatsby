@@ -79,7 +79,7 @@ export default function Page({ params }: { params: { slug: string } }) {
         <Seo post={post} />
         <Layout slug={slug}>
           <div className={`${slug}-page cms-page`}>
-            <section className="section-banner" style={{ backgroundImage: "url(/img/page-privacy-policy-bkg.png)" }}>
+            <section className="section-banner overlay-animation" style={{ backgroundImage: "url(/img/page-privacy-policy-bkg.png)" }}>
               <div className="container">
                 <h1 className="h3">{title}</h1>
               </div>
@@ -137,7 +137,7 @@ export default function Page({ params }: { params: { slug: string } }) {
           <Seo post={post} />
           <Layout slug={slug}>
             <div className={`${slug}-page cms-page`}>
-              <section className="section-banner" style={{ backgroundImage: "url(/img/page-privacy-policy-bkg.png)" }}>
+              <section className="section-banner overlay-animation" style={{ backgroundImage: "url(/img/page-privacy-policy-bkg.png)" }}>
                 <div className="container">
                   <h1 className="h3">{title}</h1>
                 </div>
