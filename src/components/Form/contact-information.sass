@@ -5,6 +5,92 @@
 .file-name
     width: 100%
 
+fieldset.fieldset .field
+    select.hidden
+        display: none
+
+    &.select input[type="checkbox"]
+        display: none
+
+        &:checked ~
+            .select-dropdown
+                display: block
+
+            .select-label
+                border-radius: 10px 10px 0 0
+                margin: 0
+
+                &:after
+                    border-color: #E1E1E1
+                    
+                &::before
+                    transform: rotate(180deg)
+
+    .select-label
+        background-color: hsla(0, 0%, 100%, 0.6)
+        background-color: #f4f4f4
+        border: none
+        border-radius: 10px
+        font-size: 14px
+        line-height: 26px
+        height: 50px
+        letter-spacing: .02em
+        padding: 12px 21px
+        width: 100%
+        display: block
+        cursor: pointer
+        position: relative
+        margin: 0 !important
+         
+        &::before
+            content: ''
+            position: absolute
+            width: 50px
+            height: 100%
+            right: 0
+            top: 0
+            background-image: url(images/icon-select.svg)
+            background-repeat: no-repeat
+            background-position: center
+
+        &.select-label-first
+            color: rgba(0, 0, 0, 0.5)
+
+        &:after
+            content: ''
+            display: block
+            border-bottom: 1px solid transparent
+            margin-top: 12px
+
+    .control
+        position: relative
+
+    .select-dropdown
+        width: 100%
+        background-color: hsla(0, 0%, 100%, 0.6)
+        background-color: #f4f4f4
+        list-style: none
+        border-radius: 0 0 10px 10px
+        padding: 7px 0 8px
+        margin: 0
+        display: none
+        position: absolute
+        top: 100%
+        left: 0
+        z-index: 2
+
+        label
+            padding: 7px 20px
+            font-size: 14px
+            line-height: 26px
+            color: rgba(0, 0, 0, 0.5)
+            cursor: pointer
+            margin: 0 !important
+            &:hover
+                font-weight: 700
+                color: #000000
+
+
 .careers-profile
     padding-bottom: 67px
     background-color: #ffffff
@@ -72,6 +158,7 @@
         .field
             input, textarea, select
                 background-color: rgba(255, 255, 255, 0.6)
+                background-color: #f4f4f4
                 padding: 12.5px 21px
                 letter-spacing: 0.02em
                 font-size: 14px
@@ -121,6 +208,7 @@
                     align-items: center
                     border-radius: 10px
                     background-color: rgba(255, 255, 255, 0.6)
+                    background-color: #f4f4f4
 
                 p
                     margin: 0
