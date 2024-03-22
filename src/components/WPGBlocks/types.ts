@@ -6,6 +6,8 @@ export interface IWPGBlock {
     }
     innerBlocks: IWPGBlock[]
     innerHTML: string
+    htmlContent?: string
+    dynamicContent?: string
 }
   
 export interface IWPGBlockProps {

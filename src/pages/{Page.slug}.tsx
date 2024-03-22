@@ -22,7 +22,7 @@ export default function Page({ params }: { params: { slug: string } }) {
         title
         slug
         uri
-        blocks
+        blocks(htmlContent: true, dynamicContent: true)
         seo {
           title
           metaDesc
