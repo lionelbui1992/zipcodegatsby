@@ -4,12 +4,12 @@ import { IWPGBlocksProps, IWPGBlockProps } from './types'
 
 const WPGBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBlock }) => {
   return (
-    <div className='page-content'>
+    <>
       {blocks && blocks.filter(block => {
         return !!block.name
       }).map((block, index) => <WPGBlock key={index} order={`${index}`} block={block} mapToBlock={mapToBlock} />)
       }
-    </div>
+    </>
   )
 }
 
