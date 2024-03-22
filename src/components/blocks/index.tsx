@@ -19,6 +19,7 @@ export function GetTheBlock(name: string) {
     case 'core/paragraph': return CommonBlocks.Paragraph
     case 'core/quote': return CommonBlocks.Quote
     case 'core/video': return CommonBlocks.Video
+    case 'core/table': return CommonBlocks.Table
 
     case 'core/code': return FormatBlocks.Code
     case 'core/html': return FormatBlocks.Html
