@@ -18,8 +18,7 @@ const WPGListBlock:React.FC<IWPGBlock> = (props) => {
   return (
     <ul className={classes}>
       {innerBlocks.map((col, ci) =>
-        <li key={ci}>
-          {col.attributes.content}
+        <li key={ci} dangerouslySetInnerHTML={{__html: col.attributes.content}}>
         </li>
       )}
     </ul>
