@@ -9,7 +9,7 @@ const WPGCodeBlock:React.FC<IWPGBlock> = (props) => {
   } = props
 
   return (
-    <div className="wpg-block wpg-b_Code" dangerouslySetInnerHTML={{ __html: innerHTML }}/>
+    <pre className="wpg-block wpg-b_Code wp-block-code"><code dangerouslySetInnerHTML={{ __html: innerHTML }}></code></pre>
   )
 }
 
