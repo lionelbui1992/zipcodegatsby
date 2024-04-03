@@ -113,6 +113,44 @@ const Layout: React.FC<LayoutProps> = ({ children, slug }) => {
     // const lenis = useLenis(({ scroll }) => {
     //     // called every scroll
     // })
+    
+    // Add event listener to handle cookie change
+    useEffect(() => {
+        let checkCookiePopupState: any;
+        let checkingCounter = 1;
+        const getCookie = (name: string) => {
+            const cookieValue = document.cookie
+                .split('; ')
+                .find(row => row.startsWith(name + '='))
+                ?.split('=')[1];
+            
+            return cookieValue ? decodeURIComponent(cookieValue) : null;
+        }
+        
+        // Usage
+        checkCookiePopupState = setInterval(function() {
+            // clear time out after 12s
+            if (++checkingCounter > 120) {
+                clearInterval(checkCookiePopupState);
+            }
+            const consentCookieValue = getCookie('cookieyes-consent');
+            if (null !== consentCookieValue) {
+                const cookieData = consentCookieValue.split(',');
+                cookieData.forEach(cookieItem => {
+                    const [key, value] = cookieItem.split(':');
+                    if (key === 'action') {
+                        document.querySelectorAll('.cky-preference-center').forEach(function(container) {
+                            container.setAttribute('data-lenis-prevent', '');
+                        });
+                        // clear timeout after has any action
+                        if (value === 'yes') {
+                            clearInterval(checkCookiePopupState);
+                        }
+                    }
+                });
+            }
+        }, 100);
+    }, []);
 
     useEffect(() => {
         if (data) {
@@ -129,26 +167,6 @@ const Layout: React.FC<LayoutProps> = ({ children, slug }) => {
             window.addEventListener("scroll", () => handleScroll());
             window.addEventListener("scroll", () => handleAddPixelateAnimation());
             window.addEventListener("scroll", () => handleTextAnimation());
-
-
-            if (preloadCheck) {
-                setTimeout(() => {
-                    handleAddPixelateAnimation()
-                    handleTextAnimation()
-                    handleGeneralOverlayAnimation()
-                    if (document.querySelector('.cky-preference-center')) {
-                        document.querySelector('.cky-preference-center')?.setAttribute('data-lenis-prevent', '');
-                    }
-
-                    setTimeout(() => {
-                        if (document.querySelector('.cky-preference-center')) {
-                            document.querySelector('.cky-preference-center')?.setAttribute('data-lenis-prevent', '');
-                        }
-                    }, 2000)
-
-                }, 2000)
-            }
-
         }
     }, [data]);
 
