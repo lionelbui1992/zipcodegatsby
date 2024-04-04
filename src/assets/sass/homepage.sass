@@ -5,24 +5,35 @@
     overflow: hidden
     position: relative
 .placeholder-section
-    min-height: 150vh
     width: 100%
 
-.page-index > .placeholder-section 
+.page-index .placeholder-section
+    min-height: 150vh
+
+.page-index > .placeholder-section
     display: none
+.viewport.page-about .placeholder-section
+    min-height: 40vh
+    @media screen and (max-width: 767px)
+        min-height: 50vh
+
+.viewport:not(.page-index):not(.page-about) .placeholder-section
+    min-height: 50vh
+    @media screen and (max-width: 767px)
+        min-height: 60vh
+
 .panel
     height: 100%
     width: 100%
     position: absolute
 
-.page-index .page-content 
+.page-index .page-content
     pointer-events: none
 
-
-.page-index .page-content div 
+.page-index .page-content div
     pointer-events: all
 
-.page-index .page-content div.placeholder-section 
+.page-index .page-content div.placeholder-section
     pointer-events: none
 
 .pinning-1

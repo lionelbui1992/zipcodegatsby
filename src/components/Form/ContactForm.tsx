@@ -88,10 +88,11 @@ export const ContactForm = (props): JSX.Element => {
                     <form action="" onSubmit={formik.handleSubmit}>
                         <fieldset className="fieldset">
 
-                            {fields.map(field => (
-                                <>
+                            {fields.map((field, index) => (
+                                <React.Fragment key={index}>
+
                                     {RenderForm(field, formik)}
-                                </>
+                                </React.Fragment>
 
                             ))}
 

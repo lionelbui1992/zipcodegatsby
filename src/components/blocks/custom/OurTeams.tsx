@@ -88,7 +88,7 @@ export const OurTeams = ({ attributes }: { attributes: IOurTeamsProps }): JSX.El
                                                         }
                                                     </div>
                                                     {(list.short_description) &&
-                                                        <div className="item-info" data-lenis-prevent>
+                                                        <div className="item-info">
                                                             <div dangerouslySetInnerHTML={{ __html: list.short_description }} />
                                                         </div>
                                                     }

@@ -80,11 +80,11 @@ export const CareerForm = ({ attributes, form }) => {
                                 <form action="" onSubmit={formik.handleSubmit}>
                                     <fieldset className="fieldset">
 
-                                        {fields.map(field => (
-                                            <>
-                                                {RenderForm(field, formik)}
-                                            </>
+                                        {fields.map((field, index) => (
+                                            <React.Fragment key={index}>
 
+                                                {RenderForm(field, formik)}
+                                            </React.Fragment>
                                         ))}
 
                                     </fieldset>
