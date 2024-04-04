@@ -189,11 +189,11 @@ export default function Footer(): JSX.Element {
 
     }
     const handleScroll = () => {
-        if (window.scrollY > 2000) {
-            setHiddenBackToTop(false);
-        } else {
-            setHiddenBackToTop(true);
-        }
+      if (window.scrollY > 2000) {
+        setHiddenBackToTop(false);
+      } else {
+        setHiddenBackToTop(true);
+      }
     }
     window.addEventListener("scroll", () => handleScroll());
     const handleResize = () => {
@@ -216,14 +216,14 @@ export default function Footer(): JSX.Element {
     // setDataSocial(Object.values(footerData.social));
   }, [data]);
   const handleBackToTopClick = () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   // useEffect(() => {
   //   setDataSocial(Object.values(footerData.social));
   // }, [footerData]);
 
-  const getSocialSVG = (item: {link: { url: string } }) => {
+  const getSocialSVG = (item: { link: { url: string } }) => {
     if (item.link.url.includes('facebook.com')) {
       return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 34.09" width="34" height="34"><path d="M1011.24,528.64v22.72a5.63,5.63,0,0,1-5.63,5.64h-5.05V543.52h5.23v-5.29h-5.24v-3.38c0-1.53.42-2.57,2.62-2.57h2.8v-4.94h-4.08c-4,0-6.8,2.46-6.8,7v3.9h-4.57v5.29h4.57V557H982.88a5.64,5.64,0,0,1-5.64-5.64V528.64a5.64,5.64,0,0,1,5.64-5.64h22.73A5.63,5.63,0,0,1,1011.24,528.64Z" transform="translate(-977.24 -523)"/></svg>`;
     } else if (item.link.url.includes('instagram.com')) {
@@ -239,12 +239,12 @@ export default function Footer(): JSX.Element {
 
   return (
     <footer className="site-footer" style={{ backgroundImage: "url(" + backgroundFooter + ")" }}>
-      
+
       <div className={`to-top`} onClick={() => { handleBackToTopClick() }}>
-          <svg width="31" height="33" viewBox="0 0 31 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M30.1991 15.862L26.8782 19.1829L17.6445 9.70623L17.6446 32.6554L12.7847 32.6554L12.7847 9.70623L3.55106 19.1829L0.284179 15.862L15.2146 0.877548L30.1991 15.862Z" fill="#0068FF" />
-          </svg>
-          <span>Back to top</span>
+        <svg width="31" height="33" viewBox="0 0 31 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M30.1991 15.862L26.8782 19.1829L17.6445 9.70623L17.6446 32.6554L12.7847 32.6554L12.7847 9.70623L3.55106 19.1829L0.284179 15.862L15.2146 0.877548L30.1991 15.862Z" fill="#0068FF" />
+        </svg>
+        <span>Back to top</span>
       </div>
       <div className="container">
         <div className="section-top">
@@ -262,8 +262,8 @@ export default function Footer(): JSX.Element {
           <div className="social-container mb">
             {(footerData.social) && (
               footerData.social.map((item: any, index: any) => (
-                <a className="social-item" target={item.link.target} href={item.link.url} >
-                  <div className="icon" dangerouslySetInnerHTML={{__html: getSocialSVG(item)}}></div>
+                <a className="social-item" key={index} target={item.link.target} href={item.link.url} >
+                  <div className="icon" dangerouslySetInnerHTML={{ __html: getSocialSVG(item) }}></div>
                 </a>
               ))
             )}
@@ -288,8 +288,8 @@ export default function Footer(): JSX.Element {
               <div className="social-container dk">
                 {(footerData.social) && (
                   footerData.social.map((item: any, index: any) => (
-                    <a className="social-item" target={item.link.target} href={item.link.url} >
-                      <div className="icon" dangerouslySetInnerHTML={{__html: getSocialSVG(item)}}></div>
+                    <a className="social-item" key={index} target={item.link.target} href={item.link.url} >
+                      <div className="icon" dangerouslySetInnerHTML={{ __html: getSocialSVG(item) }}></div>
                     </a>
                   ))
                 )}
