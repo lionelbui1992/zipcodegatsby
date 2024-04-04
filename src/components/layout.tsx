@@ -104,16 +104,12 @@ const Layout: React.FC<LayoutProps> = ({ children, slug }) => {
     `;
     const { loading, error, data } = useQuery(getInfo);
 
-    //State
     const [testing, setTesting] = useState(false);
     const [seo, setSeo] = useState(undefined);
     const [getContactForm, setGetContactForm] = useState(null);
     const [hiddenBackToTop, setHiddenBackToTop] = useState(true);
-    //useEffect
-    // const lenis = useLenis(({ scroll }) => {
-    //     // called every scroll
-    // })
-    
+
+
     // Add event listener to handle cookie change
     useEffect(() => {
         let checkCookiePopupState: any;
@@ -123,12 +119,12 @@ const Layout: React.FC<LayoutProps> = ({ children, slug }) => {
                 .split('; ')
                 .find(row => row.startsWith(name + '='))
                 ?.split('=')[1];
-            
+
             return cookieValue ? decodeURIComponent(cookieValue) : null;
         }
-        
+
         // Usage
-        checkCookiePopupState = setInterval(function() {
+        checkCookiePopupState = setInterval(function () {
             // clear time out after 12s
             if (++checkingCounter > 120) {
                 clearInterval(checkCookiePopupState);
@@ -139,7 +135,7 @@ const Layout: React.FC<LayoutProps> = ({ children, slug }) => {
                 cookieData.forEach(cookieItem => {
                     const [key, value] = cookieItem.split(':');
                     if (key === 'action') {
-                        document.querySelectorAll('.cky-preference-center').forEach(function(container) {
+                        document.querySelectorAll('.cky-preference-center').forEach(function (container) {
                             container.setAttribute('data-lenis-prevent', '');
                         });
                         // clear timeout after has any action
@@ -154,6 +150,7 @@ const Layout: React.FC<LayoutProps> = ({ children, slug }) => {
 
     useEffect(() => {
         if (data) {
+
             setTesting(data.testing.testingFields.turnOnTesting);
             setGetContactForm(data.getContactForm);
             setSeo(data.seo);
@@ -167,6 +164,11 @@ const Layout: React.FC<LayoutProps> = ({ children, slug }) => {
             window.addEventListener("scroll", () => handleScroll());
             window.addEventListener("scroll", () => handleAddPixelateAnimation());
             window.addEventListener("scroll", () => handleTextAnimation());
+            setTimeout(() => {
+                handleGeneralOverlayAnimation()
+                handleAddPixelateAnimation()
+                handleTextAnimation()
+            }, 2000)
         }
     }, [data]);
 
