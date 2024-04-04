@@ -5,14 +5,22 @@
     overflow: hidden
     position: relative
 .placeholder-section
-    min-height: 150vh
     width: 100%
+
+.page-index .placeholder-section
+    min-height: 150vh
 
 .page-index > .placeholder-section
     display: none
-
-.page-about .placeholder-section
+.viewport.page-about .placeholder-section
     min-height: 40vh
+    @media screen and (max-width: 767px)
+        min-height: 50vh
+
+.viewport:not(.page-index):not(.page-about) .placeholder-section
+    min-height: 50vh
+    @media screen and (max-width: 767px)
+        min-height: 60vh
 
 .panel
     height: 100%
