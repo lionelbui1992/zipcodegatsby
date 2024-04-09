@@ -139,7 +139,7 @@ html.active-overlay
         max-width: 1440px
         margin: 0 auto
         @media (max-width: 1199px)        
-            padding: 54px 0 39px
+            padding: 40px 0
             width: 100%
             max-height: 95%
 
@@ -215,6 +215,8 @@ html.active-overlay
             width: calc((100% / var(--columns)) - var(--gap) + (var(--gap) / var(--columns)))
             border-top: 1px solid #ffffff
             padding-top: 18px
+            @media (max-width: 767px)
+                border-top: none
             strong
                 font-weight: 400
 
@@ -381,10 +383,8 @@ html.active-overlay
     .projects-popup 
         .popup-content
             padding-left: 0
-            margin-top: 56px
-            border-top: 2px solid #ffffff
-            padding-bottom: 0
-            padding-top: 53px
+            margin-top: 30px
+            --gap: 20px
 
             &.visible-desktop
                 display: none
@@ -407,7 +407,7 @@ html.active-overlay
                 height: 387px
 
         button.projects-popup-close
-            right: 50px
+            right: 15px
             top: 1px
             top: -25px
             svg
@@ -418,7 +418,7 @@ html.active-overlay
                     stroke-width: 4px
 
         .popup-galleries
-            padding: 68px 0 0
+            padding: 0 0 0
             overflow: hidden
             
             .swiper
@@ -472,7 +472,10 @@ html.active-overlay
 
         .popup-content
             margin-top: 35px
-            padding-top: 35px
+            padding-top: 10px
+            --columns: 1
+            border-top: 1px solid #ffffff
+            --gap: 0
 
         .popup-galleries
             width: 100%
