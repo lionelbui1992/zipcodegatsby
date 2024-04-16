@@ -83,10 +83,6 @@ export const handleGeneralOverlayAnimation = () => {
             pinSpacing: false,
             markers: false,
             scrub: 0.000000001,
-            onEnter: () => section.classList.remove('animation-end'),
-            onLeaveBack: () => section.classList.add('animation-end'), // add class when scrolling back past start
-            onLeave: () => section.classList.add('animation-end'), // add class when scrolling back past start
-            onEnterBack: () => section.classList.remove('animation-end'),
             onUpdate: (self) => {
                 if (self.progress >= 0.2 && !section.classList.contains('halfway')) {
                     section.classList.add('halfway');
@@ -94,6 +90,11 @@ export const handleGeneralOverlayAnimation = () => {
                     section.classList.remove('halfway');
                 }
 
+                if (self.progress < 0.9 && section.classList.contains('animation-end')) {
+                    section.classList.remove('animation-end');
+                } else if (self.progress >= 0.9 && !section.classList.contains('animation-end')) {
+                    section.classList.add('animation-end');
+                }
 
             }
         })

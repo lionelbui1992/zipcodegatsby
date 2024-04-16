@@ -39,6 +39,7 @@ export const BoxImage = ({ order, attributes }: { order?: string, attributes: IB
                                     )
                                 }
                             })()}
+                            {console.log(attributes)}
                             {attributes.image && attributes.image.src &&
                                 (
                                     <div className="image-inner">
