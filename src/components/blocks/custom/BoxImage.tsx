@@ -2,6 +2,7 @@ import React from "react";
 import "./box-image.sass";
 import { Link } from "gatsby";
 import { IBoxImageProps } from "../types";
+import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
@@ -42,6 +43,10 @@ export const BoxImage = ({ order, attributes }: { order?: string, attributes: IB
                             })()}
                             {attributes.images &&
                                 <Swiper
+                                    modules={[Navigation]}modules={[Navigation, Pagination, Scrollbar, A11y]}
+
+
+
                                     spaceBetween={0}
                                     slidesPerView={1}
                                     navigation
