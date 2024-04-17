@@ -10,6 +10,7 @@ export const BoxImage = ({ order, attributes }: { order?: string, attributes: IB
     const image_position = attributes.image_position ? attributes.image_position : 'left'
     const image_positon_class = order ? `wp-block-position-${order}` : 'wp-block-position-normal'
     let navigation = attributes.gallery.length > 1 ? true : false
+    let navigationClass = attributes.gallery.length > 1 ? "images-slider" : ""
     return (
         <>
             <div
@@ -47,6 +48,7 @@ export const BoxImage = ({ order, attributes }: { order?: string, attributes: IB
                                     spaceBetween={0}
                                     slidesPerView={1}
                                     navigation={navigation}
+                                    className={`${navigationClass}`}
                                 >
                                     {attributes.gallery.map(image =>
                                         <SwiperSlide>

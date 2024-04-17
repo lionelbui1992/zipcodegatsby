@@ -95,7 +95,12 @@
             width: 100%
             text-align: left
             margin-left: 7px
-
+            a
+                font-family: "Tiempos Headline"
+                font-size: 16px
+                font-style: normal
+                font-weight: 400
+                line-height: 15.936px
         h3
             margin-bottom: 0
             line-height: 86.322px
@@ -176,7 +181,7 @@ html.active-overlay
         padding-top: 18px
         padding-right: 43px
 
-    .heading .subheading
+    .heading .subheading, a
         font-family: "Tiempos Headline"
         font-size: 16px
         font-style: normal
@@ -184,6 +189,7 @@ html.active-overlay
         line-height: 17.075px
         margin-top: 30px
         position: static
+        color: #ffffff
     
     .popup-galleries 
         // overflow: visible
@@ -201,20 +207,25 @@ html.active-overlay
 
     .popup-content
         display: flex
-        --gap:88px
-        --columns:3
         display: flex
         width: 100%
         flex-wrap: wrap
-        gap: var(--gap)
         margin-top: 50px
         padding-right: 25px
         font-weight: 300
 
         .column
-            width: calc((100% / var(--columns)) - var(--gap) + (var(--gap) / var(--columns)))
+            width: 30%
             border-top: 1px solid #ffffff
             padding-top: 18px
+            @media (max-width: 767px)
+                width: 100%
+            &:last-child 
+                width: 65%
+                margin-left: auto
+                @media (max-width: 767px)
+                    width: 100%
+            
             @media (max-width: 767px)
                 border-top: none
             strong
