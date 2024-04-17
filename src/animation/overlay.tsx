@@ -83,7 +83,20 @@ export const handleGeneralOverlayAnimation = () => {
             pinSpacing: false,
             markers: false,
             scrub: 0.000000001,
+            onUpdate: (self) => {
+                if (self.progress >= 0.2 && !section.classList.contains('halfway')) {
+                    section.classList.add('halfway');
+                } else if (self.progress < 0.2 && section.classList.contains('halfway')) {
+                    section.classList.remove('halfway');
+                }
 
+                if (self.progress < 0.9 && section.classList.contains('animation-end')) {
+                    section.classList.remove('animation-end');
+                } else if (self.progress >= 0.9 && !section.classList.contains('animation-end')) {
+                    section.classList.add('animation-end');
+                }
+
+            }
         })
     })
 
@@ -96,7 +109,6 @@ export const handleGeneralOverlayAnimation = () => {
             pinSpacing: false,
             markers: false,
             scrub: 0.000000001,
-
         })
     })
 }

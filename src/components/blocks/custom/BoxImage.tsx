@@ -2,7 +2,8 @@ import React from "react";
 import "./box-image.sass";
 import { Link } from "gatsby";
 import { IBoxImageProps } from "../types";
-import { ImageAnimation } from "../../ImageAnimation";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 
 export const BoxImage = ({ order, attributes }: { order?: string, attributes: IBoxImageProps }): JSX.Element => {
     const image_position = attributes.image_position ? attributes.image_position : 'left'
@@ -39,12 +40,21 @@ export const BoxImage = ({ order, attributes }: { order?: string, attributes: IB
                                     )
                                 }
                             })()}
-                            {attributes.image && attributes.image.src &&
-                                (
-                                    <div className="image-inner">
-                                        <ImageAnimation classes="animation-image image-2" src={attributes.image.src} alt={`${attributes.image.alt}`} amount={.3} duration=".6" from="end" axis="x" />
-                                    </div>
-                                )}
+                            {attributes.images &&
+                                <Swiper
+                                    spaceBetween={0}
+                                    slidesPerView={1}
+                                    navigation
+                                >
+                                    {attributes.images.map(image =>
+                                        <SwiperSlide>
+                                            <div className="image-inner">
+                                                <img src={image.src} alt={`${image.alt}`} amount={.3} duration=".6" from="end" axis="x" />
+                                            </div>
+                                        </SwiperSlide>
+                                    )}
+                                </Swiper>
+                            }
                         </div>
                         <div className="column-content">
                             <div className="content-inner">
