@@ -75,14 +75,22 @@ export const BannerPoup = (attributes: IBannerPoupProps): JSX.Element => {
                                                     breakpoints={{
                                                         0: {
                                                             slidesPerView: 1,
-                                                            spaceBetween: 100,
+                                                            spaceBetween: 18,
+                                                        },
+                                                        767: {
+                                                            slidesPerView: 1,
+                                                            spaceBetween: 18,
+                                                        },
+                                                        768: {
+                                                            slidesPerView: 'auto',
+                                                            spaceBetween: 18,
                                                         },
                                                         1199: {
-                                                            slidesPerView: 1,
-                                                            spaceBetween: 100,
+                                                            slidesPerView: 'auto',
+                                                            spaceBetween: 18,
                                                         },
                                                         1200: {
-                                                            slidesPerView: 3,
+                                                            slidesPerView: 'auto',
                                                             spaceBetween: 18,
                                                         }
                                                     }}
@@ -99,15 +107,12 @@ export const BannerPoup = (attributes: IBannerPoupProps): JSX.Element => {
                                                                     />
                                                                 </div>
                                                             }
-                                                            {(item.text) &&
-                                                                <div className="popup-content visible-mobile" dangerouslySetInnerHTML={{ __html: item.text }} />
-                                                            }
                                                         </SwiperSlide>
                                                     ))}
                                                 </Swiper>
                                             </div>
                                         </div>
-                                        <div className="popup-content visible-desktop">
+                                        <div className="popup-content">
                                             {list.popup_slider.map((item, itemIndex) => (
                                                 (item.text) &&
                                                 <div className="column" key={itemIndex} dangerouslySetInnerHTML={{ __html: item.text }} />
