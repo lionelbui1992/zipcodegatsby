@@ -9,7 +9,7 @@ import 'swiper/css';
 export const BoxImage = ({ order, attributes }: { order?: string, attributes: IBoxImageProps }): JSX.Element => {
     const image_position = attributes.image_position ? attributes.image_position : 'left'
     const image_positon_class = order ? `wp-block-position-${order}` : 'wp-block-position-normal'
-
+    let navigation = attributes.gallery.length > 1 ? true : false
     return (
         <>
             <div
@@ -41,14 +41,14 @@ export const BoxImage = ({ order, attributes }: { order?: string, attributes: IB
                                     )
                                 }
                             })()}
-                            {attributes.images &&
+                            {attributes.gallery.length  &&
                                 <Swiper
                                     modules={[Navigation]}
                                     spaceBetween={0}
                                     slidesPerView={1}
-                                    navigation
+                                    navigation={navigation}
                                 >
-                                    {attributes.images.map(image =>
+                                    {attributes.gallery.map(image =>
                                         <SwiperSlide>
                                             <div className="image-inner">
                                                 <img src={image.src} alt={`${image.alt}`} amount={.3} duration=".6" from="end" axis="x" />
