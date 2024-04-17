@@ -75,14 +75,22 @@ export const BannerPoup = (attributes: IBannerPoupProps): JSX.Element => {
                                                     breakpoints={{
                                                         0: {
                                                             slidesPerView: 1,
-                                                            spaceBetween: 100,
+                                                            spaceBetween: 18,
+                                                        },
+                                                        767: {
+                                                            slidesPerView: 1,
+                                                            spaceBetween: 18,
+                                                        },
+                                                        768: {
+                                                            slidesPerView: 'auto',
+                                                            spaceBetween: 18,
                                                         },
                                                         1199: {
-                                                            slidesPerView: 1,
-                                                            spaceBetween: 100,
+                                                            slidesPerView: 'auto',
+                                                            spaceBetween: 18,
                                                         },
                                                         1200: {
-                                                            slidesPerView: 3,
+                                                            slidesPerView: 'auto',
                                                             spaceBetween: 18,
                                                         }
                                                     }}
