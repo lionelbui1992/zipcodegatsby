@@ -43,10 +43,7 @@ export const BoxImage = ({ order, attributes }: { order?: string, attributes: IB
                             })()}
                             {attributes.images &&
                                 <Swiper
-                                    modules={[Navigation]}modules={[Navigation, Pagination, Scrollbar, A11y]}
-
-
-
+                                    modules={[Navigation]}
                                     spaceBetween={0}
                                     slidesPerView={1}
                                     navigation
