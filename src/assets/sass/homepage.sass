@@ -6,6 +6,7 @@
     position: relative
 .placeholder-section
     width: 100%
+    min-height: 150vh
 
 .page-index .placeholder-section
     min-height: 150vh
@@ -13,14 +14,14 @@
 .page-index > .placeholder-section
     display: none
 .viewport.page-about .placeholder-section
-    min-height: 40vh
+    min-height: 150vh
     @media screen and (max-width: 767px)
-        min-height: 50vh
+        min-height: 150vh
 
 .viewport:not(.page-index):not(.page-about) .placeholder-section
-    min-height: 50vh
+    min-height: 150vh
     @media screen and (max-width: 767px)
-        min-height: 60vh
+        min-height: 150vh
 
 .panel
     height: 100%
@@ -265,7 +266,7 @@ a:hover
         position: absolute
         width: 100%
         height: 100%
-        object-fit: cover
+        object-fit: contain
         left: 0
         top: 0
 

@@ -76,22 +76,27 @@ export const BannerPoup = (attributes: IBannerPoupProps): JSX.Element => {
                                                         0: {
                                                             slidesPerView: 1,
                                                             spaceBetween: 18,
+                                                            loop: true,
                                                         },
                                                         767: {
                                                             slidesPerView: 1,
                                                             spaceBetween: 18,
+                                                            loop: true,
                                                         },
                                                         768: {
                                                             slidesPerView: 'auto',
                                                             spaceBetween: 18,
+                                                            loop: true,
                                                         },
                                                         1199: {
                                                             slidesPerView: 'auto',
                                                             spaceBetween: 18,
+                                                            loop: true,
                                                         },
                                                         1200: {
                                                             slidesPerView: 'auto',
                                                             spaceBetween: 18,
+                                                            loop: true,
                                                         }
                                                     }}
                                                     navigation
