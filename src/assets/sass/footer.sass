@@ -19,8 +19,10 @@
   bottom: 5px
   right: 20px
   @media screen and (max-width: 767.98px)
-    bottom: 0
-    right: 0
+    bottom: auto
+    right: 15px
+    top: 15px
+    position: absolute
 
   svg
     width: 31px
@@ -42,6 +44,8 @@
   bottom: 0
   @media screen and (max-width: 767.98px)
     padding: 51px 0 30px
+    .container 
+      position: relative
 
   h5.right
     font-family: Buenos Aires
@@ -162,12 +166,14 @@
       margin-bottom: 37px
 
       .social-item
+        &:hover
+          opacity: 0.8
         svg
           background: #fff
           border-radius: 5px
           &:hover, &:focus 
             path, rect
-              fill: #0068FF
+              // fill: #0068FF
         .icon
           width: 34px
           height: 34px

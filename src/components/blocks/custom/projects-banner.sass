@@ -82,10 +82,10 @@
 
         .subheading
             font-family: "Tiempos Headline"
-            font-size: 16px
+            font-size: 14px
             font-style: normal
             font-weight: 400
-            line-height: 15.936px
+            line-height: 1.4
             vertical-align: top
             margin-top: 7px
             position: absolute
@@ -97,10 +97,10 @@
             margin-left: 7px
             a
                 font-family: "Tiempos Headline"
-                font-size: 16px
+                font-size: 14px
                 font-style: normal
                 font-weight: 400
-                line-height: 15.936px
+                line-height: 1.4
             p
                 margin-bottom: 10px 
         h3
@@ -177,25 +177,25 @@ html.active-overlay
         margin: 0
 
     .heading
-        width: 26.7%
+        width: 30%
         padding-right: 20px
         padding-left: 5px
 
     .popup-galleries
-        width: 73.3%
+        width: 70%
         padding-top: 18px
-        padding-right: 43px
 
     .heading .subheading, a
         font-family: "Tiempos Headline"
-        font-size: 16px
+        font-size: 14px
         font-style: normal
         font-weight: 300
-        line-height: 1.2
+        line-height: 1.4
         margin-top: 30px
         position: static
         color: #ffffff
-    
+    a:hover 
+        text-decoration: underline
     .popup-galleries 
         // overflow: visible
         
@@ -204,6 +204,7 @@ html.active-overlay
 
         .swiper-slide
             width: auto
+            transition: all 0.5s
             &.swiper-slide-prev 
                 opacity: 0
 
@@ -222,19 +223,25 @@ html.active-overlay
         font-weight: 300
 
         .column
-            width: 31.4%
-            padding-top: 18px
-            &:first-child 
-                padding-right: 30px
+            &.content-column-title
+                width: 30%
+                padding-top: 18px
+                padding-right: 20px
                 font-size: 24px
                 line-height: 36px
-            @media (max-width: 767px)
-                width: 100%
-                &:first-child 
+                @media (max-width: 1199px)
+                    width: 50%
+
+                @media (max-width: 767px)
+                    width: 100%
                     padding-right: 0
-            &:last-child 
-                width: 68.6%
+
+            &.content-column-description
+                width: 70%
                 margin-left: auto
+                padding-top: 18px
+                @media (max-width: 1199px)
+                    width: 50%
                 @media (max-width: 767px)
                     width: 100%
             
@@ -310,11 +317,9 @@ html.active-overlay
             max-width: 1108px
 
         .heading 
-            width: 31.4%
             padding-left: 0
         
-        .popup-galleries 
-            width: 68.6%
+        .popup-galleries
             padding-right: 0
 
             .item-gallery img
@@ -379,11 +384,11 @@ html.active-overlay
                     position: static
                     max-width: 100%
                     margin: 30px 0 0
-                    font-size: 22px
-                    line-height: 24px
+                    font-size: 14px
+                    line-height: 1.4
                     a
-                        font-size: 22px
-                        line-height: 24px
+                        font-size: 14px
+                        line-height: 1.4
                 
                 button.btn
                     margin-top: 45px
@@ -424,8 +429,8 @@ html.active-overlay
             padding-left: 0
             width: 50%
             .subheading *
-                font-size: 22px
-                line-height: 24px
+                font-size: 14px
+                line-height: 1.4
 
         .popup-galleries
             width: 50%
@@ -483,11 +488,11 @@ html.active-overlay
 
     .projects-popup 
         .projects-popup-container
-            padding: 30px 0 30px
+            padding: 40px 0 35px
             
         button.projects-popup-close
             right: 20px
-            top: -10px
+            top: -30px
             
         h4 
             margin: 0
@@ -522,4 +527,4 @@ html.active-overlay
                     left: -18px
 
                 .swiper-button-next
-                    right: -18px
+                    right: 0

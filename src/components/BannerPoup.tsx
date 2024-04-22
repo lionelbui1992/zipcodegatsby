@@ -119,17 +119,15 @@ export const BannerPoup = (attributes: IBannerPoupProps): JSX.Element => {
                                         </div>
                                         <div className="popup-content">
                                             {list.popup_slider.map((item, itemIndex) => (
-                                                (item.text && itemIndex === 0) && (
-                                                    <div className="column" key={itemIndex} dangerouslySetInnerHTML={{ __html: item.text }} />
+                                                (itemIndex === 0) && (
+                                                    <div className="column content-column-title" key={itemIndex} dangerouslySetInnerHTML={{ __html: item.text }} />
                                                 )                                                
                                             ))}
-                                            <div className="column">
+                                            <div className="column content-column-description">
                                                 {list.popup_slider.map((item, itemIndex) => (
-                                                    (item.text) && (
-                                                        (item.text && itemIndex > 0) && (
-                                                            <div className="column-inner" key={itemIndex} dangerouslySetInnerHTML={{ __html: item.text }} />
-                                                        )   
-                                                    )
+                                                    (itemIndex > 0) && (
+                                                        <div className="column-inner" key={itemIndex} dangerouslySetInnerHTML={{ __html: item.text }} />
+                                                    )  
                                                 ))}
                                             </div>
                                         </div>
