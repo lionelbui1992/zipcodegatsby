@@ -182,6 +182,12 @@ interface IExploreProps {
     button: IButton;
 }
 
+interface IWhyUs {
+    title: string,
+    description: string,
+    background: IImage,
+}
+
 interface IFooterData {
     titleLeft: string | "";
     logoFooter: {
@@ -265,5 +271,6 @@ export {
     IIntroduceProps,
     ICompanyProps,
     IExploreProps,
+    IWhyUs,
     IFooterData,
 }
