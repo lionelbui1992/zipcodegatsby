@@ -74,28 +74,28 @@ export const BannerPoup = (attributes: IBannerPoupProps): JSX.Element => {
                                                     spaceBetween={20}
                                                     breakpoints={{
                                                         0: {
-                                                            slidesPerView: 1,
-                                                            spaceBetween: 18,
+                                                            slidesPerView: 2,
+                                                            spaceBetween: 16,
                                                             loop: true,
                                                         },
                                                         767: {
-                                                            slidesPerView: 1,
-                                                            spaceBetween: 18,
+                                                            slidesPerView: 2,
+                                                            spaceBetween: 16,
                                                             loop: true,
                                                         },
                                                         768: {
                                                             slidesPerView: 'auto',
-                                                            spaceBetween: 18,
+                                                            spaceBetween: 16,
                                                             loop: true,
                                                         },
                                                         1199: {
                                                             slidesPerView: 'auto',
-                                                            spaceBetween: 18,
+                                                            spaceBetween: 16,
                                                             loop: true,
                                                         },
                                                         1200: {
                                                             slidesPerView: 'auto',
-                                                            spaceBetween: 18,
+                                                            spaceBetween: 16,
                                                             loop: true,
                                                         }
                                                     }}

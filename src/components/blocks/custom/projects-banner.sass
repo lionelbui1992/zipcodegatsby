@@ -181,10 +181,6 @@ html.active-overlay
         padding-right: 20px
         padding-left: 5px
 
-    .popup-galleries
-        width: 70%
-        padding-top: 18px
-
     .heading .subheading, a
         font-family: "Tiempos Headline"
         font-size: 14px
@@ -197,10 +193,11 @@ html.active-overlay
     a:hover 
         text-decoration: underline
     .popup-galleries 
-        // overflow: visible
+        width: 70%
+        padding-top: 18px
         
         .swiper
-            // overflow: visible
+            padding-bottom: 60px
 
         .swiper-slide
             width: auto
@@ -257,13 +254,20 @@ html.active-overlay
     .swiper
         .swiper-button-prev, 
         .swiper-button-next
-            background-image: url(images/icon-arrows.svg)
-            width: 29px
-            height: 29px
+            width: 32px
+            height: 30px
             background-size: contain
             margin-top: -14px
-            &:hover                
-                background-image: url(images/icon-arrows.svg)
+            background-image: url(images/icon-arrows-next.svg)
+            top: auto
+            bottom: 0
+            right: 0
+            left: auto
+            transition: all 0.5s
+            &:hover
+                opacity: 0.8
+            @media (max-width: 767px)
+                display: none
 
         .swiper-button-prev.swiper-button-disabled, 
         .swiper-button-next.swiper-button-disabled
@@ -271,7 +275,10 @@ html.active-overlay
 
         .swiper-button-prev
             // left: -35px
-            display: none
+            // display: none
+            transform: none
+            transform: rotate(180deg)
+            right: 67px
 
         .swiper-button-next
             // right: -35px
@@ -323,7 +330,7 @@ html.active-overlay
             padding-right: 0
 
             .item-gallery img
-                height: 308px
+                height: 310px
 
 .active-overlay
     .poup-overlay
@@ -515,11 +522,14 @@ html.active-overlay
             
             .swiper
                 overflow: visible
+                width: 200%
+                padding-bottom: 0
 
                 .item-gallery 
                     img
-                        height: auto
-                        max-width: 200px
+                        height: 202px
+                        max-width: 100%
+                        aspect-ratio: auto
                         margin: 0 auto
 
             .swiper
