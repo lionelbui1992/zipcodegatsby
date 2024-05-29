@@ -185,6 +185,7 @@ interface IExploreProps {
 interface IWhyUs {
     title: string,
     description: string,
+    readmore: string,
     background: IImage,
 }
 

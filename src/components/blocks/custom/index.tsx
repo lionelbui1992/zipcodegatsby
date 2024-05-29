@@ -9,6 +9,7 @@ export default {
   BoxImage: loadable(() => import('./BoxImage')),
   OurTeams: loadable(() => import('./OurTeams')),
   BannerCta: loadable(() => import('./BannerCta')),
+  WhyUs: loadable(() => import('./WhyUs')),
   LifeZipCode: loadable(() => import('./LifeZipCode')),
   BannerThreeColumns: loadable(() => import('./BannerThreeColumns')),
   GalleryTwoColumns: loadable(() => import('./GalleryTwoColumns')),

@@ -133,6 +133,23 @@ html.active-overlay
         visibility: visible
         transform: translateY(0)
 
+    .ScrollbarsCustom-Wrapper, 
+    .ScrollbarsCustom-Scroller
+        position: static !important
+        height: 100%
+
+    .ScrollbarsCustom-Track
+        background: rgba(255, 255, 255, 50%) !important
+        border-radius: 0 !important
+        width: 2px !important
+        right: 35px !important
+        top: 82px !important
+        height: calc(100% - 82px) !important
+        z-index: 1
+
+    .ScrollbarsCustom-Thumb
+        background: #CCB4FB !important
+
     .projects-popup-container 
         position: relative
         width: 90%
@@ -151,7 +168,7 @@ html.active-overlay
         @media (max-width: 1199px)        
             padding: 40px 0
             width: 100%
-            max-height: 95%
+            max-height: calc(100% - 40px)
 
     .section-bkg
         border-radius: 31.304px
@@ -159,6 +176,8 @@ html.active-overlay
     .container
         position: relative
         max-width: 1174px
+        padding-left: 36px
+        padding-right: 36px
 
     button.projects-popup-close
         background: transparent
@@ -166,8 +185,8 @@ html.active-overlay
         outline: none
         position: absolute
         right: 0
-        top: 1px
-        top: -25px
+        right: 95px
+        top: 37px
 
     .popup-heading
         display: flex
@@ -223,7 +242,7 @@ html.active-overlay
             &.content-column-title
                 width: 30%
                 padding-top: 18px
-                padding-right: 20px
+                padding-right: 30px
                 font-size: 24px
                 line-height: 36px
                 @media (max-width: 1199px)
@@ -232,6 +251,7 @@ html.active-overlay
                 @media (max-width: 767px)
                     width: 100%
                     padding-right: 0
+                    letter-spacing: 0.2px
 
             &.content-column-description
                 width: 70%
@@ -241,6 +261,7 @@ html.active-overlay
                     width: 50%
                 @media (max-width: 767px)
                     width: 100%
+                    padding-top: 30px
             
             @media (max-width: 767px)
                 border-top: none
@@ -443,47 +464,46 @@ html.active-overlay
             width: 50%
 
             .item-gallery img
-                height: 387px
+                // height: 387px
 
         button.projects-popup-close
-            right: 15px
-            top: 1px
-            top: -25px
+            right: 10px
+            top: 5px
             svg
-                width: 25px
-                height: 25px
+                width: 32px
+                height: 30px
 
                 line
-                    stroke-width: 4px
+                    // stroke-width: 4px
 
         .popup-galleries
             padding: 0 0 0
             overflow: hidden
             
             .swiper
-                overflow: visible
+                // overflow: visible
 
             .swiper                    
                 .swiper-button-prev
-                    left: 0
-                    top: 200px
+                    // left: 0
+                    // top: 200px
                     @media (max-width: 767px)
-                        top: 135px
+                        // top: 135px
 
                 .swiper-button-next
-                    right: 0
-                    top: 200px
+                    // right: 0
+                    // top: 200px
                     @media (max-width: 767px)
-                        top: 135px
+                        // top: 135px
 
             .item-gallery 
                 // padding: 0 39px
                 text-align: center
 
                 img
-                    height: 400px
-                    aspect-ratio: 0.7
-                    object-fit: cover
+                    // height: 400px
+                    // aspect-ratio: 0.7
+                    // object-fit: cover
 
 @media (max-width: 767px)
     .btn.visible-mobile,
@@ -494,31 +514,47 @@ html.active-overlay
         padding-top: 137px
 
     .projects-popup 
-        .projects-popup-container
-            padding: 40px 0 35px
-            
         button.projects-popup-close
-            right: 20px
-            top: -30px
+            right: 28px
+            top: 20px
+            
+        .projects-popup-container
+            padding: 53px 0 82px 36px
+            overflow: hidden
+            display: flex
+
+        .container 
+            padding: 0
+            .projects-popup-main
+                padding: 0 31px 0 0
+                overflow: hidden
             
         h4 
             margin: 0
-            font-size: 45px
+            font-size: 40px
             line-height: 1.2
+            padding-right: 100px
 
         .heading
             width: 100%
             padding-right: 0
+            .subheading
+                padding-right: 10px
+                margin-top: 38px
+                letter-spacing: 0.2px
+                p
+                    margin-bottom: 21px
 
         .popup-content
-            margin-top: 20px
+            margin-top: 39px
             --columns: 1
             --gap: 0
+            padding-right: 15px
 
         .popup-galleries
             width: 100%
             overflow: visible
-            padding: 35px 0 0
+            padding: 33px 0 0
             
             .swiper
                 overflow: visible

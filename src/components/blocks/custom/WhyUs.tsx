@@ -6,7 +6,14 @@ export const WhyUs = ({ attributes }: { attributes: IWhyUs }): JSX.Element => {
     const lifeIconRow = '/img/why-us-icon-row.svg';
     const lifeIconCol = '/img/why-us-icon-col.svg';
     const lifeIconColMobile = '/img/why-us-icon-col-mobile.svg';
-    const { title, description, background } = attributes;
+    const { title, description, background, readmore } = attributes;
+
+    const toggleBtn = document.querySelector('.read-more');
+    const content = document.querySelector('.why-us-description');
+
+    toggleBtn.addEventListener('click', () => {
+        content.classList.toggle('show');
+    });
 
     return (
         <>
@@ -29,7 +36,10 @@ export const WhyUs = ({ attributes }: { attributes: IWhyUs }): JSX.Element => {
                                         <img className="visible-mobile" loading="lazy" srcSet={lifeIconColMobile} />
                                     </div>
                                 }
-                                <div className="description" dangerouslySetInnerHTML={{__html: description}} />
+                                <div className="description why-us-description" dangerouslySetInnerHTML={{__html: description}} />
+                                {readmore &&
+                                    <button className="button btn-white read-more">{ readmore }</button>
+                                }
                             </div>
                         }
                     </div>
