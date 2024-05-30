@@ -12,9 +12,6 @@ const CareersBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, form,
     return block.name === "acf/listing-three-columns" || block.name === "acf/contact-information"
   });
 
-  console.log(blocks);
-  console.log('firstAnimatoinBlocks ', firstAnimatoinBlocks);
-
   return (
     <div className='page-content'>
       <div className={"overlay-animation"}>

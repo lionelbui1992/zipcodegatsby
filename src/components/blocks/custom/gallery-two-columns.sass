@@ -1,10 +1,10 @@
 .our-values-box 
-    border-radius: 45px
+    border-radius: 32px
     background: var(--Color-neutrals-white)
     position: relative
     z-index: 1
-    padding: 92px 0 69px
-    margin-top: -60px
+    padding: 102px 0 69px
+    margin-top: -50px
     
     .section-title
         max-width: 300px
@@ -12,7 +12,6 @@
     .our-values-items
         display: flex
         flex-wrap: wrap
-        padding-left: 50px
         align-items: flex-start
         
         &.our-values-popup-active
@@ -20,11 +19,11 @@
 
         @media (max-width: 1199px) 
             padding-left: 0
-            margin: 0 -20px
+            // margin: 0 -20px
             gap: 50px 0
 
         .items-col
-            width: 50%
+            width: calc(50% - 50px)
             display: flex
             flex-wrap: wrap
             margin-top: 144px
@@ -32,6 +31,7 @@
 
             &:last-child 
                 margin-top: -120px
+                margin-left: auto 
                 gap: 80px
 
             @media (max-width: 767px) 
@@ -47,25 +47,30 @@
             width: 100%
             margin-left: auto
             margin-right: 0
-            padding: 0 30px 0 46px
+            padding: 0 0
 
             @media (max-width: 1199px) 
-                padding: 0 20px
+                padding: 0 0
 
             .column-image
                 display: flex
                 flex-wrap: wrap
+                &.column-image-full
+                    .image-item
+                        width: 100%
+                        .image-inner
+                            padding-bottom: 54.11%
 
             .image-first
                 width: 42.665%
                 .image-inner
-                    padding-bottom: 151.22%
+                    padding-bottom: 126.83%
 
             .image-second
                 width: 54.112%
                 margin-left: auto
                 .image-inner
-                    padding-bottom: 119.233%
+                    padding-bottom: 100%
 
             .image-inner
                 position: relative
@@ -138,7 +143,7 @@
         padding: 118px 0 58px 49px
         color: #ffffff
         width: 100%
-        border-radius: 45px
+        border-radius: 32px
         background-position: center
         background-repeat: no-repeat
         background-size: cover
@@ -188,6 +193,13 @@
             @media (max-width: 767px) 
                 width: 100%
             
+            &.column-image-full
+                .image-inner
+                    .image-item
+                        width: 100%
+                        .image-inner
+                            padding-bottom: 54.11%
+            
             .image-inner
                 display: flex
                 flex-wrap: wrap
@@ -206,13 +218,13 @@
                 .image-first
                     width: 42.665%
                     .image-inner
-                        padding-bottom: 151.22%
+                        padding-bottom: 126.83%
 
                 .image-second
                     width: 54.112%
                     margin-left: auto
                     .image-inner
-                        padding-bottom: 119.233%
+                        padding-bottom: 100%
 
         .column-content
             width: 42.6%
