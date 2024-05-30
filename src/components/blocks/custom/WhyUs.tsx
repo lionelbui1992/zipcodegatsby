@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./why-us.sass";
 import { IWhyUs } from "../types";
 
@@ -7,18 +7,16 @@ export const WhyUs = ({ attributes }: { attributes: IWhyUs }): JSX.Element => {
     const lifeIconCol = '/img/why-us-icon-col.svg';
     const lifeIconColMobile = '/img/why-us-icon-col-mobile.svg';
     const { title, description, background, readmore } = attributes;
-
-    const toggleBtn = document.querySelector('.read-more');
-    const content = document.querySelector('.why-us-description');
-
-    toggleBtn.addEventListener('click', () => {
-        content.classList.toggle('show');
-    });
-
+    
+    const [openReadMore, setOpenReadMore] = useState(false);
+    const readMoreFunc = async () => {
+        setOpenReadMore(false);
+        document.querySelector('.why-us-description')?.classList.toggle('show');
+    }
     return (
         <>
             {(title) &&
-                <div className="careers-why-us careers-section" style={{ backgroundImage: "url(" + background.src + ")" }}>
+                <div className="careers-why-us careers-section" style={{ backgroundImage: "url(" + background?.src + ")" }}>
                     <div className="container">
                         <div className="section-title">
                             <h2 className="h4" dangerouslySetInnerHTML={{ __html: title }} />
@@ -36,9 +34,9 @@ export const WhyUs = ({ attributes }: { attributes: IWhyUs }): JSX.Element => {
                                         <img className="visible-mobile" loading="lazy" srcSet={lifeIconColMobile} />
                                     </div>
                                 }
-                                <div className="description why-us-description" dangerouslySetInnerHTML={{__html: description}} />
+                                <div className={`description why-us-description`} dangerouslySetInnerHTML={{__html: description}} />
                                 {readmore &&
-                                    <button className="button btn-white read-more">{ readmore }</button>
+                                    <button className="button btn-white read-more" onClick={() => readMoreFunc()}>{ readmore }</button>
                                 }
                             </div>
                         }

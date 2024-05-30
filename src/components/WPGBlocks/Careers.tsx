@@ -5,7 +5,7 @@ import { IWPGBlocksProps, IWPGBlockProps } from './types'
 const CareersBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, form, mapToBlock }) => {
 
   const firstAnimatoinBlocks = blocks.filter((block, index) => {
-    return block.name === "acf/banner-with-image-right" || block.name === "acf/banner-three-columns"
+    return block.name === "acf/banner-with-image-right" || block.name === "acf/banner-three-columns" || block.name === "acf/why-us"
   });
 
   const lastAnimatoinBlocks = blocks.filter((block, index) => {
@@ -27,7 +27,7 @@ const CareersBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, form,
         </div>
 
       {blocks.filter(block => {
-        return !!block.name && (block.name !== "acf/banner-with-image-right" && block.name !== "acf/banner-three-columns" && block.name !== "acf/listing-three-columns" && block.name !== "acf/contact-information")
+        return !!block.name && (block.name !== "acf/banner-with-image-right" && block.name !== "acf/banner-three-columns" && block.name !== "acf/why-us" && block.name !== "acf/listing-three-columns" && block.name !== "acf/contact-information")
       }).map((block, index) =>
         <div key={index} className="overlay-animation">
           <CareersBlock key={index} order={`${index}`} form={form} block={block} mapToBlock={mapToBlock} />
@@ -78,10 +78,6 @@ export const CareersBlock: React.FunctionComponent<IWPGBlockProps> = ({ block, f
           <section className="about-banner-cta about-section">
             <TheBlock blockName={name} attributes={attributes.data} />
           </section>
-        )
-      case 'acf/why-us':
-        return (
-          <TheBlock blockName={name} attributes={attributes.data} />
         )
       case 'acf/life-zip-code':
         if (attributes.data.hidden && attributes.data.hidden !== '1') {
