@@ -2,7 +2,7 @@
   color: #fff
 .pin-spacer
   .phi-content-container
-    padding-bottom: 50px
+    // padding-bottom: 50px
 .end-overlay-animation
   margin-top: -50px
   z-index: 2
@@ -12,12 +12,33 @@
   z-index: 1
 .end-overlay-animation + footer .container
   padding-top: 50px
+.page-philosophy .pin-spacer + .pin-spacer + .pin-spacer .phi-content-container .container
+    // padding-top: 185px
+.page-philosophy .pin-spacer + .pin-spacer + .pin-spacer + .pin-spacer .phi-content-container
+  border-radius: 32px 32px 0 0 
+
+.phi-2.philosophy-section
+  .phi-content-container
+    border-radius: 0
+    color: #ffffff
+.phi-3.philosophy-section
+  .phi-content-container
+    border-radius: 32px 32px 0 0
+    overflow: hidden
+    @media screen and (max-width: 1440.98px)
+      border-radius: 32px 32px 0 0
+      
+.phi-5.philosophy-section 
+    margin-top: 0
 
 .phi-content-container
   color: #000
-  border-radius: 45px
+  border-radius: 0 0 32px 32px
   background-repeat: no-repeat
   background-size: cover
+  overflow: hidden
+  @media screen and (max-width: 1440.98px)
+    border-radius: 0 0 32px 32px
   @media screen and (max-width: 767.98px)
     background-size: cover
 
@@ -29,37 +50,53 @@
       display: none
 
   .container
-    padding-top: 118px
-    padding-bottom: 150px
+    // padding-top: 118px
+    // padding-bottom: 150px
     display: flex
     flex-wrap: nowrap
     gap: 36px
     justify-content: space-between
+    &.img-left
+      padding-left: 0
+      @media screen and (max-width: 767.98px)
+        padding-left: 36px
+    &.img-right
+      padding-right: 0
+      @media screen and (max-width: 767.98px)
+        padding-right: 36px
+    
     @media screen and (max-width: 1440.98px)
-      padding-top: 100px
-      padding-bottom: 57px
+      // padding-top: 100px
+      // padding-bottom: 57px
     @media screen and (max-width: 767.98px)
-      padding-top: 82px
-      padding-bottom: 79px
+      // padding-top: 82px
+      // padding-bottom: 79px
   .image-container
-    width: 40.65%
+    width: 45.426%
     @media screen and (max-width: 1440.98px)
-      width: 43.75%
+      // width: 43.75%
     @media screen and (max-width: 767.98px)
       width: calc(100vw - 72px)
       margin-left: -89px
       margin-top: 78px
-
     .image
-      padding-bottom: 90.6%
+      padding-bottom: 135.07%
       background-position: center
       background-size: cover
+      @media screen and (max-width: 767.98px)
+        padding-bottom: 111.733%
+        height: auto
 
   .content
-    width: 50%
+    width: 45.5%
     max-width: 680px
     display: flex
+    align-items: flex-start
+    padding-top: 140px
+    padding-bottom: 140px
     @media screen and (max-width: 767.98px)
+      padding-top: 0
+      padding-bottom: 0
       width: 100%
       max-width: unset
 
@@ -69,8 +106,9 @@
       font-weight: 300
       line-height: 84px
       letter-spacing: 0.005em
-      width: 100px
+      width: 98px
       color: inherit
+      margin-top: 5px
       @media screen and (max-width: 767.98px)
         font-size: 50px
         line-height: 61px
@@ -91,20 +129,18 @@
         @media screen and (max-width: 1440.98px)
           max-width: 484px
       .des
-        font-size: 16px
+        font-size: 14px
         font-weight: 400
         line-height: 25px
         letter-spacing: 0.02em
         color: inherit
         min-height: 160px
-        padding-bottom: 50px
-        max-width: 495px
-        @media screen and (max-width: 1440.98px)
-          padding-bottom: 20px
+        margin-top: 60px
+        max-width: 480px
         @media screen and (max-width: 767.98px)
           width: calc(100vw - 72px)
           margin-left: -89px
-          padding-bottom: 0
+          padding-top: 0
           margin-top: 39px
           max-width: unset
           margin-bottom: 20px

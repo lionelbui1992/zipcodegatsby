@@ -2,9 +2,6 @@
     position: relative
     padding-top: 153px
 
-    .container 
-        max-width: 1730px
-
     .section-bkg
         position: absolute
         top: 0
@@ -82,10 +79,10 @@
 
         .subheading
             font-family: "Tiempos Headline"
-            font-size: 16px
+            font-size: 14px
             font-style: normal
             font-weight: 400
-            line-height: 15.936px
+            line-height: 1.4
             vertical-align: top
             margin-top: 7px
             position: absolute
@@ -95,11 +92,21 @@
             width: 100%
             text-align: left
             margin-left: 7px
-
+            a
+                font-family: "Tiempos Headline"
+                font-size: 14px
+                font-style: normal
+                font-weight: 400
+                line-height: 1.4
+            p
+                margin-bottom: 10px 
         h3
             margin-bottom: 0
             line-height: 86.322px
             letter-spacing: -1.5px
+                
+.subheading p 
+    margin-bottom: 10px
 
 html.active-overlay 
     overflow: hidden
@@ -123,6 +130,23 @@ html.active-overlay
         visibility: visible
         transform: translateY(0)
 
+    .ScrollbarsCustom-Wrapper, 
+    .ScrollbarsCustom-Scroller
+        position: static !important
+        height: 100%
+
+    .ScrollbarsCustom-Track
+        background: rgba(255, 255, 255, 50%) !important
+        border-radius: 0 !important
+        width: 2px !important
+        right: 35px !important
+        top: 82px !important
+        height: calc(100% - 82px) !important
+        z-index: 1
+
+    .ScrollbarsCustom-Thumb
+        background: #CCB4FB !important
+
     .projects-popup-container 
         position: relative
         width: 90%
@@ -141,7 +165,7 @@ html.active-overlay
         @media (max-width: 1199px)        
             padding: 40px 0
             width: 100%
-            max-height: 95%
+            max-height: calc(100% - 40px)
 
     .section-bkg
         border-radius: 31.304px
@@ -149,6 +173,8 @@ html.active-overlay
     .container
         position: relative
         max-width: 1174px
+        padding-left: 36px
+        padding-right: 36px
 
     button.projects-popup-close
         background: transparent
@@ -156,8 +182,8 @@ html.active-overlay
         outline: none
         position: absolute
         right: 0
-        top: 1px
-        top: -25px
+        right: 95px
+        top: 37px
 
     .popup-heading
         display: flex
@@ -167,32 +193,33 @@ html.active-overlay
         margin: 0
 
     .heading
-        width: 26.7%
+        width: 30%
         padding-right: 20px
         padding-left: 5px
 
-    .popup-galleries
-        width: 73.3%
-        padding-top: 18px
-        padding-right: 43px
-
-    .heading .subheading
+    .heading .subheading, a
         font-family: "Tiempos Headline"
-        font-size: 16px
+        font-size: 14px
         font-style: normal
-        font-weight: 400
-        line-height: 17.075px
+        font-weight: 300
+        line-height: 1.4
         margin-top: 30px
         position: static
-    
+        color: #ffffff
+    a:hover 
+        text-decoration: underline
     .popup-galleries 
-        // overflow: visible
+        width: 70%
+        padding-top: 18px
         
         .swiper
-            // overflow: visible
+            padding-bottom: 60px
 
         .swiper-slide
             width: auto
+            transition: all 0.5s
+            &.swiper-slide-prev 
+                opacity: 0
 
         .item-gallery img
             vertical-align: top
@@ -201,39 +228,64 @@ html.active-overlay
 
     .popup-content
         display: flex
-        --gap:88px
-        --columns:3
         display: flex
         width: 100%
         flex-wrap: wrap
-        gap: var(--gap)
-        margin-top: 50px
+        margin-top: 25px
         padding-right: 25px
         font-weight: 300
 
         .column
-            width: calc((100% / var(--columns)) - var(--gap) + (var(--gap) / var(--columns)))
-            border-top: 1px solid #ffffff
-            padding-top: 18px
+            &.content-column-title
+                width: 30%
+                padding-top: 18px
+                padding-right: 30px
+                font-size: 24px
+                line-height: 36px
+                @media (max-width: 1199px)
+                    width: 50%
+
+                @media (max-width: 767px)
+                    width: 100%
+                    padding-right: 0
+                    letter-spacing: 0.2px
+
+            &.content-column-description
+                width: 70%
+                margin-left: auto
+                padding-top: 18px
+                @media (max-width: 1199px)
+                    width: 50%
+                @media (max-width: 767px)
+                    width: 100%
+                    padding-top: 30px
+            
             @media (max-width: 767px)
                 border-top: none
             strong
-                font-weight: 400
+                font-weight: 300
 
             h6, .h6
-                font-weight: 400
+                font-weight: 300
                 line-height: 35.573px
 
     .swiper
         .swiper-button-prev, 
         .swiper-button-next
-            background-image: url(images/icon-arrows.svg)
-            width: 29px
-            height: 29px
+            width: 32px
+            height: 30px
             background-size: contain
             margin-top: -14px
-            &:hover                
-                background-image: url(images/icon-arrows.svg)
+            background-image: url(images/icon-arrows-next.svg)
+            top: auto
+            bottom: 0
+            right: 0
+            left: auto
+            transition: all 0.5s
+            &:hover
+                opacity: 0.8
+            @media (max-width: 767px)
+                display: none
 
         .swiper-button-prev.swiper-button-disabled, 
         .swiper-button-next.swiper-button-disabled
@@ -241,6 +293,10 @@ html.active-overlay
 
         .swiper-button-prev
             // left: -35px
+            // display: none
+            transform: none
+            transform: rotate(180deg)
+            right: 67px
 
         .swiper-button-next
             // right: -35px
@@ -266,8 +322,6 @@ html.active-overlay
 @media (max-width: 1600px)
     .projects-banner
         padding-top: 129px
-        .container
-            max-width: 1240px
         
     .projects-items
         padding: 69px 0 102px 0
@@ -278,7 +332,7 @@ html.active-overlay
     .projects-popup 
         .popup-content
             padding-left: 0
-            margin-top: 67px
+            margin-top: 25px
             --gap:52px
             padding-right: 0
 
@@ -286,15 +340,13 @@ html.active-overlay
             max-width: 1108px
 
         .heading 
-            width: 31.4%
             padding-left: 0
         
-        .popup-galleries 
-            width: 68.6%
+        .popup-galleries
             padding-right: 0
 
             .item-gallery img
-                height: 308px
+                height: 310px
 
 .active-overlay
     .poup-overlay
@@ -313,7 +365,7 @@ html.active-overlay
             padding: 40px 0
 
         .popup-content
-            margin-top: 30px
+            margin-top: 25px
 
 @media (max-width: 1300px)
     .projects-items
@@ -355,8 +407,11 @@ html.active-overlay
                     position: static
                     max-width: 100%
                     margin: 30px 0 0
-                    font-size: 22px
-                    line-height: 24px
+                    font-size: 14px
+                    line-height: 1.4
+                    a
+                        font-size: 14px
+                        line-height: 1.4
                 
                 button.btn
                     margin-top: 45px
@@ -383,7 +438,7 @@ html.active-overlay
     .projects-popup 
         .popup-content
             padding-left: 0
-            margin-top: 30px
+            margin-top: 25px
             --gap: 20px
 
             &.visible-desktop
@@ -396,55 +451,54 @@ html.active-overlay
         .heading
             padding-left: 0
             width: 50%
-            .subheading
-                font-size: 22px
-                line-height: 24px
+            .subheading *
+                font-size: 14px
+                line-height: 1.4
 
         .popup-galleries
             width: 50%
 
             .item-gallery img
-                height: 387px
+                // height: 387px
 
         button.projects-popup-close
-            right: 15px
-            top: 1px
-            top: -25px
+            right: 10px
+            top: 5px
             svg
-                width: 25px
-                height: 25px
+                width: 32px
+                height: 30px
 
                 line
-                    stroke-width: 4px
+                    // stroke-width: 4px
 
         .popup-galleries
             padding: 0 0 0
             overflow: hidden
             
             .swiper
-                overflow: visible
+                // overflow: visible
 
             .swiper                    
                 .swiper-button-prev
-                    left: 0
-                    top: 200px
+                    // left: 0
+                    // top: 200px
                     @media (max-width: 767px)
-                        top: 135px
+                        // top: 135px
 
                 .swiper-button-next
-                    right: 0
-                    top: 200px
+                    // right: 0
+                    // top: 200px
                     @media (max-width: 767px)
-                        top: 135px
+                        // top: 135px
 
             .item-gallery 
                 // padding: 0 39px
                 text-align: center
 
                 img
-                    height: 400px
-                    aspect-ratio: 0.7
-                    object-fit: cover
+                    // height: 400px
+                    // aspect-ratio: 0.7
+                    // object-fit: cover
 
 @media (max-width: 767px)
     .btn.visible-mobile,
@@ -455,41 +509,58 @@ html.active-overlay
         padding-top: 137px
 
     .projects-popup 
-        .projects-popup-container
-            padding: 30px 0 30px
-            
         button.projects-popup-close
-            right: 20px
-            top: -10px
+            right: 28px
+            top: 20px
+            
+        .projects-popup-container
+            padding: 53px 0 82px 36px
+            overflow: hidden
+            display: flex
+
+        .container 
+            padding: 0
+            .projects-popup-main
+                padding: 0 31px 0 0
+                overflow: hidden
             
         h4 
             margin: 0
-            font-size: 45px
+            font-size: 40px
             line-height: 1.2
+            padding-right: 100px
 
         .heading
             width: 100%
             padding-right: 0
+            .subheading
+                padding-right: 10px
+                margin-top: 38px
+                letter-spacing: 0.2px
+                p
+                    margin-bottom: 21px
 
         .popup-content
-            margin-top: 35px
-            padding-top: 10px
+            margin-top: 39px
             --columns: 1
-            border-top: 1px solid #ffffff
             --gap: 0
+            padding-right: 15px
 
         .popup-galleries
             width: 100%
             overflow: visible
-            padding: 35px 0 0
+            padding: 33px 0 0
             
             .swiper
                 overflow: visible
+                width: 200%
+                padding-bottom: 0
 
                 .item-gallery 
                     img
-                        height: auto
-                        max-width: 200px
+                        height: 202px
+                        max-width: 100%
+                        aspect-ratio: auto
                         margin: 0 auto
 
             .swiper
@@ -497,4 +568,4 @@ html.active-overlay
                     left: -18px
 
                 .swiper-button-next
-                    right: -18px
+                    right: 0

@@ -8,9 +8,6 @@
     &.box-image-right
         padding: 108px 0 121px
 
-    .container
-        max-width: 1740px
-
     .column-box
         gap: 20px
         display: flex
@@ -40,6 +37,11 @@
             bottom: -33px
             right: -29px
             left: -29px
+
+        .image-inner img 
+            aspect-ratio: 1.5
+            object-fit: cover
+            object-position: center
 
     .column-content
         display: flex
@@ -98,6 +100,22 @@
         max-width: 418px
         margin-bottom: 29px
 
+
+.images-slider.swiper
+    padding-top: 55px
+.images-slider.swiper .swiper-button-prev, 
+.images-slider.swiper .swiper-button-next
+    top: 0
+    margin: 0
+.images-slider.swiper .swiper-button-next 
+    right: 0
+
+.images-slider.swiper .swiper-button-prev 
+    left: auto
+    right: 65px
+
+
+
 .box-image-right
     .column-image
         order: 2
@@ -111,12 +129,10 @@
 .about-our-teams.about-section .box-image.box-image-right
     min-height: 80vh
 
+
 @media (max-width: 1600px)
     .box-image
         padding: 77px 0 90px
-
-        .container
-            max-width: 1240px
 
         .column-image
             width: 49.971%

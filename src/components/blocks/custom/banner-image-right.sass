@@ -2,11 +2,34 @@ $paddingTop: var(--paddingTop)
 .careers-section.phi-banner-container.phi-page
   margin-top: unset
   background-size: cover
-  padding-bottom: var(--paddingTop)
   @media screen and (max-width: 767.98px)
     background-size: 1366px auto
     padding-bottom: 0
+    .banner-title 
+      margin-top: 47px
+    .banner-des
+      max-width: 78%
+      h5
+        font-size: 20px
+        line-height: 28px
+        letter-spacing: 0.02em
+        margin-bottom: 0
+  .content
+    padding-top: 110px
+    padding-bottom: 42px
+    @media screen and (max-width: 767.98px)
+      padding-top: 159px
+      padding-bottom: 112px
+      gap: 0
+  .text-container
+    padding-bottom: 33px
+    @media screen and (max-width: 767.98px)
+      padding-bottom: 48px
 .phi-banner-container
+  .container 
+    padding-right: 0
+    @media screen and (max-width: 767.98px)
+      padding-right: 36px
   .label
     font-size: 12px
     font-weight: 600
@@ -17,21 +40,19 @@ $paddingTop: var(--paddingTop)
     // @media screen and (max-width: 1440.98px)
     //   margin-top: -40px
     @media screen and (max-width: 767.98px)
-      font-size: 16px
-      line-height: 24px
-      margin-top: -28px
+      // font-size: 16px
+      // line-height: 24px
+      // margin-top: -28px
 
   .content
     display: flex
     flex-wrap: nowrap
     justify-content: space-between
-    padding: 155px 0 92px
-    @media screen and (max-width: 1199.98px)
-      padding: 102px 0 102px
+    padding: 192px 0 83px
     @media screen and (max-width: 767.98px)
       flex-wrap: wrap
-      padding: 206px 0 115px
-      gap: 85px
+      padding: 159px 0 118px
+      gap: 41px
     @media screen and (max-height: 425px)
       padding: 152px 0 160px
 
@@ -40,35 +61,36 @@ $paddingTop: var(--paddingTop)
     font-weight: 600
     line-height: 68px
     color: #000
-    margin-top: 60px
+    margin-top: 48px
     margin-bottom: 0
     max-width: 650px
     @media screen and (max-width: 1199.98px)
-      margin-top: 40px
+      margin-top: 31px
 
     @media screen and (max-width: 767.98px)
       font-weight: 600
       line-height: 1.2
-      font-size: 58px
+      font-size: 40px
+      letter-spacing: 0.04em
 
   .banner-des
-    font-size: 16px
+    font-size: 14px
     font-weight: 400
-    line-height: 26px
+    line-height: 25px
     letter-spacing: 0.02em
-    margin-top: 82px
+    margin-top: 47px
     color: #000
-    max-width: 495px
+    max-width: 480px
 
     @media screen and (max-width: 767.98px)
-      font-size: 20px
+      // font-size: 20px
       font-weight: 400
-      line-height: 36px
+      // line-height: 36px
       max-width: unset
-      margin-top: 40px
+      margin-top: 24px
 
   .text-container
-    width: 50%
+    width: 52%
     display: flex
     flex-wrap: wrap
     align-content: flex-start
@@ -76,19 +98,15 @@ $paddingTop: var(--paddingTop)
     flex-direction: column
     justify-content: center
     @media screen and (max-width: 1440.98px)
-      width: 55%
       padding-top: 0
       align-content: flex-start
-      margin-top: -40px
     @media screen and (max-width: 767.98px)
       width: 100%
       margin-top: 0
 
   .image-container
-    width: 40.55%
+    width: 45.348%
     position: relative
-    @media screen and (max-width: 1440.98px)
-      width: 41.55%
     @media screen and (max-width: 767.98px)
       width: 100%
     .image

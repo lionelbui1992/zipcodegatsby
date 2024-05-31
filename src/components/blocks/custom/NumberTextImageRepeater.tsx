@@ -8,8 +8,10 @@ export default function NumberTextImageRepeater({ attributes }: { attributes: Nu
   return (
 
     <>
-      {sections.map((list, index) => (
-        <div className={`phi-${index + 1} test  ${index !== sections.length - 1 ? "overlay-animation" : "end-overlay-animation"}`} key={index}>
+      {sections.map((list, index) => 
+        index > 0 &&
+        (
+        <div className={`phi-${index + 1} philosophy-section  ${index !== sections.length - 1 ? "overlay-animation" : "end-overlay-animation"}`} key={index}>
           <ImageWithText
             index={index + 1}
             title={list.title}
@@ -19,8 +21,9 @@ export default function NumberTextImageRepeater({ attributes }: { attributes: Nu
             isDarkBackground={list.is_dark_section}
             button={list.button}
           />
-        </div>
-      ))}
+      </div>
+      )
+)}
     </>
   );
 };

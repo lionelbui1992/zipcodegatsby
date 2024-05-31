@@ -2,13 +2,15 @@ import React from "react";
 import "./box-image.sass";
 import { Link } from "gatsby";
 import { IBoxImageProps } from "../types";
+import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 export const BoxImage = ({ order, attributes }: { order?: string, attributes: IBoxImageProps }): JSX.Element => {
     const image_position = attributes.image_position ? attributes.image_position : 'left'
     const image_positon_class = order ? `wp-block-position-${order}` : 'wp-block-position-normal'
-
+    let navigation = attributes.gallery.length > 1 ? true : false
+    let navigationClass = attributes.gallery.length > 1 ? "images-slider" : ""
     return (
         <>
             <div
@@ -40,13 +42,15 @@ export const BoxImage = ({ order, attributes }: { order?: string, attributes: IB
                                     )
                                 }
                             })()}
-                            {attributes.images &&
+                            {attributes.gallery.length  &&
                                 <Swiper
+                                    modules={[Navigation]}
                                     spaceBetween={0}
                                     slidesPerView={1}
-                                    navigation
+                                    navigation={navigation}
+                                    className={`${navigationClass}`}
                                 >
-                                    {attributes.images.map(image =>
+                                    {attributes.gallery.map(image =>
                                         <SwiperSlide>
                                             <div className="image-inner">
                                                 <img src={image.src} alt={`${image.alt}`} amount={.3} duration=".6" from="end" axis="x" />

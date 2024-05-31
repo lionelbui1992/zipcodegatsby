@@ -82,6 +82,17 @@ interface IOurTeamsProps {
     }[];
 }
 
+interface ICareerPerkProps {
+    title: string;
+    description: string;
+    peoples: {
+        name: string,
+        position: string,
+        short_description: string,
+        avatar: IImage,
+    }[];
+}
+
 interface LifeZipCodeProps {
     background: IImage;
     title: string;
@@ -182,6 +193,13 @@ interface IExploreProps {
     button: IButton;
 }
 
+interface IWhyUs {
+    title: string,
+    description: string,
+    readmore: string,
+    background: IImage,
+}
+
 interface IFooterData {
     titleLeft: string | "";
     logoFooter: {
@@ -253,6 +271,7 @@ export {
     IBoxImageProps,
     IImageWithTextProps,
     IOurTeamsProps,
+    ICareerPerkProps,
     LifeZipCodeProps,
     IBannerThreeColumnsProps,
     IContactInformationProps,
@@ -265,5 +284,6 @@ export {
     IIntroduceProps,
     ICompanyProps,
     IExploreProps,
+    IWhyUs,
     IFooterData,
 }

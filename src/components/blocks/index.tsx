@@ -34,8 +34,10 @@ export function GetTheBlock(name: string) {
     case 'acf/marquee': return CustomBlocks.Marquee
     case 'acf/box-image': return CustomBlocks.BoxImage
     case 'acf/our-team': return CustomBlocks.OurTeams
+    case 'acf/career-perk': return CustomBlocks.CareerPerk
     case 'acf/text-center-with-link': return CustomBlocks.BannerCta
     case 'acf/life-zip-code': return CustomBlocks.LifeZipCode
+    case 'acf/why-us': return CustomBlocks.WhyUs
     case 'acf/banner-three-columns': return CustomBlocks.BannerThreeColumns
     case 'acf/gallery-two-columns': return CustomBlocks.GalleryTwoColumns
     case 'acf/listing-three-columns': return CustomBlocks.ListingThreeColumns
