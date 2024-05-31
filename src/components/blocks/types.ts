@@ -82,6 +82,17 @@ interface IOurTeamsProps {
     }[];
 }
 
+interface ICareerPerkProps {
+    title: string;
+    description: string;
+    peoples: {
+        name: string,
+        position: string,
+        short_description: string,
+        avatar: IImage,
+    }[];
+}
+
 interface LifeZipCodeProps {
     background: IImage;
     title: string;
@@ -260,6 +271,7 @@ export {
     IBoxImageProps,
     IImageWithTextProps,
     IOurTeamsProps,
+    ICareerPerkProps,
     LifeZipCodeProps,
     IBannerThreeColumnsProps,
     IContactInformationProps,

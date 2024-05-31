@@ -63,7 +63,7 @@ export const CareersBlock: React.FunctionComponent<IWPGBlockProps> = ({ block, f
   if (name.includes('acf/')) {
     // custom blocks
     switch (name) {
-      case 'acf/our-team':
+      case 'acf/career-perk':
       case 'acf/box-image':
         return (
           <section className="career-perks careers-section ">

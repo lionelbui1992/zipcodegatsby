@@ -4,10 +4,17 @@
     position: relative
     z-index: 1
     padding: 102px 0 69px
-    margin-top: -50px
     
     .section-title
-        max-width: 300px
+        max-width: calc(50% - 50px)
+        @media (max-width: 767px) 
+            max-width: 100%
+        
+            h2 
+                font-size: 40px
+                line-height: 48px
+                letter-spacing: 0.04em
+                margin-bottom: 19px
     
     .our-values-items
         display: flex
@@ -21,6 +28,8 @@
             padding-left: 0
             // margin: 0 -20px
             gap: 50px 0
+        @media (max-width: 767px) 
+            gap: 60px 0
 
         .items-col
             width: calc(50% - 50px)
@@ -37,11 +46,11 @@
             @media (max-width: 767px) 
                 width: 100%
                 gap: 50px
-                margin-top: 50px
+                margin-top: 60px
                 
                 &:last-child 
                     margin-top: 0
-                    gap: 50px
+                    gap: 60px
 
         .item
             width: 100%
@@ -60,17 +69,27 @@
                         width: 100%
                         .image-inner
                             padding-bottom: 54.11%
+                            @media (max-width: 767px) 
+                                padding-bottom: 67.88%
 
             .image-first
                 width: 42.665%
+                @media (max-width: 767px) 
+                    width: 39.11%
                 .image-inner
                     padding-bottom: 126.83%
+                    @media (max-width: 767px) 
+                        padding-bottom: 144.29%
 
             .image-second
                 width: 54.112%
+                @media (max-width: 767px) 
+                    width: 55.31%
                 margin-left: auto
                 .image-inner
                     padding-bottom: 100%
+                    @media (max-width: 767px) 
+                        padding-bottom: 102.021%
 
             .image-inner
                 position: relative
@@ -87,6 +106,14 @@
 
             .column-title
                 margin-top: 26px
+                @media (max-width: 767px)   
+                    margin-top: 32px              
+                    h5
+                        font-size: 20px
+                        font-weight: 400
+                        line-height: 28.01px
+                        letter-spacing: 0.02em
+                        margin-bottom: 0
 
 .our-values-items.our-values-popup-active + .our-values-popup
     opacity: 1
@@ -255,7 +282,7 @@
 
 @media (max-width: 1199px)
     .our-values-box
-        padding: 81px 0 50px
+        padding: 81px 0 80px
 
         .column-box
             gap: 66px

@@ -70,7 +70,7 @@ export const OurTeams = ({ attributes }: { attributes: IOurTeamsProps }): JSX.El
                                             spaceBetween: 16,
                                         },
                                         1330: {
-                                            slidesPerView: 4,
+                                            slidesPerView: 3,
                                             spaceBetween: 16,
                                         },
                                     }}

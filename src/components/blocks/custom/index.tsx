@@ -8,6 +8,7 @@ export default {
   Marquee: loadable(() => import('./Marquee')),
   BoxImage: loadable(() => import('./BoxImage')),
   OurTeams: loadable(() => import('./OurTeams')),
+  CareerPerk: loadable(() => import('./CareerPerk')),
   BannerCta: loadable(() => import('./BannerCta')),
   WhyUs: loadable(() => import('./WhyUs')),
   LifeZipCode: loadable(() => import('./LifeZipCode')),
