@@ -181,9 +181,9 @@ export const RenderForm = (field, formik) => {
                 <div className={`field date ${field.id} ${field.cols === "6" ? "col-6" : "full"} ${field.required ? "required" : ""}`} >
                     <label className="label" htmlFor={field.id}><span>{field.field_label}</span></label>
                     <div className="control">
-                        <input type="date" 
-                            // onFocus={(e) => (e.target.type = "date")}
-                            // onBlur={(e) => (e.target.type = "text")}
+                        <input type="text" 
+                            onFocus={(e) => (e.target.type = "date")}
+                            onBlur={(e) => (e.target.type = "text")}
                             id={field.id}
                             name={field.id}
                             onChange={formik.handleChange}
