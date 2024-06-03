@@ -93,7 +93,7 @@ fieldset.fieldset .field
                 color: #000000
 
     &.date
-        input[type="date"]
+        input
             background-image: url(images/icon-calendar.svg)
             background-position: right 22px center
             background-repeat: no-repeat
@@ -152,7 +152,8 @@ fieldset.fieldset .field
     padding: 100px 0
 
     @media screen and (max-width: 991.98px)
-        padding-top: 67px
+        padding-top: 84px
+        padding-bottom: 80px
 
     .container
         display: flex
@@ -168,7 +169,7 @@ fieldset.fieldset .field
         @media screen and (max-width: 991.98px)
             padding-right: 0%
             width: 100%
-            margin-bottom: 50px
+            margin-bottom: 100px
 
     .section-content
         width: 62.2%
@@ -183,18 +184,23 @@ fieldset.fieldset .field
         @media screen and (max-width: 991.98px)
             margin-top: 0
             width: 100%
-            border-radius: 30px
 
         @media screen and (max-width: 767.98px)
-            padding: 30px 20px
+            padding: 82px 20px 43px
 
     .section-title h2
         font-size: 48px
         font-weight: 600
         line-height: 55px
+        @media screen and (max-width: 767.98px)
+            font-size: 40px
+            line-height: 48px
+            letter-spacing: 0.04em
 
     .section-content h5
         margin-bottom: 22px
+        @media screen and (max-width: 767.98px)
+            margin-bottom: 60px
 
     .action
         display: flex
@@ -205,6 +211,11 @@ fieldset.fieldset .field
             min-width: 174px
             padding-right: 50px
             background-position: right 18px center
+            @media screen and (max-width: 767.98px)
+                font-size: 14px
+                height: 38px
+                padding: 8px 40px 8px 11px
+                margin-top: -2px
 
     fieldset.fieldset
         padding: 0
@@ -279,3 +290,4 @@ fieldset.fieldset .field
                 button.btn
                     width: 100%
                     min-width: 0
+
