@@ -1,3 +1,4 @@
+import { Formik, Form, Field } from "formik";
 import React, { useState } from 'react';
 import * as Yup from 'yup';
 
@@ -158,6 +159,44 @@ export const RenderForm = (field, formik) => {
                     )}
                 </div>
             );
+        case 'radio':
+            return (
+                <div className={`field radio ${field.id} ${field.cols === "6" ? "col-6" : "full"} ${field.required ? "required" : ""}`} >
+                    <label className="label" htmlFor={field.id}><span>{field.field_label}</span></label>
+                    <div className="control options">
+                        {field.options.map((option, index) => (
+                            <div key={index} className='option'>
+                                <input type="radio" id={field.id + option.key} name={field.id + '[]'} defaultValue={option.value} onChange={formik.handleChange} />
+                                <label className="label" htmlFor={field.id + option.key} ><span>{option.label}</span></label>
+                            </div>
+                        ))}
+                    </div>
+                    {formik.touched[field.id] && formik.errors[field.id] && (
+                        <div className="error-message">{formik.errors[field.id]}</div>
+                    )}
+                </div>
+            );
+        case 'date':
+            return (
+                <div className={`field date ${field.id} ${field.cols === "6" ? "col-6" : "full"} ${field.required ? "required" : ""}`} >
+                    <label className="label" htmlFor={field.id}><span>{field.field_label}</span></label>
+                    <div className="control">
+                        <input type="date" 
+                            // onFocus={(e) => (e.target.type = "date")}
+                            // onBlur={(e) => (e.target.type = "text")}
+                            id={field.id}
+                            name={field.id}
+                            onChange={formik.handleChange}
+                            value={formik.values[field.id]}
+                            placeholder={field.placeholder}
+                        />
+                        {formik.touched[field.id] && formik.errors[field.id] && (
+                            <div className="error-message">{formik.errors[field.id]}</div>
+                        )}
+                    </div>
+                </div>
+            );
+
         default:
             return null;
     }
