@@ -9,14 +9,46 @@ import { handleOverlayAnimation } from '../../animation';
 
 const HomeBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBlock }) => {
 
+  let i = 0, j = 0;
 
-  const firstAnimatoinBlocks = blocks.filter((block, index) => {
-    return block.name === "acf/banner-text-center" || block.name === "acf/marquee"
+  // Create a copy of the original blocks array
+  let blocksCopy = [...blocks];
+
+  // Filter and remove elements for firstAnimatoinBlocks
+  const firstAnimatoinBlocks = blocksCopy.filter((block) => {
+    if ((block.name === "acf/banner-text-center" || (block.name === "acf/marquee" && i++ < 1))) {
+      return true;
+    }
+    return false;
   });
 
-  const secondAnimatoinBlocks = blocks.filter((block, index) => {
-    return block.name !== "acf/banner-text-center" && block.name !== "acf/marquee"
+  blocksCopy = blocksCopy.filter(block => !firstAnimatoinBlocks.includes(block));
+
+  // Filter and remove elements for secondAnimatoinBlocks
+  const secondAnimatoinBlocks = blocksCopy.filter((block) => {
+    return block.name === "acf/banner-text-has-animation" || (block.name === "acf/marquee" && j++ < 1);
   });
+
+  blocksCopy = blocksCopy.filter(block => !secondAnimatoinBlocks.includes(block));
+
+  // Filter and remove elements for secondAnimatoinBlocks
+  const thirdAnimatoinBlocks = blocksCopy.filter((block) => {
+    return block.name === "acf/company";
+  });
+
+  blocksCopy = blocksCopy.filter(block => !thirdAnimatoinBlocks.includes(block));
+
+  // Filter and remove elements for secondAnimatoinBlocks
+  const boxImageBlocks = blocksCopy.filter((block) => {
+    return block.name === "acf/box-image";
+  });
+
+  blocksCopy = blocksCopy.filter(block => !boxImageBlocks.includes(block));
+
+  // Remaining blocks after removing first and second animation blocks
+  const remainingBlocks = blocksCopy;
+
+
 
   const container = useRef(null);
 
@@ -34,6 +66,8 @@ const HomeBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBlo
     // if (!container) return;
 
   }, [blocks]);
+
+  console.log(['remainingBlocks', remainingBlocks])
   return (
     <div className="scrollTrigger page-content" ref={container}>
       <div className="scroll-section pinning-1" data-speed="0.2">
@@ -44,23 +78,27 @@ const HomeBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBlo
         )
         }
       </div>
-      {secondAnimatoinBlocks.filter((block, ind) => {
+      <div className="scroll-section pinning-2" data-speed="0.2">
+        {secondAnimatoinBlocks.filter((block) => {
+          return !!block.name
+        }).map((block, index) =>
+          <HomeBlock key={index} order={`${index}`} block={block} mapToBlock={mapToBlock} />
+        )
+        }
+      </div>
+      <div className="scroll-section pinning-3" data-speed="0.2">
+        {boxImageBlocks.filter((block) => {
+          return !!block.name
+        }).map((block, index) =>
+          <HomeBlock key={index} order={`${index}`} block={block} mapToBlock={mapToBlock} />
+        )
+        }
+      </div>
+      {thirdAnimatoinBlocks.filter((block, ind) => {
         return !!block.name
       }).map((block, index) => {
-        let classes = "",
-          cImage = "";
-        switch (block.name) {
-          case "acf/introduce":
-            classes = "section--pinning-introduce"
-            break
-          case "acf/company":
-            classes = "section--pinning-company"
-            cImage = block?.attributes?.data?.owner_image
-            break
-          case "acf/explore":
-            classes = "section--pinning-explore"
-            break
-        }
+        let classes = "section--pinning-company",
+          cImage = block?.attributes?.data?.owner_image;
         return (
           <>
             <div key={index + firstAnimatoinBlocks.length} className={`item-${index + 1} ${classes}`}>
@@ -75,9 +113,14 @@ const HomeBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBlo
             </div>
           </>
         )
-      }
+      })}
 
-      )}
+      {remainingBlocks.filter((block) => {
+        return !!block.name
+      }).map((block, index) =>
+        <HomeBlock key={index} order={`${index}`} block={block} mapToBlock={mapToBlock} />
+      )
+      }
       <div className="placeholder-section"></div>
     </div>
   )

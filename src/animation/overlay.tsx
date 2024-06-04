@@ -12,24 +12,47 @@ export const handleOverlayAnimation = () => {
         pin: true,
         pinSpacing: false,
         markers: false,
-        scrub: 0.000001
+        scrub: 0.000001,
+        id: "pinning-1"
     })
 
-    let tl = gsap.timeline()
-    tl.to({}, { duration: 1 })
-    tl.to('.c-wrapper', { y: -1000 })
-
     ScrollTrigger.create({
-        trigger: ".item-2.section--pinning-company",
+        trigger: ".pinning-2",
         start: "top top",
-        end: "+=180%",
+        end: "bottom top",
         pin: true,
         pinSpacing: false,
         markers: false,
         scrub: 0.000001,
-        id: "pinning-company",
-        animation: tl
+        id: "pinning-2"
     })
+
+    ScrollTrigger.create({
+        trigger: ".pinning-3",
+        start: "top top",
+        end: "bottom top",
+        pin: true,
+        pinSpacing: false,
+        markers: false,
+        scrub: 0.000001,
+        id: "pinning-3"
+    })
+
+    // let tl = gsap.timeline()
+    // tl.to({}, { duration: 1 })
+    // tl.to('.c-wrapper', { y: -1000 })
+
+    // ScrollTrigger.create({
+    //     trigger: ".item-2.section--pinning-company",
+    //     start: "top top",
+    //     end: "+=180%",
+    //     pin: true,
+    //     pinSpacing: false,
+    //     markers: false,
+    //     scrub: 0.000001,
+    //     id: "pinning-company",
+    //     animation: tl
+    // })
 
     ScrollTrigger.create({
         trigger: ".item-3.section--pinning-explore",
