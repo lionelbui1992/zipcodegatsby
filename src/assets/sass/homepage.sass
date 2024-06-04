@@ -215,11 +215,12 @@ a:hover
         width: 100%
         align-items: center
         justify-content: center
-        padding: 330px 0 200px
+        padding: 150px 0 75px
         background: url('/img/homepage/bg-banner.svg')
         background-size: cover
         background-repeat: no-repeat
         background-position: center
+        height: calc(var(--screen-height, 100vh) - 80px)
 
         .heading
             display: block
@@ -627,16 +628,30 @@ fieldset.fieldset
     &.active
         opacity: 1
 
+.page-index 
+    .about-banner-top 
+        padding: 99px 40px 102px 0
+        @media screen and (max-width: 1280px)
+            padding: 80px 0 78px 0
+    .pinning-3
+        background: transparent
+    .box-image
+        border-radius: 32px
+        background-color: #FFFFFF
+        .content
+            margin-top: 0
+
+    .our-teams-wrapper .swiper
+        .swiper-button-prev, .swiper-button-next
+            @media screen and (max-width: 767px)
+                display: none
+
 @media screen and (max-height: 800px)
     .section-contact-popup
         .container
             padding: 60px 190px
 
 @media screen and (max-width: 1499px)
-    .section-banner
-        .inner-section
-            padding: 168px 0 190px
-
     .header-placeholder
         padding-bottom: 98px
 
@@ -765,10 +780,6 @@ fieldset.fieldset
         position: relative
         z-index: 2
         background: #fff
-
-    .section-banner
-        .inner-section
-            padding: 255px 0 260px
 
     .section-introduce
         overflow-x: hidden
@@ -918,7 +929,3 @@ fieldset.fieldset
     .section-contact-popup
         .container
             max-height: 94vh
-
-@media screen and (max-height: 900px) and  (min-width: 1025px)
-    .section-banner .inner-section
-        padding: 200px 0 150px
