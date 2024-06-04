@@ -16,7 +16,7 @@
         display: flex
         flex-direction: column
         line-height: normal
-        width: 49.3152%
+        width: 49.317%
         margin-left: 0px
         position: relative
         .swiper
@@ -24,12 +24,14 @@
 
         .icon
             position: absolute
-            top: -32px
-            left: -29px
-            height: calc(100% + 69px)
+            top: auto
+            bottom: -25px
+            left: -22px
+            height: calc(100% + 110px)
             overflow: hidden
-            width: 36.3%
-            z-index: -1
+            width: 36.8%
+            img
+                height: 100%
 
         .icon-row.icon-bottom
             width: auto
@@ -39,15 +41,17 @@
             left: -29px
 
         .image-inner img 
-            aspect-ratio: 1.5
+            aspect-ratio: 1.8375
             object-fit: cover
             object-position: center
+            @media (max-width: 767px)
+                aspect-ratio: 1.8502
 
     .column-content
         display: flex
         flex-direction: column
         line-height: normal
-        width: 42.1%
+        width: 42.5%
         margin-left: auto
 
     .img
@@ -66,14 +70,17 @@
         flex-direction: column
         align-items: start
         padding: 0 20px
+        justify-content: space-between
 
     .title
         color: #000
         align-self: stretch
-        font-size: 36px
-        font-weight: 400
-        line-height: 128%
         margin-top: 0
+        font-size: 48px
+        font-weight: 600
+        line-height: 58px
+        letter-spacing: 0.04em
+        max-width: 350px
 
     &.wp-block-position-5,
     &.box-transformative-together
@@ -82,7 +89,7 @@
             margin-left: auto
 
         .img
-            aspect-ratio: 1.176
+            aspect-ratio: 1.8375
 
         .title
             margin-top: 49px
@@ -92,14 +99,12 @@
 
     .description
         color: #232323
-        font-size: 16px
+        font-size: 14px
         font-style: normal
         font-weight: 400
         line-height: 25px
         letter-spacing: 0.28px
-        max-width: 418px
         margin-bottom: 29px
-
 
 .images-slider.swiper
     padding-top: 55px
@@ -121,7 +126,7 @@
         order: 2
 
     .column-content
-        width: 43.2%
+        width: 42.45%
 
 .visible-mobile
     display: none
@@ -134,22 +139,7 @@
     .box-image
         padding: 77px 0 90px
 
-        .column-image
-            width: 49.971%
-
-            .icon
-                top: -4.4%
-                left: -3.8%
-                height: calc(100% + 9%)
-
-            .icon-row.icon-bottom
-                bottom: -5.2%
-                right: -3.8%
-                left: -3.8%
-
         .column-content
-            width: 42.45%
-
             .content
                 margin-bottom: 0
 
@@ -184,13 +174,13 @@
 
     .box-image-right
         .column-image
-            order: -1
+            order: 2
 
         .column-content
             width: 100%
 
     .box-image
-        padding: 58px 0 80px
+        padding: 80px 0 80px
 
         .column-box
             flex-direction: column
@@ -199,9 +189,17 @@
 
         .column-image
             width: 100%
+            order: 2
+            margin-top: 160px
+            padding: 0
 
             .icon
                 width: 35.8%
+                height: calc(100% + 66px)
+                left: 0
+                bottom: -13px
+            .icon + .swiper
+                padding-left: 12px
 
         &.box-image-right
             padding: 73px 0 66px
@@ -219,16 +217,18 @@
 
         .content-inner
             max-width: 100%
-            margin-top: 80px
             padding: 0
 
         .title
             max-width: 100%
-            margin-bottom: 39px
+            margin-bottom: 24px
+            font-size: 40px
+            line-height: 48px
+            max-width: 300px
 
         .description
             max-width: 100%
-            margin-bottom: 40px
+            margin-bottom: 48px
 
     .about-section .box-image.wp-block-position-5
         .description

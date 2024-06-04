@@ -62,15 +62,21 @@ export const BoxImage = ({ order, attributes }: { order?: string, attributes: IB
                         </div>
                         <div className="column-content">
                             <div className="content-inner">
-                                <h2 className="title">{attributes.title}</h2>
+                                <h2 className="title" dangerouslySetInnerHTML={{__html: attributes.title}} />
                                 <div className="content">
-                                    <div className="description visible-desktop">{attributes.description}</div>
-                                    <div className="description visible-mobile">{attributes.description_mobile}</div>
-                                    {attributes.button && attributes.button.title &&
-                                        (
-                                            <Link className="btn btn-primary" to={`${attributes.button.url}`}>{attributes.button.title}</Link>
-                                        )}
+                                    {attributes.description &&
+                                        <div className="description visible-desktop" dangerouslySetInnerHTML={{__html: attributes.description}} />
+                                    }
+                                    {attributes.description_mobile &&
+                                        <div className="description visible-mobile" dangerouslySetInnerHTML={{__html: attributes.description_mobile}} />
+                                    }
+                                    {!attributes.description && (
+                                        <div className="description visible-mobile" dangerouslySetInnerHTML={{__html: attributes.description}} />
+                                    )}
                                 </div>
+                                {attributes.button && attributes.button.title && (
+                                    <Link className="btn btn-primary" to={`${attributes.button.url}`}>{attributes.button.title}</Link>
+                                )}
                             </div>
                         </div>
                     </div>
