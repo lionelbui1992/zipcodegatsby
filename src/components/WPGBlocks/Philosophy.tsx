@@ -26,7 +26,7 @@ const PhilosophyBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, ma
     });
     
     return (
-        <div className='page-content'>
+        <div className='page-content page-philosophy'>
             <div className="pinning-1" style={{ position: "relative", zIndex: 2 }}>
                 {acceptedBlocks.filter(block => {
                     return !!block.name
