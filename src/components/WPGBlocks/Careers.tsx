@@ -13,7 +13,7 @@ const CareersBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, form,
   });
 
   return (
-    <div className='page-content'>
+    <div className='page-content page-careers'>
       <div className={"overlay-animation"}>
       {firstAnimatoinBlocks.filter(block => {
         return !!block.name
