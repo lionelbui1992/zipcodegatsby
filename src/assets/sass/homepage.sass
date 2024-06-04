@@ -9,8 +9,12 @@
     min-height: 150vh
 
 .page-index .placeholder-section
-    min-height: 150vh
+    min-height: 130vh
 
+.page-index .box-image
+    min-height: 100vh
+    display: flex
+    align-items: center
 .page-index > .placeholder-section
     display: none
 .viewport.page-about .placeholder-section
@@ -44,6 +48,7 @@
     z-index: 10
 .pinning-3
     z-index: 11
+    position: relative
     background-color: #fff
 
 .item-1.section--pinning-introduce
@@ -51,12 +56,18 @@
     position: relative
 
 .pin-spacer-pinning-company
-    z-index: 12 !important
+    z-index: 9 !important
 
 .section--pinning-company
     position: relative
     transform: translateY(-100%)
     z-index: 9
+.about-our-teams.homepage-section
+    position: relative
+    transform: translateY(-100%)
+    z-index: 8
+    min-height: 100vh
+    padding-top: 80px !important
 
 .item-3.section--pinning-explore
     position: relative

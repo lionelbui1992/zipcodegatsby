@@ -27,70 +27,80 @@ export const handleOverlayAnimation = () => {
         id: "pinning-2"
     })
 
-    ScrollTrigger.create({
-        trigger: ".pinning-3",
-        start: "top top",
-        end: "bottom top",
-        pin: true,
-        pinSpacing: false,
-        markers: false,
-        scrub: 0.000001,
-        id: "pinning-3"
-    })
-
-    // let tl = gsap.timeline()
-    // tl.to({}, { duration: 1 })
-    // tl.to('.c-wrapper', { y: -1000 })
-
     // ScrollTrigger.create({
-    //     trigger: ".item-2.section--pinning-company",
+    //     trigger: ".pinning-3",
     //     start: "top top",
-    //     end: "+=180%",
+    //     end: "bottom top",
     //     pin: true,
     //     pinSpacing: false,
     //     markers: false,
     //     scrub: 0.000001,
-    //     id: "pinning-company",
-    //     animation: tl
+    //     id: "pinning-3"
     // })
 
+    let tl = gsap.timeline()
+    tl.to({}, { duration: 1 })
+    tl.to('.c-wrapper', { y: -1000 })
+
     ScrollTrigger.create({
-        trigger: ".item-3.section--pinning-explore",
+        trigger: ".item-1.section--pinning-company",
         start: "top top",
-        end: "+=200%",
+        end: "+=180%",
         pin: true,
         pinSpacing: false,
         markers: false,
-        id: "explore",
         scrub: 0.000001,
-        onUpdate: (t) => {
-            let progress = t.progress
-            let pixelateImageLeft = document.querySelector('.section-explore .col-left  .pixelate-container');
-            let pixelateImageRight = document.querySelector('.section-explore .col-right .pixelate-container');
-            if (pixelateImageLeft && pixelateImageLeft.animation) {
-                if (progress < 0.5) {
-                    pixelateImageLeft.animation.seek(0);
-                    pixelateImageLeft.animation.pause();
-                    pixelateImageLeft.nextElementSibling.classList.remove('active')
-                }
-
-                if (progress > 0.7) {
-                    pixelateImageLeft.animation.play()
-                }
-            }
-            if (pixelateImageRight && pixelateImageRight.animation) {
-                if (progress < 0.5) {
-                    pixelateImageRight.animation.seek(0);
-                    pixelateImageRight.animation.pause();
-                    pixelateImageRight.nextElementSibling.classList.remove('active')
-                }
-
-                if (progress > 0.7) {
-                    pixelateImageRight.animation.play()
-                }
-            }
-        }
+        id: "pinning-company",
+        animation: tl
     })
+    ScrollTrigger.create({
+        trigger: ".about-our-teams.homepage-section",
+        start: "top top",
+        end: "+=180%",
+        pin: true,
+        pinSpacing: false,
+        markers: false,
+        scrub: 0.000001,
+        id: "pinning-our-teams"
+    })
+
+    // ScrollTrigger.create({
+    //     trigger: ".item-3.section--pinning-explore",
+    //     start: "top top",
+    //     end: "+=200%",
+    //     pin: true,
+    //     pinSpacing: false,
+    //     markers: false,
+    //     id: "explore",
+    //     scrub: 0.000001,
+    //     onUpdate: (t) => {
+    //         let progress = t.progress
+    //         let pixelateImageLeft = document.querySelector('.section-explore .col-left  .pixelate-container');
+    //         let pixelateImageRight = document.querySelector('.section-explore .col-right .pixelate-container');
+    //         if (pixelateImageLeft && pixelateImageLeft.animation) {
+    //             if (progress < 0.5) {
+    //                 pixelateImageLeft.animation.seek(0);
+    //                 pixelateImageLeft.animation.pause();
+    //                 pixelateImageLeft.nextElementSibling.classList.remove('active')
+    //             }
+
+    //             if (progress > 0.7) {
+    //                 pixelateImageLeft.animation.play()
+    //             }
+    //         }
+    //         if (pixelateImageRight && pixelateImageRight.animation) {
+    //             if (progress < 0.5) {
+    //                 pixelateImageRight.animation.seek(0);
+    //                 pixelateImageRight.animation.pause();
+    //                 pixelateImageRight.nextElementSibling.classList.remove('active')
+    //             }
+
+    //             if (progress > 0.7) {
+    //                 pixelateImageRight.animation.play()
+    //             }
+    //         }
+    //     }
+    // })
 
 }
 

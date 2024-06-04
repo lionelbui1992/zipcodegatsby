@@ -114,13 +114,15 @@ const HomeBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBlo
           </>
         )
       })}
+      <div className='about-our-teams about-section homepage-section'>
+        {remainingBlocks.filter((block) => {
+          return !!block.name
+        }).map((block, index) =>
+          <HomeBlock key={index} order={`${index}`} block={block} mapToBlock={mapToBlock} />
+        )
+        }
+      </div>
 
-      {remainingBlocks.filter((block) => {
-        return !!block.name
-      }).map((block, index) =>
-        <HomeBlock key={index} order={`${index}`} block={block} mapToBlock={mapToBlock} />
-      )
-      }
       <div className="placeholder-section"></div>
     </div>
   )
