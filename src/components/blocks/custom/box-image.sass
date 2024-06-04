@@ -30,7 +30,8 @@
             height: calc(100% + 110px)
             overflow: hidden
             width: 36.8%
-            z-index: -1
+            img
+                height: 100%
 
         .icon-row.icon-bottom
             width: auto
@@ -43,6 +44,8 @@
             aspect-ratio: 1.8375
             object-fit: cover
             object-position: center
+            @media (max-width: 767px)
+                aspect-ratio: 1.8502
 
     .column-content
         display: flex
@@ -192,7 +195,11 @@
 
             .icon
                 width: 35.8%
-                height: calc(100% + 57px)
+                height: calc(100% + 66px)
+                left: 0
+                bottom: -13px
+            .icon + .swiper
+                padding-left: 12px
 
         &.box-image-right
             padding: 73px 0 66px
