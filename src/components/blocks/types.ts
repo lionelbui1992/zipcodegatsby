@@ -152,6 +152,8 @@ interface IProjectsBannerProps {
     background_image: IImage | "" | false;
     label: string;
     content: {
+        publish_project: string;
+        coming_soon: string;
         small_text: string;
         line: {
             text: string;
