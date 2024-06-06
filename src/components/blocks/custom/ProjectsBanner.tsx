@@ -49,7 +49,7 @@ export const ProjectsBanner = ({ attributes }: { attributes: IProjectsBannerProp
                                                                 <>
                                                                     {line.text + ' '}
                                                                     {(line.image != "" && line.image !== false) &&
-                                                                        <span className="image">
+                                                                        <span key={index} className="image">
                                                                             <img loading="lazy" srcSet={line.image.src} alt={line.text} />&nbsp;
                                                                         </span>
                                                                     }

@@ -49,8 +49,8 @@ export const BannerPoup = (attributes: IBannerPoupProps): JSX.Element => {
                                 <div className="projects-popup-container" style={{ backgroundImage: "url(" + background + ")" }}>
                                     <button className="projects-popup-close" onClick={() => popupOverlay()}>
                                         <svg width="32" height="30" viewBox="0 0 32 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <line y1="-1.06719" x2="39.2529" y2="-1.06719" transform="matrix(0.724999 0.688749 -0.724999 0.688749 2 2)" stroke="#C4F000" stroke-width="2.13437"/>
-                                            <line y1="-1.06719" x2="39.2529" y2="-1.06719" transform="matrix(0.724999 -0.688749 0.724999 0.688749 2 29.0352)" stroke="#C4F000" stroke-width="2.13437"/>
+                                            <line y1="-1.06719" x2="39.2529" y2="-1.06719" transform="matrix(0.724999 0.688749 -0.724999 0.688749 2 2)" stroke="#C4F000" strokeWidth="2.13437" />
+                                            <line y1="-1.06719" x2="39.2529" y2="-1.06719" transform="matrix(0.724999 -0.688749 0.724999 0.688749 2 29.0352)" stroke="#C4F000" strokeWidth="2.13437" />
                                         </svg>
                                     </button>
                                     <div className="container">
@@ -105,7 +105,7 @@ export const BannerPoup = (attributes: IBannerPoupProps): JSX.Element => {
                                                             navigation
                                                         >
                                                             {list.popup_slider.map((item, itemIndex) => (
-                                                                <SwiperSlide>
+                                                                <SwiperSlide key={itemIndex}>
                                                                     {(item.image.src) &&
                                                                         <div className="item-gallery" key={itemIndex}>
                                                                             <img
@@ -124,13 +124,13 @@ export const BannerPoup = (attributes: IBannerPoupProps): JSX.Element => {
                                                     {list.popup_slider.map((item, itemIndex) => (
                                                         (itemIndex === 0) && (
                                                             <div className="column content-column-title" key={itemIndex} dangerouslySetInnerHTML={{ __html: item.text }} />
-                                                        )                                                
+                                                        )
                                                     ))}
                                                     <div className="column content-column-description">
                                                         {list.popup_slider.map((item, itemIndex) => (
                                                             (itemIndex > 0) && (
                                                                 <div className="column-inner" key={itemIndex} dangerouslySetInnerHTML={{ __html: item.text }} />
-                                                            )  
+                                                            )
                                                         ))}
                                                     </div>
                                                 </div>
