@@ -106,6 +106,8 @@ export const handleOverlayAnimation = () => {
 
 
 export const handleGeneralOverlayAnimation = () => {
+
+    console.log(gsap.utils.toArray('.overlay-animation'));
     gsap.utils.toArray('.overlay-animation').forEach((section) => {
         let check = section.offsetHeight > window.innerHeight ? true : false
         ScrollTrigger.create({
@@ -147,3 +149,136 @@ export const handleGeneralOverlayAnimation = () => {
 }
 
 
+
+
+export const handleCareerOverlayAnimation = () => {
+
+    ScrollTrigger.create({
+        trigger: ".pinning-1",
+        start: "top top",
+        end: "bottom top",
+        pin: true,
+        pinSpacing: false,
+        markers: false,
+        scrub: 0.000001,
+        id: "pinning-1"
+    })
+
+    ScrollTrigger.create({
+        trigger: ".pinning-3",
+        start: "top top",
+        end: "+=200%",
+        pin: true,
+        pinSpacing: false,
+        markers: false,
+        scrub: 0.000001
+    })
+
+    ScrollTrigger.create({
+        trigger: ".pinning-5",
+        start: "top top",
+        end: "+=200%",
+        pin: true,
+        pinSpacing: false,
+        markers: false,
+        scrub: 0.000001
+    })
+
+    ScrollTrigger.create({
+        trigger: ".pinning-6",
+        start: "top top",
+        end: "bottom top",
+        pin: true,
+        pinSpacing: false,
+        markers: false,
+        scrub: 0.000001,
+        id: "pinning-6"
+    })
+
+    // ScrollTrigger.create({
+    //     trigger: ".pinning-2",
+    //     start: "top top",
+    //     end: "bottom top",
+    //     pin: true,
+    //     pinSpacing: false,
+    //     markers: false,
+    //     scrub: 0.000001,
+    //     id: "pinning-2"
+    // })
+
+    // // ScrollTrigger.create({
+    // //     trigger: ".pinning-3",
+    // //     start: "top top",
+    // //     end: "bottom top",
+    // //     pin: true,
+    // //     pinSpacing: false,
+    // //     markers: false,
+    // //     scrub: 0.000001,
+    // //     id: "pinning-3"
+    // // })
+
+    // let tl = gsap.timeline()
+    // tl.to({}, { duration: 1 })
+    // tl.to('.c-wrapper', { y: -1000 })
+
+    // ScrollTrigger.create({
+    //     trigger: ".item-1.section--pinning-company",
+    //     start: "top top",
+    //     end: "+=180%",
+    //     pin: true,
+    //     pinSpacing: false,
+    //     markers: false,
+    //     scrub: 0.000001,
+    //     id: "pinning-company",
+    //     animation: tl
+    // })
+    // ScrollTrigger.create({
+    //     trigger: ".about-our-teams.homepage-section",
+    //     start: "top top",
+    //     end: "+=180%",
+    //     pin: true,
+    //     pinSpacing: false,
+    //     markers: false,
+    //     scrub: 0.000001,
+    //     id: "pinning-our-teams"
+    // })
+
+    // ScrollTrigger.create({
+    //     trigger: ".item-3.section--pinning-explore",
+    //     start: "top top",
+    //     end: "+=200%",
+    //     pin: true,
+    //     pinSpacing: false,
+    //     markers: false,
+    //     id: "explore",
+    //     scrub: 0.000001,
+    //     onUpdate: (t) => {
+    //         let progress = t.progress
+    //         let pixelateImageLeft = document.querySelector('.section-explore .col-left  .pixelate-container');
+    //         let pixelateImageRight = document.querySelector('.section-explore .col-right .pixelate-container');
+    //         if (pixelateImageLeft && pixelateImageLeft.animation) {
+    //             if (progress < 0.5) {
+    //                 pixelateImageLeft.animation.seek(0);
+    //                 pixelateImageLeft.animation.pause();
+    //                 pixelateImageLeft.nextElementSibling.classList.remove('active')
+    //             }
+
+    //             if (progress > 0.7) {
+    //                 pixelateImageLeft.animation.play()
+    //             }
+    //         }
+    //         if (pixelateImageRight && pixelateImageRight.animation) {
+    //             if (progress < 0.5) {
+    //                 pixelateImageRight.animation.seek(0);
+    //                 pixelateImageRight.animation.pause();
+    //                 pixelateImageRight.nextElementSibling.classList.remove('active')
+    //             }
+
+    //             if (progress > 0.7) {
+    //                 pixelateImageRight.animation.play()
+    //             }
+    //         }
+    //     }
+    // })
+
+}

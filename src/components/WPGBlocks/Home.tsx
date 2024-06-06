@@ -67,7 +67,6 @@ const HomeBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBlo
 
   }, [blocks]);
 
-  console.log(['remainingBlocks', remainingBlocks])
   return (
     <div className="scrollTrigger page-content" ref={container}>
       <div className="scroll-section pinning-1" data-speed="0.2">

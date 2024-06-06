@@ -17,15 +17,18 @@
     align-items: center
 .page-index > .placeholder-section
     display: none
+
 .viewport.page-about .placeholder-section
-    min-height: 150vh
+    min-height: 45vh
     @media screen and (max-width: 767px)
-        min-height: 150vh
+        min-height: 55vh
 
 .viewport:not(.page-index):not(.page-about) .placeholder-section
-    min-height: 150vh
+    min-height: 55vh
     @media screen and (max-width: 767px)
-        min-height: 150vh
+        min-height: 65vh
+    @media screen and (max-height: 700px)
+        min-height: 100vh
 
 .panel
     height: 100%
@@ -46,6 +49,7 @@
     background-color: #fff
 .pinning-2
     z-index: 10
+    position: relative
 .pinning-3
     z-index: 11
     position: relative
@@ -628,8 +632,8 @@ fieldset.fieldset
     &.active
         opacity: 1
 
-.page-index 
-    .about-banner-top 
+.page-index
+    .about-banner-top
         padding: 99px 40px 102px 0
         @media screen and (max-width: 1280px)
             padding: 80px 0 78px 0

@@ -24,10 +24,10 @@ const PhilosophyBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, ma
             xx.push(c)
         })
     });
-    
+
     return (
         <div className='page-content page-philosophy'>
-            <div className="pinning-1" style={{ position: "relative", zIndex: 2 }}>
+            <div className="overlay-animation">
                 {acceptedBlocks.filter(block => {
                     return !!block.name
                 }).map((block, index) =>
@@ -35,15 +35,15 @@ const PhilosophyBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, ma
                 )}
                 {xx.map((list, index) => (
                     <div key={index}>
-                    <ImageWithText
-                        index={index + 1}
-                        title={list.title}
-                        des={list.description}
-                        image={list.image}
-                        backgroundUrl={list.background}
-                        isDarkBackground={list.is_dark_section}
-                        button={list.button}
-                    />
+                        <ImageWithText
+                            index={index + 1}
+                            title={list.title}
+                            des={list.description}
+                            image={list.image}
+                            backgroundUrl={list.background}
+                            isDarkBackground={list.is_dark_section}
+                            button={list.button}
+                        />
                     </div>
                 ))}
             </div>
