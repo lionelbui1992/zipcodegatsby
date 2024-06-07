@@ -35,13 +35,14 @@ export const ProjectsBanner = ({ attributes }: { attributes: IProjectsBannerProp
                                     <div className="projects-items">
                                         {content.map((list, index) => (
                                             (list.line || list.small_text) &&
+                                            
                                             <div
                                                 className={`item projects-popup-item projects-popup-item-${index}`}
                                                 id={`projects-popup-item-${index}`}
                                                 // data-image={`${list.imgUrl}`} 
                                                 data-popup={`projects-popup-${index}`}
                                                 key={index}>
-                                                <div className="item-inner text-center" onClick={() => openPopup(index)}>
+                                                <div className="item-inner text-center" onClick={() => {list.publish_project == '1' ? openPopup(index) : '' }}>
                                                     <h3>
                                                         {(list.line.length > 0) &&
                                                             list.line.map((line, index) => (
