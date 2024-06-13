@@ -197,6 +197,8 @@ export default function Footer(): JSX.Element {
     }
     window.addEventListener("scroll", () => handleScroll());
     const handleResize = () => {
+      const sectionFooter = document.querySelector(".site-footer");
+      document.documentElement.style.setProperty('--footerHeight', `${sectionFooter?.offsetHeight}px`);
       const windowWidth = window.innerWidth;
       if (!loading && !error && data && data.option.footer) {
         if (windowWidth < 768) {
@@ -209,6 +211,7 @@ export default function Footer(): JSX.Element {
       }
     };
 
+    window.addEventListener("scroll", handleResize);
     window.addEventListener("resize", handleResize);
     handleResize();
     // console.log(footerData.social);

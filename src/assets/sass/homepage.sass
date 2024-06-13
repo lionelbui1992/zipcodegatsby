@@ -6,29 +6,29 @@
     position: relative
 .placeholder-section
     width: 100%
-    min-height: 150vh
+    min-height: var(--footerHeight, 55vh)
 
 .page-index .placeholder-section
-    min-height: 130vh
+    min-height: var(--footerHeight, 55vh)
 
 .page-index .box-image
     min-height: 100vh
     display: flex
     align-items: center
 .page-index > .placeholder-section
-    display: none
+    min-height: var(--footerHeight)
 
 .viewport.page-about .placeholder-section
-    min-height: 45vh
+    min-height: var(--footerHeight, 45vh)
     @media screen and (max-width: 767px)
-        min-height: 55vh
+        min-height: var(--footerHeight, 55vh)
 
 .viewport:not(.page-index):not(.page-about) .placeholder-section
-    min-height: 55vh
+    min-height: var(--footerHeight, 45vh)
     @media screen and (max-width: 767px)
-        min-height: 65vh
+        min-height: var(--footerHeight, 65vh)
     @media screen and (max-height: 700px)
-        min-height: 100vh
+        min-height: var(--footerHeight, 100vh)
 
 .panel
     height: 100%

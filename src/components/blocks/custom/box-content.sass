@@ -3,8 +3,7 @@
     background: var(--Color-neutrals-white)
     position: relative
     z-index: 1
-    padding: 108px 0 92px
-    min-height: 70vh
+    padding: 77px 0 111px
 
     .column-box
         gap: 18px
@@ -13,67 +12,65 @@
         flex-direction: column
 
     .content
-        max-width: 469px
+        max-width: 418px
         margin-left: auto
         margin-right: 5.1%
+        margin-top: -49px
 
     .title
         color: #000
         align-self: stretch
-        font-size: 36px
-        font-weight: 400
-        line-height: 128%
+        font-size: 48px
+        font-weight: 600
+        line-height: 58px
         margin-top: 0
-        max-width: 425px
+        max-width: 600px
+        letter-spacing: 0.04em
+        @media (max-width: 767px)
+            font-size: 40px
+            line-height: 48px
+            margin: 0 -15px 0 0
 
     .description
         color: #232323
-        font-size: 16px
+        font-size: 14px
         font-style: normal
         font-weight: 400
         line-height: 25px
         letter-spacing: 0.28px
-        margin-bottom: 40px
+        margin-bottom: 39px
 
-@media (max-width: 1600px)
-    .projects-box-content
-        border-radius: 30px
-        padding: 78px 0 100px
-
-        .column-box
-            gap: 4px
-
-        .content
-            max-width: 418px
-
-@media (max-width: 1199px)
-    .projects-box-content
-        padding: 81px 0 50px
-
-        .column-box
-            gap: 66px
+    .btn 
+        padding: 5.5px 35px 5.5px 11px
 
 @media (max-width: 767px)
     .projects-box-content
         border-radius: 30px
+        padding: 78px 0 50px
+        .column-box
+            gap: 74px
 
         .description
             color: #000000
+            margin-bottom: 40px
 
         .content
             max-width: 100%
             margin-right: 0
+            margin-top: 0
 
             .btn
                 padding: 10px 58px 8px 17px
                 height: auto
                 letter-spacing: 0.02rem
                 line-height: 1.2
+                font-size: 20px
+                background-size: 17px
+                background-position: right 22px center
 
 @media (max-width: 429px)
     .projects-box-content
         .content
-
             .btn
                 padding: 10px 30px 8px 17px
                 background-position: right 10px center

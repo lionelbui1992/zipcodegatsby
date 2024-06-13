@@ -50,8 +50,8 @@ export const BoxImage = ({ order, attributes }: { order?: string, attributes: IB
                                     navigation={navigation}
                                     className={`${navigationClass}`}
                                 >
-                                    {attributes.gallery.map(image =>
-                                        <SwiperSlide>
+                                    {attributes.gallery.map((image, index) =>
+                                        <SwiperSlide key={index}>
                                             <div className="image-inner">
                                                 <img src={image.src} alt={`${image.alt}`} amount={.3} duration=".6" from="end" axis="x" />
                                             </div>
