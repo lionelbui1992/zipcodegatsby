@@ -9,7 +9,7 @@ const CareersBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, form,
   const container = useRef(null);
 
   const lastAnimatoinBlocks = blocks.filter((block, index) => {
-    return block.name === "acf/listing-three-columns" || block.name === "acf/contact-information"
+    return block.name === "acf/contact-information"
   });
 
   const firstAnimatoinBlocks = blocks.filter(block => !lastAnimatoinBlocks.includes(block));
@@ -68,11 +68,12 @@ export const CareersBlock: React.FunctionComponent<IWPGBlockProps> = ({ block, f
     // custom blocks
     switch (name) {
       case 'acf/career-perk':
+        return (
+          <TheBlock blockName={name} attributes={attributes.data} />
+        )
       case 'acf/box-image':
         return (
-          <section className="career-perks careers-section ">
-            <TheBlock blockName={name} attributes={attributes.data} />
-          </section>
+          <TheBlock blockName={name} attributes={attributes.data} />
         )
       case 'acf/text-center-with-link':
         return (
@@ -80,14 +81,6 @@ export const CareersBlock: React.FunctionComponent<IWPGBlockProps> = ({ block, f
             <TheBlock blockName={name} attributes={attributes.data} />
           </section>
         )
-      // case 'acf/life-zip-code':
-      //   if (attributes.data.hidden && attributes.data.hidden !== '1') {
-      //     return (
-      //       <TheBlock blockName={name} attributes={attributes.data} />
-      //     )
-      //   } else {
-      //     return <></>
-      //   }
       case 'acf/contact-information':
         return (
           <TheBlock blockName={name} form={form} attributes={attributes.data} />

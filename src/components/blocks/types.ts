@@ -85,6 +85,7 @@ interface IOurTeamsProps {
 interface ICareerPerkProps {
     title: string;
     description: string;
+    background: IImage;
     peoples: {
         name: string,
         position: string,
@@ -120,6 +121,7 @@ interface BannerCtaProps {
 }
 
 interface IListingThreeColumnsProps {
+    background: IImage;
     title: string;
     list: {
         content: string
