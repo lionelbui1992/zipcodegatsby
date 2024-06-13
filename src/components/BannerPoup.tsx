@@ -49,13 +49,13 @@ export const BannerPoup = (attributes: IBannerPoupProps): JSX.Element => {
                             <div className={`projects-popup projects-popup-${index}`} id={`projects-popup-${index}`} key={index}>
                                 <div className="poup-overlay" onClick={() => popupOverlay()}></div>
                                 <div className={`projects-popup-container${list.publish_project == '1' ? '' : ' projects-popup-coming-soon'}`} style={{ backgroundImage: "url(" + background + ")" }}>
-                                    <button className="projects-popup-close" onClick={() => popupOverlay()}>
-                                        <svg width="32" height="30" viewBox="0 0 32 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <line y1="-1.06719" x2="39.2529" y2="-1.06719" transform="matrix(0.724999 0.688749 -0.724999 0.688749 2 2)" stroke="#C4F000" strokeWidth="2.13437"/>
-                                            <line y1="-1.06719" x2="39.2529" y2="-1.06719" transform="matrix(0.724999 -0.688749 0.724999 0.688749 2 29.0352)" stroke="#C4F000" strokeWidth="2.13437"/>
-                                        </svg>
-                                    </button>
-                                    <div className="container">                                        
+                                    <div className="container">  
+                                        <button className="projects-popup-close" onClick={() => popupOverlay()}>
+                                            <svg width="32" height="30" viewBox="0 0 32 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <line y1="-1.06719" x2="39.2529" y2="-1.06719" transform="matrix(0.724999 0.688749 -0.724999 0.688749 2 2)" stroke="#C4F000" strokeWidth="2.13437"/>
+                                                <line y1="-1.06719" x2="39.2529" y2="-1.06719" transform="matrix(0.724999 -0.688749 0.724999 0.688749 2 29.0352)" stroke="#C4F000" strokeWidth="2.13437"/>
+                                            </svg>
+                                        </button>                                                                            
                                         {list.publish_project == '1'
                                             ?
                                                 <Scrollbar>

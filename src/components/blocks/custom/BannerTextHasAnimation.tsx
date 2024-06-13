@@ -72,9 +72,9 @@ export const BannerTextHasAnimation = ({ blockName, attributes }: { blockName: s
                                 return (
                                     text.text && (
                                         text.image ?
-                                            <><span className={`tt-image`} key={index}>{text.text}<img loading="lazy" srcSet={text.image.src} alt="" /></span> </>
+                                            <span className={`tt-image`} key={index}>{text.text}<img loading="lazy" srcSet={text.image.src} alt="" /></span>
                                             :
-                                            <>{text.text} </>
+                                            <span key={index}>{text.text} </span>
                                     )
                                 )
                             })}

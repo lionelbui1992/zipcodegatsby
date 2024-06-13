@@ -33,19 +33,6 @@ const PhilosophyBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, ma
                 }).map((block, index) =>
                     <PhilosophyBlock key={index} order={`${index}`} block={block} mapToBlock={mapToBlock} />
                 )}
-                {xx.map((list, index) => (
-                    <div key={index}>
-                        <ImageWithText
-                            index={index + 1}
-                            title={list.title}
-                            des={list.description}
-                            image={list.image}
-                            backgroundUrl={list.background}
-                            isDarkBackground={list.is_dark_section}
-                            button={list.button}
-                        />
-                    </div>
-                ))}
             </div>
             {rejectedBlocks.filter(block => {
                 return !!block.name

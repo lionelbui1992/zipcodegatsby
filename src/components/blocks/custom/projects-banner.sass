@@ -1,6 +1,6 @@
 .projects-banner
     position: relative
-    padding-top: 153px
+    padding-top: 161px
 
     .section-bkg
         position: absolute
@@ -16,25 +16,20 @@
             object-fit: cover
             height: 100%
     h1.h5 
-        font-size: 12px
-        font-weight: 600
-        line-height: 17px
-        letter-spacing: 0.01em
-        text-transform: uppercase
-        color: #1E1E1E
-
         @media screen and (max-width: 767.98px)
-            font-size: 16px
-            line-height: 24px
+            line-height: 36px
 
 .projects-items
-    padding: 54px 0 98px 0
+    padding: 18px 0 66px 0
 
     .item
         display: flex
         justify-content: center
         align-items: center
         margin: 13.5px 0
+
+        @media (min-width: 1200px)
+            padding-right: 60px
 
         .item-inner
             position: relative
@@ -49,6 +44,7 @@
                 object-position: center
                 vertical-align: top
                 margin-top: 12px
+                margin-right: 10px
 
             &:hover 
                 img
@@ -189,9 +185,10 @@ html.active-overlay
         border: none
         outline: none
         position: absolute
-        right: 0
-        right: 95px
-        top: 37px
+        right: 36px
+        top: -35px
+        padding: 0
+        z-index: 1
 
     .popup-heading
         display: flex
@@ -250,6 +247,7 @@ html.active-overlay
                 padding-right: 30px
                 font-size: 24px
                 line-height: 36px
+                font-weight: 500
                 @media (max-width: 1199px)
                     width: 50%
 
@@ -271,10 +269,10 @@ html.active-overlay
             @media (max-width: 767px)
                 border-top: none
             strong
-                font-weight: 300
+                font-weight: 500
 
             h6, .h6
-                font-weight: 300
+                font-weight: 500
                 line-height: 35.573px
 
     .swiper
@@ -327,13 +325,8 @@ html.active-overlay
             width: 200px
             margin-top: 5px
 
-@media (max-width: 1600px)
-    .projects-banner
-        padding-top: 129px
-        
+@media (max-width: 1600px)        
     .projects-items
-        padding: 69px 0 102px 0
-
         .item
             margin: 0
 
@@ -390,33 +383,41 @@ html.active-overlay
 
     .projects-items
         text-align: left
-        padding: 24px 0 42px 0
+        padding: 25px 0 88px 0
         display: flex
         flex-direction: column
-        gap: 67px
+        gap: 45px
 
         .item.active-popup .item-inner h3 img
             display: none
         
         .item:last-child .item-inner .subheading
             max-width: 100%
+            
+        .item:nth-child(n + 4) .item-inner .subheading
+            margin: 31px 0 0
 
         .item
-            justify-content: flex-start
-            text-align: left
+            justify-content: center
 
             .item-inner
                 min-width: 0
                 display: flex
                 flex-wrap: wrap
-                text-align: left
+                justify-content: center
+
+                &:hover 
+                    img
+                        display: none
 
                 .subheading 
                     position: static
                     max-width: 100%
-                    margin: 30px 0 0
-                    font-size: 14px
-                    line-height: 1.4
+                    margin: 27px 0 0
+                    text-align: center
+                    font-size: 22px
+                    font-weight: 400
+                    line-height: 24px
                     a
                         font-size: 14px
                         line-height: 1.4
@@ -440,8 +441,11 @@ html.active-overlay
                 line-height: 1.2
                 display: flex
                 flex-wrap: wrap
+                justify-content: center
+                text-align: center
                 .image 
-                    display: none                 
+                    width: 0px
+                    display: inline-block               
 
     .projects-popup 
         .popup-content
@@ -470,8 +474,6 @@ html.active-overlay
                 // height: 387px
 
         button.projects-popup-close
-            right: 10px
-            top: 5px
             svg
                 width: 32px
                 height: 30px
@@ -513,13 +515,18 @@ html.active-overlay
     .visible-mobile
         display: inline-flex
 
+    .projects-items .item
+        h3
+            font-size: 40px
+            line-height: 48px
+            letter-spacing: -0.02em
+
     .projects-banner
-        padding-top: 137px
+        padding-top: 159px
 
     .projects-popup 
         button.projects-popup-close
-            right: 28px
-            top: 20px
+            top: 0
             
         .projects-popup-container
             padding: 53px 0 82px 36px
@@ -579,3 +586,10 @@ html.active-overlay
 
                 .swiper-button-next
                     right: 0
+    
+    .projects-popup-main ~
+        .site-footer
+            padding-top: 83px
+
+        .global-wrapper
+            margin-bottom: -32px

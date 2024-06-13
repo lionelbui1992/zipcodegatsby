@@ -57,7 +57,7 @@
                 right: -10px
                 top: 50%
                 margin-top: -12px
-                background-image: url(images/icon-zipcode-green.svg)
+                background-image: url(images/icon-zipcode.svg)
                 background-size: contain
                 background-repeat: no-repeat
                 background-position: center
@@ -68,7 +68,11 @@
         .marquee-items
             .item
                 &:after
-                    background-image: url(images/icon-zipcode.svg)
+                    background-image: url(images/icon-zipcode-green.svg)
+                    
+.projects-section + .marquee-section .section-bkg
+    height: calc(100% + 50px)
+
 
 @keyframes marquee
     0%
