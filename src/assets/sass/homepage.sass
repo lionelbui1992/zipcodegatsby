@@ -8,8 +8,8 @@
     width: 100%
     min-height: var(--footerHeight, 55vh)
 
-.page-index .placeholder-section
-    min-height: 80vh
+.page-index .page-content .placeholder-section
+    display: none
 
 .page-index .box-image
     min-height: 100vh
@@ -68,8 +68,7 @@
     z-index: 9
 .about-our-teams.homepage-section
     position: relative
-    transform: translateY(-100%)
-    z-index: 8
+    z-index: 9
     min-height: 100vh
     padding-top: 80px !important
     display: flex
@@ -81,13 +80,20 @@
     z-index: 11
     background-color: #fff
 
+.item-c-image
+    width: 100%
+    height: 100vh
+    z-index: 9
+    position: relative
+    pointer-events: none !important
+
 .c-wrapper
     width: 260px
     height: 260px
     z-index: 4
     display: flex
     position: absolute
-    bottom: -260px
+    // bottom: -260px
     left: 50%
     transform: translateX(-50%)
 
@@ -317,7 +323,7 @@ a:hover
 
     .company-box
         position: relative
-        max-width: 1404px
+        max-width: 973px
         margin: auto
         margin-top: 60px
         @media screen and (max-width: 1499px)
@@ -367,7 +373,7 @@ a:hover
             left: initial
             top: initial
             right: 0
-            bottom: -2px
+            bottom: -11px
 
     .c-image
         max-width: 260px

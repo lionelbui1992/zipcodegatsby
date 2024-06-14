@@ -1,12 +1,13 @@
-import * as React from 'react'
+import React, { useRef, useEffect } from 'react';
 import { GetTheBlock } from '../blocks'
 import { IWPGBlocksProps, IWPGBlockProps } from './types'
-import ImageWithText from '../blocks/custom/ImageWithText';
+import { handlePhilosophyOverlayAnimation } from '../../animation';
 
 const PhilosophyBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBlock }) => {
     let acceptedBlocks = [];
     let rejectedBlocks = [];
     let xx = [];
+    const container = useRef(null);
 
     blocks.filter((block, index) => {
         return block.name === "acf/banner-with-image-right"
@@ -24,16 +25,23 @@ const PhilosophyBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, ma
             xx.push(c)
         })
     });
+    useEffect(() => {
+        if (container.current) {
+            setTimeout(() => {
+                handlePhilosophyOverlayAnimation();
+            }, 1000);
+        }
+    }, [blocks]);
 
     return (
-        <div className='page-content page-philosophy'>
-            <div className="overlay-animation">
-                {acceptedBlocks.filter(block => {
-                    return !!block.name
-                }).map((block, index) =>
-                    <PhilosophyBlock key={index} order={`${index}`} block={block} mapToBlock={mapToBlock} />
-                )}
-            </div>
+        <div className='page-content page-philosophy' ref={container}>
+            {acceptedBlocks.filter(block => {
+                return !!block.name
+            }).map((block, index) =>
+                <div className="phi-1 pinning-1 " key={index}>
+                    <PhilosophyBlock order={`${index}`} block={block} mapToBlock={mapToBlock} />
+                </div>
+            )}
             {rejectedBlocks.filter(block => {
                 return !!block.name
             }).map((block, index) =>
