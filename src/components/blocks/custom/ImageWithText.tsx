@@ -24,19 +24,21 @@ export const ImageWithText = ({
             }
             {(image || des) &&
               <div className="content">
-                <div className="label">{index < 10 ? '0' + index : index}</div>
-                <div className="text-container">
-                  {title && <div className="title">{title}</div>}
-                  {image &&
-                    <div className="image-container img-mb">
-                      <div className="image" style={{ backgroundImage: "url(" + image.src + ")" }}></div>
+                <div className="content-inner">
+                  <div className="label">{index < 10 ? '0' + index : index}</div>
+                  <div className="text-container">
+                    {title && <div className="title">{title}</div>}
+                    {image &&
+                      <div className="image-container img-mb">
+                        <div className="image" style={{ backgroundImage: "url(" + image.src + ")" }}></div>
+                      </div>
+                    }
+                    <div>
+                      {des && <div className="des">{des}</div>}
+                      {button && button.title && (
+                        <Link className={`btn btn-primary ${isDarkBackground == '1' ? 'btn-white' : ''}`} to={`${button.url}`}>{button.title}</Link>
+                      )}
                     </div>
-                  }
-                  <div>
-                    {des && <div className="des">{des}</div>}
-                    {button && button.title && (
-                      <Link className={`btn btn-primary ${isDarkBackground == '1' ? 'btn-white' : ''}`} to={`${button.url}`}>{button.title}</Link>
-                    )}
                   </div>
                 </div>
               </div>
