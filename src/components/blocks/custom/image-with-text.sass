@@ -20,7 +20,7 @@
   // background-color: transparent
 .phi-2.philosophy-section
   .phi-content-container
-    border-radius: 0
+    border-radius: 0 0 32px 32px
     color: #ffffff
     // margin-top: -50px
     // .content
@@ -42,6 +42,12 @@
   .phi-content-container
       border-radius: 32px 32px 0 0
 .page-philosophy 
+  .phi-content-container
+    height: 100vh
+    display: flex
+    align-items: center
+    @media screen and (max-width: 767.98px)
+      height: auto
   .phi-banner-container.phi-page
     .content
       padding: 159px 0 38px
@@ -70,6 +76,7 @@
     flex-wrap: nowrap
     gap: 36px
     justify-content: space-between
+    height: 100%
     &.img-left
       padding-left: 0
       @media screen and (max-width: 767.98px)
@@ -83,6 +90,7 @@
       // padding-top: 100px
       // padding-bottom: 57px
     @media screen and (max-width: 767.98px)
+      height: auto
       // padding-top: 82px
       // padding-bottom: 79px
   .image-container
@@ -96,6 +104,7 @@
       padding-bottom: 135.07%
       background-position: center
       background-size: cover
+      min-height: 100%
       @media screen and (max-width: 767.98px)
         padding-bottom: 111.733%
         height: auto
