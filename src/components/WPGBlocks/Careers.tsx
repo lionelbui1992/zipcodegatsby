@@ -39,7 +39,8 @@ const CareersBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, form,
       {lastAnimatoinBlocks.filter(block => {
         return !!block.name
       }).map((block, index) =>
-        <div key={index} className={(index === lastAnimatoinBlocks.length - 1) ? "end-overlay-animation" : "pinning-" + (index + 1 + firstAnimatoinBlocks.length)}>
+        // <div key={index} className={(index === lastAnimatoinBlocks.length - 1) ? "end-overlay-animation" : "pinning-" + (index + 1 + firstAnimatoinBlocks.length)}>
+        <div key={index} className={"pinning-" + (index + 1 + firstAnimatoinBlocks.length)}>
           <CareersBlock key={index} order={`${index}`} form={form} block={block} mapToBlock={mapToBlock} />
         </div>
       )
