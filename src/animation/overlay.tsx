@@ -185,7 +185,7 @@ export const handleCareerOverlayAnimation = () => {
     ScrollTrigger.create({
         trigger: ".pinning-7",
         start: "top top",
-        end: "+=200%",
+        end: "+=100%",
         pin: true,
         pinSpacing: false,
         markers: false,

@@ -5,6 +5,7 @@
         color: #ffffff
         background-size: cover
         background-repeat: no-repeat
+        min-height: 90vh
         @media (max-width: 767px)
             border-radius: 30px
             padding: 84px 0 132px
@@ -17,18 +18,18 @@
     .container
         padding-left: 197px
         padding-right: 197px
-        @media (max-width: 1300px) 
+        @media (max-width: 1300px)
             padding-left: 100px
             padding-right: 100px
-        @media (max-width: 1199px) 
+        @media (max-width: 1199px)
             padding-left: 36px
             padding-right: 36px
 
     .available-items
         display: flex
         flex-wrap: wrap
-        --gap:71px
-        --columns:4
+        --gap: 71px
+        --columns: 4
         display: flex
         width: 100%
         flex-wrap: wrap
@@ -44,17 +45,17 @@
             margin-top: 30px
             gap: 20px var(--gap)
 
-        @media (max-width: 1600px)  
-            --columns:3
-        
+        @media (max-width: 1600px)
+            --columns: 3
+
         @media (max-width: 991px)
-            --columns:2
+            --columns: 2
             --gap: 50px
             gap: 67.3px var(--gap)
             margin-bottom: 0
 
         @media (max-width: 767px)
-            --columns:1
+            --columns: 1
             margin-top: 58px
 
         .item
@@ -63,13 +64,12 @@
             padding-top: 17px
             letter-spacing: 0.2px
 
-
         .content
             font-size: 24px
             line-height: 35px
             font-weight: 300
 
-.page-careers 
+.page-careers
     .available-positions
         .section-title h2
             font-size: 107px
