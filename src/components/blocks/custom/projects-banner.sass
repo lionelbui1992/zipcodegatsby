@@ -1,6 +1,10 @@
 .projects-banner
     position: relative
     padding-top: 161px
+    padding-top: 100px
+    min-height: calc(100vh - 80px)
+    display: flex
+    align-items: center
 
     .section-bkg
         position: absolute
@@ -20,9 +24,9 @@
             line-height: 36px
 
 .projects-items
-    padding: 18px 0 52px 0
+    padding: 10px 0
     @media screen and (max-width: 1399px)
-        padding: 18px 0 20px 0
+        padding: 15px 0 
 
     .item
         display: flex
@@ -319,12 +323,8 @@ html.active-overlay
     
 @media (min-width: 1600px)
     .projects-items .item
-        h3
-            font-size: 100px
-            line-height: 120%
-
         .item-inner img
-            width: 200px
+            width: 150px
             margin-top: 5px
 
 @media (max-width: 1600px)        
