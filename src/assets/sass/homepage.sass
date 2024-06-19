@@ -23,12 +23,20 @@
     @media screen and (max-width: 767px)
         min-height: var(--footerHeight, 55vh)
 
-.viewport:not(.page-index):not(.page-about) .placeholder-section
-    min-height: var(--footerHeight, 45vh)
-    @media screen and (max-width: 767px)
+// .viewport:not(.page-index):not(.page-about) .placeholder-section
+//     min-height: calc( var(--footerHeight, 45vh) + 100px )
+//     @media screen and (max-width: 767px)
+//         min-height: var(--footerHeight, 65vh)
+//     @media screen and (max-height: 700px)
+//         min-height: var(--footerHeight, 100vh)
+.viewport.page-careers .placeholder-section
+    min-height: calc( var(--footerHeight, 45vh) + 150px )
+    @media screen and (max-width: 1399px)
         min-height: var(--footerHeight, 65vh)
-    @media screen and (max-height: 700px)
-        min-height: var(--footerHeight, 100vh)
+.viewport.page-philosophy .placeholder-section
+    min-height: calc( var(--footerHeight, 45vh) + 100px )
+    @media screen and (max-width: 1399px)
+        min-height: var(--footerHeight, 65vh)
 
 .panel
     height: 100%

@@ -106,8 +106,6 @@ export const handleOverlayAnimation = () => {
 
 
 export const handleGeneralOverlayAnimation = () => {
-
-    console.log(gsap.utils.toArray('.overlay-animation'));
     gsap.utils.toArray('.overlay-animation').forEach((section) => {
         let check = section.offsetHeight > window.innerHeight ? true : false
         ScrollTrigger.create({
@@ -185,15 +183,25 @@ export const handleCareerOverlayAnimation = () => {
     })
 
     ScrollTrigger.create({
-        trigger: ".pinning-6",
+        trigger: ".pinning-7",
         start: "top top",
-        end: "bottom top",
+        end: "+=100%",
         pin: true,
         pinSpacing: false,
         markers: false,
-        scrub: 0.000001,
-        id: "pinning-6"
+        scrub: 0.000001
     })
+
+    // ScrollTrigger.create({
+    //     trigger: ".pinning-6",
+    //     start: "top top",
+    //     end: "bottom top",
+    //     pin: true,
+    //     pinSpacing: false,
+    //     markers: false,
+    //     scrub: 0.000001,
+    //     id: "pinning-6"
+    // })
 }
 
 
