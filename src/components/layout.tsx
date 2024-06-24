@@ -113,6 +113,7 @@ const Layout: React.FC<LayoutProps> = ({ children, slug }) => {
 
     // Add event listener to handle cookie change
     useEffect(() => {
+        console.log(['123', 2123423432])
         let checkCookiePopupState: any;
         let checkingCounter = 1;
         const getCookie = (name: string) => {

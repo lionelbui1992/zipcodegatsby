@@ -1,6 +1,6 @@
-import { Formik, Form, Field } from "formik";
 import React, { useState } from 'react';
 import * as Yup from 'yup';
+import DOMPurify from 'dompurify';
 
 export const RenderForm = (field, formik) => {
     switch (field.type) {
@@ -143,14 +143,47 @@ export const RenderForm = (field, formik) => {
                 </div>
             );
 
+        // case 'checkbox':
+        //     return (
+        //         <div className={`field checkbox ${field.id} ${field.cols === "6" ? "col-6" : "full"} ${field.required ? "required" : ""}`} >
+        //             <div className="options">
+        //                 {field.options.map((option, index) => (
+        //                     <div key={index} className='option'>
+        //                         <input type="checkbox" id={field.id + option.key} name={field.id + '[]'} defaultValue={option.value} onChange={formik.handleChange} />
+        //                         <label className="label" htmlFor={field.id + option.key} ><span dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(option.label) }}></span></label>
+        //                     </div>
+        //                 ))}
+        //             </div>
+        //             {formik.touched[field.id] && formik.errors[field.id] && (
+        //                 <div className="error-message">{formik.errors[field.id]}</div>
+        //             )}
+        //         </div>
+        //     );
+
         case 'checkbox':
             return (
                 <div className={`field checkbox ${field.id} ${field.cols === "6" ? "col-6" : "full"} ${field.required ? "required" : ""}`} >
                     <div className="options">
                         {field.options.map((option, index) => (
                             <div key={index} className='option'>
-                                <input type="checkbox" id={field.id + option.key} name={field.id + '[]'} defaultValue={option.value} onChange={formik.handleChange} />
-                                <label className="label" htmlFor={field.id + option.key} ><span>{option.label}</span></label>
+                                <input
+                                    type="checkbox"
+                                    id={field.id + option.key}
+                                    name={field.id}
+                                    value={option.value}
+                                    checked={formik.values[field.id]?.includes(option.value) || false}
+                                    onChange={(e) => {
+                                        const isChecked = e.target.checked;
+                                        console.log(isChecked)
+                                        const valueArray = formik.values[field.id] || [];
+                                        if (isChecked) {
+                                            formik.setFieldValue(field.id, [...valueArray, option.value]);
+                                        } else {
+                                            formik.setFieldValue(field.id, valueArray.filter(val => val !== option.value));
+                                        }
+                                    }}
+                                />
+                                <label className="label" htmlFor={field.id + option.key} ><span dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(option.label) }}></span></label>
                             </div>
                         ))}
                     </div>
@@ -196,30 +229,72 @@ export const RenderForm = (field, formik) => {
                     </div>
                 </div>
             );
-
+        case 'html':
+            return (
+                <div className={`field date ${field.id} ${field.cols === "6" ? "col-6" : "full"} ${field.required ? "required" : ""}`} >
+                    <div id={field.wrapper_id} className="html-wrapper" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(field.variations) }} ></div>
+                </div >
+            );
         default:
             return null;
     }
 }
 
 
+// export const validationSchema = (fields) => {
+//     return Yup.object().shape(
+//         fields.reduce((schema, field) => {
+//             let validator = Yup.string();
+
+//             if (field.type === "checkbox" || field.type === "radio" || field.type === "upload") {
+//                 validator = Yup.mixed();
+//             }
+//             if (field.required) {
+//                 validator = validator.required(`${field.field_label} is required`);
+//             }
+//             if (field.type === 'email') {
+//                 validator = validator.email('Invalid email address');
+//             }
+//             schema[field.id] = validator;
+//             return schema;
+//         }, {})
+//     );
+// }
+
 export const validationSchema = (fields) => {
-    console.log(fields);
     return Yup.object().shape(
         fields.reduce((schema, field) => {
-            let validator = Yup.string();
+            let validator;
 
-            if (field.type === "checkbox" || field.type === "upload") {
-                validator = Yup.mixed();
+            switch (field.type) {
+                case 'checkbox':
+                    validator = Yup.array();
+                    if (field.required) {
+                        validator = validator.min(1, `${field.field_label} is required`);
+                    }
+                    break;
+                case 'radio':
+                case 'upload':
+                    validator = Yup.mixed();
+                    if (field.required) {
+                        validator = validator.required(`${field.field_label} is required`);
+                    }
+                    break;
+                case 'email':
+                    validator = Yup.string().email('Invalid email address');
+                    if (field.required) {
+                        validator = validator.required(`${field.field_label} is required`);
+                    }
+                    break;
+                default:
+                    validator = Yup.string();
+                    if (field.required) {
+                        validator = validator.required(`${field.field_label} is required`);
+                    }
             }
-            if (field.required) {
-                validator = validator.required(`${field.field_label} is required`);
-            }
-            if (field.type === 'email') {
-                validator = validator.email('Invalid email address');
-            }
+
             schema[field.id] = validator;
             return schema;
         }, {})
     );
-}
+};

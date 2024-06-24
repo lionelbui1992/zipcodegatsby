@@ -25,7 +25,12 @@ export const ContactForm = (props): JSX.Element => {
 
     const formik = useFormik({
         initialValues: fields.reduce((values, field) => {
-            values[field.id] = '';
+            // values[field.id] = '';
+            if (field.type === 'checkbox') {
+                values[field.id] = [];
+            } else {
+                values[field.id] = '';
+            }
             return values;
         }, {}),
         validationSchema: _validationSchema,
@@ -76,7 +81,7 @@ export const ContactForm = (props): JSX.Element => {
 
     return (
         <div className={`section section-contact-popup popup hidden`} style={{ display: "none" }} ref={ctform}>
-            <div className="container">
+            <div className="container" data-lenis-prevent>
                 <div className="btn-close" onClick={handleClosePopup}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 32 29" fill="none">
                         <line y1="-1.06719" x2="39.2529" y2="-1.06719" transform="matrix(0.724999 0.688749 -0.724999 0.688749 1.66455 1.70703)" stroke="#0068FF" strokeWidth="{'2.13437'}" />
