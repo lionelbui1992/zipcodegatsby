@@ -9,6 +9,7 @@ import ProjectsBlocks from "../components/WPGBlocks/Projects";
 import { gql, useQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
 import "../assets/sass/header.sass";
+import { handleCmsOverlayAnimation } from "../animation";
 
 export default function Page({ params }: { params: { slug: string } }) {
 
@@ -70,10 +71,17 @@ export default function Page({ params }: { params: { slug: string } }) {
       setPost(data.nodeByUri);
       setTitle(data.nodeByUri.title);
       setPostContent(data.nodeByUri.content);
+      if (!blocks || blocks.length === 0) {
+
+        setTimeout(() => {
+          handleCmsOverlayAnimation();
+        }, 1000);
+      }
     }
   }, [data]);
 
   if (!blocks || blocks.length === 0) {
+
     return (
       <>
         <Seo post={post} />

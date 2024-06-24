@@ -32,7 +32,11 @@ export default function Company({ attributes }: { attributes: ICompanyProps }): 
                 <div className="title"><h2 dangerouslySetInnerHTML={{ __html: title }} /></div>
                 <div className="company-box">
                     <div className="image-box">
-                        <img src={background_text.src} alt={background_text.alt} />
+                        <picture>
+                            <source media="(min-width: 768px)" srcSet={background_text.src} />
+                            <source media="(max-width: 767px)" srcSet="/cp-mb.png" />
+                            <img src={background_text.src} alt={background_text.alt} />
+                        </picture>
                     </div>
                     <div className="text text--top" dangerouslySetInnerHTML={{ __html: text_top }} />
                     <div className="text text--middle" dangerouslySetInnerHTML={{ __html: text_middle }} />
