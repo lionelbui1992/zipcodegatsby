@@ -61,8 +61,8 @@ export const RenderForm = (field, formik) => {
                     <div className="control">
                         <input type="checkbox" name={`select-label-${field.id}`} id={`select-label-${field.id}`} />
                         {/* Render the list */}
-                        { Object.keys(selectedOption).length > 0
-                            ? <label htmlFor={`select-label-${field.id}`} className="select-label">{selectedOption.optionLabel}</label> 
+                        {Object.keys(selectedOption).length > 0
+                            ? <label htmlFor={`select-label-${field.id}`} className="select-label">{selectedOption.optionLabel}</label>
                             : <label htmlFor={`select-label-${field.id}`} className="select-label select-label-first">{field.options[0].label}</label>
                         }
                         {/* List to display options */}
@@ -181,7 +181,7 @@ export const RenderForm = (field, formik) => {
                 <div className={`field date ${field.id} ${field.cols === "6" ? "col-6" : "full"} ${field.required ? "required" : ""}`} >
                     <label className="label" htmlFor={field.id}><span>{field.field_label}</span></label>
                     <div className="control">
-                        <input type="text" 
+                        <input type="text"
                             onFocus={(e) => (e.target.type = "date")}
                             onBlur={(e) => (e.target.type = "text")}
                             id={field.id}
@@ -204,6 +204,7 @@ export const RenderForm = (field, formik) => {
 
 
 export const validationSchema = (fields) => {
+    console.log(fields);
     return Yup.object().shape(
         fields.reduce((schema, field) => {
             let validator = Yup.string();
