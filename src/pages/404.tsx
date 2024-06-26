@@ -21,7 +21,6 @@ const NotFoundPage: React.FC<PageProps> = () => {
         markers: false
       });
     })
-
     return () => {
       // Kill all ScrollTriggers on unmount
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());

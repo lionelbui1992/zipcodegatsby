@@ -30,7 +30,6 @@ export const handleOverlayAnimation = () => {
         id: "pinning-2"
     })
 
-    console.log(window.innerWidth)
     ScrollTrigger.create({
         trigger: ".item-1.section--pinning-company",
         start: "top top",
