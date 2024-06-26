@@ -174,7 +174,6 @@ export const RenderForm = (field, formik) => {
                                     checked={formik.values[field.id]?.includes(option.value) || false}
                                     onChange={(e) => {
                                         const isChecked = e.target.checked;
-                                        console.log(isChecked)
                                         const valueArray = formik.values[field.id] || [];
                                         if (isChecked) {
                                             formik.setFieldValue(field.id, [...valueArray, option.value]);
