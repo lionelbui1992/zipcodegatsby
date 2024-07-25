@@ -10,6 +10,7 @@ import { gql, useQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
 import "../assets/sass/header.sass";
 import { handleCmsOverlayAnimation } from "../animation";
+import SeoCustom from '../components/Seo'
 
 export default function Page({ params }: { params: { slug: string } }) {
 
@@ -85,6 +86,7 @@ export default function Page({ params }: { params: { slug: string } }) {
     return (
       <>
         <Seo post={post} />
+        <SeoCustom />
         <Layout slug={slug}>
           <div className={`${slug}-page cms-page`}>
             <section className="section-banner overlay-animation" style={{ backgroundImage: "url(/img/page-privacy-policy-bkg.png)" }}>

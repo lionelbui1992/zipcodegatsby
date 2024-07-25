@@ -42,6 +42,7 @@ module.exports = {
     "gatsby-plugin-vanilla-extract",
     {
       resolve: "gatsby-plugin-manifest",
+
       options: {
         name: "Zipcode application",
         short_name: "ZipCode",
@@ -50,6 +51,10 @@ module.exports = {
         background_color: "#ffffff",
         theme_color: "#004ca3",
         icon: "./static/favicon-32x32.png",
+        schema: {
+          timeout: 60000,
+          perPage: 50,
+        },
       },
     },
     {

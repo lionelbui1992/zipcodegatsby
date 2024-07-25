@@ -3,7 +3,7 @@ import Layout from "../components/layout"
 import Seo from "gatsby-plugin-wpgraphql-seo";
 import HomeBlocks from "../components/WPGBlocks/Home";
 import "../assets/sass/homepage.sass";
-
+import SeoCustom from '../components/Seo'
 // import { GET_FORMINATOR_FORM } from '../data'
 import { gql, useQuery } from '@apollo/client';
 import { useEffect, useRef, useState } from "react";
@@ -67,6 +67,7 @@ const IndexPage: React.FC = () => {
   return (
     <>
       <Seo post={post} />
+      <SeoCustom />
       <Layout>
         <HomeBlocks blocks={blocks} />
       </Layout >

@@ -103,7 +103,7 @@ const HomeBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBlo
             <div key={index + firstAnimatoinBlocks.length} className={`item-${index + 1} ${classes}`}>
               <HomeBlock order={`${index + 1 + firstAnimatoinBlocks.length}`} block={block} mapToBlock={mapToBlock} />
             </div>
-            {cImage &&
+            {/* {cImage &&
               <div className="item-c-image">
                 <div className="c-image c-wrapper">
                   <div className="image-box">
@@ -111,7 +111,7 @@ const HomeBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBlo
                   </div>
                 </div>
               </div>
-            }
+            } */}
           </>
         )
       })}
