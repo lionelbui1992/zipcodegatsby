@@ -1,28 +1,18 @@
-import React from 'react'
-import { Helmet } from "react-helmet"
+import React from 'react';
+import { Helmet } from "react-helmet";
 
 function Seo() {
     return (
-        <Helmet >
-            <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" data-react-helmet="true" />
-            <script>
-                {`
-                    (function(w,d,s,l,i){
-                        w[l]=w[l]||[];
-                        w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
-                        var f=d.getElementsByTagName(s)[0],
-                        j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
-                        j.async=true;
-                        j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-                        f.parentNode.insertBefore(j,f);
-                    })(window,document,'script','dataLayer','GTM-N797JN7T');
-                `}
-            </script>
+        <Helmet>
+            <meta charSet="utf-8" />
+            <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+            <meta name="google-site-verification" content="aHpqtzVNKFwzLuHj_c3xgbBLzn8o6zolWqk4YVaVt10" />
             <noscript>
-                <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N797JN7T" height="0" width="0" style={{ display: 'none', visibility: 'hidden' }}></iframe>
+                {`<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N797JN7T"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>`}
             </noscript>
         </Helmet>
-    )
+    );
 }
 
-export default Seo
+export default Seo;
