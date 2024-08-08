@@ -13,6 +13,20 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        // You can add multiple tracking ids and a pageview event will be fired for all of them.
+        trackingIds: [
+          'GTM-N797JN7T', // Google Analytics / GA
+        ],
+        // This object is used for configuration specific to this plugin
+        pluginConfig: {
+          // Puts tracking script in the head instead of the body
+          head: false,
+        },
+      },
+    },
+    {
       resolve: 'gatsby-source-wordpress',
       options: {
         url: process.env.WPGRAPHQL_URL,
@@ -42,6 +56,7 @@ module.exports = {
     "gatsby-plugin-vanilla-extract",
     {
       resolve: "gatsby-plugin-manifest",
+
       options: {
         name: "Zipcode application",
         short_name: "ZipCode",
@@ -50,6 +65,10 @@ module.exports = {
         background_color: "#ffffff",
         theme_color: "#004ca3",
         icon: "./static/favicon-32x32.png",
+        schema: {
+          timeout: 60000,
+          perPage: 50,
+        },
       },
     },
     {

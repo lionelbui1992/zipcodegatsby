@@ -6,7 +6,15 @@ gsap.registerPlugin(ScrollTrigger)
 export const handleOverlayAnimation = () => {
 
 
-    let isMb = window.innerWidth < 768 ? true : false
+
+    const screenHeight = window.innerHeight;
+    const boxImage = document.querySelector('.page-index .pinning-3 .box-image');
+    const boxImageHeight = boxImage ? boxImage.offsetHeight : screenHeight;
+    // const pinningCompanyElement = document.querySelector('.section--pinning-company');
+    // if (pinningCompanyElement) {
+    //     pinningCompanyElement.style.transform = `translate(0, -100px})`;
+    //     pinningCompanyElement.style.background = `red`;
+    // }
 
     ScrollTrigger.create({
         trigger: ".pinning-1",
@@ -30,10 +38,12 @@ export const handleOverlayAnimation = () => {
         id: "pinning-2"
     })
 
+
     ScrollTrigger.create({
         trigger: ".item-1.section--pinning-company",
         start: "top top",
-        end: isMb ? "+=300%" : "+=320%",
+        // end: isMb ? "+=300%" : "+=320%",
+        end: "+=" + (boxImageHeight + screenHeight),
         pin: true,
         pinSpacing: false,
         markers: false,

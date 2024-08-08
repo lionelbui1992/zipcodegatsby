@@ -4,7 +4,6 @@
 
 .file-name
     width: 100%
-    display: none
 
 fieldset.fieldset .field
     margin-bottom: 29.5px
@@ -24,7 +23,7 @@ fieldset.fieldset .field
 
                 &:after
                     border-color: #E1E1E1
-                    
+
                 &::before
                     transform: rotate(180deg)
 
@@ -43,7 +42,7 @@ fieldset.fieldset .field
         cursor: pointer
         position: relative
         margin: 0 !important
-        
+
         &::before
             content: ''
             position: absolute
@@ -80,8 +79,8 @@ fieldset.fieldset .field
         top: 100%
         left: 0
         z-index: 2
-        
-        li[value="empty"] 
+
+        li[value="empty"]
             pointer-events: none
 
         label
@@ -134,7 +133,7 @@ fieldset.fieldset .field
                 position: relative
                 margin: 0
                 cursor: pointer
-                
+
                 &:before
                     content: ''
                     width: 24px
@@ -211,7 +210,7 @@ fieldset.fieldset .field
         justify-content: flex-end
         @media screen and (max-width: 767.98px)
             justify-content: center
-        button.btn 
+        button.btn
             min-width: 174px
             padding-right: 50px
             background-position: right 18px center
@@ -244,7 +243,7 @@ fieldset.fieldset .field
                 background-image: url(images/icon-select.svg)
                 background-repeat: no-repeat
                 background-position: right 21px center
-                
+
                 &.empty-value
                     color: rgba(0, 0, 0, 0.5)
 
@@ -266,7 +265,6 @@ fieldset.fieldset .field
                 input[type="file"]
                     position: absolute
                     opacity: 0
-
 
                 .upload-icon
                     width: 52px
@@ -293,4 +291,3 @@ fieldset.fieldset .field
                 button.btn
                     width: 100%
                     min-width: 0
-
