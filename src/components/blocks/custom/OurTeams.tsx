@@ -57,21 +57,21 @@ export const OurTeams = ({ attributes }: { attributes: IOurTeamsProps }): JSX.El
                                             slidesPerView: 2,
                                             spaceBetween: 16,
                                         },
-                                        1199: {
+                                        1023: {
                                             slidesPerView: 2,
                                             spaceBetween: 16,
                                         },
-                                        1200: {
+                                        1024: {
                                             slidesPerView: 3,
                                             spaceBetween: 16,
                                         },
-                                        1600: {
+                                        1329: {
                                             slidesPerView: 3,
                                             spaceBetween: 16,
                                         },
-                                        1601: {
+                                        1330: {
                                             slidesPerView: 3,
-                                            spaceBetween: 20,
+                                            spaceBetween: 16,
                                         },
                                     }}
                                     navigation

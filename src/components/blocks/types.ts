@@ -82,6 +82,18 @@ interface IOurTeamsProps {
     }[];
 }
 
+interface ICareerPerkProps {
+    title: string;
+    description: string;
+    background: IImage;
+    peoples: {
+        name: string,
+        position: string,
+        short_description: string,
+        avatar: IImage,
+    }[];
+}
+
 interface LifeZipCodeProps {
     background: IImage;
     title: string;
@@ -97,6 +109,7 @@ interface IBannerThreeColumnsProps {
 
 interface IContactInformationProps {
     title: string;
+    form_title: string;
     form_shortcode: string;
     background: IImage,
 }
@@ -108,6 +121,7 @@ interface BannerCtaProps {
 }
 
 interface IListingThreeColumnsProps {
+    background: IImage;
     title: string;
     list: {
         content: string
@@ -140,6 +154,8 @@ interface IProjectsBannerProps {
     background_image: IImage | "" | false;
     label: string;
     content: {
+        publish_project: string;
+        coming_soon: string;
         small_text: string;
         line: {
             text: string;
@@ -180,6 +196,13 @@ interface IExploreProps {
     background_right_image: IImage;
     description: string;
     button: IButton;
+}
+
+interface IWhyUs {
+    title: string,
+    description: string,
+    readmore: string,
+    background: IImage,
 }
 
 interface IFooterData {
@@ -253,6 +276,7 @@ export {
     IBoxImageProps,
     IImageWithTextProps,
     IOurTeamsProps,
+    ICareerPerkProps,
     LifeZipCodeProps,
     IBannerThreeColumnsProps,
     IContactInformationProps,
@@ -265,5 +289,6 @@ export {
     IIntroduceProps,
     ICompanyProps,
     IExploreProps,
+    IWhyUs,
     IFooterData,
 }

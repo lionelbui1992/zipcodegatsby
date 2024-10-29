@@ -227,11 +227,11 @@
     z-index: 2
 
 .container
-    max-width: 1730px
+    max-width: 1920px
     margin-left: auto
     margin-right: auto
-    padding-left: 36px
-    padding-right: 36px
+    padding-left: 98px
+    padding-right: 98px
     width: 100%
 
 .about-page .text-center-with-link
@@ -333,6 +333,7 @@ ul
 
 img
     max-width: 100%
+    vertical-align: top
 
 .btn, .button
     display: inline-flex
@@ -545,14 +546,14 @@ input, textarea, select
         border-radius: 32px 32px 0 0
         background-color: #ffffff
         position: relative
-        z-index: 1
+        z-index: 3
 
         @media (max-width: 767px)
             padding: 20px 0 70px
 
         figure.wp-block-table
             overflow-x: scroll
-            
+
         .wp-block-columns
             .wp-block-column
                 margin-top: 59.5px
@@ -659,7 +660,7 @@ input, textarea, select
             margin-top: 0
 
         .container
-            max-width: 700px
+            max-width: 900px
 
         p
             margin-bottom: 26px
@@ -685,9 +686,12 @@ input, textarea, select
 
 @media (max-width: 1600px)
     .container
-        max-width: 1245px
+        // max-width: 1245px
 
 @media (max-width: 1199px)
+    .container
+        padding-left: 36px
+        padding-right: 36px
     h1, .h1
         font-size: 80px
         line-height: 104.839%
@@ -761,15 +765,8 @@ input, textarea, select
         line-height: 35px
 
     .btn, .button
-        font-size: 20px
-        font-style: normal
-        font-weight: 400
-        line-height: 20px
         letter-spacing: 0.4px
-        height: 46px
-        padding: 13px 45px 11px 17px
-        min-width: 256.5px
-        background-size: 17px
+        padding: 11px 43px 11px 17px
         background-position: right 26px center
 
     .input-text
@@ -840,6 +837,45 @@ input, textarea, select
 .about-banner-cta
     z-index: 1
 
-.global-wrapper > .to-top 
+.global-wrapper > .to-top
     display: none
-    
+
+.page-content.page-careers
+    .pinning-3
+        z-index: 9
+        transform: translateY(-90%)
+    .pinning-4
+        position: relative
+        z-index: 9
+    .pinning-5
+        z-index: 8
+        transform: translateY(-100%)
+        position: relative
+    .pinning-6
+        position: relative
+        z-index: 9
+
+    .pinning-7
+        z-index: 8
+        transform: translateY(-50%)
+        position: relative
+
+    .end-overlay-animation
+        z-index: 9
+
+.page-content.page-philosophy
+    .pinning-3
+        transform: translateY(-100%)
+        z-index: 8
+
+    .pinning-4
+        position: relative
+        z-index: 9
+
+    .pinning-5
+        z-index: 8
+        transform: translateY(-100%)
+        position: relative
+    .pinning-6
+        position: relative
+        z-index: 9

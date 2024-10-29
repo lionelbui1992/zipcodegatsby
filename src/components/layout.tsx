@@ -110,6 +110,7 @@ const Layout: React.FC<LayoutProps> = ({ children, slug }) => {
     const [hiddenBackToTop, setHiddenBackToTop] = useState(true);
 
 
+
     // Add event listener to handle cookie change
     useEffect(() => {
         let checkCookiePopupState: any;
@@ -149,8 +150,8 @@ const Layout: React.FC<LayoutProps> = ({ children, slug }) => {
     }, []);
 
     useEffect(() => {
-        if (data) {
 
+        if (data) {
             setTesting(data.testing.testingFields.turnOnTesting);
             setGetContactForm(data.getContactForm);
             setSeo(data.seo);
@@ -163,12 +164,19 @@ const Layout: React.FC<LayoutProps> = ({ children, slug }) => {
             }
             window.addEventListener("scroll", () => handleScroll());
             window.addEventListener("scroll", () => handleAddPixelateAnimation());
-            window.addEventListener("scroll", () => handleTextAnimation());
-            setTimeout(() => {
-                handleGeneralOverlayAnimation()
-                handleAddPixelateAnimation()
-                handleTextAnimation()
-            }, 2000)
+            // window.addEventListener("scroll", () => handleTextAnimation());
+            // setTimeout(() => {
+            // handleGeneralOverlayAnimation()
+            // handleTextAnimation()
+            // }, 2000)
+            let intervalCounter = 0;
+            const intervalId = setInterval(() => {
+                intervalCounter++;
+                handleAddPixelateAnimation();
+                if (intervalCounter >= 6) {
+                    clearInterval(intervalId);
+                }
+            }, 1000);
         }
     }, [data]);
 

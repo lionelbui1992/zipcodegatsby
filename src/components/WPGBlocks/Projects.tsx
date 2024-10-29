@@ -10,19 +10,19 @@ const ProjectsBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapT
 
     return (
         <div className='page-content'>
-            <div className="overlay-animation">
+            <div className="">
                 {firstAnimatoinBlocks.filter(block => {
                     return !!block.name
                 }).map((block, index) =>
                     <ProjectsBlock key={index} order={`${index}`} block={block} mapToBlock={mapToBlock} />
                 )}
-            </div>
 
-            {blocks.filter(block => {
-                return !!block.name && (block.name !== "acf/projects-banner" && block.name !== "acf/marquee")
-            }).map((block, index) =>
-                <ProjectsBlock key={index} order={`${index}`} block={block} mapToBlock={mapToBlock} />
-            )}
+                {blocks.filter(block => {
+                    return !!block.name && (block.name !== "acf/projects-banner" && block.name !== "acf/marquee")
+                }).map((block, index) =>
+                    <ProjectsBlock key={index} order={`${index}`} block={block} mapToBlock={mapToBlock} />
+                )}
+            </div>
         </div>
     )
 }

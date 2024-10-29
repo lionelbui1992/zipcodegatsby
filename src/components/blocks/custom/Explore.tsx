@@ -7,7 +7,7 @@ export default function Explore({ attributes }: { attributes: IExploreProps }): 
 
     return (
         <div className="section section-explore">
-            <div className="small-container">
+            <div className="container">
                 <div className="d-flex">
                     <div className="col-left">
                         <ImageAnimation classes="animation-image stop image-2" alt="image" alt={left_image.alt} src={left_image.src} amount={.3} duration=".6" from="start" axis="x" />

@@ -35,32 +35,32 @@ export const ProjectsBanner = ({ attributes }: { attributes: IProjectsBannerProp
                                     <div className="projects-items">
                                         {content.map((list, index) => (
                                             (list.line || list.small_text) &&
+                                            
                                             <div
                                                 className={`item projects-popup-item projects-popup-item-${index}`}
                                                 id={`projects-popup-item-${index}`}
                                                 // data-image={`${list.imgUrl}`} 
                                                 data-popup={`projects-popup-${index}`}
                                                 key={index}>
-                                                <div className="item-inner text-center" onClick={() => openPopup(index)}>
+                                                <div className="item-inner text-center" onClick={() => {list.publish_project == '1' ? openPopup(index) : '' }}>
                                                     <h3>
                                                         {(list.line.length > 0) &&
                                                             list.line.map((line, index) => (
                                                                 (line.image || line.text) &&
-                                                                <>
+                                                                <span key={index}>
                                                                     {line.text + ' '}
                                                                     {(line.image != "" && line.image !== false) &&
-                                                                        <span className="image">
-                                                                            <img loading="lazy" srcSet={line.image.src} alt={line.text} />&nbsp;
+                                                                        <span key={index} className="image">
+                                                                            <img loading="lazy" srcSet={line.image.src} alt={line.text} />
                                                                         </span>
                                                                     }
-                                                                </>
+                                                                </span>
                                                             ))
                                                         }
                                                     </h3>
                                                     {(list.small_text) &&
                                                         <div className="subheading" dangerouslySetInnerHTML={{ __html: list.small_text }} />
                                                     }
-                                                    <button className="btn visible-tablet visible-mobile">Read more</button>
                                                 </div>
                                             </div>
                                         ))}

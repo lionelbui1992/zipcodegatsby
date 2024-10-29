@@ -19,7 +19,7 @@
     position: relative
     color: #333
     display: flex
-    padding: 29px 0 36px
+    padding: 20px 0
 
     .marquee-items
         width: 100%
@@ -61,14 +61,16 @@
                 background-size: contain
                 background-repeat: no-repeat
                 background-position: center
-.about-page
-    .marquee-section
-        z-index: 1
+.page-index
     .marquee
         .marquee-items
             .item
                 &:after
                     background-image: url(images/icon-zipcode.svg)
+                    
+.projects-section + .marquee-section .section-bkg
+    height: calc(100% + 50px)
+
 
 @keyframes marquee
     0%
@@ -115,14 +117,8 @@
         -ms-transform: translate(-100%, 0)
         -o-transform: translate(-100%, 0)
 
-@media (max-width: 1600px)
-    .marquee
-        padding: 41px 0 41px
-
 @media (max-width: 767px)
     .marquee
-        padding: 41px 0 40px
-
         .marquee-items
             animation: marquee 20s linear infinite
 

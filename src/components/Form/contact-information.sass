@@ -4,8 +4,10 @@
 
 .file-name
     width: 100%
+    display: none
 
 fieldset.fieldset .field
+    margin-bottom: 29.5px
     select.hidden
         display: none
 
@@ -33,15 +35,15 @@ fieldset.fieldset .field
         border-radius: 10px
         font-size: 14px
         line-height: 26px
-        height: 50px
+        height: auto
         letter-spacing: .02em
-        padding: 12px 21px
+        padding: 13px 21px
         width: 100%
         display: block
         cursor: pointer
         position: relative
         margin: 0 !important
-         
+        
         &::before
             content: ''
             position: absolute
@@ -58,7 +60,7 @@ fieldset.fieldset .field
 
         &:after
             content: ''
-            display: block
+            display: none
             border-bottom: 1px solid transparent
             margin-top: 12px
 
@@ -78,18 +80,73 @@ fieldset.fieldset .field
         top: 100%
         left: 0
         z-index: 2
+        
+        li[value="empty"] 
+            pointer-events: none
 
         label
-            padding: 7px 20px
+            padding: 1px 20px
             font-size: 14px
             line-height: 26px
             color: rgba(0, 0, 0, 0.5)
             cursor: pointer
             margin: 0 !important
+            display: block
             &:hover
                 font-weight: 700
                 color: #000000
 
+    &.date
+        input
+            background-image: url(images/icon-calendar.svg)
+            background-position: right 22px center
+            background-repeat: no-repeat
+            background-size: 21px
+            &::-webkit-inner-spin-button, &::-webkit-calendar-picker-indicator
+                background: transparent
+                bottom: 0
+                color: transparent
+                cursor: pointer
+                height: auto
+                left: 0
+                position: absolute
+                right: 0
+                top: 0
+                width: auto
+
+    &.radio
+        .options
+            display: flex
+            flex-wrap: wrap
+
+        .control .option
+            display: flex
+            margin-top: 12px
+
+            &:not(:last-child)
+                margin-right: 25px
+
+            input
+                display: none
+
+            input + label
+                padding-left: 44px
+                position: relative
+                margin: 0
+                cursor: pointer
+                
+                &:before
+                    content: ''
+                    width: 24px
+                    height: 24px
+                    border: none
+                    background-color: #FFFFFF
+                    border-radius: 100%
+                    position: absolute
+                    left: 0
+
+            input:checked + label:before
+                background-color: #0068FF
 
 .careers-profile
     padding-bottom: 67px
@@ -99,12 +156,12 @@ fieldset.fieldset .field
     padding: 100px 0
 
     @media screen and (max-width: 991.98px)
-        padding-top: 67px
+        padding-top: 84px
+        padding-bottom: 80px
 
     .container
         display: flex
         flex-wrap: wrap
-        align-items: center
 
     .section-title
         width: 37.8%
@@ -116,14 +173,14 @@ fieldset.fieldset .field
         @media screen and (max-width: 991.98px)
             padding-right: 0%
             width: 100%
-            margin-bottom: 50px
+            margin-bottom: 100px
 
     .section-content
         width: 62.2%
         background-size: cover
         background-repeat: no-repeat
         border-radius: 45px
-        padding: 66px 78px 45px
+        padding: 66px 77px 64px 75px
 
         @media screen and (max-width: 1199.98px)
             padding: 40px 50px
@@ -131,26 +188,38 @@ fieldset.fieldset .field
         @media screen and (max-width: 991.98px)
             margin-top: 0
             width: 100%
-            border-radius: 30px
 
         @media screen and (max-width: 767.98px)
-            padding: 30px 20px
+            padding: 82px 20px 43px
 
     .section-title h2
         font-size: 48px
         font-weight: 600
         line-height: 55px
+        @media screen and (max-width: 767.98px)
+            font-size: 40px
+            line-height: 48px
+            letter-spacing: 0.04em
 
-    .section-content h3
-        font-size: 36px
-        line-height: 46px
-        font-weight: normal
-        letter-spacing: 0
-        margin-bottom: 19px
+    .section-content h5
+        margin-bottom: 22px
+        @media screen and (max-width: 767.98px)
+            margin-bottom: 60px
 
     .action
         display: flex
         justify-content: flex-end
+        @media screen and (max-width: 767.98px)
+            justify-content: center
+        button.btn 
+            min-width: 174px
+            padding-right: 50px
+            background-position: right 18px center
+            @media screen and (max-width: 767.98px)
+                font-size: 14px
+                height: 38px
+                padding: 8px 40px 8px 11px
+                margin-top: -2px
 
     fieldset.fieldset
         padding: 0
@@ -159,14 +228,14 @@ fieldset.fieldset .field
             input, textarea, select
                 background-color: rgba(255, 255, 255, 0.6)
                 background-color: #f4f4f4
-                padding: 12.5px 21px
+                padding: 13px 21px
                 letter-spacing: 0.02em
                 font-size: 14px
                 height: auto
                 line-height: 26px
                 border: none
                 border-radius: 10px
-                height: 50px
+                height: 52px
                 width: 100%
 
             select
@@ -183,8 +252,7 @@ fieldset.fieldset .field
                 letter-spacing: 0.02em
                 font-size: 14px
                 line-height: 25.6px
-                margin-bottom: 9px
-                display: block
+                margin-bottom: 7px
 
             .input-text
                 margin-bottom: 30px
@@ -225,3 +293,4 @@ fieldset.fieldset .field
                 button.btn
                     width: 100%
                     min-width: 0
+
