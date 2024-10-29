@@ -18,7 +18,8 @@ import { ReactLenis, useLenis } from '@studio-freight/react-lenis'
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 interface LayoutProps {
-    children?: React.ReactNode
+    children?: React.ReactNode,
+    slug?:string
 }
 
 const Layout: React.FC<LayoutProps> = ({ children, slug }) => {
