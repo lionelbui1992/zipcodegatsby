@@ -14,6 +14,7 @@ import Test from "./blocks/custom/Test";
 import { BannerPoup } from './BannerPoup';
 import GalleryTwoColumnsPopup from "./GalleryTwoColumnsPopup";
 import { ReactLenis, useLenis } from '@studio-freight/react-lenis'
+import { LangProvider } from "./context/LangContext";
 
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -207,35 +208,37 @@ const Layout: React.FC<LayoutProps> = ({ children, slug }) => {
 
     if (loading || error) return <></>
     return (
-        <SEOContext.Provider value={{ global: seo }}>
-            <ReactLenis root
-                options={{ lerp: 0.255, duration: 0.22 }}
-            >
-                <div className={`${preloadCheck ? "" : "preload loading"}  scrollWraper ScrollSmoother-wrapper viewport page-${slug ? slug : 'index'} `}>
-                    {!preloadCheck && <Slice alias="preload" />}
-                    <Slice alias="header" />
-                    {popUp && popUp}
-                    {galleryPopup && galleryPopup}
-                    {getContactForm && <ContactForm data={getContactForm} />}
-                    {/* <CookieBanner /> */}
-                    <main className="global-wrapper" >
-                        {children}
-                        <div className={`to-top ${hiddenBackToTop ? 'hidden' : ''}`} onClick={() => { handleBackToTopClick() }}>
-                            <svg width="31" height="33" viewBox="0 0 31 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M30.1991 15.862L26.8782 19.1829L17.6445 9.70623L17.6446 32.6554L12.7847 32.6554L12.7847 9.70623L3.55106 19.1829L0.284179 15.862L15.2146 0.877548L30.1991 15.862Z" fill="#0068FF" />
-                            </svg>
-                            <span>Back to top</span>
-                        </div>
-                    </main>
-                    <Slice alias="clipPath" />
-                    <div className="placeholder-section"></div>
-                    <Slice alias="footer" />
-                    {(testing) && (
-                        <Test />
-                    )}
-                </div>
-            </ReactLenis>
-        </SEOContext.Provider >
+        <LangProvider>
+            <SEOContext.Provider value={{ global: seo }}>
+                <ReactLenis root
+                    options={{ lerp: 0.255, duration: 0.22 }}
+                >
+                    <div className={`${preloadCheck ? "" : "preload loading"}  scrollWraper ScrollSmoother-wrapper viewport page-${slug ? slug : 'index'} `}>
+                        {!preloadCheck && <Slice alias="preload" />}
+                        <Slice alias="header" />
+                        {popUp && popUp}
+                        {galleryPopup && galleryPopup}
+                        {getContactForm && <ContactForm data={getContactForm} />}
+                        {/* <CookieBanner /> */}
+                        <main className="global-wrapper" >
+                            {children}
+                            <div className={`to-top ${hiddenBackToTop ? 'hidden' : ''}`} onClick={() => { handleBackToTopClick() }}>
+                                <svg width="31" height="33" viewBox="0 0 31 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M30.1991 15.862L26.8782 19.1829L17.6445 9.70623L17.6446 32.6554L12.7847 32.6554L12.7847 9.70623L3.55106 19.1829L0.284179 15.862L15.2146 0.877548L30.1991 15.862Z" fill="#0068FF" />
+                                </svg>
+                                <span>Back to top</span>
+                            </div>
+                        </main>
+                        <Slice alias="clipPath" />
+                        <div className="placeholder-section"></div>
+                        <Slice alias="footer" />
+                        {(testing) && (
+                            <Test />
+                        )}
+                    </div>
+                </ReactLenis>
+            </SEOContext.Provider >
+        </LangProvider>
     )
 }
 

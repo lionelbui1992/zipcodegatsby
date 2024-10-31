@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { gql, useQuery } from "@apollo/client";
 import { Link } from "gatsby";
+import { useLang } from "./context/LangContext";
 
 export default function Header(): JSX.Element {
+  const { language, setLanguage } = useLang();
   const mainLogoBlack = "/img/main-logo-black.svg"
   const mainLogoWhite = "/img/main-logo-white.svg"
   const menuLogoBlack = "/img/menu-z-black.svg"
@@ -41,7 +43,9 @@ export default function Header(): JSX.Element {
   }
   `;
   const { loading, error, data } = useQuery(headerQuery);
-
+  useEffect(()=>{
+    console.log("lang testing",language);
+  },[language])
   useEffect(() => {
     if (!loading && !error && data) {
       if (data.siteLogo) {
@@ -181,7 +185,7 @@ export default function Header(): JSX.Element {
           </div>
         ))}
         <div className="switch-lang">
-              <img src="/img/thai.jpg" alt="thailand-flag" style={{width:'35px'}} />
+              <img src="/img/thai.jpg" alt="thailand-flag" style={{width:'35px'}} onClick={()=>setLanguage('th')}/>
         </div>
       </div>
 
