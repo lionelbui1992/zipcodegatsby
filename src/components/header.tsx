@@ -180,6 +180,9 @@ export default function Header(): JSX.Element {
             </Link>
           </div>
         ))}
+        <div className="switch-lang">
+              <img src="/img/thai.jpg" alt="thailand-flag" style={{width:'35px'}} />
+        </div>
       </div>
 
       <div className="header__toggle" onClick={handleMenuMobileClick}>
