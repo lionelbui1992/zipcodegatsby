@@ -25,7 +25,7 @@ export const BoxImage = ({ order, attributes }: { order?: string, attributes: IB
                                         <div className="icon">
                                             <img
                                                 loading="lazy"
-                                                srcSet="/img/box-image-icon-column.svg"
+                                                srcSet="/img/image-box.png"
                                                 alt=""
                                             />
                                         </div>
