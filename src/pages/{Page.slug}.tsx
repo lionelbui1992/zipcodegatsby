@@ -11,18 +11,32 @@ import { useEffect, useState } from "react";
 import "../assets/sass/header.sass";
 import { handleCmsOverlayAnimation } from "../animation";
 
-export default function Page({ params }: { params: { slug: string } }) {
-
+export default function Page({ params}: { params: { slug: string}}) {
   const slug = params.slug;
+  const [language, setLanguage] = useState("en"); 
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const lang = searchParams.get("lang");
+  
+    if (lang) {
+      console.log("Language changed:", lang);
+      setLanguage(lang);
+    }
+  }, [location.search]);
+
   const getPageInfo = gql`
-  query getPageInfo {
+  query getPageInfo($slug: String!)  {
     getCareerForm
-    nodeByUri(uri: "${slug}") {
+    nodeByUri(uri: $slug) {
       id
       ... on Page {
         title
         slug
         uri
+        translations {
+          blocks,
+          languageCode
+        }
         blocks(htmlContent: true, dynamicContent: true)
         seo {
           title
@@ -57,8 +71,14 @@ export default function Page({ params }: { params: { slug: string } }) {
     }
   }
   `;
-  const { loading, error, data } = useQuery(getPageInfo);
-
+  const { loading, error, data,refetch} = useQuery(getPageInfo, {
+    variables: { slug: `${slug}`},
+  });
+  useEffect(() => {
+     if(language){
+      refetch({ slug: `${slug}` });
+     }
+  }, [language, refetch]);
   //State
   const [blocks, setBlocks] = useState([]);
   const [post, setPost] = useState({});
@@ -66,20 +86,34 @@ export default function Page({ params }: { params: { slug: string } }) {
   const [content, setPostContent] = useState("");
   //useEffect
   useEffect(() => {
-    if (data) {
-      setBlocks(data.nodeByUri.blocks);
-      setPost(data.nodeByUri);
-      setTitle(data.nodeByUri.title);
-      setPostContent(data.nodeByUri.content);
-      if (!blocks || blocks.length === 0) {
+    if (data && data.nodeByUri) {
+      
+      let translation;
+      if(language !== "en"){
 
-        setTimeout(() => {
-          handleCmsOverlayAnimation();
-        }, 1000);
+        translation = data.nodeByUri.translations.find(
+          (e:any) => e.languageCode === language
+        );
+      }else{
+        translation = data.nodeByUri;
+      }
+  
+      if (translation) {
+        setBlocks(translation.blocks);
+        setPost(data.nodeByUri);
+        setTitle(data.nodeByUri.title);
+        setPostContent(data.nodeByUri.content);
+  
+        // Check if blocks are empty and run animation if needed
+        if (!translation.blocks || translation.blocks.length === 0) {
+          setTimeout(() => {
+            handleCmsOverlayAnimation();
+          }, 1000);
+        }
       }
     }
-  }, [data]);
-
+  }, [language]);
+  
   if (!blocks || blocks.length === 0) {
 
     return (
@@ -112,6 +146,8 @@ export default function Page({ params }: { params: { slug: string } }) {
         </>
       )
     case 'careers':
+      console.log("blocks",data);
+      
       return (
         <>
           <Seo post={post} />

@@ -14,7 +14,7 @@ import Test from "./blocks/custom/Test";
 import { BannerPoup } from './BannerPoup';
 import GalleryTwoColumnsPopup from "./GalleryTwoColumnsPopup";
 import { ReactLenis, useLenis } from '@studio-freight/react-lenis'
-import { LangProvider } from "./context/LangContext";
+import { LangProvider } from "../context/LangContext";
 
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);

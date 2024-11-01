@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { gql, useQuery } from "@apollo/client";
-import { Link } from "gatsby";
-import { useLang } from "./context/LangContext";
+import { Link, navigate } from "gatsby";
+import { useLang } from "../context/LangContext";
 
 export default function Header(): JSX.Element {
   const { language, setLanguage } = useLang();
@@ -43,9 +43,6 @@ export default function Header(): JSX.Element {
   }
   `;
   const { loading, error, data } = useQuery(headerQuery);
-  useEffect(()=>{
-    console.log("lang testing",language);
-  },[language])
   useEffect(() => {
     if (!loading && !error && data) {
       if (data.siteLogo) {
@@ -59,7 +56,16 @@ export default function Header(): JSX.Element {
       }
     }
   }, [data]);
-
+  useEffect(()=>{
+    console.log('====================================');
+    console.log("language",language);
+    console.log('====================================');
+    const searchParams = new URLSearchParams(window.location.search);
+    searchParams.set("lang",language);
+    navigate(`${window.location.pathname}?${searchParams.toString()}`, {
+      replace: true, // Optional: Replaces the current entry in history instead of adding a new one
+    });
+  },[language])
   // Set header color
   useEffect(() => {
     if (isHeaderBlack) {
@@ -179,13 +185,16 @@ export default function Header(): JSX.Element {
       <div className="header__nav" style={{ color: textColorHeader }}>
         {menuItems.map((menu: any, index: number) => (
           <div className="header__nav--link" key={index}>
-            <Link to={menu.uri} activeClassName="active">
+           <Link to={`${menu.uri}?lang="${language}"`} activeClassName="active">
               {menu.label}
             </Link>
           </div>
         ))}
         <div className="switch-lang">
-              <img src="/img/thai.jpg" alt="thailand-flag" style={{width:'35px'}} onClick={()=>setLanguage('th')}/>
+             <select name="" id=""onChange={(e) => setLanguage(e.target.value)}>
+                    <option value="th">Thailand</option>
+                    <option value="en">English</option>
+             </select>
         </div>
       </div>
 
