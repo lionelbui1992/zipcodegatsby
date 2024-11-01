@@ -57,6 +57,17 @@
                                 right: -69px
                                 top: -19px
                                 cursor: pointer
+                .image-inner
+                    &:hover
+                        &:before
+                            content: ""
+                            position: absolute
+                            top: -5px
+                            left: -5px
+                            width: 100px 
+                            height: 100px
+                            background-color: #0068FF
+                            transition: background-color 0.3s ease
             &:first-child
                 .item
                     .column-title
@@ -71,10 +82,10 @@
                                 content: ""
                                 position: absolute
                                 top: -5px
-                                left: -4px
+                                left: -5px
                                 width: 200px          // Adjust the size of the overlay
                                 height: 200px
-                                background-color: rgba(0, 0, 0, 0.6) // Dark overlay
+                                background-color: #0068FF
                                 transition: background-color 0.3s ease  // Smooth fade effect
             @media (max-width: 767px) 
                 width: 100%
