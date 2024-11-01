@@ -10,18 +10,21 @@ import { gql, useQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
 import "../assets/sass/header.sass";
 import { handleCmsOverlayAnimation } from "../animation";
-
+import { useLocation } from "@reach/router";
 export default function Page({ params}: { params: { slug: string}}) {
   const slug = params.slug;
   const [language, setLanguage] = useState("en"); 
+  const location = typeof window !== "undefined" ? useLocation() : null;
+
   useEffect(() => {
-    const searchParams = new URLSearchParams(location.search);
-    const lang = searchParams.get("lang");
-  
-    if (lang) {
+    if (location) {
+      // Check if `lang` exists in the URL parameters
+      const searchParams = new URLSearchParams(location.search);
+      const lang = searchParams.get("lang") || "en";
+
       setLanguage(lang);
     }
-  }, [location.search]);
+  }, [location?.search]);
 
   const getPageInfo = gql`
   query getPageInfo($slug: String!)  {
