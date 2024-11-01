@@ -19,7 +19,6 @@ export default function Page({ params}: { params: { slug: string}}) {
     const lang = searchParams.get("lang");
   
     if (lang) {
-      console.log("Language changed:", lang);
       setLanguage(lang);
     }
   }, [location.search]);
@@ -112,7 +111,7 @@ export default function Page({ params}: { params: { slug: string}}) {
         }
       }
     }
-  }, [language]);
+  }, [language,data]);
   
   if (!blocks || blocks.length === 0) {
 

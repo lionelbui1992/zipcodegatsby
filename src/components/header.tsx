@@ -57,9 +57,6 @@ export default function Header(): JSX.Element {
     }
   }, [data]);
   useEffect(()=>{
-    console.log('====================================');
-    console.log("language",language);
-    console.log('====================================');
     const searchParams = new URLSearchParams(window.location.search);
     searchParams.set("lang",language);
     navigate(`${window.location.pathname}?${searchParams.toString()}`, {
