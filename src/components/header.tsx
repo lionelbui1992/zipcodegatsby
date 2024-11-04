@@ -202,10 +202,6 @@ export default function Header(): JSX.Element {
           </div>
         ))}
         <div className="header__nav--link">
-             {/* <select name="" id=""onChange={(e) => setLanguage(e.target.value)} value={language}>
-                    <option value="th">Thailand</option>
-                    <option value="en">English</option>
-             </select> */}
              <ul onClick={(e)=>isClickSelect(e)} className={isClick === true ? 'show':''}>
                   <li className="default">{selectLang || language}</li>
                   <li className={selectLang === 'en' && isClick ? 'active' : ''} onClick={(e) =>selectLanguage("en",e)}><span>EN</span></li>
