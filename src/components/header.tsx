@@ -188,7 +188,7 @@ export default function Header(): JSX.Element {
           </div>
         ))}
         <div className="switch-lang">
-             <select name="" id=""onChange={(e) => setLanguage(e.target.value)}>
+             <select name="" id=""onChange={(e) => setLanguage(e.target.value)} value={language}>
                     <option value="th">Thailand</option>
                     <option value="en">English</option>
              </select>
