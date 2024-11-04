@@ -337,9 +337,9 @@ img
 
 .btn, .button
     display: inline-flex
-    height: 48.58px
+    height: auto
     min-width: 174.307px
-    padding:0px 36.57px !important
+    padding: 11.5px 35px 10.5px 11.383px
     justify-content: flex-start
     align-items: center
     flex-shrink: 0
@@ -354,12 +354,11 @@ img
     background-size: 12px
     color: var(--Color-primary-blue)
     font-family: "Tiempos Headline"
-    font-size: 17.9px
+    font-size: 14.229px
     font-style: normal
     font-weight: 400
     line-height: 14.229px
     letter-spacing: 0.285px
-    max-width:334.82px
 
     &:hover
         font-weight: 500
@@ -376,15 +375,24 @@ img
         border-color: transparent !important
         background-image: url(../images/icon-button-hover.svg) !important
         background-color: transparent !important
+        color: #000 !important
 
 .btn-secondary
     border-color: transparent
 .btn-primary
+    background-color:#0068FF !important
+    border: none
+    color: #fff
+    height: 48.58px
+    padding: 0 25.57px
+    background-image: url(../images/arrow-right.svg)
     &:hover
-        background-image: url(../images/arrow-right.svg)
+        background-image: url(../images/arrow-right-blue.svg)
         border-color: transparent
-        background-color:#0068FF
-        color:#fff
+        background-color: #fff !important
+        color:#0068FF 
+        border: 1px solid #0068FF
+
 .swiper
     .swiper-button-prev,
     .swiper-button-next

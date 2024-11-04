@@ -45,7 +45,7 @@ export default function Company({ attributes }: { attributes: ICompanyProps }): 
                 <div className="company--image--text">
                     <div className="c-text">
                         <p dangerouslySetInnerHTML={{ __html: description }} />
-                        <a className="btn btn-primary btn-white" href={button.url}>{button.title}</a>
+                        <a className="btn btn-white" href={button.url}>{button.title}</a>
                     </div>
                 </div>
             </div>

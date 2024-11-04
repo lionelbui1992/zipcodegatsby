@@ -3,13 +3,24 @@ import Layout from "../components/layout"
 import Seo from "gatsby-plugin-wpgraphql-seo";
 import HomeBlocks from "../components/WPGBlocks/Home";
 import "../assets/sass/homepage.sass";
-
+import { useLocation } from "@reach/router";
 // import { GET_FORMINATOR_FORM } from '../data'
 import { gql, useQuery } from '@apollo/client';
 import { useEffect, useRef, useState } from "react";
 
 const IndexPage: React.FC = () => {
+  const [language, setLanguage] = useState("en"); 
+  const location = typeof window !== "undefined" ? useLocation() : null;
 
+  useEffect(() => {
+    if (location) {
+      // Check if `lang` exists in the URL parameters
+      const searchParams = new URLSearchParams(location.search);
+      const lang = searchParams.get("lang") || "en";
+
+      setLanguage(lang);
+    }
+  }, [location?.search]);
   const getPageInfo = gql`
   query getPageInfo {
     nodeByUri(uri: "/") {
@@ -17,6 +28,10 @@ const IndexPage: React.FC = () => {
       ... on Page {
         title
         uri
+        translations {
+          blocks,
+          languageCode
+        }
         blocks(htmlContent: true, dynamicContent: true)
         seo {
           title
@@ -51,7 +66,7 @@ const IndexPage: React.FC = () => {
     }
   }
   `;
-  const { loading, error, data } = useQuery(getPageInfo);
+  const { loading, error, data,refetch } = useQuery(getPageInfo);
 
   //State
   const [blocks, setBlocks] = useState([]);
@@ -63,7 +78,11 @@ const IndexPage: React.FC = () => {
       setPost(data.nodeByUri);
     }
   }, [data]);
-
+  useEffect(() => {
+    if(language){
+     refetch({uri:"/"});
+    }
+ }, [language, refetch]);
   return (
     <>
       <Seo post={post} />
