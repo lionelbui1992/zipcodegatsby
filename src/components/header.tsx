@@ -5,7 +5,7 @@ import { useLang } from "../context/LangContext";
 
 export default function Header(): JSX.Element {
   const { language, setLanguage } = useLang();
-  const [selectLang, setSelectLang ] = useState("");
+  const [selectLang, setSelectLang ] = useState(language);
   const mainLogoBlack = "/img/main-logo-black.svg"
   const mainLogoWhite = "/img/main-logo-white.svg"
   const menuLogoBlack = "/img/menu-z-black.svg"
