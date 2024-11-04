@@ -121,8 +121,9 @@ export default function Header(): JSX.Element {
     const currentUrl = window.location.pathname;
     const menus = document.querySelectorAll('.header__nav--link a');
     menus.forEach(menu => {
-      const menuUrl = menu.getAttribute('href');
-      if (currentUrl === menuUrl) {
+      const menuUrl = menu.getAttribute('href') ?? '';
+      const itemUrl = (new URL(menuUrl, window.location.origin)).pathname;
+      if (currentUrl === itemUrl) {
         menu.setAttribute('aria-current', 'page');
         menu.classList.add('active');
       }
@@ -195,7 +196,7 @@ export default function Header(): JSX.Element {
       <div className="header__nav" style={{ color: textColorHeader }}>
         {menuItems.map((menu: any, index: number) => (
           <div className="header__nav--link" key={index}>
-           <Link to={`${menu.uri}?lang="${language}"`} activeClassName="active">
+           <Link to={`${menu.uri}?lang=${language}`} activeClassName="active">
               {menu.label}
             </Link>
           </div>
