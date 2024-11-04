@@ -5,6 +5,7 @@ import { useLang } from "../context/LangContext";
 
 export default function Header(): JSX.Element {
   const { language, setLanguage } = useLang();
+  const [selectLang, setSelectLang ] = useState("");
   const mainLogoBlack = "/img/main-logo-black.svg"
   const mainLogoWhite = "/img/main-logo-white.svg"
   const menuLogoBlack = "/img/menu-z-black.svg"
@@ -120,9 +121,8 @@ export default function Header(): JSX.Element {
     const currentUrl = window.location.pathname;
     const menus = document.querySelectorAll('.header__nav--link a');
     menus.forEach(menu => {
-      const menuUrl = menu.getAttribute('href') ?? '';
-      const itemUrl = (new URL(menuUrl, window.location.origin)).pathname;
-      if (currentUrl === itemUrl) {
+      const menuUrl = menu.getAttribute('href');
+      if (currentUrl === menuUrl) {
         menu.setAttribute('aria-current', 'page');
         menu.classList.add('active');
       }
@@ -161,7 +161,19 @@ export default function Header(): JSX.Element {
   const handleMenuMobileClick = () => {
     setIsClickMenu(prevIsClickMenu => !prevIsClickMenu);
   }
-
+  const [isClick,setIsClick] = useState(false);
+  const isClickSelect=(e:any) =>{
+    e.stopPropagation();
+    setIsClick(!isClick)
+    console.log(isClick);
+    
+  } 
+  const selectLanguage = (lang:string,event:any) =>{
+    // event.stopPropagation(); 
+     setSelectLang(lang)
+     setLanguage(lang)
+     setIsClick(false);
+  }
   return (
     <header
       className={`header container ${isClickMenu ? 'header__visible' : 'header__hidden'} ${isScroll ? 'on-scroll' : ''}`}
@@ -183,16 +195,21 @@ export default function Header(): JSX.Element {
       <div className="header__nav" style={{ color: textColorHeader }}>
         {menuItems.map((menu: any, index: number) => (
           <div className="header__nav--link" key={index}>
-           <Link to={`${menu.uri}?lang=${language}`} activeClassName="active">
+           <Link to={`${menu.uri}?lang="${language}"`} activeClassName="active">
               {menu.label}
             </Link>
           </div>
         ))}
-        <div className="switch-lang">
-             <select name="" id=""onChange={(e) => setLanguage(e.target.value)} value={language}>
+        <div className="header__nav--link">
+             {/* <select name="" id=""onChange={(e) => setLanguage(e.target.value)} value={language}>
                     <option value="th">Thailand</option>
                     <option value="en">English</option>
-             </select>
+             </select> */}
+             <ul onClick={(e)=>isClickSelect(e)} className={isClick === true ? 'show':''}>
+                  <li className="default">{selectLang || language}</li>
+                  <li className={selectLang === 'en' && isClick ? 'active' : ''} onClick={(e) =>selectLanguage("en",e)}><span>EN</span></li>
+                  <li className={selectLang === 'th' && isClick ? 'active' : ''} onClick={(e) =>selectLanguage("th",e)}><span>TH</span></li>
+             </ul>
         </div>
       </div>
 
