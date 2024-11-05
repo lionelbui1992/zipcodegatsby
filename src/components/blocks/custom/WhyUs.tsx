@@ -7,7 +7,7 @@ export const WhyUs = ({ attributes }: { attributes: IWhyUs }): JSX.Element => {
     const lifeIconCol = '/img/why-us-icon-col.svg';
     const lifeIconColMobile = '/img/why-us-icon-col-mobile.svg';
     const { title, description, background, readmore } = attributes;
-    const [isMobile, setIsMobile] = useState(window.innerWidth < 768); // Check for mobile view
+    // const [isMobile, setIsMobile] = useState(window.innerWidth < 768); // Check for mobile view
 
 
     const [openReadMore, setOpenReadMore] = useState(false);
@@ -15,28 +15,28 @@ export const WhyUs = ({ attributes }: { attributes: IWhyUs }): JSX.Element => {
         setOpenReadMore(true);
         document.querySelector('.why-us-description')?.classList.toggle('show');
     }
-    const truncateWord = (word: string) => {
-        const limitWord = 'people and community';
+    // const truncateWord = (word: string) => {
+    //     const limitWord = 'people and community';
     
-        // Find the position of the word "community"
-        const limitIndex = word.indexOf(limitWord);
+    //     // Find the position of the word "community"
+    //     const limitIndex = word.indexOf(limitWord);
     
-        if (limitIndex !== -1 && !openReadMore && isMobile) {
-            // Return the text up to and including the word "community" with ellipsis
-            return word.slice(0, limitIndex + limitWord.length) + '...';
-        } else {
-            // Return the full text if "community" is not found
-            return word;
-        }
-    }
-    useEffect(() => {
-        const handleResize = () => {
-            setIsMobile(window.innerWidth < 768);
-        };
+    //     if (limitIndex !== -1 && !openReadMore && isMobile) {
+    //         // Return the text up to and including the word "community" with ellipsis
+    //         return word.slice(0, limitIndex + limitWord.length) + '...';
+    //     } else {
+    //         // Return the full text if "community" is not found
+    //         return word;
+    //     }
+    // }
+    // useEffect(() => {
+    //     const handleResize = () => {
+    //         setIsMobile(window.innerWidth < 768);
+    //     };
 
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize); 
-    }, []);
+    //     window.addEventListener('resize', handleResize);
+    //     return () => window.removeEventListener('resize', handleResize); 
+    // }, []);
     return (
         <>
             {(title) &&
@@ -58,7 +58,7 @@ export const WhyUs = ({ attributes }: { attributes: IWhyUs }): JSX.Element => {
                                         <img className="visible-mobile" loading="lazy" srcSet={lifeIconColMobile} />
                                     </div>
                                 }
-                                <div className={`description why-us-description`} dangerouslySetInnerHTML={{__html: truncateWord(description)}} />
+                                <div className={`description why-us-description`} dangerouslySetInnerHTML={{__html: description}} />
                                 {readmore &&
                                     <button className="button btn-white read-more" onClick={() => readMoreFunc()}>{ readmore }</button>
                                 }
