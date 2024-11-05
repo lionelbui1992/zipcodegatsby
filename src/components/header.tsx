@@ -117,18 +117,6 @@ export default function Header(): JSX.Element {
   const setTimeStopCheckBannerBlack = setTimeout(stopCheckBannerBlack, 2000);
 
   useEffect(() => {
-    // add active menu when F5 reload page, <Link> tag not working
-    const currentUrl = window.location.pathname;
-    const menus = document.querySelectorAll('.header__nav--link a');
-    menus.forEach(menu => {
-      const menuUrl = menu.getAttribute('href') ?? '';
-      const itemUrl = (new URL(menuUrl, window.location.origin)).pathname;
-      if (currentUrl === itemUrl) {
-        menu.setAttribute('aria-current', 'page');
-        menu.classList.add('active');
-      }
-    });
-
     const sectionHeader = document.querySelector(".header");
     const mainTag = document.querySelector("main");
 
@@ -158,6 +146,23 @@ export default function Header(): JSX.Element {
     }
 
   }, []);
+
+  useEffect(() => {
+    // add active menu when F5 reload page, <Link> tag not working
+    const currentUrl = window.location.pathname;
+    const menus = document.querySelectorAll('.header__nav--link a');
+
+    menus.forEach(menu => {
+      const menuUrl = menu.getAttribute('href') ?? '';
+      const itemUrl = (new URL(menuUrl, window.location.origin)).pathname;
+      if (currentUrl === itemUrl) {
+        menu.setAttribute('aria-current', 'page');
+        menu.classList.add('active');
+      } else {
+        menu.classList.remove('active');
+      }
+    });
+  }, [menuItems]);
 
   const handleMenuMobileClick = () => {
     setIsClickMenu(prevIsClickMenu => !prevIsClickMenu);
