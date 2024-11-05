@@ -37,7 +37,10 @@
             flex-wrap: wrap
             margin-top: 144px
             gap: 73px
-
+            .item-inner:hover
+                .column-title
+                    h5
+                        color: #0068FF
             &:last-child 
                 margin-top: -120px
                 margin-left: auto 
@@ -48,8 +51,16 @@
                             &:after
                                 content:""
                                 top: 29px
-                                left: 34%
+                                left: 38%
                                 cursor: pointer
+                                @media (max-width: 768px)
+                                        right: 32px
+                                        top: 27px
+                                        left: unset
+
+                                @media (max-width: 500px)
+                                        right: -63px
+                                        top: -29px
                     &:last-child
                         .column-title
                             &:after
@@ -57,6 +68,12 @@
                                 right: -69px
                                 top: -19px
                                 cursor: pointer
+                                @media (max-width: 768px)
+                                    left: 40%
+                                    top: 29px
+                                @media (max-width: 500px)
+                                    top: -29px
+                                    left: unset
                 .image-inner
                     &:hover
                         &:before
@@ -76,6 +93,8 @@
                             right: -69px
                             top: -19px
                             cursor: pointer
+                            @media (max-width:500px)
+                                top: -29px
                 .image-inner
                     &:hover
                         &:before
@@ -83,10 +102,10 @@
                                 position: absolute
                                 top: -7px
                                 left: -7px
-                                width: 200px      
-                                height: 200px
+                                width: 150px      
+                                height: 150px
                                 background-color: #0068FF
-                                transition: background-color 0.3s ease  
+                                transition: background-color 0.3s ease 
             @media (max-width: 767px) 
                 width: 100%
                 gap: 50px
