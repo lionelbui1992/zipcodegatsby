@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./why-us.sass";
 import { IWhyUs } from "../types";
 
@@ -10,8 +10,22 @@ export const WhyUs = ({ attributes }: { attributes: IWhyUs }): JSX.Element => {
     
     const [openReadMore, setOpenReadMore] = useState(false);
     const readMoreFunc = async () => {
-        setOpenReadMore(false);
+        setOpenReadMore(true);
         document.querySelector('.why-us-description')?.classList.toggle('show');
+    }
+    const truncateWord = (word: string) => {
+        const limitWord = 'people and community';
+    
+        // Find the position of the word "community"
+        const limitIndex = word.indexOf(limitWord);
+    
+        if (limitIndex !== -1 && !openReadMore) {
+            // Return the text up to and including the word "community" with ellipsis
+            return word.slice(0, limitIndex + limitWord.length) + '...';
+        } else {
+            // Return the full text if "community" is not found
+            return word;
+        }
     }
     return (
         <>
@@ -34,7 +48,7 @@ export const WhyUs = ({ attributes }: { attributes: IWhyUs }): JSX.Element => {
                                         <img className="visible-mobile" loading="lazy" srcSet={lifeIconColMobile} />
                                     </div>
                                 }
-                                <div className={`description why-us-description`} dangerouslySetInnerHTML={{__html: description}} />
+                                <div className={`description why-us-description`} dangerouslySetInnerHTML={{__html: truncateWord(description)}} />
                                 {readmore &&
                                     <button className="button btn-white read-more" onClick={() => readMoreFunc()}>{ readmore }</button>
                                 }
