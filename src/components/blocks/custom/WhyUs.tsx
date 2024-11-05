@@ -6,9 +6,11 @@ export const WhyUs = ({ attributes }: { attributes: IWhyUs }): JSX.Element => {
     const lifeIconRow = '/img/why-us-icon-row.svg';
     const lifeIconCol = '/img/why-us-icon-col.svg';
     const lifeIconColMobile = '/img/why-us-icon-col-mobile.svg';
-    const { title, description, background, readmore } = attributes;
+    const { title, description, background, readmore,readless } = attributes;
     // const [isMobile, setIsMobile] = useState(window.innerWidth < 768); // Check for mobile view
-
+    console.log('====================================');
+    console.log("readless",readless);
+    console.log('====================================');
 
     const [openReadMore, setOpenReadMore] = useState(false);
     const readMoreFunc = async () => {
