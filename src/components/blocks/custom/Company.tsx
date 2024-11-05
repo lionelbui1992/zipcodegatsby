@@ -34,7 +34,7 @@ export default function Company({ attributes }: { attributes: ICompanyProps }): 
                     <div className="image-box">
                         <picture>
                             <source media="(min-width: 768px)" srcSet={background_text.src} />
-                            <source media="(max-width: 767px)" srcSet="/cp-mb.png" />
+                            <source media="(max-width: 767px)" srcSet={background_text.src} />
                             <img src={background_text.src} alt={background_text.alt} />
                         </picture>
                     </div>
