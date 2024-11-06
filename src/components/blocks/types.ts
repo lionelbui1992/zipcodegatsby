@@ -203,6 +203,7 @@ interface IWhyUs {
     description: string,
     readmore: string,
     background: IImage,
+    readless:string
 }
 
 interface IFooterData {

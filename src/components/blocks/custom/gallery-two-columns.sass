@@ -51,18 +51,22 @@
                             &:after
                                 content:""
                                 top: 29px
-                                left: 38%
+                                right: 53.5%
                                 cursor: pointer
-                                @media (min-width:768px) and (max-width: 870px)
+                                @media (min-width: 1000px) and (max-width:1100px)
+                                    right: 50.5%
+                                @media (min-width: 870px) and (max-width: 1000px)
+                                    right: 47.5%
+                                @media (min-width:769px) and (max-width: 870px)
                                     left: 45%
-                                @media (max-width: 768px)
-                                        right: 32px
-                                        top: 27px
-                                        left: unset
+                                @media (min-width: 501px) and (max-width: 768px)
+                                    left: unset
+                                    top: -29px
+                                    right: -69px
 
                                 @media (max-width: 500px)
-                                        right: -63px
-                                        top: -29px
+                                    right: -63px
+                                    top: -29px
                     @media (min-width:769px) and (max-width: 870px)
                         h5
                             font-size: 33px
@@ -73,9 +77,8 @@
                                 right: -69px
                                 top: -19px
                                 cursor: pointer
-                                @media (max-width: 768px)
-                                    left: 40%
-                                    top: 29px
+                                @media (min-width: 501px) and (max-width: 768px)
+                                    top: -29px
                                 @media (max-width: 500px)
                                     top: -29px
                                     left: unset
@@ -84,8 +87,8 @@
                         &:before
                             content: ""
                             position: absolute
-                            top: -7px
-                            left: -7px
+                            top: -10px
+                            left: -10px
                             width: 100px 
                             height: 100px
                             background-color: #0068FF
@@ -105,8 +108,8 @@
                         &:before
                                 content: ""
                                 position: absolute
-                                top: -7px
-                                left: -7px
+                                top: -10px
+                                left: -10px
                                 width: 150px      
                                 height: 150px
                                 background-color: #0068FF
