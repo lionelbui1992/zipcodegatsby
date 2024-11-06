@@ -6,13 +6,17 @@ export const WhyUs = ({ attributes }: { attributes: IWhyUs }): JSX.Element => {
     const lifeIconRow = '/img/why-us-icon-row.svg';
     const lifeIconCol = '/img/why-us-icon-col.svg';
     const lifeIconColMobile = '/img/why-us-icon-col-mobile.svg';
-    const { title, description, background, readmore } = attributes;
+    const { title, description, background, readmore,readless } = attributes;
     // const [isMobile, setIsMobile] = useState(window.innerWidth < 768); // Check for mobile view
-
 
     const [openReadMore, setOpenReadMore] = useState(false);
     const readMoreFunc = async () => {
         setOpenReadMore(true);
+        document.querySelector('.why-us-description')?.classList.toggle('show');
+    }
+    const readlessFunc = async () => {
+        setOpenReadMore(false);
+        document.querySelector('.why-us-description')?.classList.toggle('hide');
         document.querySelector('.why-us-description')?.classList.toggle('show');
     }
     // const truncateWord = (word: string) => {
@@ -59,8 +63,11 @@ export const WhyUs = ({ attributes }: { attributes: IWhyUs }): JSX.Element => {
                                     </div>
                                 }
                                 <div className={`description why-us-description`} dangerouslySetInnerHTML={{__html: description}} />
-                                {readmore &&
+                                {readmore && !openReadMore &&
                                     <button className="button btn-white read-more" onClick={() => readMoreFunc()}>{ readmore }</button>
+                                }
+                                {readless && openReadMore === true &&
+                                    <button className="button btn-white read-more" onClick={() => readlessFunc()}>{ readless }</button>
                                 }
                             </div>
                         }

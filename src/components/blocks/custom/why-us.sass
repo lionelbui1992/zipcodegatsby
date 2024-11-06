@@ -91,7 +91,9 @@
                 margin-bottom: 28px
 
             &.show + .button.read-more
-                display: none
+                display: block
+            &.hide + .button.read-more
+                display: block
 
             @media screen and (max-width: 767.98px)
                 font-size: 14px
@@ -155,3 +157,4 @@
                 left: auto
                 bottom: 100%
                 right: 4px
+                top: -30%
