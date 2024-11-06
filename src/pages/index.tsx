@@ -7,16 +7,17 @@ import { useLocation } from "@reach/router";
 // import { GET_FORMINATOR_FORM } from '../data'
 import { gql, useQuery } from '@apollo/client';
 import { useEffect, useRef, useState } from "react";
+import { useCookies } from "react-cookie";
 
 const IndexPage: React.FC = () => {
   const [language, setLanguage] = useState("en"); 
   const location = typeof window !== "undefined" ? useLocation() : null;
-
+  const [cookies] = useCookies(['lang']);
   useEffect(() => {
     if (location) {
       // Check if `lang` exists in the URL parameters
       const searchParams = new URLSearchParams(location.search);
-      const lang = searchParams.get("lang") || "en";
+      const lang = searchParams.get("lang") || cookies.lang || "en";
 
       setLanguage(lang);
     }

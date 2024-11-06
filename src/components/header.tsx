@@ -3,10 +3,10 @@ import { gql, useQuery } from "@apollo/client";
 import { Link, navigate } from "gatsby";
 import { useLang } from "../context/LangContext";
 import LanguageSwitcher from "./blocks/custom/LanguageSwitcher";
+import { useCookies } from "react-cookie";
 
 export default function Header(): JSX.Element {
   const { language, setLanguage } = useLang();
-  const [selectLang, setSelectLang ] = useState(language);
   const mainLogoBlack = "/img/main-logo-black.svg"
   const mainLogoWhite = "/img/main-logo-white.svg"
   const menuLogoBlack = "/img/menu-z-black.svg"
@@ -25,7 +25,7 @@ export default function Header(): JSX.Element {
   const [isBannerBlack, setIsBannerBlack] = useState(false);
   const [isClickMenu, setIsClickMenu] = useState(false);
   const [isScroll, setIsScroll] = useState(false);
-
+  const [cookies] = useCookies(['lang'])
   const headerQuery = gql`
   query headerData {
     siteLogo {
@@ -60,9 +60,9 @@ export default function Header(): JSX.Element {
   }, [data]);
   useEffect(()=>{
     const searchParams = new URLSearchParams(window.location.search);
-    searchParams.set("lang",language);
+    searchParams.set("lang", cookies?.lang || language);
     navigate(`${window.location.pathname}?${searchParams.toString()}`, {
-      replace: true, // Optional: Replaces the current entry in history instead of adding a new one
+      replace: true,
     });
   },[language])
   // Set header color
@@ -173,12 +173,6 @@ export default function Header(): JSX.Element {
     e.stopPropagation();
     setIsClick(!isClick)
   } 
-  const selectLanguage = (lang:string,event:any) =>{
-    // event.stopPropagation(); 
-     setSelectLang(lang)
-     setLanguage(lang)
-     setIsClick(false);
-  }
   return (
     <header
       className={`header container ${isClickMenu ? 'header__visible' : 'header__hidden'} ${isScroll ? 'on-scroll' : ''}`}

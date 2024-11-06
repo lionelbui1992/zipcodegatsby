@@ -1,21 +1,32 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useLang } from "../../../context/LangContext";
 import "./language-switcher.sass";
+import { useCookies } from 'react-cookie';
+import { navigate } from "gatsby";
 
 const LANGUAGES = ["en", "th"];
 
 export default function LanguageSwitcher(): JSX.Element {
   const { language, setLanguage } = useLang();
+  const [cookies, setCookie, removeCookie] = useCookies(['lang']);
   const [selectLang, setSelectLang] = useState(language);
   const [isOpen, setIsOpen] = useState(false);
   const ulRef = useRef<HTMLUListElement>(null);
-
+  
   const onChangeLanguage = (lang: string) => {
     setSelectLang(lang);
     setLanguage(lang);
     setIsOpen(false);
+    setCookie('lang', lang, { path: '/' });
+    const searchParams = new URLSearchParams(window.location.search);
+    searchParams.set("lang",lang);
+    navigate(`${window.location.pathname}?${searchParams.toString()}`, {
+      replace: true,
+    });
   };
-
+  useEffect(()=>{
+    setSelectLang(cookies.lang || 'en')
+  },[cookies.lang])
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (isOpen && ulRef.current && !ulRef.current.contains(event.target as Node)) {
