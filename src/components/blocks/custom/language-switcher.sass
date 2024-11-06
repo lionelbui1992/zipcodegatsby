@@ -1,0 +1,68 @@
+.header__nav--link.languages
+    position: relative
+    margin-left: 20px
+    a
+        opacity: 0
+    ul
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        min-width: 192px
+        margin: 0
+        padding: 0
+        border-radius: 71.15px
+        border: 1px solid #000000
+        background: #fff    
+        display: flex
+        flex-direction: row
+        svg
+            display: none
+        li
+            padding: 7px 0
+            margin: 3px
+            border-radius: 71.15px
+            min-width: 84px
+            &.active
+                min-width: 94px
+                background-color: #0068FF
+                span
+                    color: #fff
+
+@media (min-width: 768px)
+    .header__nav--link.languages
+        ul
+            flex-direction: column
+            border-radius: 57px
+            min-width: 82px
+            svg
+                display: block
+                position: absolute
+                top: 50%
+                right: 17px
+                transform: translateY(-50%)
+            li
+                order: 2
+                display: none
+                min-width: initial
+                &.active
+                    display: block
+                    order: 1
+                    padding: 4.5px 0
+                    background-color: transparent
+                    span
+                        display: block
+                        color: #000
+                        transform: translateX(-6px)
+            &.show
+                border-radius: 22px
+                top: -35%
+                transform: translate(-50%, 0)
+                svg
+                    transform: translateY(135%) rotate(180deg)
+                    top: 0
+                li
+                    &:not(.active)
+                        display: block
+                        background-color: #0068FF
+                        color: #fff

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { gql, useQuery } from "@apollo/client";
 import { Link, navigate } from "gatsby";
 import { useLang } from "../context/LangContext";
+import LanguageSwitcher from "./blocks/custom/LanguageSwitcher";
 
 export default function Header(): JSX.Element {
   const { language, setLanguage } = useLang();
@@ -171,8 +172,6 @@ export default function Header(): JSX.Element {
   const isClickSelect=(e:any) =>{
     e.stopPropagation();
     setIsClick(!isClick)
-    console.log(isClick);
-    
   } 
   const selectLanguage = (lang:string,event:any) =>{
     // event.stopPropagation(); 
@@ -206,12 +205,9 @@ export default function Header(): JSX.Element {
             </Link>
           </div>
         ))}
-        <div className="header__nav--link">
-             <ul onClick={(e)=>isClickSelect(e)} className={isClick === true ? 'show':''}>
-                  <li className="default">{selectLang || language}</li>
-                  <li className={selectLang === 'en' && isClick ? 'active' : ''} onClick={(e) =>selectLanguage("en",e)}><span>EN</span></li>
-                  <li className={selectLang === 'th' && isClick ? 'active' : ''} onClick={(e) =>selectLanguage("th",e)}><span>TH</span></li>
-             </ul>
+        <div className="header__nav--link languages">
+          <a href="javascript:void(0)">#</a>
+          <LanguageSwitcher />
         </div>
       </div>
 
