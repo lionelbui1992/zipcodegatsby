@@ -11,8 +11,10 @@ import { useEffect, useState } from "react";
 import "../assets/sass/header.sass";
 import { handleCmsOverlayAnimation } from "../animation";
 import { useLocation } from "@reach/router";
+import { useCookies } from "react-cookie";
 export default function Page({ params}: { params: { slug: string}}) {
   const slug = params.slug;
+  const [cookies] = useCookies(['lang']);
   const [language, setLanguage] = useState("en"); 
   const location = typeof window !== "undefined" ? useLocation() : null;
 
@@ -20,7 +22,7 @@ export default function Page({ params}: { params: { slug: string}}) {
     if (location) {
       // Check if `lang` exists in the URL parameters
       const searchParams = new URLSearchParams(location.search);
-      const lang = searchParams.get("lang") || "en";
+      const lang = searchParams.get('lang') || cookies.lang || 'en';
 
       setLanguage(lang);
     }
