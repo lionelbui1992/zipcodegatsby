@@ -73,18 +73,20 @@ const IndexPage: React.FC = () => {
   const [post, setPost] = useState({});
   //useEffect
   useEffect(() => {
-    let translation;
-    if(language !== "en"){
-
-      translation = data.nodeByUri.translations.find(
-        (e:any) => e.languageCode === language
-      );
-    }else{
-      translation = data.nodeByUri;
-    }
-    if (translation) {
-      setBlocks(translation.blocks);
-      setPost(data.nodeByUri);
+    if(data && data.nodeByUri){
+      let translation;
+      if(language !== "en"){
+  
+        translation = data.nodeByUri.translations.find(
+          (e:any) => e.languageCode === language
+        );
+      }else{
+        translation = data.nodeByUri;
+      }
+      if (translation) {
+        setBlocks(translation.blocks);
+        setPost(data.nodeByUri);
+      }
     }
   }, [data]);
   useEffect(() => {
