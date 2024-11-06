@@ -216,10 +216,15 @@
             padding: 0
 
             .icon
-                width: 35.8%
-                height: calc(100% + 66px)
+                transform: rotate(-90deg) translateY(-2.5%)
+                transform-origin: top left
+                top: 109%
+                bottom: initial
                 left: 0
-                bottom: -13px
+                height: calc(100vw - 22%)
+                width: auto
+                aspect-ratio: 0.369047619
+
             .icon + .swiper
                 padding-left: 12px
 
@@ -257,6 +262,7 @@
         .box-image
             .column-image
                 margin-bottom: 39px
+                margin-top: 80px
     .about-section .box-image.wp-block-position-5
         .description
             font-size: 20px
