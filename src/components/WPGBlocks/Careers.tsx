@@ -49,7 +49,7 @@ const CareersBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, form,
   )
 }
 
-export const CareersBlock: React.FunctionComponent<IWPGBlockProps> = ({ block, form, mapToBlock }) => {
+export const CareersBlock: React.FunctionComponent<IWPGBlockProps> = ({ block, form, mapToBlock,lang }) => {
 
   const {
     name,
@@ -84,7 +84,7 @@ export const CareersBlock: React.FunctionComponent<IWPGBlockProps> = ({ block, f
         )
       case 'acf/contact-information':
         return (
-          <TheBlock blockName={name} form={form} attributes={attributes.data} />
+          <TheBlock blockName={name} form={form} attributes={attributes.data} lang={lang} />
         )
       default:
         return (

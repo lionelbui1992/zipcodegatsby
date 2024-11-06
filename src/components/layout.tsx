@@ -15,6 +15,7 @@ import { BannerPoup } from './BannerPoup';
 import GalleryTwoColumnsPopup from "./GalleryTwoColumnsPopup";
 import { ReactLenis, useLenis } from '@studio-freight/react-lenis'
 import { LangProvider } from "../context/LangContext";
+import { useCookies } from "react-cookie";
 
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -25,7 +26,16 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children, slug }) => {
     let preloadCheck = checkPreloadCookie()
-
+    const [cookies] = useCookies(['lang']);
+    const [language,setLanguage] = useState(""); 
+    useEffect(() => {
+        if (location) {
+          // Check if `lang` exists in the URL parameters
+          const searchParams = new URLSearchParams(location.search);
+          const lang = searchParams.get('lang') || cookies.lang || 'en';
+          setLanguage(lang)
+        }
+      }, [location?.search]);
     const getInfo = gql`
     query TestingQuery {
         testing {
@@ -34,6 +44,7 @@ const Layout: React.FC<LayoutProps> = ({ children, slug }) => {
             }
         }
         getContactForm
+        getContactFormTH
         seo {
             contentTypes {
                 post {
@@ -109,6 +120,7 @@ const Layout: React.FC<LayoutProps> = ({ children, slug }) => {
     const [testing, setTesting] = useState(false);
     const [seo, setSeo] = useState(undefined);
     const [getContactForm, setGetContactForm] = useState(null);
+    const [getContactFormTh, setGetContactFormTh] = useState(null);
     const [hiddenBackToTop, setHiddenBackToTop] = useState(true);
 
 
@@ -156,6 +168,7 @@ const Layout: React.FC<LayoutProps> = ({ children, slug }) => {
         if (data) {
             setTesting(data.testing.testingFields.turnOnTesting);
             setGetContactForm(data.getContactForm);
+            setGetContactFormTh(data.getContactFormTH)
             setSeo(data.seo);
             const handleScroll = () => {
                 if (window.scrollY > 2000) {
@@ -218,7 +231,7 @@ const Layout: React.FC<LayoutProps> = ({ children, slug }) => {
                         <Slice alias="header" />
                         {popUp && popUp}
                         {galleryPopup && galleryPopup}
-                        {getContactForm && <ContactForm data={getContactForm} />}
+                        {getContactForm && <ContactForm data={language === 'en' ? getContactForm : getContactFormTh } />}
                         {/* <CookieBanner /> */}
                         <main className="global-wrapper" >
                             {children}
