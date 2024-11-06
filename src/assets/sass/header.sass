@@ -166,16 +166,6 @@ $heightMenuOnMobile: var(--heightMenu)
   position: relative
   min-width: 82px
   ul
-    border: 1px solid #000000
-    max-width: 82px
-    max-height: 87px
-    border-radius: 22px
-    padding-left: 0px
-    position: absolute
-    z-index: 9
-    background: #fff
-    min-width: 82px
-    margin-top: -7px
     .default
       text-transform: uppercase
       display: block
@@ -195,17 +185,6 @@ $heightMenuOnMobile: var(--heightMenu)
       cursor: pointer
       font-size: 20px
       position: relative
-      transition: all 0.7s ease-in-out
-      &:nth-child(2):before
-          content:""
-          background-image: url(../images/arrow-right-blue.svg)
-          position: absolute
-          right: -40px
-          width: 100%
-          height: 100%
-          background-repeat: no-repeat
-          top: -33px
-          rotate: -90deg
       &.active
         background-color: #0068FF
         border-radius: 71.15px
@@ -214,8 +193,6 @@ $heightMenuOnMobile: var(--heightMenu)
         padding: 7.11px 22.77px
         &:before
           content: none
-      &:not(.default)
-        display: none
   .show
     .default
       display: none
@@ -235,4 +212,3 @@ $heightMenuOnMobile: var(--heightMenu)
       justify-content: space-between
       align-items: center
       min-width: 192px
-      
