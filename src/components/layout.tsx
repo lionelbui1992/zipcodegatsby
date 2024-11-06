@@ -16,7 +16,7 @@ import GalleryTwoColumnsPopup from "./GalleryTwoColumnsPopup";
 import { ReactLenis, useLenis } from '@studio-freight/react-lenis'
 import { LangProvider } from "../context/LangContext";
 import { useCookies } from "react-cookie";
-
+import { useLocation } from "@reach/router";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 interface LayoutProps {
@@ -28,6 +28,7 @@ const Layout: React.FC<LayoutProps> = ({ children, slug }) => {
     let preloadCheck = checkPreloadCookie()
     const [cookies] = useCookies(['lang']);
     const [language,setLanguage] = useState(""); 
+    const location = typeof window !== "undefined" ? useLocation() : null;
     useEffect(() => {
         if (location) {
           // Check if `lang` exists in the URL parameters
