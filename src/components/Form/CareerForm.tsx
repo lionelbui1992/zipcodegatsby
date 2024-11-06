@@ -4,7 +4,7 @@ import { useFormik } from 'formik';
 import { RenderForm, validationSchema } from "./helper";
 
 
-export const CareerForm = ({ attributes, form }) => {
+export const CareerForm = ({ attributes, form,lang }) => {
     const { title, form_title, background } = attributes;
     let _data = [],
         fields = [];
@@ -22,7 +22,7 @@ export const CareerForm = ({ attributes, form }) => {
     let _validationSchema = validationSchema(fields);
 
     const formik = useFormik({
-        initialValues: fields.reduce((values, field) => {
+        initialValues: fields.reduce((values:any, field:any) => {
             values[field.id] = '';
             return values;
         }, {}),
@@ -49,7 +49,8 @@ export const CareerForm = ({ attributes, form }) => {
                 .then((res) => res.json())
                 .then((data) => {
                     if (data.success === true) {
-                        document.querySelector('.career-msg-success').style.display = "block";
+                        const doc = document.querySelector('.career-msg-success') as HTMLElement;
+                        doc.style.display = "block";
                         resetForm()
                     } else {
                         alert(data.data)
@@ -83,7 +84,7 @@ export const CareerForm = ({ attributes, form }) => {
                                 <form action="" onSubmit={formik.handleSubmit}>
                                     <fieldset className="fieldset">
 
-                                        {fields.map((field, index) => (
+                                        {fields.map((field:any, index:any) => (
                                             <React.Fragment key={index}>
 
                                                 {RenderForm(field, formik)}
@@ -92,7 +93,7 @@ export const CareerForm = ({ attributes, form }) => {
 
                                     </fieldset>
                                     <div className="action">
-                                        <button className="btn btn-primary">{formik.isSubmitting ? 'Submitting...' : 'Submit'}</button>
+                                        <button className="btn btn-primary">{formik.isSubmitting ? 'Submitting...' : lang === 'en' ? 'Submit':'ส่ง'}</button>
                                     </div>
                                 </form>
                                 <div className="success-message career-msg-success" style={{ display: "none" }}>

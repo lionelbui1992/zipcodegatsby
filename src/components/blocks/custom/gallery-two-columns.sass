@@ -54,9 +54,9 @@
                                 right: 53.5%
                                 cursor: pointer
                                 @media (min-width: 1000px) and (max-width:1100px)
-                                    right: 50.5%
+                                    right: 52.5%
                                 @media (min-width: 870px) and (max-width: 1000px)
-                                    right: 47.5%
+                                    right: 40.5%
                                 @media (min-width:769px) and (max-width: 870px)
                                     left: 45%
                                 @media (min-width: 501px) and (max-width: 768px)
@@ -70,6 +70,8 @@
                     @media (min-width:769px) and (max-width: 870px)
                         h5
                             font-size: 33px
+                            @media (min-width:770px) and (max-width:800px)
+                                font-size: 30px
                     &:last-child
                         .column-title
                             &:after
@@ -87,12 +89,15 @@
                         &:before
                             content: ""
                             position: absolute
-                            top: -10px
-                            left: -10px
+                            top: -15px
+                            left: -15px
                             width: 100px 
                             height: 100px
                             background-color: #0068FF
                             transition: background-color 0.3s ease
+                            @media (max-width: 767px)
+                                top: -9px
+                                left: -9px
             &:first-child
                 .item
                     .column-title
@@ -101,6 +106,10 @@
                             right: -69px
                             top: -19px
                             cursor: pointer
+                            @media (min-width:768px) and (max-width:800px)
+                                  top: -18px
+                            @media (min-width:501px) and (max-width:767px)
+                                top: -29px
                             @media (max-width:500px)
                                 top: -29px
                 .image-inner
@@ -108,12 +117,15 @@
                         &:before
                                 content: ""
                                 position: absolute
-                                top: -10px
-                                left: -10px
+                                top: -15px
+                                left: -15px
                                 width: 150px      
                                 height: 150px
                                 background-color: #0068FF
-                                transition: background-color 0.3s ease 
+                                transition: background-color 0.3s ease
+                                @media (max-width: 767px)
+                                    top: -9px
+                                    left: -9px
             @media (max-width: 767px) 
                 width: 100%
                 gap: 50px

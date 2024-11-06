@@ -31,6 +31,7 @@ export default function Page({ params}: { params: { slug: string}}) {
   const getPageInfo = gql`
   query getPageInfo($slug: String!)  {
     getCareerForm
+    getCareerFormTH
     nodeByUri(uri: $slug) {
       id
       ... on Page {
@@ -156,7 +157,7 @@ export default function Page({ params}: { params: { slug: string}}) {
         <>
           <Seo post={post} />
           <Layout slug={slug}>
-            <CareersBlocks blocks={blocks} form={data.getCareerForm} />
+            <CareersBlocks blocks={blocks} form={language === 'en' ? data.getCareerForm: data.getCareerFormTH} lang={language} />
           </Layout>
         </>
       )
