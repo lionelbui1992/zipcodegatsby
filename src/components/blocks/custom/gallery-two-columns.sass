@@ -48,25 +48,14 @@
                 .item
                     &:first-child
                         .column-title
-                            &:after
-                                content:""
-                                top: 29px
-                                right: 53.5%
-                                cursor: pointer
-                                @media (min-width: 1000px) and (max-width:1100px)
-                                    right: 52.5%
-                                @media (min-width: 870px) and (max-width: 1000px)
-                                    right: 40.5%
-                                @media (min-width:769px) and (max-width: 870px)
-                                    left: 45%
-                                @media (min-width: 501px) and (max-width: 768px)
-                                    left: unset
-                                    top: -29px
-                                    right: -69px
-
-                                @media (max-width: 500px)
-                                    right: -63px
-                                    top: -29px
+                            h5
+                                padding-right: 10px
+                                &:after
+                                    top: 27px
+                                    @media (max-width: 767px)
+                                        top: -27px
+                                    @media (max-width: 363px)
+                                        top: 0px !important
                     @media (min-width:769px) and (max-width: 870px)
                         h5
                             font-size: 33px
@@ -74,16 +63,14 @@
                                 font-size: 30px
                     &:last-child
                         .column-title
-                            &:after
-                                content:""
-                                right: -69px
-                                top: -19px
-                                cursor: pointer
-                                @media (min-width: 501px) and (max-width: 768px)
-                                    top: -29px
-                                @media (max-width: 500px)
-                                    top: -29px
-                                    left: unset
+                           h5
+                                &:after
+                                    top: 27px
+                                    @media (min-width: 770px)
+                                        top: -20px
+                                    @media (max-width: 767px)
+                                        top: -28px
+
                 .image-inner
                     &:hover
                         &:before
@@ -101,17 +88,14 @@
             &:first-child
                 .item
                     .column-title
-                        &:after
-                            content:""
-                            right: -69px
-                            top: -19px
-                            cursor: pointer
-                            @media (min-width:768px) and (max-width:800px)
-                                  top: -18px
-                            @media (min-width:501px) and (max-width:767px)
-                                top: -29px
-                            @media (max-width:500px)
-                                top: -29px
+                        h5
+                            &:after
+                                top: 27px
+                                @media (min-width: 767px)
+                                    top: -17px
+                                @media (max-width: 767px)
+                                    top: -28px
+                                
                 .image-inner
                     &:hover
                         &:before
@@ -192,14 +176,18 @@
                 max-width: 480px
                 position: relative
                 width: fit-content
-                &:after
+                h5
+                    &:after
                         content:""
                         background-image: url(./images/swipe_down_arrow.svg)
                         position: absolute
-                        width: 56px
+                        width: 66px
                         height: 56px
-                        top: -16px
-                        right:0px
+                        top: -17px
+                        background-repeat: no-repeat
+                        margin-left: 13px
+                    @media (min-width: 768px) and (max-with: 769px)
+                        font-size: 30px
                 @media (max-width: 767px)   
                     margin-top: 32px     
                     max-width: 100%         
