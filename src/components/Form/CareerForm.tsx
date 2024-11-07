@@ -2,9 +2,11 @@ import React from "react";
 import "./contact-information.sass";
 import { useFormik } from 'formik';
 import { RenderForm, validationSchema } from "./helper";
+import { useLang } from "../../context/LangContext";
 
 
-export const CareerForm = ({ attributes, form,lang }) => {
+export const CareerForm = ({ attributes, form }) => {
+    const {language} = useLang();
     const { title, form_title, background } = attributes;
     let _data = [],
         fields = [];
@@ -93,7 +95,7 @@ export const CareerForm = ({ attributes, form,lang }) => {
 
                                     </fieldset>
                                     <div className="action">
-                                        <button className="btn btn-primary">{formik.isSubmitting ? 'Submitting...' : lang === 'en' ? 'Submit':'ส่ง'}</button>
+                                        <button className="btn btn-primary">{formik.isSubmitting ? 'Submitting...' : language === 'en' ? 'Submit':'ส่ง'}</button>
                                     </div>
                                 </form>
                                 <div className="success-message career-msg-success" style={{ display: "none" }}>
