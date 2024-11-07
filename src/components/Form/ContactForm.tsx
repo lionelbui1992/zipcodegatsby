@@ -2,11 +2,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import Cookies from 'js-cookie';
 import { useFormik } from 'formik';
 import { RenderForm, validationSchema } from './helper';
+import { useLang } from '../../context/LangContext';
 
 
 
 export const ContactForm = (props): JSX.Element => {
     const { data } = props;
+    const {language} = useLang();
     let _data = [],
         fields = [];
 
@@ -104,7 +106,7 @@ export const ContactForm = (props): JSX.Element => {
 
                         </fieldset>
                         <div className="action">
-                            <button className="btn btn-primary">{formik.isSubmitting ? 'Submitting...' : 'Submit'}</button>
+                            <button className="btn btn-primary">{formik.isSubmitting ? 'Submitting...' : language === "en" ? 'Submit':'ส่ง'}</button>
                         </div>
                     </form>
                     <div className="success-message" style={{ display: "none" }}>
