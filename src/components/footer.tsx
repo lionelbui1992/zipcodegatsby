@@ -3,9 +3,10 @@ import React, { useState, useEffect } from "react";
 import { useQuery, gql } from '@apollo/client';
 import { IFooterData } from "./blocks/types";
 import SectionLink from "./SectionLink";
+import { useLang } from "../context/LangContext";
 
 export default function Footer(): JSX.Element {
-
+ const {language} = useLang()
   const footerQuery = gql`
   query siteOption {
     option {
@@ -23,6 +24,11 @@ export default function Footer(): JSX.Element {
         email
         titleRight
         phone
+        address {
+          title
+          target
+          url
+        }
         address {
           title
           target
@@ -111,10 +117,16 @@ export default function Footer(): JSX.Element {
       },
     },
     descriptionLeft: "",
+    descriptionLeftThai: "",
     email: "",
     titleRight: "",
     phone: "",
     address: {
+      title: "",
+      target: "",
+      url: "",
+    },
+    addressThai: {
       title: "",
       target: "",
       url: "",
@@ -128,6 +140,11 @@ export default function Footer(): JSX.Element {
       },
     },
     buttonContact: {
+      target: "",
+      title: "",
+      url: "",
+    },
+    buttonContactThai: {
       target: "",
       title: "",
       url: "",
@@ -282,8 +299,11 @@ export default function Footer(): JSX.Element {
               {(footerData.titleRight && footerData.titleRight !== "") && (
                 <h5 className="title right">{footerData.titleRight}</h5>
               )}
-              {(footerData.address && footerData.address.title) && (
+              {(footerData.address && footerData.address.title && language === "en") && (
                 <a className="address content top" target={footerData.address.target} href={footerData.address.url} >{footerData.address.title}</a>
+              )}
+              {(footerData.address_thai && footerData.address_thai.title && language === "th") && (
+                <a className="address content top" target={footerData.address_thai.target} href={footerData.address_thai.url} >{footerData.address_thai.title}</a>
               )}
             </div>
             <div className="ft-mb content-right">

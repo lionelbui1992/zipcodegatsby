@@ -217,10 +217,12 @@ interface IFooterData {
         } | "";
     };
     descriptionLeft: string | "";
+    descriptionLeftThai: string | "";
     email: string | "";
     titleRight: string | "";
     phone: string | "";
     address: IButton | "";
+    addressThai:IButton | "";
     backgroundDesktop: {
         node: {
         altText: string;
@@ -230,6 +232,7 @@ interface IFooterData {
         } | "";
     };
     buttonContact: IButton | "";
+    buttonContactThai: IButton | "";
     codeOfConduct: IButton | "";
     cookiesPolicy: IButton | "";
     privacyPolicy: IButton | "";
