@@ -26,6 +26,7 @@ export default function LanguageSwitcher(): JSX.Element {
   };
   useEffect(()=>{
     setSelectLang(cookies.lang || 'en')
+    setLanguage(cookies.lang || 'en')
   },[cookies.lang])
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
