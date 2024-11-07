@@ -3,7 +3,7 @@ import { useLang } from "../../../context/LangContext";
 import "./language-switcher.sass";
 import { useCookies } from 'react-cookie';
 import { navigate } from "gatsby";
-
+import { useLocation } from "@reach/router";
 const LANGUAGES = ["en", "th"];
 
 export default function LanguageSwitcher(): JSX.Element {
@@ -12,7 +12,7 @@ export default function LanguageSwitcher(): JSX.Element {
   const [selectLang, setSelectLang] = useState(language);
   const [isOpen, setIsOpen] = useState(false);
   const ulRef = useRef<HTMLUListElement>(null);
-  
+  const location = typeof window !== "undefined" ? useLocation() : null;
   const onChangeLanguage = (lang: string) => {
     setSelectLang(lang);
     setLanguage(lang);
