@@ -59,12 +59,10 @@ export default function Header(): JSX.Element {
     }
   }, [data]);
   useEffect(()=>{
-    const searchParams = new URLSearchParams(window.location.search);
-    searchParams.set("lang", cookies?.lang || language);
-    navigate(`${window.location.pathname}?${searchParams.toString()}`, {
-      replace: true,
-    });
-  },[language])
+    if(language || cookies.lang){
+        setLanguage(cookies?.lang ? cookies.lang: language)
+    }
+  },[language,cookies.lang])
   // Set header color
   useEffect(() => {
     if (isHeaderBlack) {
@@ -194,7 +192,7 @@ export default function Header(): JSX.Element {
       <div className="header__nav" style={{ color: textColorHeader }}>
         {menuItems.map((menu: any, index: number) => (
           <div className="header__nav--link" key={index}>
-           <Link to={`${menu.uri}?lang=${language}`} activeClassName="active">
+           <Link to={menu.uri} activeClassName="active">
               {menu.label}
             </Link>
           </div>

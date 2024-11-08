@@ -14,7 +14,7 @@ import Test from "./blocks/custom/Test";
 import { BannerPoup } from './BannerPoup';
 import GalleryTwoColumnsPopup from "./GalleryTwoColumnsPopup";
 import { ReactLenis, useLenis } from '@studio-freight/react-lenis'
-import { LangProvider } from "../context/LangContext";
+import { LangProvider, useLang } from "../context/LangContext";
 import { useCookies } from "react-cookie";
 import { useLocation } from "@reach/router";
 
@@ -27,16 +27,14 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children, slug }) => {
     let preloadCheck = checkPreloadCookie()
     const [cookies] = useCookies(['lang']);
-    const [language,setLanguage] = useState(""); 
-    const location = typeof window !== "undefined" ? useLocation() : null;
+    const {language} = useLang();
+    const [lang,setLanguage] = useState(""); 
     useEffect(() => {
-        if (location) {
-          // Check if `lang` exists in the URL parameters
-          const searchParams = new URLSearchParams(location.search);
-          const lang = searchParams.get('lang') || cookies.lang || 'en';
+        if (language) {
+          const lang = cookies.lang || 'en';
           setLanguage(lang)
         }
-      }, [location?.search]);
+      }, [language,cookies.lang]);
     const getInfo = gql`
     query TestingQuery {
         testing {
@@ -232,7 +230,7 @@ const Layout: React.FC<LayoutProps> = ({ children, slug }) => {
                         <Slice alias="header" />
                         {popUp && popUp}
                         {galleryPopup && galleryPopup}
-                        {getContactForm && <ContactForm data={language === 'en' ? getContactForm : getContactFormTh } />}
+                        {getContactForm && <ContactForm data={lang === 'en' ? getContactForm : getContactFormTh } />}
                         {/* <CookieBanner /> */}
                         <main className="global-wrapper" >
                             {children}
