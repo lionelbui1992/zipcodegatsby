@@ -59,6 +59,7 @@ interface IBoxImageProps {
     description: string,
     description_mobile: string,
     button: IButton,
+    button_th: IButton,
 }
 
 interface IImageWithTextProps {

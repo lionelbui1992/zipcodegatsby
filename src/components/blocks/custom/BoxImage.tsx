@@ -5,12 +5,14 @@ import { IBoxImageProps } from "../types";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import { useLang } from "../../../context/LangContext";
 
 export const BoxImage = ({ order, attributes }: { order?: string, attributes: IBoxImageProps }): JSX.Element => {
     const image_position = attributes.image_position ? attributes.image_position : 'left'
     const image_positon_class = order ? `wp-block-position-${order}` : 'wp-block-position-normal'
     let navigation = attributes.gallery.length > 1 ? true : false
     let navigationClass = attributes.gallery.length > 1 ? "images-slider" : ""
+    const {language} = useLang();
     return (
         <>
             <div
@@ -74,8 +76,11 @@ export const BoxImage = ({ order, attributes }: { order?: string, attributes: IB
                                         <div className="description visible-mobile" dangerouslySetInnerHTML={{__html: attributes.description}} />
                                     )}
                                 </div>
-                                {attributes.button && attributes.button.title && (
+                                {attributes.button && attributes.button.title && language === "en" && (
                                     <Link className="btn btn-primary" to={`${attributes.button.url}`}>{attributes.button.title}</Link>
+                                )}
+                                 {attributes.button && attributes.button.title && language === "th" &&(
+                                    <Link className="btn btn-primary" to={`${attributes.button_th.url}`}>{attributes.button_th.title}</Link>
                                 )}
                             </div>
                         </div>
