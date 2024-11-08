@@ -47,7 +47,7 @@ export default function LanguageSwitcher(): JSX.Element {
         <path d="M0 5.87155L0.768052 5.09339L3.97163 8.29698L3.97164 0L5.08329 4.85907e-08L5.08329 8.29698L8.27677 5.09339L9.05492 5.87155L4.52746 10.399L0 5.87155Z" fill="#0068FF" />
       </svg>
       {LANGUAGES.map((lang) => (
-        <li className={selectLang === lang ? "active" : ""} data-lang={lang} onClick={() => (selectLang === lang ? setIsOpen(!isOpen) : onChangeLanguage(lang))}>
+        <li key={lang} className={selectLang === lang ? "active" : ""} data-lang={lang} onClick={() => (selectLang === lang ? setIsOpen(!isOpen) : onChangeLanguage(lang))}>
           <span>{lang.toLocaleUpperCase()}</span>
         </li>
       ))}

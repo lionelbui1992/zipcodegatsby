@@ -200,7 +200,7 @@ export default function Header(): JSX.Element {
           </div>
         ))}
         <div className="header__nav--link languages">
-          <a href="javascript:void(0)">#</a>
+          <a href="/" onClick={(event) => event.preventDefault()}>#</a>
           <LanguageSwitcher />
         </div>
       </div>
