@@ -151,7 +151,6 @@ export default function Page({ params}: { params: { slug: string}}) {
         </>
       )
     case 'careers':
-      console.log("blocks",data);
       
       return (
         <>
