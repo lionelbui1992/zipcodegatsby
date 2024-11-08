@@ -3,9 +3,10 @@ import React, { useState, useEffect } from "react";
 import { useQuery, gql } from '@apollo/client';
 import { IFooterData } from "./blocks/types";
 import SectionLink from "./SectionLink";
+import { useLang } from "../context/LangContext";
 
 export default function Footer(): JSX.Element {
-
+ const {language} = useLang()
   const footerQuery = gql`
   query siteOption {
     option {
@@ -20,10 +21,16 @@ export default function Footer(): JSX.Element {
           }
         }
         descriptionLeft
+        descriptionLeftThai
         email
         titleRight
         phone
         address {
+          title
+          target
+          url
+        }
+        addressThai {
           title
           target
           url
@@ -37,6 +44,11 @@ export default function Footer(): JSX.Element {
           }
         }
         buttonContact {
+          target
+          title
+          url
+        }
+        buttonContactThai {
           target
           title
           url
@@ -111,10 +123,16 @@ export default function Footer(): JSX.Element {
       },
     },
     descriptionLeft: "",
+    descriptionLeftThai: "",
     email: "",
     titleRight: "",
     phone: "",
     address: {
+      title: "",
+      target: "",
+      url: "",
+    },
+    addressThai: {
       title: "",
       target: "",
       url: "",
@@ -128,6 +146,11 @@ export default function Footer(): JSX.Element {
       },
     },
     buttonContact: {
+      target: "",
+      title: "",
+      url: "",
+    },
+    buttonContactThai: {
       target: "",
       title: "",
       url: "",
@@ -186,7 +209,6 @@ export default function Footer(): JSX.Element {
   useEffect(() => {
     if (!loading && !error && data && data.option.footer) {
       setFooterData(data.option.footer);
-
     }
     const handleScroll = () => {
       if (window.scrollY > 2000) {
@@ -254,11 +276,17 @@ export default function Footer(): JSX.Element {
             {(footerData.titleLeft && footerData.titleLeft !== "") && (
               <h5 className="title">{footerData.titleLeft}</h5>
             )}
-            {(footerData.descriptionLeft && footerData.descriptionLeft !== "") && (
+            {(footerData.descriptionLeft && footerData.descriptionLeft !== "" && language === 'en') && (
               <div className="content top">{footerData.descriptionLeft}</div>
             )}
-            {(footerData.buttonContact && footerData.buttonContact.title) && (
+            {(footerData.descriptionLeftThai && footerData.descriptionLeftThai !== "" && language === 'th') && (
+              <div className="content top">{footerData.descriptionLeftThai}</div>
+            )}
+            {(footerData.buttonContact && footerData.buttonContact.title && language === "en") && (
               <a onClick={handleOpenContactPopup} href={footerData.buttonContact.url} target={footerData.buttonContact.target}><div className="button">{footerData.buttonContact.title}</div></a>
+            )}
+            {(footerData.buttonContactThai && footerData.buttonContactThai.title && language === "th") && (
+              <a onClick={handleOpenContactPopup} href={footerData.buttonContactThai.url} target={footerData.buttonContactThai.target}><div className="button">{footerData.buttonContactThai.title}</div></a>
             )}
           </div>
           <div className="social-container mb">
@@ -282,8 +310,11 @@ export default function Footer(): JSX.Element {
               {(footerData.titleRight && footerData.titleRight !== "") && (
                 <h5 className="title right">{footerData.titleRight}</h5>
               )}
-              {(footerData.address && footerData.address.title) && (
+              {(footerData.address && footerData.address.title && language === "en") && (
                 <a className="address content top" target={footerData.address.target} href={footerData.address.url} >{footerData.address.title}</a>
+              )}
+              {(footerData.addressThai && footerData.addressThai.title && language === "th") && (
+                <a className="address content top" target={footerData.addressThai.target} href={footerData.addressThai.url} >{footerData.addressThai.title}</a>
               )}
             </div>
             <div className="ft-mb content-right">

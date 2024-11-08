@@ -5,7 +5,7 @@ import { IBoxContentProps } from "../types";
 
 export default function BoxContent({ attributes }: { attributes: IBoxContentProps}): JSX.Element {
     const { title, description, button } = attributes;
-
+    
     return (
         <section className="projects-box-content projects-section">
             <div className="container">

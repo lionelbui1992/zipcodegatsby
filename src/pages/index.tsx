@@ -13,6 +13,7 @@ const IndexPage: React.FC = () => {
   const [language, setLanguage] = useState("en"); 
   const location = typeof window !== "undefined" ? useLocation() : null;
   const [cookies] = useCookies(['lang']);
+
   useEffect(() => {
     if (location) {
       // Check if `lang` exists in the URL parameters
@@ -95,6 +96,7 @@ const IndexPage: React.FC = () => {
      refetch({uri:"/"});
     }
  }, [language, refetch]);
+ 
   return (
     <>
       <Seo post={post} />
