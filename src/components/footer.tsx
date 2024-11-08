@@ -209,9 +209,6 @@ export default function Footer(): JSX.Element {
   useEffect(() => {
     if (!loading && !error && data && data.option.footer) {
       setFooterData(data.option.footer);
-      console.log('====================================');
-      console.log("data.option.footer",data.option.footer);
-      console.log('====================================');
     }
     const handleScroll = () => {
       if (window.scrollY > 2000) {

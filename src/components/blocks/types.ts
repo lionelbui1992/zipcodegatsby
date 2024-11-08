@@ -59,7 +59,7 @@ interface IBoxImageProps {
     description: string,
     description_mobile: string,
     button: IButton,
-    button_th: IButton,
+    button_thai: IButton,
 }
 
 interface IImageWithTextProps {

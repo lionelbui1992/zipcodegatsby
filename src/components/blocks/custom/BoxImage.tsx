@@ -79,8 +79,8 @@ export const BoxImage = ({ order, attributes }: { order?: string, attributes: IB
                                 {attributes.button && attributes.button.title && language === "en" && (
                                     <Link className="btn btn-primary" to={`${attributes.button.url}`}>{attributes.button.title}</Link>
                                 )}
-                                 {attributes.button && attributes.button.title && language === "th" &&(
-                                    <Link className="btn btn-primary" to={`${attributes.button_th.url}`}>{attributes.button_th.title}</Link>
+                                 {attributes.button_thai && attributes.button_thai.title && language === "th" &&(
+                                    <Link className="btn btn-primary" to={`${attributes.button_thai.url}`}>{attributes.button_thai.title}</Link>
                                 )}
                             </div>
                         </div>
