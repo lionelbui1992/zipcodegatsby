@@ -132,6 +132,7 @@ interface IListingThreeColumnsProps {
 interface IBannerTextCenterProps {
     background: IImage
     heading: string
+    sub_heading: string
 }
 
 interface IBoxContentProps {
