@@ -2,10 +2,14 @@ import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { ICompanyProps } from "../types";
+import { useLang } from "../../../context/LangContext";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Company({ attributes }: { attributes: ICompanyProps }): JSX.Element {
     const { background_section, title, text_top, text_middle, text_bottom, background_text, owner_image, description, button } = attributes;
+    console.log("attributes",attributes)
+    const {isHideCompSection,setisHideCompSection} = useLang();
+    console.log("isHideCompSection",isHideCompSection)
 
     const animationBox = useRef(null);
     const Cwrapper = useRef(null);
@@ -27,7 +31,11 @@ export default function Company({ attributes }: { attributes: ICompanyProps }): 
     // }, [])
 
     return (
-        <div className="section section-company" ref={Cwrapper} style={{ backgroundImage: `url(${background_section.src})` }}>
+        <div className="section section-company" ref={Cwrapper}  
+        style={{
+            backgroundImage: `url(${background_section.src})`, 
+            display: isHideCompSection === true ? 'none' : 'block'
+        }}>
             <div className="container">
                 <div className="title"><h2 dangerouslySetInnerHTML={{ __html: title }} /></div>
                 <div className="company-box">
