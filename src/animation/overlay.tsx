@@ -46,7 +46,7 @@ export const handleOverlayAnimation = () => {
 
 
 export const handleGeneralOverlayAnimation = () => {
-    gsap.utils.toArray('.overlay-animation').forEach((section) => {
+    gsap.utils.toArray('.overlay-animation').forEach((section:any) => {
         let check = section.offsetHeight > window.innerHeight ? true : false
         ScrollTrigger.create({
             trigger: section,
@@ -73,7 +73,7 @@ export const handleGeneralOverlayAnimation = () => {
         })
     })
 
-    gsap.utils.toArray('.about-page .text-center-with-link').forEach((section) => {
+    gsap.utils.toArray('.about-page .text-center-with-link').forEach((section:any) => {
         ScrollTrigger.create({
             trigger: section,
             start: "top top",

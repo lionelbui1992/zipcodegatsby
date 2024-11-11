@@ -1,5 +1,5 @@
 import "../assets/sass/footer.sass";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useQuery, gql } from '@apollo/client';
 import { IFooterData } from "./blocks/types";
 import SectionLink from "./SectionLink";
@@ -199,8 +199,10 @@ export default function Footer(): JSX.Element {
   const [imageFooter, setImageFooter] = useState("");
   const [backgroundFooter, setBackgroundFooter] = useState("");
   const [hiddenBackToTop, setHiddenBackToTop] = useState(true);
+  const footerRef = useRef<HTMLDivElement | null>(null);
+  const { setisHideCompSection } = useLang();
   // const [dataSocial, setDataSocial] = useState("");
-  const handleOpenContactPopup = (e) => {
+  const handleOpenContactPopup = (e:any) => {
     e.preventDefault();
     document.body.classList.add("active-form");
     document.querySelector('.section-contact-popup')?.classList.add('show');
@@ -219,22 +221,26 @@ export default function Footer(): JSX.Element {
     }
     window.addEventListener("scroll", () => handleScroll());
     const handleResize = () => {
-      const sectionFooter = document.querySelector(".site-footer");
-      document.documentElement.style.setProperty('--footerHeight', `${sectionFooter?.offsetHeight}px`);
-      const windowWidth = window.innerWidth;
-      if (!loading && !error && data && data.option.footer) {
-        if (windowWidth < 768) {
-          setBackgroundFooter(data.option.footer.backgroundSectionMobile.node.sourceUrl);
-          setImageFooter(data.option.footer.backgroundMobile.node.sourceUrl);
-        } else {
-          setBackgroundFooter(data.option.footer.backgroundSection.node.sourceUrl);
-          setImageFooter(data.option.footer.backgroundDesktop.node.sourceUrl);
+      if (footerRef.current) {
+        const sectionFooter = document.querySelector(".site-footer") as HTMLElement;
+        document.documentElement.style.setProperty('--footerHeight', `${sectionFooter?.offsetHeight}px`);
+        const windowWidth = window.innerWidth;
+        if (!loading && !error && data && data.option.footer) {
+          if (windowWidth < 768) {
+            setBackgroundFooter(data.option.footer.backgroundSectionMobile.node.sourceUrl);
+            setImageFooter(data.option.footer.backgroundMobile.node.sourceUrl);
+          } else {
+            setBackgroundFooter(data.option.footer.backgroundSection.node.sourceUrl);
+            setImageFooter(data.option.footer.backgroundDesktop.node.sourceUrl);
+          }
         }
       }
     };
 
+   
     window.addEventListener("scroll", handleResize);
     window.addEventListener("resize", handleResize);
+    
     handleResize();
     // console.log(footerData.social);
     const dataSocial = Object.values(footerData.social);
@@ -243,7 +249,39 @@ export default function Footer(): JSX.Element {
   const handleBackToTopClick = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+  useEffect(() => {
+    let lastScrollY = window.scrollY; // Store the last scroll position
 
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+
+      // Calculate the distance from the bottom of the document to the bottom of the viewport
+      const distanceToBottom = documentHeight - (currentScrollY + windowHeight);
+
+      // Check if the user is within 150px of the bottom (near the footer)
+      if (distanceToBottom <= 150) {
+        // If the user is scrolling down, hide the section
+        if (currentScrollY > lastScrollY) {
+          setisHideCompSection(true);
+        } 
+        // If the user is scrolling up, show the section
+        else if (currentScrollY < lastScrollY) {
+          setisHideCompSection(false);
+        }
+      }
+
+      // Update last scroll position
+      lastScrollY = currentScrollY;
+    };
+
+    // Attach scroll event listener
+    window.addEventListener('scroll', handleScroll);
+
+    // Clean up event listener on component unmount
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [setisHideCompSection]);
   // useEffect(() => {
   //   setDataSocial(Object.values(footerData.social));
   // }, [footerData]);
@@ -263,7 +301,7 @@ export default function Footer(): JSX.Element {
   }
 
   return (
-    <footer className="site-footer" style={{ backgroundImage: "url(" + backgroundFooter + ")" }}>
+    <footer className="site-footer" style={{ backgroundImage: "url(" + backgroundFooter + ")" }}  ref={footerRef}>
       <div className="container">
         <div className={`to-top`} onClick={() => { handleBackToTopClick() }}>
           <svg width="31" height="33" viewBox="0 0 31 33" fill="none" xmlns="http://www.w3.org/2000/svg">
