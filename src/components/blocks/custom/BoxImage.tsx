@@ -76,11 +76,8 @@ export const BoxImage = ({ order, attributes }: { order?: string, attributes: IB
                                         <div className="description visible-mobile" dangerouslySetInnerHTML={{__html: attributes.description}} />
                                     )}
                                 </div>
-                                {attributes.button && attributes.button.title && language === "en" && (
+                                {attributes.button && attributes.button.title && (
                                     <Link className="btn btn-primary" to={`${attributes.button.url}`}>{attributes.button.title}</Link>
-                                )}
-                                 {attributes.button_thai && attributes.button_thai.title && language === "th" &&(
-                                    <Link className="btn btn-primary" to={`${attributes.button_thai.url}`}>{attributes.button_thai.title}</Link>
                                 )}
                             </div>
                         </div>
