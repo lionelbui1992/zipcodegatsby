@@ -12,21 +12,20 @@ import "../assets/sass/header.sass";
 import { handleCmsOverlayAnimation } from "../animation";
 import { useLocation } from "@reach/router";
 import { useCookies } from "react-cookie";
+import { useLang } from "../context/LangContext";
 export default function Page({ params}: { params: { slug: string}}) {
   const slug = params.slug;
   const [cookies] = useCookies(['lang']);
-  const [language, setLanguage] = useState("en"); 
-  const location = typeof window !== "undefined" ? useLocation() : null;
+  const {language, setLanguage} = useLang(); 
 
   useEffect(() => {
-    if (location) {
+    if (language || cookies.lang) {
       // Check if `lang` exists in the URL parameters
-      const searchParams = new URLSearchParams(location.search);
-      const lang = searchParams.get('lang') || cookies.lang || 'en';
+      const lang = cookies.lang || 'en';
 
       setLanguage(lang);
     }
-  }, [location?.search]);
+  }, [cookies.lang,language]);
 
   const getPageInfo = gql`
   query getPageInfo($slug: String!)  {

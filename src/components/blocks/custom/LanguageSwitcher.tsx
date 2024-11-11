@@ -18,11 +18,6 @@ export default function LanguageSwitcher(): JSX.Element {
     setLanguage(lang);
     setIsOpen(false);
     setCookie('lang', lang, { path: '/' });
-    const searchParams = new URLSearchParams(window.location.search);
-    searchParams.set("lang",lang);
-    navigate(`${window.location.pathname}?${searchParams.toString()}`, {
-      replace: true,
-    });
   };
   useEffect(()=>{
     setSelectLang(cookies.lang || 'en')

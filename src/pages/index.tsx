@@ -11,18 +11,15 @@ import { useCookies } from "react-cookie";
 
 const IndexPage: React.FC = () => {
   const [language, setLanguage] = useState("en"); 
-  const location = typeof window !== "undefined" ? useLocation() : null;
   const [cookies] = useCookies(['lang']);
 
   useEffect(() => {
-    if (location) {
-      // Check if `lang` exists in the URL parameters
-      const searchParams = new URLSearchParams(location.search);
-      const lang = searchParams.get("lang") || cookies.lang || "en";
+    if (language) {
+      const lang = cookies.lang || "en";
 
       setLanguage(lang);
     }
-  }, [location?.search]);
+  }, [cookies.lang,language]);
   const getPageInfo = gql`
   query getPageInfo {
     nodeByUri(uri: "/") {
