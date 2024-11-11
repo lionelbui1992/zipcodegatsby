@@ -1,4 +1,6 @@
 const React = require("react")
+// 
+const { LangProvider } = require("./src/context/LangContext");
 
 const HtmlAttributes = {
   lang: "en"
@@ -15,3 +17,6 @@ exports.onRenderBody = ({
   setHtmlAttributes(HtmlAttributes)
   setHeadComponents(HeadComponents)
 }
+exports.wrapRootElement = ({ element }) => (
+  <LangProvider>{element}</LangProvider>
+);
