@@ -18,7 +18,7 @@ const CareersBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, form,
     if (container.current) {
       setTimeout(() => {
         handleCareerOverlayAnimation();
-      }, 1000);
+      }, 500);
     }
     // if (!container) return;
 

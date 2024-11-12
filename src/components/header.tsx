@@ -146,31 +146,16 @@ export default function Header(): JSX.Element {
 
   }, []);
 
-  useEffect(() => {
-    // add active menu when F5 reload page, <Link> tag not working
+  const isActiveMenu = (uri: any) => {
     const currentUrl = window.location.pathname;
-    const menus = document.querySelectorAll('.header__nav--link a');
-
-    menus.forEach(menu => {
-      const menuUrl = menu.getAttribute('href') ?? '';
-      const itemUrl = (new URL(menuUrl, window.location.origin)).pathname;
-      if (currentUrl === itemUrl) {
-        menu.setAttribute('aria-current', 'page');
-        menu.classList.add('active');
-      } else {
-        menu.classList.remove('active');
-      }
-    });
-  }, [menuItems]);
+    const itemUrl = (new URL(uri, window.location.origin)).pathname;
+    return currentUrl === itemUrl;
+  }
 
   const handleMenuMobileClick = () => {
     setIsClickMenu(prevIsClickMenu => !prevIsClickMenu);
   }
-  const [isClick,setIsClick] = useState(false);
-  const isClickSelect=(e:any) =>{
-    e.stopPropagation();
-    setIsClick(!isClick)
-  } 
+
   return (
     <header
       className={`header container ${isClickMenu ? 'header__visible' : 'header__hidden'} ${isScroll ? 'on-scroll' : ''}`}
@@ -192,7 +177,7 @@ export default function Header(): JSX.Element {
       <div className="header__nav" style={{ color: textColorHeader }}>
         {menuItems.map((menu: any, index: number) => (
           <div className="header__nav--link" key={index}>
-           <Link to={menu.uri} activeClassName="active">
+           <Link to={menu.uri} onClick={(e) => isActiveMenu(menu.uri) ? e.preventDefault() : null} className={isActiveMenu(menu.uri) ? 'active' : ""}>
               {menu.label}
             </Link>
           </div>
