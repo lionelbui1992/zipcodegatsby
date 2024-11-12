@@ -112,14 +112,13 @@ export default function Page({ params}: { params: { slug: string}}) {
         if (!translation.blocks || translation.blocks.length === 0) {
           setTimeout(() => {
             handleCmsOverlayAnimation();
-          }, 1000);
+          }, 500);
         }
       }
     }
   }, [language,data]);
-  
-  if (!blocks || blocks.length === 0) {
 
+  if (!blocks || blocks.length === 0) {
     return (
       <>
         <Seo post={post} />
@@ -140,7 +139,6 @@ export default function Page({ params}: { params: { slug: string}}) {
   }
   switch (slug) {
     case 'about':
-
       return (
         <>
           <Seo post={post} />
@@ -150,7 +148,6 @@ export default function Page({ params}: { params: { slug: string}}) {
         </>
       )
     case 'careers':
-      
       return (
         <>
           <Seo post={post} />
@@ -169,7 +166,6 @@ export default function Page({ params}: { params: { slug: string}}) {
         </>
       )
     case 'projects':
-
       return (
         <>
           <Seo post={post} />
