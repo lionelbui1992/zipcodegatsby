@@ -77,7 +77,7 @@ export const BoxImage = ({ order, attributes }: { order?: string, attributes: IB
                                     )}
                                 </div>
                                 {attributes.button && attributes.button.title && (
-                                    <Link className="btn btn-primary" to={`${attributes.button.url}`}>{attributes.button.title}</Link>
+                                    <Link className="btn-primary" to={`${attributes.button.url}`}>{attributes.button.title}</Link>
                                 )}
                             </div>
                         </div>

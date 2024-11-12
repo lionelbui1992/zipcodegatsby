@@ -13,7 +13,7 @@ export default function BoxContent({ attributes }: { attributes: IBoxContentProp
                     <h2 className="title" dangerouslySetInnerHTML={{__html: title}} />
                     <div className="content">
                         <div className="description" dangerouslySetInnerHTML={{__html: description}} />
-                        <Link className="btn btn-primary" to={button.url}><span  dangerouslySetInnerHTML={{__html: button.title}} /></Link>
+                        <Link className="btn-primary" to={button.url}  dangerouslySetInnerHTML={{__html: button.title}}></Link>
                     </div>
                 </div>
             </div>
