@@ -32,7 +32,7 @@ export default function Company({ attributes }: { attributes: ICompanyProps }): 
         <div className="section section-company" ref={Cwrapper}  
         style={{
             backgroundImage: `url(${background_section.src})`, 
-            display: isHideCompSection === true ? 'none' : 'block'
+           
         }}>
             <div className="container">
                 <div className="title"><h2 dangerouslySetInnerHTML={{ __html: title }} /></div>
