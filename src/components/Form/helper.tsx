@@ -269,26 +269,30 @@ export const validationSchema = (fields) => {
                 case 'checkbox':
                     validator = Yup.array();
                     if (field.required) {
-                        validator = validator.min(1, `${field.field_label} is required`);
+                        // validator = validator.min(1, `${field.field_label} is required`);
+                        validator = validator.min(1, `*consent required`);
                     }
                     break;
                 case 'radio':
                 case 'upload':
                     validator = Yup.mixed();
                     if (field.required) {
-                        validator = validator.required(`${field.field_label} is required`);
+                        // validator = validator.required(`${field.field_label} is required`);
+                        validator = validator.required(`*consent required`);
                     }
                     break;
                 case 'email':
                     validator = Yup.string().email('Invalid email address');
                     if (field.required) {
-                        validator = validator.required(`${field.field_label} is required`);
+                        // validator = validator.required(`${field.field_label} is required`);
+                        validator = validator.required(`*consent required`);
                     }
                     break;
                 default:
                     validator = Yup.string();
                     if (field.required) {
-                        validator = validator.required(`${field.field_label} is required`);
+                        // validator = validator.required(`${field.field_label} is required`);
+                        validator = validator.required(`*consent required`);
                     }
             }
 
