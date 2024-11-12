@@ -34,7 +34,7 @@ export const ImageWithText = ({
                       </div>
                     }
                     <div>
-                      {des && <div className="des">{des}</div>}
+                      {des && (des.includes('<br>') ? <div className="des" dangerouslySetInnerHTML={{ __html: des }} /> : <div className="des">{des}</div>)}
                       {button && button.title && (
                         <Link className={`btn btn-primary ${isDarkBackground == '1' ? 'btn-white' : ''}`} to={`${button.url}`}>{button.title}</Link>
                       )}
