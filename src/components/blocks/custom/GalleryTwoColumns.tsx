@@ -90,7 +90,7 @@ export const GalleryTwoColumns = ({ attributes }: { attributes: IGalleryTwoColum
                                                             <h5 dangerouslySetInnerHTML={{ __html: list.item_title }} />
                                                             <span>
                                                                 <svg className="blue-arrow" width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                    <path d="M7.99372 12L7.01493 11.0339L11.0445 7.0044H0.60836V5.60614H11.0445L7.01493 1.58932L7.99372 0.610536L13.6884 6.30527L7.99372 12Z" fill="#0068FF"/>
+                                                                    <path d="M7.99372 12L7.01493 11.0339L11.0445 7.0044H0.60836V5.60614H11.0445L7.01493 1.58932L7.99372 0.610536L13.6884 6.30527L7.99372 12Z" fill="#1840F0"/>
                                                                 </svg>
                                                             </span>
                                                         </div>
@@ -136,7 +136,7 @@ export const GalleryTwoColumns = ({ attributes }: { attributes: IGalleryTwoColum
                                                             <h5 dangerouslySetInnerHTML={{ __html: list.item_title }} />
                                                             <span>
                                                                 <svg className="blue-arrow" width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                    <path d="M7.99372 12L7.01493 11.0339L11.0445 7.0044H0.60836V5.60614H11.0445L7.01493 1.58932L7.99372 0.610536L13.6884 6.30527L7.99372 12Z" fill="#0068FF"/>
+                                                                    <path d="M7.99372 12L7.01493 11.0339L11.0445 7.0044H0.60836V5.60614H11.0445L7.01493 1.58932L7.99372 0.610536L13.6884 6.30527L7.99372 12Z" fill="#1840F0"/>
                                                                 </svg>
                                                             </span>
                                                         </div>
