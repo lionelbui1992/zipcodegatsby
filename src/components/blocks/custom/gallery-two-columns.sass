@@ -50,12 +50,10 @@
                         .column-title
                             h5
                                 padding-right: 10px
-                                &:after
-                                    top: 27px
-                                    @media (max-width: 767px)
-                                        top: -27px
-                                    @media (max-width: 363px)
-                                        top: 0px !important
+                                font-size: 33px
+                            span 
+                                right: -34px
+                 
                     @media (min-width:769px) and (max-width: 870px)
                         h5
                             font-size: 29px
@@ -64,12 +62,9 @@
                     &:last-child
                         .column-title
                            h5
-                                &:after
-                                    top: 27px
-                                    @media (min-width: 770px)
-                                        top: -20px
-                                    @media (max-width: 767px)
-                                        top: -28px
+                                font-size: 33px
+                           span
+                            right: -34px
 
                 .image-inner
                     &:hover
@@ -92,12 +87,9 @@
                 .item
                     .column-title
                         h5
-                            &:after
-                                top: 27px
-                                @media (min-width: 767px)
-                                    top: -17px
-                                @media (max-width: 767px)
-                                    top: -28px
+                        span
+                            right: -34px
+                           
                                 
                 .image-inner
                     &:hover
@@ -182,18 +174,26 @@
                 max-width: 480px
                 position: relative
                 width: fit-content
+                position: relative
                 h5
-                    &:after
-                        content:""
-                        background-image: url(./images/swipe_down_arrow.svg)
-                        position: absolute
-                        width: 66px
-                        height: 56px
-                        top: -17px
-                        background-repeat: no-repeat
-                        margin-left: 13px
-                    @media (min-width: 768px) and (max-with: 769px)
-                        font-size: 30px
+                    padding-right: 10px
+                    @media (max-width: 767px)
+                        font-size:23px !important
+                span
+                    position: absolute
+                    right:0px
+                    top: 30%
+                    height: 22px
+                    border: 3px solid #1840F0
+                    padding: 0px 8px
+                    display: flex
+                    justify-content: center
+                    align-items: center
+                    border-radius: 100px
+                    @media (max-width: 767px)
+                        top: 14% !important
+                    .blue-arrow
+                       
                 @media (max-width: 767px)   
                     margin-top: 32px     
                     max-width: 100%         
