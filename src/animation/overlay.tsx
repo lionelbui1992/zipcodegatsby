@@ -4,6 +4,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 
 export const handleOverlayAnimation = () => {
+    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
 
 
 
@@ -56,6 +57,8 @@ export const handleOverlayAnimation = () => {
 
 
 export const handleGeneralOverlayAnimation = () => {
+    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+
     gsap.utils.toArray('.overlay-animation').forEach((section) => {
         let check = section.offsetHeight > window.innerHeight ? true : false
         ScrollTrigger.create({
@@ -100,6 +103,7 @@ export const handleGeneralOverlayAnimation = () => {
 
 
 export const handleCareerOverlayAnimation = () => {
+    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
 
     ScrollTrigger.create({
         trigger: ".pinning-1",
@@ -146,6 +150,8 @@ export const handleCareerOverlayAnimation = () => {
 
 
 export const handleCmsOverlayAnimation = () => {
+    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+
     ScrollTrigger.create({
         trigger: ".cms-page .section-banner",
         start: "top top",
@@ -160,6 +166,7 @@ export const handleCmsOverlayAnimation = () => {
     console.log('cms animation')
 }
 export const handlePhilosophyOverlayAnimation = () => {
+    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
 
     ScrollTrigger.create({
         trigger: ".pinning-1",

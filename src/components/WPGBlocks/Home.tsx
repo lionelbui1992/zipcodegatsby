@@ -61,7 +61,7 @@ const HomeBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, mapToBlo
     if (container.current && blocks && blocks.length > 0) {
       setTimeout(() => {
         handleOverlayAnimation();
-      }, 1000);
+      }, 500);
     }
     // if (!container) return;
 
