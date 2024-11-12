@@ -27,7 +27,6 @@ export default function Company({ attributes }: { attributes: ICompanyProps }): 
     //         markers: true
     //     })
     // }, [])
-
     return (
         <div className="section section-company" ref={Cwrapper}  
         style={{
