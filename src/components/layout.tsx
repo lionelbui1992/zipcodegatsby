@@ -25,6 +25,18 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children, slug }) => {
+    const location = useLocation(); // Get the current location
+    const [key, setKey] = useState(0);
+    const {isHideCompSection,setisHideCompSection} = useLang();
+    useEffect(() => {
+      if (location.pathname === "/") {
+         setisHideCompSection(false)
+         window.scrollTo(0, 0);
+         setKey((prevKey) => prevKey + 1);
+      }else{
+         setisHideCompSection(true)
+      }
+    }, [location]);
     let preloadCheck = checkPreloadCookie()
     const [cookies] = useCookies(['lang']);
     const {language} = useLang();
