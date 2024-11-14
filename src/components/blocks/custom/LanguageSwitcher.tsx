@@ -2,8 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { useLang } from "../../../context/LangContext";
 import "./language-switcher.sass";
 import { useCookies } from 'react-cookie';
-import { navigate } from "gatsby";
-import { useLocation } from "@reach/router";
 import { useQuery, gql } from '@apollo/client';
 
 export default function LanguageSwitcher(): JSX.Element {
@@ -13,7 +11,6 @@ export default function LanguageSwitcher(): JSX.Element {
   const [selectLang, setSelectLang] = useState(language);
   const [isOpen, setIsOpen] = useState(false);
   const ulRef = useRef<HTMLUListElement>(null);
-  const location = typeof window !== "undefined" ? useLocation() : null;
   const Languages = gql`
     query LanguageList{
       languages {
@@ -22,16 +19,19 @@ export default function LanguageSwitcher(): JSX.Element {
     }
   `
   const {loading, error, data} = useQuery(Languages);
+
   const onChangeLanguage = (lang: string) => {
     setSelectLang(lang);
     setLanguage(lang);
     setIsOpen(false);
     setCookie('lang', lang, { path: '/' });
   };
-  useEffect(()=>{
+
+  useEffect(() => {
     setSelectLang(cookies.lang || 'en')
     setLanguage(cookies.lang || 'en')
-  },[cookies.lang])
+  }, [cookies.lang])
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (isOpen && ulRef.current && !ulRef.current.contains(event.target as Node)) {
@@ -44,12 +44,29 @@ export default function LanguageSwitcher(): JSX.Element {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isOpen]);
-  useEffect(()=>{
+
+  useEffect(() => {
       if(!loading && !error && data){
         setLANGUAGES(data.languages)
-        console.log("LANGUAGES",LANGUAGES);
       }
-  },[data, loading, error])
+  }, [data, loading, error])
+
+  useEffect(() => {
+    document.documentElement.lang = language ? language : 'en';
+
+    const observer = new MutationObserver((mutationsList) => {
+      for (const mutation of mutationsList) {
+        if (mutation.type === 'attributes' && !document.documentElement.lang) {
+          document.documentElement.lang = language ? language : 'en';
+        }
+      }
+    });
+
+    observer.observe(document.documentElement, { attributes: true });
+
+    return () => observer.disconnect();
+  }, [language, cookies.lang]);
+
   return (
     <>
         {
