@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { IImage } from "./blocks/types";
 import { Scrollbar } from 'react-scrollbars-custom';
+import { useLang } from "../context/LangContext";
 
 interface IBannerPoupProps {
     background: string;
@@ -26,7 +27,7 @@ export const BannerPoup = (attributes: IBannerPoupProps): JSX.Element => {
     const { background, content } = attributes;
 
     const [openPopUp, setOpenPopUp] = useState(false);
-
+    const {language} = useLang();
     const popupOverlay = async () => {
         setOpenPopUp(false);
         document.querySelector('html')?.classList.remove('active-overlay');
@@ -133,7 +134,7 @@ export const BannerPoup = (attributes: IBannerPoupProps): JSX.Element => {
                                                             <div className="column content-column-description">
                                                                 {list.popup_slider.map((item, itemIndex) => (
                                                                     (itemIndex > 0) && (
-                                                                        <div className="column-inner" key={itemIndex} dangerouslySetInnerHTML={{ __html: item.text }} />
+                                                                        <div className={`column-inner ${language}`} key={itemIndex} dangerouslySetInnerHTML={{ __html: item.text }} />
                                                                     )  
                                                                 ))}
                                                             </div>
