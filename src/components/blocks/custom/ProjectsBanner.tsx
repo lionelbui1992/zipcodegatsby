@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./projects-banner.sass";
 import { IProjectsBannerProps } from "../types";
+import { useLang } from "../../../context/LangContext";
 
 export const ProjectsBanner = ({ attributes }: { attributes: IProjectsBannerProps }): JSX.Element => {
     const { background_image, label, content } = attributes;
-
+    const {language} = useLang();
     const [openPopUp, setOpenPopUp] = useState(false);
 
     const openPopup = (index: number) => {
@@ -59,7 +60,7 @@ export const ProjectsBanner = ({ attributes }: { attributes: IProjectsBannerProp
                                                         }
                                                     </h3>
                                                     {(list.small_text) &&
-                                                        <div className="subheading" dangerouslySetInnerHTML={{ __html: list.small_text }} />
+                                                        <div className={`subheading ${language}`}  dangerouslySetInnerHTML={{ __html: list.small_text }} />
                                                     }
                                                 </div>
                                             </div>
