@@ -52,6 +52,7 @@ const Layout: React.FC<LayoutProps> = ({ children, slug }) => {
         testing {
             testingFields {
                 turnOnTesting
+                projectId
             }
         }
         getContactForm
@@ -129,6 +130,7 @@ const Layout: React.FC<LayoutProps> = ({ children, slug }) => {
     const { loading, error, data } = useQuery(getInfo);
 
     const [testing, setTesting] = useState(false);
+    const [projectId, setProjectId] = useState('');
     const [seo, setSeo] = useState(undefined);
     const [getContactForm, setGetContactForm] = useState(null);
     const [getContactFormTh, setGetContactFormTh] = useState(null);
@@ -178,6 +180,7 @@ const Layout: React.FC<LayoutProps> = ({ children, slug }) => {
 
         if (data) {
             setTesting(data.testing.testingFields.turnOnTesting);
+            setProjectId(data.testing.testingFields.projectId);
             setGetContactForm(data.getContactForm);
             setGetContactFormTh(data.getContactFormTH)
             setSeo(data.seo);
@@ -256,8 +259,8 @@ const Layout: React.FC<LayoutProps> = ({ children, slug }) => {
                         <Slice alias="clipPath" />
                         <div className="placeholder-section"></div>
                         <Slice alias="footer" />
-                        {(testing) && (
-                            <Test />
+                        {(testing && projectId) && (
+                            <Test projectId={projectId} />
                         )}
                     </div>
                 </ReactLenis>
