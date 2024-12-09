@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import markerSDK from '@marker.io/browser';
 import "./test.sass";
 
-export const Test = (): JSX.Element => {
+export const Test = ({ projectId } : { projectId: string}): JSX.Element => {
     let widget: any;
     useEffect(() => {
         handleLoadingWidget();
@@ -15,7 +15,7 @@ export const Test = (): JSX.Element => {
       const widgetCaptureButton = document.querySelector('.js-widget-capture-btn');
       if (null === projectIdInput) return;
       widget = await markerSDK.loadWidget({
-        project: (projectIdInput as HTMLInputElement).value,
+        project: projectId || (projectIdInput as HTMLInputElement).value,
 
         customData: {
             storeId: "123",
