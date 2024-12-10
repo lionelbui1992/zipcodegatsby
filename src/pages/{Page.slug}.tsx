@@ -38,7 +38,7 @@ export default function Page({ params}: { params: { slug: string}}) {
         slug
         uri
         translations {
-          blocks,
+          blocks(htmlContent: true, dynamicContent: true),
           languageCode
         }
         blocks(htmlContent: true, dynamicContent: true)
