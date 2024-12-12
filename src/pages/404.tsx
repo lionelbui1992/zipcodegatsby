@@ -41,7 +41,7 @@ const NotFoundPage: React.FC<PageProps> = () => {
             <div className="main-content" data-speed="0.8" style={{ backgroundImage: `url(/img/bkg-404-content.png)` }}>
               <div className="container">
                 <h5>Page not Found.</h5>
-                <p>Don't worry though, everything is still alright. We just can't find what you're looking for.</p>
+                <p>Everything is still all right. We just cannot find what you are looking for.</p>
                 <Link className="btn" to="/">Back to Home</Link>
               </div>
             </div>
