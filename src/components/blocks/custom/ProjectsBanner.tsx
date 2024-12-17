@@ -15,6 +15,7 @@ export const ProjectsBanner = ({ attributes }: { attributes: IProjectsBannerProp
         document.querySelector('.projects-popup-item-' + index)?.classList.add('active-popup');
         document.querySelector('.projects-popup-' + index)?.classList.add('active-popup');
         // }, 300);
+        document.dispatchEvent(new CustomEvent('rootScroll', {detail: false}))
     }
 
     return (
