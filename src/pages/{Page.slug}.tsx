@@ -10,7 +10,6 @@ import { gql, useQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
 import "../assets/sass/header.sass";
 import { handleCmsOverlayAnimation } from "../animation";
-import { useLocation } from "@reach/router";
 import { useCookies } from "react-cookie";
 import { useLang } from "../context/LangContext";
 export default function Page({ params}: { params: { slug: string}}) {

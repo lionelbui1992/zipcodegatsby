@@ -141,6 +141,10 @@ html.active-overlay
         visibility: visible
         transform: translateY(0)
 
+    .ScrollbarsCustom-Wrapper
+        @media (min-width: 768px)
+            padding-right: 2px
+
     .ScrollbarsCustom-Wrapper, 
     .ScrollbarsCustom-Scroller
         position: static !important
@@ -154,6 +158,10 @@ html.active-overlay
         top: 82px !important
         height: calc(100% - 82px) !important
         z-index: 1
+        @media (min-width: 768px)
+            right: 0 !important
+            top: 10px !important
+            height: calc(100% - 20px) !important
 
     .ScrollbarsCustom-Thumb
         background: #CCB4FB !important
@@ -166,7 +174,7 @@ html.active-overlay
         padding: 88px 0 91px
         color: #ffffff
         max-height: 90%
-        overflow-y: auto
+        height: 90%
         z-index: 3
         background-position: center
         background-repeat: no-repeat
@@ -194,6 +202,8 @@ html.active-overlay
         max-width: 1174px
         padding-left: 36px
         padding-right: 36px
+        height: 100%
+        max-height: 100%
 
     button.projects-popup-close
         background: transparent
@@ -381,7 +391,7 @@ html.active-overlay
 @media (max-height: 800px)
     .projects-popup
         .projects-popup-container
-            padding: 40px 0
+            padding: 66px 0 40px
 
         .popup-content
             margin-top: 25px
@@ -500,7 +510,7 @@ html.active-overlay
                     // stroke-width: 4px
 
         .popup-galleries
-            padding: 0 0 0
+            padding: 18px 0 0 0
             overflow: hidden
             
             .swiper

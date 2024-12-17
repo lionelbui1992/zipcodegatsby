@@ -6,7 +6,7 @@ import { useRef, useEffect, useState } from "react";
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ReactLenis, useLenis } from '@studio-freight/react-lenis'
+import { ReactLenis, useLenis } from 'lenis/react'
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 interface LayoutProps {

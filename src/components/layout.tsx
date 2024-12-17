@@ -2,18 +2,18 @@ import * as React from "react"
 import "../styles.css"
 import "../assets/sass/styleguide.sass"
 import { Slice } from "gatsby"
-import { useRef, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { gsap } from 'gsap';
 import { SEOContext } from 'gatsby-plugin-wpgraphql-seo';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { checkPreloadCookie, handleAddPixelateAnimation, handleGeneralOverlayAnimation, handleTextAnimation } from '../animation'
+import { checkPreloadCookie, handleAddPixelateAnimation } from '../animation'
 import { ContactForm } from "./Form/ContactForm";
 import { gql, useQuery } from "@apollo/client";
 import Test from "./blocks/custom/Test";
 import { BannerPoup } from './BannerPoup';
 import GalleryTwoColumnsPopup from "./GalleryTwoColumnsPopup";
-import { ReactLenis, useLenis } from '@studio-freight/react-lenis'
+import Lenis from 'lenis'
 import { LangProvider, useLang } from "../context/LangContext";
 import { useCookies } from "react-cookie";
 import { useLocation } from "@reach/router";
@@ -136,6 +136,60 @@ const Layout: React.FC<LayoutProps> = ({ children, slug }) => {
     const [getContactFormTh, setGetContactFormTh] = useState(null);
     const [hiddenBackToTop, setHiddenBackToTop] = useState(true);
 
+    const initLenis = () => {
+        let lenis = new Lenis({
+          lerp: 0.255,
+          duration: 0.22,
+        });
+
+        let animationFrameId: number;
+
+        const raf = (time: number) => {
+          lenis?.raf(time);
+          animationFrameId = requestAnimationFrame(raf);
+        };
+
+        animationFrameId = requestAnimationFrame(raf);
+
+        window.lenis = lenis;
+
+        return () => {
+          if (animationFrameId) {
+            cancelAnimationFrame(animationFrameId);
+          }
+          lenis?.destroy();
+          delete window.lenis;
+          lenis = null;
+        };
+      };
+
+      useEffect(() => {
+        const cleanupLenis = initLenis();
+
+        return () => cleanupLenis();
+      }, []);
+
+      useEffect(() => {
+        const handleTestEvent = (event: CustomEvent) => {
+          if (event.detail === true) {
+            if (!window.lenis) {
+              const cleanupLenis = initLenis();
+            } else {
+              window?.lenis?.start();
+            }
+          } else if (event.detail === false) {
+            window?.lenis?.destroy();
+            delete window.lenis;
+          }
+        };
+
+        document.addEventListener("rootScroll", handleTestEvent as EventListener);
+
+        return () => {
+          document.removeEventListener("rootScroll", handleTestEvent as EventListener);
+        };
+    }, []);
+
 
 
     // Add event listener to handle cookie change
@@ -237,33 +291,29 @@ const Layout: React.FC<LayoutProps> = ({ children, slug }) => {
     return (
         <LangProvider>
             <SEOContext.Provider value={{ global: seo }}>
-                <ReactLenis root
-                    options={{ lerp: 0.255, duration: 0.22 }}
-                >
-                    <div className={`${preloadCheck ? "" : "preload loading"}  scrollWraper ScrollSmoother-wrapper viewport page-${slug ? slug : 'index'} `}>
-                        {!preloadCheck && <Slice alias="preload" />}
-                        <Slice alias="header" />
-                        {popUp && popUp}
-                        {galleryPopup && galleryPopup}
-                        {getContactForm && <ContactForm data={lang === 'en' ? getContactForm : getContactFormTh } />}
-                        {/* <CookieBanner /> */}
-                        <main className="global-wrapper" >
-                            {children}
-                            <div className={`to-top ${hiddenBackToTop ? 'hidden' : ''}`} onClick={() => { handleBackToTopClick() }}>
-                                <svg width="31" height="33" viewBox="0 0 31 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M30.1991 15.862L26.8782 19.1829L17.6445 9.70623L17.6446 32.6554L12.7847 32.6554L12.7847 9.70623L3.55106 19.1829L0.284179 15.862L15.2146 0.877548L30.1991 15.862Z" fill="#0068FF" />
-                                </svg>
-                                <span>Back to top</span>
-                            </div>
-                        </main>
-                        <Slice alias="clipPath" />
-                        <div className="placeholder-section"></div>
-                        <Slice alias="footer" />
-                        {(testing && projectId) && (
-                            <Test projectId={projectId} />
-                        )}
-                    </div>
-                </ReactLenis>
+                <div className={`${preloadCheck ? "" : "preload loading"}  scrollWraper ScrollSmoother-wrapper viewport page-${slug ? slug : 'index'} `}>
+                    {!preloadCheck && <Slice alias="preload" />}
+                    <Slice alias="header" />
+                    {popUp && popUp}
+                    {galleryPopup && galleryPopup}
+                    {getContactForm && <ContactForm data={lang === 'en' ? getContactForm : getContactFormTh } />}
+                    {/* <CookieBanner /> */}
+                    <main className="global-wrapper" >
+                        {children}
+                        <div className={`to-top ${hiddenBackToTop ? 'hidden' : ''}`} onClick={() => { handleBackToTopClick() }}>
+                            <svg width="31" height="33" viewBox="0 0 31 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M30.1991 15.862L26.8782 19.1829L17.6445 9.70623L17.6446 32.6554L12.7847 32.6554L12.7847 9.70623L3.55106 19.1829L0.284179 15.862L15.2146 0.877548L30.1991 15.862Z" fill="#0068FF" />
+                            </svg>
+                            <span>Back to top</span>
+                        </div>
+                    </main>
+                    <Slice alias="clipPath" />
+                    <div className="placeholder-section"></div>
+                    <Slice alias="footer" />
+                    {(testing && projectId) && (
+                        <Test projectId={projectId} />
+                    )}
+                </div>
             </SEOContext.Provider >
         </LangProvider>
     )
