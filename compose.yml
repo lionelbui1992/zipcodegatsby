@@ -1,0 +1,36 @@
+services:
+  web:
+    container_name: zipcode-gatsby-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env.development
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.cache
+      - /app/public
+    restart: unless-stopped
+
+  build-prod:
+    container_name: zipcode-gatsby-build-prod
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: base
+    env_file:
+      - .env.production
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.cache

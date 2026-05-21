@@ -1,7 +1,42 @@
-node_modules/
+# Gatsby
 .cache/
-public
+public/
 src/gatsby-types.d.ts
+
+# WordPress & GraphQL Source Cache
 .wordpress-cache/
 WordPress/GraphQL/
-.vscode
+
+# Dependency directories
+node_modules/
+.pnpm-store/
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-debug.log*
+
+# Environment variables (Sensitive data)
+.env
+.env.*
+
+# Temporary / Build directories
+_tmp/
+
+# Editor / IDE settings
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS generated files
+.DS_Store
+.DS_Store?
+ehthumbs.db
+Icon?
+Thumbs.db

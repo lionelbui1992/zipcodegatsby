@@ -52,11 +52,9 @@ const Layout: React.FC<LayoutProps> = ({ children, slug }) => {
         testing {
             testingFields {
                 turnOnTesting
-                projectId
             }
         }
         getContactForm
-        getContactFormTH
         seo {
             contentTypes {
                 post {
@@ -233,10 +231,10 @@ const Layout: React.FC<LayoutProps> = ({ children, slug }) => {
     useEffect(() => {
 
         if (data) {
-            setTesting(data.testing.testingFields.turnOnTesting);
-            setProjectId(data.testing.testingFields.projectId);
-            setGetContactForm(data.getContactForm);
-            setGetContactFormTh(data.getContactFormTH)
+            setTesting(data.testing?.testingFields?.turnOnTesting || false);
+            setProjectId("");
+            setGetContactForm(data.getContactForm || null);
+            setGetContactFormTh(null);
             setSeo(data.seo);
             const handleScroll = () => {
                 if (window.scrollY > 2000) {
