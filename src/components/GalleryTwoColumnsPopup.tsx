@@ -43,10 +43,10 @@ export const GalleryTwoColumnsPopup = ({gallery}:{gallery: any[]}): JSX.Element 
                                     <div className="item">
                                         <div className="item-inner">
                                             {(list.image_1.src || list.image_2.src) &&
-                                                <div className="column-image">
+                                                <div className={`column-image${(list.image_1.src && list.image_2.src) ? ' column-image-two' : ' column-image-full'}`}>
                                                     <div className="image-inner">
                                                         {list.image_1.src &&
-                                                            <div className="image-first">
+                                                            <div className="image-item image-first">
                                                                 <div className="image-inner">
                                                                     <img
                                                                         loading="lazy"
@@ -57,7 +57,7 @@ export const GalleryTwoColumnsPopup = ({gallery}:{gallery: any[]}): JSX.Element 
                                                             </div>
                                                         }
                                                         {list.image_2.src &&
-                                                            <div className="image-second">
+                                                            <div className="image-item image-second">
                                                                 <div className="image-inner">
                                                                     <img
                                                                         loading="lazy"

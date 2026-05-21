@@ -1,26 +1,37 @@
 .available-positions
     &.careers-section
-        border-radius: 45px
-        padding: 98px 0 114px
+        border-radius: 32px
+        padding: 98px 0 104px
         color: #ffffff
         background-size: cover
         background-repeat: no-repeat
+        min-height: 100vh
+        display: flex
+        align-items: center
         @media (max-width: 767px)
             border-radius: 30px
+            padding: 84px 0 132px
 
     .section-title h2
         font-family: 'Tiempos Headline'
+        font-size: 64px
+        line-height: 80px
 
     .container
-        max-width: 1450px
-        @media (max-width: 1600px) 
-            max-width: 1085px
+        padding-left: 197px
+        padding-right: 197px
+        @media (max-width: 1300px)
+            padding-left: 100px
+            padding-right: 100px
+        @media (max-width: 1199px)
+            padding-left: 36px
+            padding-right: 36px
 
     .available-items
         display: flex
         flex-wrap: wrap
-        --gap:71px
-        --columns:4
+        --gap: 71px
+        --columns: 4
         display: flex
         width: 100%
         flex-wrap: wrap
@@ -28,17 +39,26 @@
         margin-top: 98px
         margin-bottom: 60px
 
-        @media (max-width: 1600px)  
-            --columns:3
-        
+        @media (max-height: 900px)
+            margin-top: 45px
+            gap: 30px var(--gap)
+
+        @media (max-height: 790px)
+            margin-top: 30px
+            gap: 20px var(--gap)
+
+        @media (max-width: 1600px)
+            --columns: 3
+
         @media (max-width: 991px)
-            --columns:2
+            --columns: 2
             --gap: 50px
-            gap: 50px var(--gap)
+            gap: 67.3px var(--gap)
             margin-bottom: 0
 
         @media (max-width: 767px)
-            --columns:1
+            --columns: 1
+            margin-top: 58px
 
         .item
             width: calc((100% / var(--columns)) - var(--gap) + (var(--gap) / var(--columns)))
@@ -46,8 +66,17 @@
             padding-top: 17px
             letter-spacing: 0.2px
 
-
         .content
             font-size: 24px
             line-height: 35px
             font-weight: 300
+
+.page-careers
+    .available-positions
+        .section-title h2
+            font-size: 107px
+            font-weight: 300
+            line-height: 125px
+            @media (max-width: 991px)
+                font-size: 64px
+                line-height: 80px

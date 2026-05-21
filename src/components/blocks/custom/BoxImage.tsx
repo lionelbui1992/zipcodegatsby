@@ -2,12 +2,17 @@ import React from "react";
 import "./box-image.sass";
 import { Link } from "gatsby";
 import { IBoxImageProps } from "../types";
-import { ImageAnimation } from "../../ImageAnimation";
+import { Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import { useLang } from "../../../context/LangContext";
 
 export const BoxImage = ({ order, attributes }: { order?: string, attributes: IBoxImageProps }): JSX.Element => {
     const image_position = attributes.image_position ? attributes.image_position : 'left'
     const image_positon_class = order ? `wp-block-position-${order}` : 'wp-block-position-normal'
-
+    let navigation = attributes.gallery.length > 1 ? true : false
+    let navigationClass = attributes.gallery.length > 1 ? "images-slider" : ""
+    const {language} = useLang();
     return (
         <>
             <div
@@ -22,7 +27,7 @@ export const BoxImage = ({ order, attributes }: { order?: string, attributes: IB
                                         <div className="icon">
                                             <img
                                                 loading="lazy"
-                                                srcSet="/img/box-image-icon-column.svg"
+                                                srcSet="/img/image-box.png"
                                                 alt=""
                                             />
                                         </div>
@@ -39,24 +44,41 @@ export const BoxImage = ({ order, attributes }: { order?: string, attributes: IB
                                     )
                                 }
                             })()}
-                            {attributes.image && attributes.image.src &&
-                                (
-                                    <div className="image-inner">
-                                        <ImageAnimation classes="animation-image image-2" src={attributes.image.src} alt={`${attributes.image.alt}`} amount={.3} duration=".6" from="end" axis="x" />
-                                    </div>
-                                )}
+                            {attributes.gallery.length  &&
+                                <Swiper
+                                    modules={[Navigation]}
+                                    spaceBetween={0}
+                                    slidesPerView={1}
+                                    navigation={navigation}
+                                    className={`${navigationClass}`}
+                                >
+                                    {attributes.gallery.map((image, index) =>
+                                        <SwiperSlide key={index}>
+                                            <div className="image-inner">
+                                                <img src={image.src} alt={`${image.alt}`} amount={.3} duration=".6" from="end" axis="x" />
+                                            </div>
+                                        </SwiperSlide>
+                                    )}
+                                </Swiper>
+                            }
                         </div>
                         <div className="column-content">
                             <div className="content-inner">
-                                <h2 className="title">{attributes.title}</h2>
+                                <h2 className="title" dangerouslySetInnerHTML={{__html: attributes.title}} />
                                 <div className="content">
-                                    <div className="description visible-desktop">{attributes.description}</div>
-                                    <div className="description visible-mobile">{attributes.description_mobile}</div>
-                                    {attributes.button && attributes.button.title &&
-                                        (
-                                            <Link className="btn btn-primary" to={`${attributes.button.url}`}>{attributes.button.title}</Link>
-                                        )}
+                                    {attributes.description &&
+                                        <div className="description visible-desktop" dangerouslySetInnerHTML={{__html: attributes.description}} />
+                                    }
+                                    {attributes.description_mobile &&
+                                        <div className="description visible-mobile" dangerouslySetInnerHTML={{__html: attributes.description_mobile}} />
+                                    }
+                                    {!attributes.description && (
+                                        <div className="description visible-mobile" dangerouslySetInnerHTML={{__html: attributes.description}} />
+                                    )}
                                 </div>
+                                {attributes.button && attributes.button.title && (
+                                    <Link className="btn-primary" to={`${attributes.button.url}`}>{attributes.button.title}</Link>
+                                )}
                             </div>
                         </div>
                     </div>

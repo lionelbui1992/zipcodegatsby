@@ -206,7 +206,41 @@
     font-weight: 600
     font-style: italic
     font-display: swap
-
+@font-face
+  font-family: 'Kanit'
+  src: url('../fonts/Kanit/Kanit-Regular.ttf') format('truetype')
+  font-weight: 400
+  font-style: normal
+@font-face
+  font-family: 'Kanit'
+  src: url('../fonts/Kanit/Kanit-Italic.ttf') format('truetype')
+  font-weight: normal
+  font-style: italic
+@font-face
+  font-family: 'Kanit'
+  src: url('../fonts/Kanit/Kanit-Medium.ttf') format('truetype')
+  font-weight: 500
+  font-style: normal
+@font-face
+  font-family: 'Kanit'
+  src: url('../fonts/Kanit/Kanit-ExtraBold.ttf') format('truetype')
+  font-weight: 800
+  font-style: normal
+@font-face
+  font-family: 'Kanit'
+  src: url('../fonts/Kanit/Kanit-Light.ttf') format('truetype')
+  font-weight: 300
+  font-style: normal
+@font-face
+  font-family: 'Kanit'
+  src: url('../fonts/Kanit/Kanit-Thin.ttf') format('truetype')
+  font-weight: 100
+  font-style: normal
+@font-face
+  font-family: 'Kanit'
+  src: url('../fonts/Kanit/Kanit-Thin.ttf') format('truetype')
+  font-weight: 100
+  font-style: normal
 \:root
     --Color-primary-blue: #0068FF
     --Color-neutrals-black: #1E1E1E
@@ -227,11 +261,11 @@
     z-index: 2
 
 .container
-    max-width: 1730px
+    max-width: 1920px
     margin-left: auto
     margin-right: auto
-    padding-left: 36px
-    padding-right: 36px
+    padding-left: 98px
+    padding-right: 98px
     width: 100%
 
 .about-page .text-center-with-link
@@ -333,6 +367,7 @@ ul
 
 img
     max-width: 100%
+    vertical-align: top
 
 .btn, .button
     display: inline-flex
@@ -367,18 +402,65 @@ img
         border-color: transparent
 
 .btn-white
-    color: var(--Color-neutrals-white)
-    border-color: var(--Color-neutrals-white)
-    background-image: url(../images/icon-button-white.svg)
-
+    color: var(--Color-neutrals-white)  !important
+    border-color: var(--Color-neutrals-white)  !important
+    background-image: url(../images/icon-button-white.svg) !important
+    font-size: 17px
+    @media (max-width: 767px)
+        font-size: 15px
     &:hover
-        background-color: transparent
-        border-color: transparent
-        background-image: url(../images/icon-button-hover.svg)
+        border-color: transparent !important
+        background-image: url(../images/icon-button-hover.svg) !important
+        background-color: transparent !important
+        color: #000 !important
 
 .btn-secondary
     border-color: transparent
-
+.btn-primary
+    background-color:#0068FF !important
+    border: 1px solid transparent
+    color: #fff
+    height: 48.58px
+    background-image: url(../images/arrow-right.svg)
+    width: fit-content
+    display: flex
+    justify-content: center
+    column-gap: 0px
+    background-position: right 22px center
+    font-family: Tiempos Headline
+    max-width: 334px
+    max-height: 48.58px
+    font-size: 17px
+    padding: 25px 53.57px 25px 22px
+    align-items: center
+    border-radius: 92px
+    background-repeat: no-repeat
+    &.long
+        min-width: 222px
+        border: 1px solid #fff
+    @media (max-width: 767px)
+        background-position: right 32px center !important
+        span
+            font-size: 15.9px !important
+            padding-top: 10px
+            padding-bottom: 10px
+            padding-right: 0px !important
+            @media (max-width: 400px)
+                padding-right: 10px !important
+                font-size: 14.9px !important
+    span
+        font-size: 17.9px
+        padding-right: 10px
+        padding-left: 20px
+        @media (max-width: 375px)
+            padding-right: 20px !important
+            font-size: 13.9px !important
+    &:hover
+        background-image: url(../images/arrow-right-blue.svg)
+        border-color: transparent
+        background-color: #fff !important
+        color:#0068FF 
+        border-color: #0068FF
 .swiper
     .swiper-button-prev,
     .swiper-button-next
@@ -545,14 +627,14 @@ input, textarea, select
         border-radius: 32px 32px 0 0
         background-color: #ffffff
         position: relative
-        z-index: 1
+        z-index: 3
 
         @media (max-width: 767px)
             padding: 20px 0 70px
 
         figure.wp-block-table
             overflow-x: scroll
-            
+
         .wp-block-columns
             .wp-block-column
                 margin-top: 59.5px
@@ -659,7 +741,7 @@ input, textarea, select
             margin-top: 0
 
         .container
-            max-width: 700px
+            max-width: 900px
 
         p
             margin-bottom: 26px
@@ -685,9 +767,12 @@ input, textarea, select
 
 @media (max-width: 1600px)
     .container
-        max-width: 1245px
+        // max-width: 1245px
 
 @media (max-width: 1199px)
+    .container
+        padding-left: 36px
+        padding-right: 36px
     h1, .h1
         font-size: 80px
         line-height: 104.839%
@@ -761,15 +846,8 @@ input, textarea, select
         line-height: 35px
 
     .btn, .button
-        font-size: 20px
-        font-style: normal
-        font-weight: 400
-        line-height: 20px
         letter-spacing: 0.4px
-        height: 46px
-        padding: 13px 45px 11px 17px
-        min-width: 256.5px
-        background-size: 17px
+        padding: 11px 43px 11px 17px
         background-position: right 26px center
 
     .input-text
@@ -840,6 +918,45 @@ input, textarea, select
 .about-banner-cta
     z-index: 1
 
-.global-wrapper > .to-top 
+.global-wrapper > .to-top
     display: none
-    
+
+.page-content.page-careers
+    .pinning-3
+        z-index: 9
+        transform: translateY(-90%)
+    .pinning-4
+        position: relative
+        z-index: 9
+    .pinning-5
+        z-index: 8
+        transform: translateY(-100%)
+        position: relative
+    .pinning-6
+        position: relative
+        z-index: 9
+
+    .pinning-7
+        z-index: 8
+        transform: translateY(-50%)
+        position: relative
+
+    .end-overlay-animation
+        z-index: 9
+
+.page-content.page-philosophy
+    .pinning-3
+        transform: translateY(-100%)
+        z-index: 8
+
+    .pinning-4
+        position: relative
+        z-index: 9
+
+    .pinning-5
+        z-index: 8
+        transform: translateY(-100%)
+        position: relative
+    .pinning-6
+        position: relative
+        z-index: 9

@@ -3,12 +3,11 @@ import "./listing-three-columns.sass";
 import { IListingThreeColumnsProps } from "../types";
 
 export const ListingThreeColumns = ({ attributes }: { attributes: IListingThreeColumnsProps}): JSX.Element => {
-    const { title, list } = attributes;
-    const AvailableBackground = '/img/careers-life-bkg.jpg';
+    const { title, list, background } = attributes;
     return (
         <>
             { (title || list) && 
-                <div className="available-positions careers-section" style={{backgroundImage: "url("+AvailableBackground+")"}}>
+                <div className="available-positions careers-section" style={{ backgroundImage: `url(${ background ? background.src : ''})` }}>
                     <div className="container">
                         { (title) && 
                             <div className="section-title text-center">

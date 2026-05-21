@@ -1,18 +1,24 @@
 .our-values-box 
-    border-radius: 45px
+    border-radius: 32px
     background: var(--Color-neutrals-white)
     position: relative
     z-index: 1
-    padding: 92px 0 69px
-    margin-top: -60px
+    padding: 102px 0 69px
     
     .section-title
-        max-width: 300px
+        max-width: calc(50% - 50px)
+        @media (max-width: 767px) 
+            max-width: 100%
+        
+            h2 
+                font-size: 40px
+                line-height: 48px
+                letter-spacing: 0.04em
+                margin-bottom: 19px
     
     .our-values-items
         display: flex
         flex-wrap: wrap
-        padding-left: 50px
         align-items: flex-start
         
         &.our-values-popup-active
@@ -20,57 +26,139 @@
 
         @media (max-width: 1199px) 
             padding-left: 0
-            margin: 0 -20px
+            // margin: 0 -20px
             gap: 50px 0
+        @media (max-width: 767px) 
+            gap: 60px 0
 
         .items-col
-            width: 50%
+            width: calc(50% - 50px)
             display: flex
             flex-wrap: wrap
             margin-top: 144px
             gap: 73px
-
+            .item-inner:hover
+                .column-title
+                    h5
+                        color: #0068FF
             &:last-child 
                 margin-top: -120px
+                margin-left: auto 
                 gap: 80px
+                .item
+                    &:first-child
+                        .column-title
+                            h5
+                                padding-right: 10px
+                                font-size: 33px
+                            span 
+                                right: -34px
+                 
+                    @media (min-width:769px) and (max-width: 870px)
+                        h5
+                            font-size: 29px
+                            @media (min-width:770px) and (max-width:800px)
+                                font-size: 30px
+                    &:last-child
+                        .column-title
+                           h5
+                                font-size: 33px
+                           span
+                            right: -34px
 
+                .image-inner
+                    &:hover
+                        &:before
+                            content: ""
+                            position: absolute
+                            top: -15px
+                            left: -15px
+                            width: 100px 
+                            height: 100px
+                            background-color: #0068FF
+                            transition: background-color 0.3s ease
+                            @media (min-width: 768px) and (max-width: 1340px)
+                                top: -9px
+                                left: -9px
+                            @media (max-width: 767px)
+                                top: -9px
+                                left: -9px
+            &:first-child
+                .item
+                    .column-title
+                        span
+                            right: -34px
+                           
+                                
+                .image-inner
+                    &:hover
+                        &:before
+                                content: ""
+                                position: absolute
+                                top: -15px
+                                left: -15px
+                                width: 150px      
+                                height: 150px
+                                background-color: #0068FF
+                                transition: background-color 0.3s ease
+                                @media (min-width: 768px) and (max-width: 1340px)
+                                    top: -9px
+                                    left: -9px
+                                @media (max-width: 767px)
+                                    top: -9px
+                                    left: -9px
             @media (max-width: 767px) 
                 width: 100%
                 gap: 50px
-                margin-top: 50px
+                margin-top: 60px
                 
                 &:last-child 
                     margin-top: 0
-                    gap: 50px
+                    gap: 60px
 
         .item
             width: 100%
             margin-left: auto
             margin-right: 0
-            padding: 0 30px 0 46px
+            padding: 0 0
 
             @media (max-width: 1199px) 
-                padding: 0 20px
+                padding: 0 0
 
             .column-image
                 display: flex
                 flex-wrap: wrap
+                &.column-image-full
+                    .image-item
+                        width: 100%
+                        .image-inner
+                            padding-bottom: 54.11%
+                            @media (max-width: 767px) 
+                                padding-bottom: 67.88%
 
             .image-first
                 width: 42.665%
+                @media (max-width: 767px) 
+                    width: 39.11%
                 .image-inner
-                    padding-bottom: 151.22%
+                    padding-bottom: 126.83%
+                    @media (max-width: 767px) 
+                        padding-bottom: 144.29%
 
             .image-second
                 width: 54.112%
                 margin-left: auto
+                @media (max-width: 767px) 
+                    width: 55.31%
                 .image-inner
-                    padding-bottom: 119.233%
+                    padding-bottom: 100%
+                    @media (max-width: 767px) 
+                        padding-bottom: 102.021%
 
             .image-inner
                 position: relative
                 width: 100%
-
+                
                 img
                     width: 100%
                     height: 100%
@@ -82,6 +170,30 @@
 
             .column-title
                 margin-top: 26px
+                max-width: 510px
+                position: relative
+                width: fit-content
+                position: relative
+                h5
+                    padding-right: 10px
+                    @media (max-width: 767px)
+                        font-size:23px !important
+                    span
+                        margin-right: 14px
+                    svg
+                        transform: translateY(2px)
+                        @media (max-width: 767px)
+                            transform: translateY(4px)
+                       
+                @media (max-width: 767px)   
+                    margin-top: 32px     
+                    max-width: 100%         
+                    h5
+                        font-size: 20px
+                        font-weight: 400
+                        line-height: 28.01px
+                        letter-spacing: 0.02em
+                        margin-bottom: 0
 
 .our-values-items.our-values-popup-active + .our-values-popup
     opacity: 1
@@ -138,7 +250,7 @@
         padding: 118px 0 58px 49px
         color: #ffffff
         width: 100%
-        border-radius: 45px
+        border-radius: 32px
         background-position: center
         background-repeat: no-repeat
         background-size: cover
@@ -188,6 +300,13 @@
             @media (max-width: 767px) 
                 width: 100%
             
+            &.column-image-full
+                .image-inner
+                    .image-item
+                        width: 100%
+                        .image-inner
+                            padding-bottom: 54.11%
+            
             .image-inner
                 display: flex
                 flex-wrap: wrap
@@ -206,13 +325,13 @@
                 .image-first
                     width: 42.665%
                     .image-inner
-                        padding-bottom: 151.22%
+                        padding-bottom: 126.83%
 
                 .image-second
                     width: 54.112%
                     margin-left: auto
                     .image-inner
-                        padding-bottom: 119.233%
+                        padding-bottom: 100%
 
         .column-content
             width: 42.6%
@@ -237,16 +356,13 @@
 
 
 @media (max-width: 1600px)
-    .our-values-box
-        .container
-            max-width: 1235px
-        
+    .our-values-box        
         .content
             max-width: 418px
 
 @media (max-width: 1199px)
     .our-values-box
-        padding: 81px 0 50px
+        padding: 81px 0 80px
 
         .column-box
             gap: 66px

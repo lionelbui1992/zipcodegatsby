@@ -14,13 +14,15 @@ export interface IWPGBlockProps {
     order: string | undefined | null
     block: IWPGBlock
     form?: any
-    mapToBlock?(name: string): any | null
+    mapToBlock?(name: string): any | null,
+    lang?:string
 }
   
 export interface IWPGBlocksProps {
     blocks: IWPGBlock[]
     form?: any
-    mapToBlock?(name: string): any | null
+    mapToBlock?(name: string): any | null,
+    lang?:string
 }
   
 export type WPGBlocks = (props?: IWPGBlocksProps) => React.FunctionComponent<IWPGBlocksProps>

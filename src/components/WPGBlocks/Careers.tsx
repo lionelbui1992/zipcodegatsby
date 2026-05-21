@@ -1,36 +1,37 @@
 import * as React from 'react'
 import { GetTheBlock } from '../blocks'
 import { IWPGBlocksProps, IWPGBlockProps } from './types'
+import { useEffect, useRef } from 'react';
+import { handleCareerOverlayAnimation } from '../../animation';
 
 const CareersBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, form, mapToBlock }) => {
 
-  const firstAnimatoinBlocks = blocks.filter((block, index) => {
-    return block.name === "acf/banner-with-image-right" || block.name === "acf/banner-three-columns"
-  });
+  const container = useRef(null);
 
   const lastAnimatoinBlocks = blocks.filter((block, index) => {
-    return block.name === "acf/listing-three-columns" || block.name === "acf/contact-information"
+    return block.name === "acf/contact-information"
   });
 
-  console.log(blocks);
-  console.log('firstAnimatoinBlocks ', firstAnimatoinBlocks);
+  const firstAnimatoinBlocks = blocks.filter(block => !lastAnimatoinBlocks.includes(block));
+  useEffect(() => {
+    // Set the blocks state
+    if (container.current) {
+      setTimeout(() => {
+        handleCareerOverlayAnimation();
+      }, 500);
+    }
+    // if (!container) return;
+
+  }, [blocks]);
+
 
   return (
-    <div className='page-content'>
-      <div className={"overlay-animation"}>
+    <div className='page-content page-careers' ref={container}>
       {firstAnimatoinBlocks.filter(block => {
         return !!block.name
       }).map((block, index) =>
-          <CareersBlock key={index} order={`${index}`} form={form} block={block} mapToBlock={mapToBlock} />
-          )
-        }
-        </div>
-
-      {blocks.filter(block => {
-        return !!block.name && (block.name !== "acf/banner-with-image-right" && block.name !== "acf/banner-three-columns" && block.name !== "acf/listing-three-columns" && block.name !== "acf/contact-information")
-      }).map((block, index) =>
-        <div key={index} className="overlay-animation">
-          <CareersBlock key={index} order={`${index}`} form={form} block={block} mapToBlock={mapToBlock} />
+        <div className={"pinning-" + (index + 1)} key={index} >
+          <CareersBlock order={`${index}`} form={form} block={block} mapToBlock={mapToBlock} />
         </div>
       )
       }
@@ -38,7 +39,8 @@ const CareersBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, form,
       {lastAnimatoinBlocks.filter(block => {
         return !!block.name
       }).map((block, index) =>
-        <div key={index} className={"end-overlay-animation"}>
+        // <div key={index} className={(index === lastAnimatoinBlocks.length - 1) ? "end-overlay-animation" : "pinning-" + (index + 1 + firstAnimatoinBlocks.length)}>
+        <div key={index} className={"pinning-" + (index + 1 + firstAnimatoinBlocks.length)}>
           <CareersBlock key={index} order={`${index}`} form={form} block={block} mapToBlock={mapToBlock} />
         </div>
       )
@@ -47,7 +49,7 @@ const CareersBlocks: React.FunctionComponent<IWPGBlocksProps> = ({ blocks, form,
   )
 }
 
-export const CareersBlock: React.FunctionComponent<IWPGBlockProps> = ({ block, form, mapToBlock }) => {
+export const CareersBlock: React.FunctionComponent<IWPGBlockProps> = ({ block, form, mapToBlock,lang }) => {
 
   const {
     name,
@@ -66,12 +68,13 @@ export const CareersBlock: React.FunctionComponent<IWPGBlockProps> = ({ block, f
   if (name.includes('acf/')) {
     // custom blocks
     switch (name) {
-      case 'acf/our-team':
+      case 'acf/career-perk':
+        return (
+          <TheBlock blockName={name} attributes={attributes.data} />
+        )
       case 'acf/box-image':
         return (
-          <section className="career-perks careers-section ">
-            <TheBlock blockName={name} attributes={attributes.data} />
-          </section>
+          <TheBlock blockName={name} attributes={attributes.data} />
         )
       case 'acf/text-center-with-link':
         return (
@@ -79,17 +82,9 @@ export const CareersBlock: React.FunctionComponent<IWPGBlockProps> = ({ block, f
             <TheBlock blockName={name} attributes={attributes.data} />
           </section>
         )
-      case 'acf/life-zip-code':
-        if (attributes.data.hidden && attributes.data.hidden !== '1') {
-          return (
-            <TheBlock blockName={name} attributes={attributes.data} />
-          )
-        } else {
-          return <></>
-        }
       case 'acf/contact-information':
         return (
-          <TheBlock blockName={name} form={form} attributes={attributes.data} />
+          <TheBlock blockName={name} form={form} attributes={attributes.data} lang={lang} />
         )
       default:
         return (

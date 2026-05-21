@@ -9,7 +9,7 @@ export const BannerThreeColumns = ({ attributes }: { attributes: IBannerThreeCol
             <div className="container">
                 <div className="column-box">
                     <div className="column-image">
-                        <h2 className="h4">{title}</h2>
+                        <h2 className="h4" dangerouslySetInnerHTML={{__html: title}} />
                         <div className="image-inner">
                             <img
                                 loading="lazy"

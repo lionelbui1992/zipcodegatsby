@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { gql, useQuery } from "@apollo/client";
-import { Link } from "gatsby";
+import { Link, navigate } from "gatsby";
+import { useLang } from "../context/LangContext";
+import LanguageSwitcher from "./blocks/custom/LanguageSwitcher";
+import { useCookies } from "react-cookie";
 
 export default function Header(): JSX.Element {
+  const { language, setLanguage } = useLang();
   const mainLogoBlack = "/img/main-logo-black.svg"
   const mainLogoWhite = "/img/main-logo-white.svg"
   const menuLogoBlack = "/img/menu-z-black.svg"
@@ -21,7 +25,7 @@ export default function Header(): JSX.Element {
   const [isBannerBlack, setIsBannerBlack] = useState(false);
   const [isClickMenu, setIsClickMenu] = useState(false);
   const [isScroll, setIsScroll] = useState(false);
-
+  const [cookies] = useCookies(['lang'])
   const headerQuery = gql`
   query headerData {
     siteLogo {
@@ -41,7 +45,6 @@ export default function Header(): JSX.Element {
   }
   `;
   const { loading, error, data } = useQuery(headerQuery);
-
   useEffect(() => {
     if (!loading && !error && data) {
       if (data.siteLogo) {
@@ -55,7 +58,11 @@ export default function Header(): JSX.Element {
       }
     }
   }, [data]);
-
+  useEffect(()=>{
+    if(language || cookies.lang){
+        setLanguage(cookies?.lang ? cookies.lang: language)
+    }
+  },[language,cookies.lang])
   // Set header color
   useEffect(() => {
     if (isHeaderBlack) {
@@ -109,17 +116,6 @@ export default function Header(): JSX.Element {
   const setTimeStopCheckBannerBlack = setTimeout(stopCheckBannerBlack, 2000);
 
   useEffect(() => {
-    // add active menu when F5 reload page, <Link> tag not working
-    const currentUrl = window.location.pathname;
-    const menus = document.querySelectorAll('.header__nav--link a');
-    menus.forEach(menu => {
-      const menuUrl = menu.getAttribute('href');
-      if (currentUrl === menuUrl) {
-        menu.setAttribute('aria-current', 'page');
-        menu.classList.add('active');
-      }
-    });
-
     const sectionHeader = document.querySelector(".header");
     const mainTag = document.querySelector("main");
 
@@ -150,6 +146,12 @@ export default function Header(): JSX.Element {
 
   }, []);
 
+  const isActiveMenu = (uri: any) => {
+    const currentUrl = window.location.pathname;
+    const itemUrl = (new URL(uri, window.location.origin)).pathname;
+    return currentUrl === itemUrl;
+  }
+
   const handleMenuMobileClick = () => {
     setIsClickMenu(prevIsClickMenu => !prevIsClickMenu);
   }
@@ -175,11 +177,15 @@ export default function Header(): JSX.Element {
       <div className="header__nav" style={{ color: textColorHeader }}>
         {menuItems.map((menu: any, index: number) => (
           <div className="header__nav--link" key={index}>
-            <Link to={menu.uri} activeClassName="active">
+           <Link to={menu.uri} onClick={(e) => isActiveMenu(menu.uri) ? e.preventDefault() : null} className={isActiveMenu(menu.uri) ? 'active' : ""}>
               {menu.label}
             </Link>
           </div>
         ))}
+        <div className="header__nav--link languages">
+          <a href="/" onClick={(event) => event.preventDefault()}>#</a>
+          <LanguageSwitcher />
+        </div>
       </div>
 
       <div className="header__toggle" onClick={handleMenuMobileClick}>

@@ -31,7 +31,11 @@ module.exports = {
         },
         html: {
           useGatsbyImage: false
-        }
+        },
+        schema: {
+          timeout: 90000,
+          perPage: 50,
+        },
       }
     },
     "gatsby-plugin-image",

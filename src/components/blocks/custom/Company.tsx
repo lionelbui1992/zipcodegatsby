@@ -2,10 +2,12 @@ import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { ICompanyProps } from "../types";
+import { useLang } from "../../../context/LangContext";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Company({ attributes }: { attributes: ICompanyProps }): JSX.Element {
     const { background_section, title, text_top, text_middle, text_bottom, background_text, owner_image, description, button } = attributes;
+    const {isHideCompSection,setisHideCompSection} = useLang();
 
     const animationBox = useRef(null);
     const Cwrapper = useRef(null);
@@ -25,14 +27,21 @@ export default function Company({ attributes }: { attributes: ICompanyProps }): 
     //         markers: true
     //     })
     // }, [])
-
     return (
-        <div className="section section-company" ref={Cwrapper} style={{ backgroundImage: `url(${background_section.src})` }}>
+        <div className="section section-company" ref={Cwrapper}  
+        style={{
+            backgroundImage: `url(${background_section.src})`, 
+           
+        }}>
             <div className="container">
                 <div className="title"><h2 dangerouslySetInnerHTML={{ __html: title }} /></div>
                 <div className="company-box">
                     <div className="image-box">
-                        <img src={background_text.src} alt={background_text.alt} />
+                        <picture>
+                            <source media="(min-width: 768px)" srcSet={background_text.src} />
+                            <source media="(max-width: 767px)" srcSet={background_text.src} />
+                            <img src={background_text.src} alt={background_text.alt} />
+                        </picture>
                     </div>
                     <div className="text text--top" dangerouslySetInnerHTML={{ __html: text_top }} />
                     <div className="text text--middle" dangerouslySetInnerHTML={{ __html: text_middle }} />
@@ -41,7 +50,7 @@ export default function Company({ attributes }: { attributes: ICompanyProps }): 
                 <div className="company--image--text">
                     <div className="c-text">
                         <p dangerouslySetInnerHTML={{ __html: description }} />
-                        <a className="btn btn-primary btn-white" href={button.url}>{button.title}</a>
+                        <a className="btn-primary long" href={button.url}>{button.title}</a>
                     </div>
                 </div>
             </div>

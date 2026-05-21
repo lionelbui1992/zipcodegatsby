@@ -59,6 +59,7 @@ interface IBoxImageProps {
     description: string,
     description_mobile: string,
     button: IButton,
+    button_thai: IButton,
 }
 
 interface IImageWithTextProps {
@@ -82,6 +83,18 @@ interface IOurTeamsProps {
     }[];
 }
 
+interface ICareerPerkProps {
+    title: string;
+    description: string;
+    background: IImage;
+    peoples: {
+        name: string,
+        position: string,
+        short_description: string,
+        avatar: IImage,
+    }[];
+}
+
 interface LifeZipCodeProps {
     background: IImage;
     title: string;
@@ -97,6 +110,7 @@ interface IBannerThreeColumnsProps {
 
 interface IContactInformationProps {
     title: string;
+    form_title: string;
     form_shortcode: string;
     background: IImage,
 }
@@ -108,6 +122,7 @@ interface BannerCtaProps {
 }
 
 interface IListingThreeColumnsProps {
+    background: IImage;
     title: string;
     list: {
         content: string
@@ -117,6 +132,7 @@ interface IListingThreeColumnsProps {
 interface IBannerTextCenterProps {
     background: IImage
     heading: string
+    sub_heading: string
 }
 
 interface IBoxContentProps {
@@ -140,6 +156,8 @@ interface IProjectsBannerProps {
     background_image: IImage | "" | false;
     label: string;
     content: {
+        publish_project: string;
+        coming_soon: string;
         small_text: string;
         line: {
             text: string;
@@ -182,6 +200,14 @@ interface IExploreProps {
     button: IButton;
 }
 
+interface IWhyUs {
+    title: string,
+    description: string,
+    readmore: string,
+    background: IImage,
+    readless:string
+}
+
 interface IFooterData {
     titleLeft: string | "";
     logoFooter: {
@@ -193,10 +219,12 @@ interface IFooterData {
         } | "";
     };
     descriptionLeft: string | "";
+    descriptionLeftThai: string | "";
     email: string | "";
     titleRight: string | "";
     phone: string | "";
     address: IButton | "";
+    addressThai:IButton | "";
     backgroundDesktop: {
         node: {
         altText: string;
@@ -206,6 +234,7 @@ interface IFooterData {
         } | "";
     };
     buttonContact: IButton | "";
+    buttonContactThai: IButton | "";
     codeOfConduct: IButton | "";
     cookiesPolicy: IButton | "";
     privacyPolicy: IButton | "";
@@ -253,6 +282,7 @@ export {
     IBoxImageProps,
     IImageWithTextProps,
     IOurTeamsProps,
+    ICareerPerkProps,
     LifeZipCodeProps,
     IBannerThreeColumnsProps,
     IContactInformationProps,
@@ -265,5 +295,6 @@ export {
     IIntroduceProps,
     ICompanyProps,
     IExploreProps,
+    IWhyUs,
     IFooterData,
 }
