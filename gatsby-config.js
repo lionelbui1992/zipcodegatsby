@@ -12,6 +12,7 @@ module.exports = {
     siteUrl: process.env.SITE_URL
   },
   plugins: [
+    "gatsby-plugin-pnpm",
     {
       resolve: 'gatsby-source-wordpress',
       options: {
